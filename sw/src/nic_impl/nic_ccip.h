@@ -211,7 +211,7 @@ class NicCCIP : public Nic {
 
   /// Connection setup methods.
   int register_connection(ConnectionId c_id, const IPv4& dest_addr,
-                          ConnectionFlowId c_flow_id) const;
+                          ConnectionFlowId c_flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) const;
   int remove_connection(ConnectionId c_id) const;
 
   /// Perf loop.

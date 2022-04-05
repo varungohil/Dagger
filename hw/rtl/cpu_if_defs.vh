@@ -79,11 +79,14 @@ typedef struct packed {
 // RPC connection setup
 // This should be consistent with sw/nic_impl/nic_ccip.h
 // =============================================================
-typedef enum logic[2:0] { setUpConnId,
+typedef enum logic[3:0] { setUpConnId,
                           setUpOpen,
                           setUpDestIPv4,
                           setUpDestPort,
                           setUpClientFlowId,
+                          setUpRemoteQPN,
+                          setUpRemotePKey,
+                          setUpRemoteQKey,
                           setUpEnable } ConnSetupCmds;
 
 typedef struct packed {

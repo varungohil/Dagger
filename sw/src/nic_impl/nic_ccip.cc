@@ -328,7 +328,7 @@ int NicCCIP::add_connection(ConnectionId c_id, const IPv4& dest_addr,
     return 1;
   }
 
-  if (register_connection(c_id, dest_addr, c_flow_id) != 0) {
+  if (register_connection(c_id, dest_addr, c_flow_id, remote_qp_num, p_key, q_key) != 0) {
     FRPC_ERROR("Failed to register connection on the Nic\n");
     return 1;
   }
@@ -353,7 +353,7 @@ int NicCCIP::close_connection(ConnectionId c_id) const {
 }
 
 int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
-                                 ConnectionFlowId c_flow_id) const {
+                                 ConnectionFlowId c_flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) const {
   assert(connected_ == true);
 
   std::unique_lock<std::mutex> lck(conn_setup_hw_mtx_);
@@ -418,6 +418,42 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
     FRPC_ERROR(
         "Nic configuration error, failed to register connection, "
         "failed to write setUpClientFlowId, nic returned: %d\n",
+        res);
+    return 1;
+  }
+
+  // setUpRemoteQueuePairNumber
+  frame = {.data = remote_qp_num, .cmd = setUpRemoteQPN};
+  res = fpgaWriteMMIO32(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
+                        *reinterpret_cast<uint64_t*>(&frame));
+  if (res != FPGA_OK) {
+    FRPC_ERROR(
+        "Nic configuration error, failed to register connection, "
+        "failed to write setUpRemoteQPN, nic returned: %d\n",
+        res);
+    return 1;
+  }
+
+  // setUpPKey
+  frame = {.data = p_key, .cmd = setUpPKey};
+  res = fpgaWriteMMIO32(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
+                        *reinterpret_cast<uint64_t*>(&frame));
+  if (res != FPGA_OK) {
+    FRPC_ERROR(
+        "Nic configuration error, failed to register connection, "
+        "failed to write setUpPKey, nic returned: %d\n",
+        res);
+    return 1;
+  }
+
+  // setUpQKey
+  frame = {.data = c_flow_id, .cmd = setUpQKey};
+  res = fpgaWriteMMIO32(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
+                        *reinterpret_cast<uint64_t*>(&frame));
+  if (res != FPGA_OK) {
+    FRPC_ERROR(
+        "Nic configuration error, failed to register connection, "
+        "failed to write setUpQKey, nic returned: %d\n",
         res);
     return 1;
   }
