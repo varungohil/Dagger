@@ -9,6 +9,7 @@
 #include <atomic>
 #include <memory>
 #include <mutex>
+#include <queue>
 #include <thread>
 #include <utility>
 #include <vector>
@@ -24,8 +25,7 @@ namespace dagger {
 
 struct QueueElem {
   volatile char* data_addr;
-
-}
+};
 
 class QueuePairV2 {
  public:
@@ -51,7 +51,9 @@ class QueuePairV2 {
   int send();
   int recv();
 
-  uint16_t QueuePairV2::get_qp_num();
+  void append_elem(std::queue<QueueElem> q, volatile char* data_addr);
+
+  uint16_t get_qp_num();
 
  private:
   // Dispatch thread
@@ -60,8 +62,11 @@ class QueuePairV2 {
  private:
   uint16_t queue_pair_num_;
 
-  std::vector<std::unique_ptr<QueueElem>> recv_q;
-  std::vector<std::unique_ptr<QueueElem>> send_q;
+  std::queue<QueueElem> recv_q;
+  std::queue<QueueElem> send_q;
+
+  // std::vector<std::unique_ptr<QueueElem>> recv_q;
+  // std::vector<std::unique_ptr<QueueElem>> send_q;
 
   // Underlying nic.
   const Nic* nic_;
@@ -83,18 +88,20 @@ class QueuePairV2 {
   void operator()(const RpcPckt* rpc_in, TxQueue& tx_queue) const final {
     uint8_t ret_buff[cfg::sys::cl_size_bytes];
 
-    // Check the fn_id is withing the scope
-    if (rpc_in->hdr.fn_id > rpc_fn_ptr_.size() - 1) {
-      FRPC_ERROR(
-          "Too large RPC function id is received, this call will stop here and "
-          "no value will be returned\n");
-      return;
-    }
+    // Check the fn_id is within the scope
+    // if (rpc_in->hdr.fn_id > rpc_fn_ptr_.size() - 1) {
+    //   FRPC_ERROR(
+    //       "Too large RPC function id is received, this call will stop here
+    //       and " "no value will be returned\n");
+    //   return;
+    // }
 
-    QueueElem* r_elem = recv_q.front();
+    // read first received packet
+    QueueElem r_elem = recv_q.front();
     recv_q.pop();
 
-    *(r_elem->data_addr) = rpc_in->argv;
+    // set store addr based on request argv
+    r_elem.data_addr = (char*)rpc_in->argv;
 
     //     uint8_t change_bit;
     //     volatile char* tx_ptr = tx_queue.get_write_ptr(change_bit);
@@ -201,6 +208,7 @@ class QueuePairV2 {
     //   size_t batch_counter;
     // #endif
   };
+};
 
 }  // namespace dagger
 

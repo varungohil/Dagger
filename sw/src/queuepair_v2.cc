@@ -151,7 +151,22 @@ void QueuePairV2::_PullListen() {
   // FRPC_INFO("Thread %d is stopped\n", thread_id_);
 }
 
+// push data_addr onto queue q
+void QueuePairV2::append_elem(std::queue<QueueElem> q,
+                              volatile char* data_addr) {
+  QueueElem next_req;
+  next_req.data_addr = data_addr;
+  q.push(next_req);
+}
+
 // put entry in send queue, put entry in receive queue
+// need a function to put an entry in send queue
+// delete entry in operator (.h)
+// 1. call function to put entry in send queue
+// 2. call send (precondition: there's an element in send queue)
+// 3. check if entry is in receive queue or raise error
+// data written to hardware tx_buffer not send
+
 int QueuePairV2::send() {
   // Get current buffer pointer
   uint8_t change_bit;
@@ -166,7 +181,12 @@ int QueuePairV2::send() {
   // uint32_t rpc_id = client_id_ | static_cast<uint32_t>(rpc_id_cnt_ << 16);
 
   uint32_t rpc_id = 0;
-  // Send data
+
+  // call operator to do fulfill send
+  operator()(req_pckt, tx_queue_);
+
+  // read first entry of send_q
+  //  Send data
 #ifdef NIC_CCIP_POLLING
   volatile RpcPckt* tx_ptr_casted = reinterpret_cast<volatile RpcPckt*>(tx_ptr);
 
@@ -261,7 +281,7 @@ int QueuePairV2::send() {
 #  error NIC CCI-P mode is not defined
 #endif
 
-  ++rpc_id_cnt_;
+  // ++rpc_id_cnt_;
 
   return 0;
 }

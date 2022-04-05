@@ -166,12 +166,24 @@ int RDMA::make_qp() {
   }
 }
 
-int RDMA::send(uint16_t queue_pair_num, volatile char* data_addr) {
+int RDMA::append(uint16_t queue_pair_num, volatile char* data_addr) {
+  for (auto qp : qp_pool_) {
+    if (qp.get_qp_num() == queue_pair_num) {
+      qp.append_elem(data_addr);
+      return 0;
+    }
+  }
+  return 1;
+}
+
+int RDMA::send(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
-      qp.send(data_addr);
+      // perform send op only when send queue is nonempty
+      assert(!qp.send_q.empty());
+      qp.send();
       return 0;
     }
   }
