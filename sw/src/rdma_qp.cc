@@ -23,9 +23,9 @@ RDMA::RDMA(uint64_t base_nic_addr, size_t max_num_of_threads,
 
 RDMA::~RDMA() {
   // Stop all threads.
-  if (threads_.size() > 0) {
-    stop_all_listening_threads();
-  }
+  // if (threads_.size() > 0) {
+  //   stop_all_listening_threads();
+  // }
 
   // Stop nic.
   if (nic_is_started_) {
@@ -106,45 +106,47 @@ int RDMA::stop_nic() {
 
 int RDMA::check_hw_errors() const { return nic_->check_hw_errors(); }
 
-int RDMA::run_new_listening_thread(const RpcServerCallBack_Base* rpc_callback,
-                                   int pin_cpu) {
-  std::unique_lock<std::mutex> lck(mtx_);
+// int RDMA::run_new_listening_thread(const RpcServerCallBack_Base* rpc_callback,
+//                                    int pin_cpu) {
+//   std::unique_lock<std::mutex> lck(mtx_);
 
-  if (thread_cnt_ < max_num_of_threads_) {
-    threads_.push_back(std::unique_ptr<RpcServerThread>(new RpcServerThread(
-        nic_.get(), thread_cnt_, thread_cnt_, rpc_callback)));
+//   if (thread_cnt_ < max_num_of_threads_) {
+//     threads_.push_back(std::unique_ptr<RpcServerThread>(new RpcServerThread(
+//         nic_.get(), thread_cnt_, thread_cnt_, rpc_callback)));
 
-    int r = threads_.back().get()->start_listening(pin_cpu);
-    if (r != 0) {
-      threads_.pop_back();
-      return 1;
-    }
+//     int r = threads_.back().get()->start_listening(pin_cpu);
+//     if (r != 0) {
+//       threads_.pop_back();
+//       return 1;
+//     }
 
-    ++thread_cnt_;
-    return 0;
-  } else {
-    FRPC_ERROR("Max number of rpc threads is reached: %zu\n",
-               max_num_of_threads_);
-    return 1;
-  }
-}
+//     ++thread_cnt_;
+//     return 0;
+//   } else {
+//     FRPC_ERROR("Max number of rpc threads is reached: %zu\n",
+//                max_num_of_threads_);
+//     return 1;
+//   }
+// }
 
-int RDMA::stop_all_listening_threads() {
-  for (auto& thread : threads_) {
-    thread->stop_listening();
-  }
+// int RDMA::stop_all_listening_threads() {
+//   for (auto& thread : threads_) {
+//     thread->stop_listening();
+//   }
 
-  threads_.clear();
-  thread_cnt_ = 0;
-  return 0;
-}
+//   threads_.clear();
+//   thread_cnt_ = 0;
+//   return 0;
+// }
 
 int RDMA::connect(const IPv4& client_addr, ConnectionId c_id,
                   ConnectionFlowId c_flow_id) {
   return nic_->add_connection(c_id, client_addr, c_flow_id);
 }
 
-int RDMA::disconnect(ConnectionId c_id) { return nic_->close_connection(c_id); }
+int RDMA::disconnect(ConnectionId c_id) { 
+  return nic_->close_connection(c_id); 
+}
 
 int RDMA::run_perf_thread(Nic::NicPerfMask perf_mask,
                           void (*callback)(const std::vector<uint64_t>&)) {
@@ -166,10 +168,19 @@ int RDMA::make_qp() {
   }
 }
 
-int RDMA::append(uint16_t queue_pair_num, volatile char* data_addr) {
+void add_send_queue_entry(uint16_t queue_pair_num, volatile char* data_addr){
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
-      qp.append_elem(data_addr);
+      qp.add_send_queue_entry(data_addr);
+      return 0;
+    }
+  }
+  return 1; 
+}
+void add_recv_queue_entry(uint16_t queue_pair_num, volatile char* data_addr){
+  for (auto qp : qp_pool_) {
+    if (qp.get_qp_num() == queue_pair_num) {
+      qp.add_recv_queue_entry(data_addr);
       return 0;
     }
   }
@@ -202,6 +213,18 @@ int RDMA::recv(uint16_t queue_pair_num) {
   return 1;  // qp number does not exist
 }
 
+int RDMA::stop_recv(uint16_t queue_pair_num) {
+  // Pass data to send
+  // Add arguments that take in data
+  for (auto qp : qp_pool_) {
+    if (qp.get_qp_num() == queue_pair_num) {
+      qp.stop_recv();
+      return 0;
+    }
+  }
+  return 1;  // qp number does not exist
+}
+
 // QP Class, define state machine (inside qp.cc)
 // function to modify state
 // QP has send, receive, completion queue
@@ -211,9 +234,13 @@ int RDMA::recv(uint16_t queue_pair_num) {
 // given a pointer, memory is allocated
 // define a struct with data field and put everything in data
 
-int RDMA::connect_qp(uint16_t queue_pair_num, ConnectionId c_id,
-                     const IPv4& server_addr) {
-  qp_pool_cnt_[queue_pair_num].connect(c_id, server_addr);
+int RDMA::connect_qp(uint16_t queue_pair_num, ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) {
+  for (auto qp : qp_pool_) {
+    if (qp.get_qp_num() == queue_pair_num) {
+      qp.connect(c_id, server_addr, remote_qp_num, p_key, q_key);
+      return 0;
+    }
+  }
 }
 
 }  // namespace dagger

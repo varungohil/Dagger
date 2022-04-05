@@ -63,6 +63,11 @@ class RDMA {
   void set_lb(int lb);
 
   int make_qp();
+  int send(uint16_t queue_pair_num);
+  int recv(uint16_t queue_pair_num);
+  int stop_recv(uint16_t queue_pair_num);
+  void add_send_queue_entry(uint16_t queue_pair_num, volatile char* data_addr);
+  void add_recv_queue_entry(uint16_t queue_pair_num, volatile char* data_addr);
 
  private:
   size_t max_num_of_threads_;

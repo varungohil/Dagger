@@ -21,8 +21,7 @@ QueuePairV2::QueuePairV2(const Nic* nic, size_t nic_flow_id,
                          uint16_t queue_pair_num)
     : nic_(nic),
       nic_flow_id_(nic_flow_id),
-      queue_pair_num_(queue_pair_num),
-      cq_(nullptr) {
+      queue_pair_num_(queue_pair_num) {
 #ifdef NIC_CCIP_MMIO
   if (cfg::nic::l_tx_queue_size != 0) {
     FRPC_ERROR("In MMIO mode, only one entry in the tx queue is allowed\n");
@@ -50,7 +49,7 @@ QueuePairV2::QueuePairV2(const Nic* nic, size_t nic_flow_id,
 #endif
 }
 
-QueuePairV2::~QueuePairV2() { cq_->unbind(); }
+QueuePairV2::~QueuePairV2() {  }
 
 // CompletionQueue* QueuePairV2::get_completion_queue() const { return
 // cq_.get(); }
@@ -66,7 +65,7 @@ int QueuePairV2::disconnect(ConnectionId c_id) {
   return nic_->close_connection(c_id);
 }
 
-int QueuePairV2::start_listening(int pin_cpu) {
+int QueuePairV2::start_listening() {
   stop_signal_ = 0;
   thread_ = std::thread(&QueuePairV2::_PullListen, this);
 
@@ -155,11 +154,23 @@ void QueuePairV2::_PullListen() {
 }
 
 // push data_addr onto queue q
-void QueuePairV2::append_elem(std::queue<QueueElem> q,
-                              volatile char* data_addr) {
-  QueueElem next_req;
-  next_req.data_addr = data_addr;
-  q.push(next_req);
+// void QueuePairV2::append_elem(std::queue<QueueElem> q,
+//                               volatile char* data_addr) {
+//   QueueElem next_req;
+//   next_req.data_addr = data_addr;
+//   q.push(next_req);
+// }
+
+void QueuePairV2::add_send_queue_entry(volatile char* data_addr) {
+  QueueElem new_entry;
+  new_entry.data_addr = data_addr;
+  send_q.push(new_entry);
+}
+
+void QueuePairV2::add_recv_queue_entry(volatile char* data_addr) {
+  QueueElem new_entry;
+  new_entry.data_addr = data_addr;
+  recv_q.push(new_entry);
 }
 
 // put entry in send queue, put entry in receive queue
@@ -185,8 +196,14 @@ int QueuePairV2::send() {
 
   uint32_t rpc_id = 0;
 
-  // call operator to do fulfill send
-  operator()(req_pckt, tx_queue_);
+  QueueElem entry = send_q.front();
+  send_q.pop();
+  GetRequest args = *(reinterpret_cast<GetRequest*>(const_cast<char*>(entry.data_addr)));
+  // reinterpret_cast<GetRequest*>(const_cast<char*>(entry->data_addr)) = args;
+
+
+  // // call operator to do fulfill send 
+  // operator()(req_pckt, tx_queue_); ?? Raleigh did you add this?
 
   // read first entry of send_q
   //  Send data
@@ -289,6 +306,18 @@ int QueuePairV2::send() {
   return 0;
 }
 
-uint16_t QueuePairV2::get_qp_num() { return queue_pair_num_; }
+int QueuePairV2::recv() {
+  start_listening();
+  return 0;
+}
+
+int QueuePairV2::stop_recv() {
+  stop_listening();
+  return 0;
+}
+
+uint16_t QueuePairV2::get_qp_num() { 
+  return queue_pair_num_;
+}
 
 }  // namespace dagger

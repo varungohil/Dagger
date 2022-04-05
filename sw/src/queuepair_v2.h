@@ -24,7 +24,7 @@
 namespace dagger {
 
 struct QueueElem {
-  volatile char* data_addr;
+  volatile char* data_addr; //Do we need volatile here?
 };
 
 class QueuePairV2 {
@@ -42,7 +42,7 @@ class QueuePairV2 {
 
   /// These functions start/stop polling in the dispatch thread.
   /// @param pin_cpu is used to pin the dispatch thread to the given CPU core.
-  int start_listening(int pin_cpu);
+  int start_listening();
   void stop_listening();
 
   /// Get associated bound completion queue.
@@ -50,8 +50,12 @@ class QueuePairV2 {
 
   int send();
   int recv();
+  int stop_recv();
 
-  void append_elem(std::queue<QueueElem> q, volatile char* data_addr);
+  void add_send_queue_entry(volatile char* data_addr);
+  void add_recv_queue_entry(volatile char* data_addr);
+
+  // void append_elem(std::queue<QueueElem> q);
 
   uint16_t get_qp_num();
 
@@ -88,8 +92,8 @@ class QueuePairV2 {
   std::thread thread_;
   std::atomic<bool> stop_signal_;
 
-  void operator()(const RpcPckt* rpc_in, TxQueue& tx_queue) const final {
-    uint8_t ret_buff[cfg::sys::cl_size_bytes];
+  void operator()(const RpcPckt* rpc_in, TxQueue& tx_queue) const {
+    // uint8_t ret_buff[cfg::sys::cl_size_bytes];
 
     // Check the fn_id is within the scope
     // if (rpc_in->hdr.fn_id > rpc_fn_ptr_.size() - 1) {
@@ -100,11 +104,14 @@ class QueuePairV2 {
     // }
 
     // read first received packet
-    QueueElem r_elem = recv_q.front();
+    QueueElem entry = recv_q.front();
     recv_q.pop();
+    *(reinterpret_cast<GetRequest*>(const_cast<char*>(entry.data_addr))) = rpc_in->argv;
 
-    // set store addr based on request argv
-    r_elem.data_addr = (char*)rpc_in->argv;
+
+
+    // // set store addr based on request argv
+    // r_elem.data_addr = (char*)rpc_in->argv;
 
     //     uint8_t change_bit;
     //     volatile char* tx_ptr = tx_queue.get_write_ptr(change_bit);
