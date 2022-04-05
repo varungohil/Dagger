@@ -37,7 +37,7 @@ class QueuePairV2 {
   virtual ~QueuePairV2();
 
   /// Connection management API.
-  int connect(ConnectionId c_id, const IPv4& server_addr);
+  int connect(ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key);
   int disconnect(ConnectionId c_id);
 
   /// These functions start/stop polling in the dispatch thread.
@@ -61,6 +61,9 @@ class QueuePairV2 {
 
  private:
   uint16_t queue_pair_num_;
+  uint16_t remote_qp_num_;
+  uint16_t p_key_;
+  uint32_t q_key_;
 
   std::queue<QueueElem> recv_q;
   std::queue<QueueElem> send_q;

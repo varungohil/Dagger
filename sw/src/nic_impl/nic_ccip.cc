@@ -320,10 +320,10 @@ int NicCCIP::open_connection(ConnectionId& c_id, const IPv4& dest_addr,
 }
 
 int NicCCIP::add_connection(ConnectionId c_id, const IPv4& dest_addr,
-                            ConnectionFlowId c_flow_id) const {
+                            ConnectionFlowId c_flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) const {
   std::unique_lock<std::mutex> lck(conn_setup_mtx_);
 
-  if (conn_manager_.add_connection(c_id, dest_addr, c_flow_id) != 0) {
+  if (conn_manager_.add_connection(c_id, dest_addr, c_flow_id, remote_qp_num, p_key, q_key) != 0) {
     FRPC_ERROR("Failed to add connection\n");
     return 1;
   }

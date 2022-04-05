@@ -40,7 +40,7 @@ int ConnectionManager::open_connection(ConnectionId& c_id,
 }
 
 int ConnectionManager::add_connection(ConnectionId c_id, const IPv4& dest_addr,
-                                      ConnectionFlowId flow_id) {
+                                      ConnectionFlowId flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key ) {
   if (open_connections_.size() == max_connections_) {
     FRPC_ERROR(
         "Failed to add connection, max number of open connections is "
@@ -60,7 +60,7 @@ int ConnectionManager::add_connection(ConnectionId c_id, const IPv4& dest_addr,
 
   assert(open_connections_.find(c_id) == open_connections_.end());
   open_connections_.insert(
-      std::make_pair(c_id, std::make_pair(dest_addr, flow_id)));
+      std::make_pair(c_id, std::make_tuple(dest_addr, flow_id, remote_qp_num, p_key, q_key)));
 
   return 0;
 }

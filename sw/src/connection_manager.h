@@ -29,7 +29,7 @@ class ConnectionManager {
   int open_connection(ConnectionId& c_id, const IPv4& dest_addr,
                       ConnectionFlowId flow_id);
   int add_connection(ConnectionId c_id, const IPv4& dest_addr,
-                     ConnectionFlowId flow_id);
+                     ConnectionFlowId flow_id, , uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key);
   int close_connection(ConnectionId c_id);
 
   void dump_open_connections() const;
@@ -43,7 +43,7 @@ class ConnectionManager {
   std::deque<ConnectionId> c_id_pool_;
 
   // Currently open connections
-  std::map<ConnectionId, std::pair<IPv4, ConnectionFlowId>> open_connections_;
+  std::map<ConnectionId, std::tuple<IPv4, ConnectionFlowId, uint16_t, uint16_t, uint32_t>> open_connections_;
 };
 
 }  // namespace dagger

@@ -55,8 +55,11 @@ QueuePairV2::~QueuePairV2() { cq_->unbind(); }
 // CompletionQueue* QueuePairV2::get_completion_queue() const { return
 // cq_.get(); }
 
-int QueuePairV2::connect(ConnectionId c_id, const IPv4& server_addr) {
-  return nic_->add_connection(c_id, server_addr, nic_flow_id_);
+int QueuePairV2::connect(ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) {
+  remote_qp_num_ = remote_qp_num;
+  p_key_ = p_key;
+  q_key_ = q_key;
+  return nic_->add_connection(c_id, server_addr, nic_flow_id_, remote_qp_num, p_key, q_key);
 }
 
 int QueuePairV2::disconnect(ConnectionId c_id) {

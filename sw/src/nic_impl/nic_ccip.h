@@ -97,7 +97,7 @@ class NicCCIP : public Nic {
   virtual int open_connection(ConnectionId& c_id, const IPv4& dest_addr,
                               ConnectionFlowId c_flow_id) const final;
   virtual int add_connection(ConnectionId c_id, const IPv4& dest_addr,
-                             ConnectionFlowId c_flow_id) const final;
+                             ConnectionFlowId c_flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) const final;
   virtual int close_connection(ConnectionId c_id) const final;
   virtual int run_perf_thread(
       NicPerfMask perf_mask,
@@ -179,7 +179,10 @@ class NicCCIP : public Nic {
   static constexpr uint8_t setUpDestIPv4 = 2;
   static constexpr uint8_t setUpDestPort = 3;
   static constexpr uint8_t setUpClientFlowId = 4;
-  static constexpr uint8_t setUpEnable = 5;
+  static constexpr uint8_t setUpRemoteQPN = 5;
+  static constexpr uint8_t setUpPKey = 6;
+  static constexpr uint8_t setUpQKey = 7;
+  static constexpr uint8_t setUpEnable = 8;
 
   /// Connection setup frame.
   struct __attribute__((__packed__)) ConnSetupFrame {
