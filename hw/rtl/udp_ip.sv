@@ -6,7 +6,7 @@
 //                    - Ethernet MAC/PHY interface FSM
 //                    - UDP/IP/Ethernet header encapsulation
 //                    - error checking and packet drop control
-//                    - minimum payload size: 22 B
+//                    - minimum payload size: 10 B (changed to 10)
 //                    - maximum payload size: 1456 B
 // Known bugs:
 //                  1) Networking might fail when running applications many times
@@ -91,6 +91,26 @@ module udp_ip
         logic [31:0] src_ip;
         logic [31:0] dest_ip;
     } IPHdr;    // 20B
+
+    typedef struct packed {
+        logic [7:0]  op_code;
+        logic        solicited_event;
+        logic        mig_req;
+        logic [1:0]  pad_count;
+        logic [3:0]  t_ver;
+        logic [15:0] partition_key;
+        logic [7:0]  reserved_8;
+        logic [23:0] dest_qp;
+        logic        ack_req;
+        logic [6:0]  reserved_6;
+        logic [23:0] psn;
+
+        // they had a fr and br fields as part of reserved_8
+        //   -> those seem to be part of congestion control
+        // slightly different names for reserved_8, reserved_6
+        // reversed dest_qp and psn 
+
+    } IBHdr;    // 12B
 
     typedef struct packed {
         logic [7:0] b0;
@@ -187,6 +207,21 @@ module udp_ip
         tx_ip_hdr.dest_ip = tx_fifo_pop_data.addr_tpl.dest_ip;
     end
 
+    IBHdr tx_ib_hdr;
+    // All fields set to zero right now 
+    always_comb begin
+        tx_ib_hdr.solivited_event = 0;
+        tx_ib_hdr.mig_req = 0;
+        tx_ib_hdr.pad_count = 2'b0;
+        tx_ib_hdr.t_ver = 4'b0;
+        tx_ib_hdr.partition_key = 16'b0;
+        tx_ib_hdr.reserved_8 = 8'b0;
+        tx_ib_hdr.dest_qp = 24'b0;
+        tx_ib_hdr.ack_req = 1'b0;
+        tx_ib_hdr.reserved_6 = 7'b0;
+        tx_ib_hdr.psn = 24'b0;
+    end
+
     // Compute checksum combinationally
 //    logic [31:0] sum;
 //    logic [7:0] carry;
@@ -274,8 +309,8 @@ module udp_ip
 
             TxHeaderData: begin
                 if (tx_ready_in) begin
-                    if (bytes_to_send > 16'd22) begin
-                        bytes_to_send_next = bytes_to_send - 16'd22;
+                    if (bytes_to_send > 16'd10) begin // changed to 10
+                        bytes_to_send_next = bytes_to_send - 16'd10; // changed to 10
                         tx_state_next = TxData;
                     end else
                         tx_state_next = TxIdle;
@@ -305,11 +340,11 @@ module udp_ip
                 if (tx_state == TxHeader)
                     payload_sr <= tx_fifo_pop_data.payload;
                 else if (tx_state == TxHeaderData)
-                    payload_sr <= payload_sr >> 176;
+                    payload_sr <= payload_sr >> 80; // changed from 176 to match below
                 else if (tx_state == TxData) begin
                     payload_sr <= payload_sr >> 256;
                     // TODO: if longer data should be sent, load a new value
-                    //       to payload_sr here
+                    //       to payload_sr here (only sends 42B total right now)
                 end
             end
         end
@@ -349,20 +384,28 @@ module udp_ip
             //   - 30B - 8B = 22B left = 176b
             tx_data[239:176] = tx_udp_hdr;
 
+            // IB header
+            //   - 12B
+            //   - 22B - 12B = 10B left = 80b
+            tx_data[175:80] = tx_ib_hdr;
+
             // Payload (begin)
             //   - 64B
-            //   - send first 22B of payload
-            tx_data[175:0] = payload_sr[175:0];
+            //   - send first 10B of payload
+            tx_data[80:0] = payload_sr[80:0];
 
             // TX DT/EoP
-            if (bytes_to_send <= 16'd22)
+            if (bytes_to_send <= 16'd10) // changed to 10
                 tx_eop = 1'b1;
             else
                 tx_dt = 1'b1;
 
         end else if (tx_state == TxData) begin
             // Payload (cont.)
-            //   - 32B
+            //   - total size 64B
+            //   - 64B - 10B = 54B left to send
+            //   - send next 32B here
+            //   - remaining 22B not sent (if needbe, implement)
             tx_data = payload_sr[255:0];
 
             // TX DT/EoP and tx_byte_remain
@@ -471,7 +514,7 @@ module udp_ip
 
             RxHeaderData: begin
                 if (rx_valid_in) begin
-                    bytes_recv_next = bytes_recv + 16'd22;
+                    bytes_recv_next = bytes_recv + 16'd10; // changed to 10
 
                     if (rx_eop_in)
                         // We got EoP at the same time with data, we don't have time
@@ -487,7 +530,7 @@ module udp_ip
                     if (rx_eop_in) begin
                         bytes_recv_next = bytes_recv + 16'd32 - rx_empty_in;
 
-                        if (bytes_recv <= 16'd22)
+                        if (bytes_recv <= 16'd10) // changed to 10
                             // We got EoP at the same time with first data, we don't have time
                             // to check data here, so let's move to a delay slot (1 cycle)
                             rx_state_next = RxCheckData_1d;
@@ -516,10 +559,10 @@ module udp_ip
     // Shift payload
     logic [9:0] rx_payload_sr;
     always_comb begin
-        if (bytes_recv <= 16'd22)
-            rx_payload_sr = 10'd176;
+        if (bytes_recv <= 16'd10) // changed to 10
+            rx_payload_sr = 10'd80; // changed to 80
         else
-            rx_payload_sr = 10'd256 + 10'd176;
+            rx_payload_sr = 10'd256 + 10'd80; // changed to 80
     end
 
     always_ff @(posedge rx_clk_in or posedge rx_reset_in) begin
