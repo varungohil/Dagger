@@ -55,7 +55,7 @@ class Nic {
   /// Open connection on the nic. The nic expexts to provide the generated
   /// connection id @param c_id.
   virtual int open_connection(ConnectionId& c_id, const IPv4& dest_addr,
-                              ConnectionFlowId c_flow_id) const = 0;
+                              ConnectionFlowId c_flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) const = 0;
 
   /// Add connection on the nic. The API allows to specify a custom connection
   /// id as @param c_id.

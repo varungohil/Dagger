@@ -95,7 +95,7 @@ class NicCCIP : public Nic {
     return mtu_cls * cfg::sys::cl_size_bytes;
   }
   virtual int open_connection(ConnectionId& c_id, const IPv4& dest_addr,
-                              ConnectionFlowId c_flow_id) const final;
+                              ConnectionFlowId c_flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) const final;
   virtual int add_connection(ConnectionId c_id, const IPv4& dest_addr,
                              ConnectionFlowId c_flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) const final;
   virtual int close_connection(ConnectionId c_id) const final;

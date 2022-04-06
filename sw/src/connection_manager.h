@@ -27,9 +27,9 @@ class ConnectionManager {
   ConnectionManager(size_t max_connections);
 
   int open_connection(ConnectionId& c_id, const IPv4& dest_addr,
-                      ConnectionFlowId flow_id);
+                      ConnectionFlowId flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key);
   int add_connection(ConnectionId c_id, const IPv4& dest_addr,
-                     ConnectionFlowId flow_id, , uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key);
+                     ConnectionFlowId flow_id, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key);
   int close_connection(ConnectionId c_id);
 
   void dump_open_connections() const;
