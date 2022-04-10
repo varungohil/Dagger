@@ -38,14 +38,19 @@ struct __attribute__((__packed__)) RpcHeader {
   uint8_t n_of_frames;  // number of cl-sized frames
   uint8_t frame_id;     // frame ID (0 for head)
 
+  // Queue pair data
+  uint16_t q_key; // queue pair key
+  uint16_t p_key; // partition key
+  uint16_t remote_qp_num; // identifies qp on destination node
+
   // RPC data
-  uint16_t fn_id;  // remote function ID
+  // uint16_t fn_id;  // remote function ID
   uint16_t argl;   // length of args
 
   // Connection id
   uint8_t c_id;  // connection ID
 };
-constexpr size_t rpc_header_size_bytes = 12;
+constexpr size_t rpc_header_size_bytes = 16; // changed from 12
 static_assert(sizeof(RpcHeader) == rpc_header_size_bytes,
               "RpcHeader size error");
 
