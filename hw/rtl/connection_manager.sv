@@ -379,9 +379,15 @@ module connection_manager
         rpc_net_out.net_addr.dest_port <= c_tbl_rd_data[0].dest_port;
         rpc_net_out.net_addr.source_ip <= {$bits(IPv4){1'b0}};
         rpc_net_out.net_addr.source_port <= {$bits(Port){1'b0}};
+        // rpc_net_out.remote_qp_num <= rpc_in_1d.remote_qp_num;
+        // rpc_net_out.p_key <= rpc_in_1d.p_key;
+        // rpc_net_out.q_key <= rpc_in_1d.q_key;
 
         rpc_out.rpc_data <= rpc_net_in_1d.rpc_data;
         rpc_out.flow_id <= c_tbl_rd_data[1].client_flow_id;
+        // rpc_out.remote_qp_num <= rpc_net_in_1d.remote_qp_num;
+        // rpc_out.p_key <= rpc_net_in_1d.p_key;
+        // rpc_out.q_key <= rpc_net_in_1d.q_key;
 
         // RPC control flow
         rpc_net_out.valid <= 1'b0;

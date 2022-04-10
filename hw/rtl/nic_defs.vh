@@ -22,6 +22,9 @@ typedef logic [LMAX_NUM_OF_FLOWS-1:0] FlowId;
 typedef struct packed {
     FlowId  flow_id;
     RpcPckt rpc_data;
+    logic [15:0] remote_qp_num;
+    logic [15:0] p_key;
+    logic [15:0] q_key;
 } RpcIf;
 
 // RPC Network interface (to transport)
@@ -41,6 +44,9 @@ typedef struct packed {
     NetworkAddressTuple addr_tpl;
     NetworkPayload payload;
     logic valid;
+    logic [15:0] remote_qp_num;
+    logic [15:0] p_key;
+    logic [15:0] q_key;
 } NetworkIf;
 
 

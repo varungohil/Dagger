@@ -35,12 +35,18 @@ typedef struct packed {
     FlowId flow_id;
     RpcPckt rpc_data;
     logic valid;
+    //logic [15:0] remote_qp_num;
+    //logic [15:0] p_key;
+    //logic [15:0] q_key;
 } CManagerRpcIf;
 
 typedef struct packed {
     NetworkAddressTuple net_addr;
     RpcPckt rpc_data;
     logic valid;
+    //logic [15:0] remote_qp_num;
+    //logic [15:0] p_key;
+    //logic [15:0] q_key;
 } CManagerNetRpcIf;
 
 `endif //  RPC_DEFS_VH_

@@ -207,16 +207,20 @@ module udp_ip
         tx_ip_hdr.dest_ip = tx_fifo_pop_data.addr_tpl.dest_ip;
     end
 
+    typedef enum logic { SEND, RECEIVE, ACK } OpCode;
+    OpCode curr_op_code = SEND;
+
     IBHdr tx_ib_hdr;
     // All fields set to zero right now 
     always_comb begin
-        tx_ib_hdr.solivited_event = 0;
+        tx_ib_hdr.op_code = curr_op_code;
+        tx_ib_hdr.solicited_event = 1'b1;
         tx_ib_hdr.mig_req = 0;
         tx_ib_hdr.pad_count = 2'b0;
         tx_ib_hdr.t_ver = 4'b0;
-        tx_ib_hdr.partition_key = 16'b0;
+        tx_ib_hdr.partition_key = tx_fifo_pop_data.p_key;
         tx_ib_hdr.reserved_8 = 8'b0;
-        tx_ib_hdr.dest_qp = 24'b0;
+        tx_ib_hdr.dest_qp = tx_fifo_pop_data.remote_qp_num;
         tx_ib_hdr.ack_req = 1'b0;
         tx_ib_hdr.reserved_6 = 7'b0;
         tx_ib_hdr.psn = 24'b0;

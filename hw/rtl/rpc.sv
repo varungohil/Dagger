@@ -140,6 +140,9 @@ module rpc
 
     assign rpc_out.flow_id = cm_rpc_out.flow_id;
     assign rpc_out.rpc_data = cm_rpc_out.rpc_data;
+    // assign rpc_out.remote_qp_num = cm_rpc_out.remote_qp_num;
+    // assign rpc_out.p_key = cm_rpc_out.p_key;
+    // assign rpc_out.q_key = cm_rpc_out.q_key;
     assign rpc_valid_out = cm_rpc_out.valid;
 
     connection_manager #(
@@ -156,7 +159,11 @@ module rpc
 
             .rpc_in('{rpc_data: rpc_in.rpc_data,
                       flow_id: rpc_in.flow_id,
-                      valid: rpc_valid_in}),
+                      valid: rpc_valid_in,
+                      // remote_qp_num: rpc_in.remote_qp_num,
+                      // p_key: rpc_in.p_key,
+                      // q_key: rpc_in.q_key
+                      }),
             .rpc_net_out(ct_net_out),
 
             .rpc_net_in(ct_net_in),
@@ -193,6 +200,10 @@ module rpc
             // **********************************
             network_tx_out.payload[$bits(RpcPckt)-1:0] <= ct_net_out.rpc_data;
 
+            network_tx_out.remote_qp_num <= ct_net_out.remote_qp_num;
+            network_tx_out.p_key <= ct_net_out.p_key;
+            network_tx_out.q_key <= ct_net_out.q_key;
+
             network_tx_out.valid <= 1'b1;
         end
 
@@ -220,6 +231,10 @@ module rpc
             //
             // **********************************
             ct_net_in.rpc_data <= network_rx_in.payload[$bits(RpcPckt)-1:0];
+
+            ct_net_in.remote_qp_num <= network_rx_in.remote_qp_num;
+            ct_net_in.p_key <= network_rx_in.p_key;
+            ct_net_in.q_key <= network_rx_in.q_key;
 
             ct_net_in.valid   <= 1'b1;
         end
