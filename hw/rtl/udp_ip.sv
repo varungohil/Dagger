@@ -66,6 +66,7 @@ module udp_ip
 
     // Types
     typedef logic[255:0] TxData_;
+    typedef enum logic { SEND, RECEIVE, ACK } OpCode;
 
     localparam BROADCAST_PHY_ADDR = 48'hFFFFFFFFFFFF;
 
@@ -207,13 +208,10 @@ module udp_ip
         tx_ip_hdr.dest_ip = tx_fifo_pop_data.addr_tpl.dest_ip;
     end
 
-    typedef enum logic { SEND, RECEIVE, ACK } OpCode;
-    OpCode curr_op_code = SEND;
-
     IBHdr tx_ib_hdr;
     // All fields set to zero right now 
     always_comb begin
-        tx_ib_hdr.op_code = curr_op_code;
+        tx_ib_hdr.op_code = SEND;
         tx_ib_hdr.solicited_event = 1'b1;
         tx_ib_hdr.mig_req = 0;
         tx_ib_hdr.pad_count = 2'b0;
@@ -396,7 +394,7 @@ module udp_ip
             // Payload (begin)
             //   - 64B
             //   - send first 10B of payload
-            tx_data[80:0] = payload_sr[80:0];
+            tx_data[79:0] = payload_sr[79:0];
 
             // TX DT/EoP
             if (bytes_to_send <= 16'd10) // changed to 10
@@ -473,6 +471,7 @@ module udp_ip
     EthernetHdr rx_eth_hdr;
     IPHdr rx_ip_hdr;
     UDPHdr rx_udp_hdr;
+    IBHdr rx_ib_hdr;
     NetworkPayload rx_payload;
     logic rx_valid;
     logic [15:0] bytes_recv, bytes_recv_next;
@@ -598,7 +597,8 @@ module udp_ip
                 if (rx_state == RxHeaderData) begin
                     rx_ip_hdr[159:144]  <= rx_data_in[255:240];
                     rx_udp_hdr          <= rx_data_in[239:176];
-                    rx_payload[175:0]   <= rx_data_in[175:0];
+                    rx_ib_hdr           <= rx_data_in[175:80];
+                    rx_payload[79:0]    <= rx_data_in[79:0];
 
                     udp_ip_hdr_valid <= 1'b1;
                 end
@@ -698,11 +698,14 @@ module udp_ip
        network_rx_out_fifo.addr_tpl.dest_port = rx_udp_hdr.dest_port;
        network_rx_out_fifo.payload = rx_payload;
        network_rx_out_fifo.valid = rx_valid;
+       network_rx_out_fifo.remote_qp_num = rx_ib_hdr.dest_qp;
+       network_rx_out_fifo.p_key = rx_ib_hdr.partition_key;
+       network_rx_out_fifo.q_key = 32'b0; // TODO: figure out what to do with queue key
     end
 
     logic rx_fifo_ovf;
     async_fifo_channel #(
-            .DATA_WIDTH($bits(NetworkAddressTuple) + $bits(NetworkPayload)),
+            .DATA_WIDTH($bits(NetworkAddressTuple) + $bits(NetworkPayload) + 8'b01000000), // this is adding 64 bits for remote_qp_num, etc.
             .LOG_DEPTH(LRX_FIFO_DEPTH),
             .CLOCK_ARE_SYNCHRONIZED("FALSE"),
             .DELAY_PIPE(4)
@@ -711,13 +714,13 @@ module udp_ip
             .clk_1(rx_clk_in),
 
             .push_en(network_rx_out_fifo.valid),
-            .push_data({network_rx_out_fifo.addr_tpl, network_rx_out_fifo.payload}),
+            .push_data({network_rx_out_fifo.addr_tpl, network_rx_out_fifo.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
 
             .clk_2(clk),
             .pop_enable(1'b1),
 
             .pop_valid(network_rx_out.valid),
-            .pop_data({network_rx_out.addr_tpl, network_rx_out.payload}),
+            .pop_data({network_rx_out.addr_tpl, network_rx_out.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
             .pop_dw(),
             .pop_empty(),
 

@@ -504,9 +504,6 @@ module nic
         .rpc_out(from_ccip.rpc_data),
         .rpc_out_valid(from_ccip_valid),
         .rpc_flow_id_out(from_ccip.flow_id),
-        .rpc_remote_qp_num_out(from_ccip.remote_qp_num),
-        .rpc_p_key_out(from_ccip.p_key),
-        .rpc_q_key_out(from_ccip.q_key), 
 
         .lb_select(iLB),
 
@@ -514,9 +511,6 @@ module nic
         .rpc_in(to_ccip.rpc_data),
         .rpc_in_valid(to_ccip_valid),
         .rpc_flow_id_in(to_ccip.flow_id),
-        .rpc_remote_qp_num_in(to_ccip.remote_qp_num),
-        .rpc_p_key_in(to_ccip.p_key),
-        .rpc_q_key_in(to_ccip.q_key),
 
         .pdrop_tx_flows_out(pdrop_tx_flows)
     );

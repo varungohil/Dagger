@@ -50,6 +50,9 @@ module connection_manager
         Port dest_port;
         FlowId client_flow_id;
         ConnectionStatus status;
+        logic [15:0] remote_qp_num;
+        logic [15:0] p_key;
+        logic [31:0] q_key;
     } ConnectionTableEntry;
 
     // Connection table
@@ -202,6 +205,9 @@ module connection_manager
                         c_tbl_wr_data[i] = '{dest_ip: c_ctl_in.dest_ip,
                                              dest_port: c_ctl_in.dest_port,
                                              client_flow_id: c_ctl_in.client_flow_id,
+                                             remote_qp_num: c_ctl_in.remote_qp_num,
+                                             p_key: c_ctl_in.p_key,
+                                             q_key: c_ctl_in.q_key,
                                              status: cOpen};
                         c_tbl_wr_en[i]   = 1'b1;
                     end
@@ -226,6 +232,9 @@ module connection_manager
                         c_tbl_wr_data[i] = '{dest_ip: {$bits(IPv4){1'b0}},
                                              dest_port: {$bits(Port){1'b0}},
                                              client_flow_id: {$bits(FlowId){1'b0}},
+                                             remote_qp_num: {16'b0},
+                                             p_key: {16'b0},
+                                             q_key: {32'b0},
                                              status: cClosed};
                         c_tbl_wr_en[i]   = 1'b1;
                     end
@@ -349,6 +358,7 @@ module connection_manager
         end
 
         // For RPC flows from CPU, look-up from c_tbl
+        // For when this node is SENDING a packet (we think)
         if (rpc_in.valid) begin
             if (rpc_in.rpc_data.hdr.connection_id < 2**LCACHE_SIZE) begin
                 c_tbl_rd_addr[0] = rpc_in.rpc_data.hdr.connection_id;
@@ -356,6 +366,7 @@ module connection_manager
         end
 
         // For RPC flows from network, look-up from c_tbl_r1
+        // For when this node is RECEIVING a packet (we think)
         if (rpc_net_in.valid) begin
             if (rpc_net_in.rpc_data.hdr.connection_id < 2**LCACHE_SIZE) begin
                 c_tbl_rd_addr[1] = rpc_net_in.rpc_data.hdr.connection_id;
@@ -379,15 +390,12 @@ module connection_manager
         rpc_net_out.net_addr.dest_port <= c_tbl_rd_data[0].dest_port;
         rpc_net_out.net_addr.source_ip <= {$bits(IPv4){1'b0}};
         rpc_net_out.net_addr.source_port <= {$bits(Port){1'b0}};
-        // rpc_net_out.remote_qp_num <= rpc_in_1d.remote_qp_num;
-        // rpc_net_out.p_key <= rpc_in_1d.p_key;
-        // rpc_net_out.q_key <= rpc_in_1d.q_key;
+        rpc_net_out.remote_qp_num <= c_tbl_rd_data[0].remote_qp_num; // read from 0 because this is an outgoing packet from CPU
+        rpc_net_out.p_key <= c_tbl_rd_data[0].p_key; // read from 0 because this is an outgoing packet from CPU
+        rpc_net_out.q_key <= c_tbl_rd_data[0].q_key; // read from 0 because this is an outgoing packet from CPU
 
         rpc_out.rpc_data <= rpc_net_in_1d.rpc_data;
         rpc_out.flow_id <= c_tbl_rd_data[1].client_flow_id;
-        // rpc_out.remote_qp_num <= rpc_net_in_1d.remote_qp_num;
-        // rpc_out.p_key <= rpc_net_in_1d.p_key;
-        // rpc_out.q_key <= rpc_net_in_1d.q_key;
 
         // RPC control flow
         rpc_net_out.valid <= 1'b0;

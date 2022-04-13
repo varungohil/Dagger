@@ -235,12 +235,8 @@ int QueuePairV2::send() {
   request.hdr.n_of_frames = 1;
   request.hdr.frame_id = 0;
 
-  // request.hdr.fn_id = 0;
+  request.hdr.fn_id = 0;
   request.hdr.argl = sizeof(GetRequest);
-
-  request.hdr.remote_qp_num = 0; // TODO: query this from framework
-  request.hdr.p_key = 0;
-  request.hdr.q_key = 0;
 
   request.hdr.ctl.req_type = rpc_request;
   request.hdr.ctl.valid = 1;
@@ -277,10 +273,6 @@ int QueuePairV2::send() {
 
   tx_ptr_casted->hdr.fn_id = 0;
   tx_ptr_casted->hdr.argl = sizeof(GetRequest);
-
-  tx_ptr_casted->hdr.remote_qp_num = 0; // TODO: query this from framework
-  tx_ptr_casted->hdr.p_key = 0;
-  tx_ptr_casted->hdr.q_key = 0;
 
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;

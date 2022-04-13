@@ -59,17 +59,11 @@ module ccip_mmio
         output RpcPckt                      rpc_out,
         output logic                        rpc_out_valid,
         output logic[LMAX_NUM_OF_FLOWS-1:0] rpc_flow_id_out,
-        // output logic[15:0]                  rpc_remote_qp_num_out,
-        // output logic[15:0]                  rpc_p_key_out,
-        // output logic[15:0]                  rpc_q_key_out,
 
         output logic                       ccip_tx_ready,
         input RpcIf                        rpc_in,
         input logic                        rpc_in_valid,
         input logic[LMAX_NUM_OF_FLOWS-1:0] rpc_flow_id_in,
-        // input logic[15:0]                  rpc_remote_qp_num_in,
-        // input logic[15:0]                  rpc_p_key_in,
-        // input logic[15:0]                  rpc_q_key_in,
 
         // Statistics
         output logic pdrop_tx_flows_out
@@ -122,9 +116,6 @@ module ccip_mmio
                 rpc_out         <= sRx_casted_d;
                 rpc_flow_id_out <= sRx_casted_d.hdr.rpc_id & FLOW_ID_MASK;
                 rpc_out_valid   <= 1'b1;
-                rpc_remote_qp_num_out <= sRx_casted_d.hdr.remote_qp_num;
-                rpc_p_key_out <= sRx_casted_d.hdr.p_key;
-                rpc_q_key_out <= sRx_casted_d.hdr.q_key;
             end
 
         end
