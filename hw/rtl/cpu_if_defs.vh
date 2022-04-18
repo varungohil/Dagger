@@ -62,17 +62,15 @@ typedef struct packed {
 typedef struct packed {
     logic [7:0]  connection_id;
     logic [15:0] argl;
-    logic [15:0] remote_qp_num; // changed from fn_id
-    logic [15:0] p_key; // added
-    logic [15:0] q_key; // added
+    logic [15:0] fn_id;
     logic [7:0]  frame_id;
     logic [7:0]  n_of_frames;
     logic [31:0] rpc_id;
     RpcHeaderCtl ctl;
-} RpcHeader;    // Size is 128b (no longer 96b)
+} RpcHeader;    // Size is 96b
 
 typedef struct packed {
-    logic [385:0] argv; // changed from [415:0] because of larger header, keeping whole RpcPckt same size of 512b
+    logic [415:0] argv; 
     RpcHeader hdr;
 } RpcPckt;
 

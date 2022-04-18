@@ -66,8 +66,8 @@ class RDMA {
   int send(uint16_t queue_pair_num);
   int recv(uint16_t queue_pair_num);
   int stop_recv(uint16_t queue_pair_num);
-  void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, uint32_t data_size);
-  void add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, uint32_t data_size);
+  void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
+  void add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
 
  private:
   size_t max_num_of_threads_;

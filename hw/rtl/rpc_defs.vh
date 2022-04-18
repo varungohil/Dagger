@@ -25,6 +25,9 @@ typedef struct packed {
     IPv4 dest_ip;
     Port dest_port;
     FlowId client_flow_id;
+    logic [15:0] remote_qp_num;
+    logic [15:0] p_key;
+    logic [31:0] q_key;
     logic open;
     logic enable;
 } ConnectionControlIf;
@@ -35,18 +38,15 @@ typedef struct packed {
     FlowId flow_id;
     RpcPckt rpc_data;
     logic valid;
-    //logic [15:0] remote_qp_num;
-    //logic [15:0] p_key;
-    //logic [15:0] q_key;
 } CManagerRpcIf;
 
 typedef struct packed {
     NetworkAddressTuple net_addr;
     RpcPckt rpc_data;
     logic valid;
-    //logic [15:0] remote_qp_num;
-    //logic [15:0] p_key;
-    //logic [15:0] q_key;
+    logic [15:0] remote_qp_num;
+    logic [15:0] p_key;
+    logic [31:0] q_key;
 } CManagerNetRpcIf;
 
 `endif //  RPC_DEFS_VH_

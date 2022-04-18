@@ -25,7 +25,7 @@ namespace dagger {
 
 struct QueueElem {
   volatile int* data_addr; //Do we need volatile here?
-  uint32_t data_size;
+  size_t data_size;
 };
 
 class QueuePairV2 {
@@ -53,8 +53,8 @@ class QueuePairV2 {
   int recv();
   int stop_recv();
 
-  void add_send_queue_entry(volatile int* data_addr, uint32_t data_size);
-  void add_recv_queue_entry(volatile int* data_addr, uint32_t data_size);
+  void add_send_queue_entry(volatile int* data_addr, size_t data_size);
+  void add_recv_queue_entry(volatile int* data_addr, size_t data_size);
 
   // void append_elem(std::queue<QueueElem> q);
 

@@ -168,7 +168,7 @@ int RDMA::make_qp() {
   }
 }
 
-void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, uint32_t data_size){
+void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       qp.add_send_queue_entry(data_addr, data_size);
@@ -177,7 +177,7 @@ void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, uint
   }
   return 1; 
 }
-void add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, uint32_t data_size){
+void add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       qp.add_recv_queue_entry(data_addr, data_size);

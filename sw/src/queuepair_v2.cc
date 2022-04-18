@@ -172,14 +172,14 @@ void QueuePairV2::_PullListen() {
 //   q.push(next_req);
 // }
 
-void QueuePairV2::add_send_queue_entry(volatile int* data_addr, uint32_t data_size) {
+void QueuePairV2::add_send_queue_entry(volatile int* data_addr, size_t data_size) {
   QueueElem new_entry;
   new_entry.data_addr = data_addr;
   new_entry.data_size = data_size;
   send_q.push(new_entry);
 }
 
-void QueuePairV2::add_recv_queue_entry(volatile int* data_addr, uint32_t data_size) {
+void QueuePairV2::add_recv_queue_entry(volatile int* data_addr, size_t data_size) {
   QueueElem new_entry;
   new_entry.data_addr = data_addr;
   new_entry.data_size = data_size;
@@ -212,7 +212,7 @@ int QueuePairV2::send() {
   QueueElem entry = send_q.front();
   send_q.pop();
   string args = *(const_cast<int*>(entry.data_addr));
-  uint32_t data_size = entry.data_size;
+  size_t data_size = entry.data_size;
   // reinterpret_cast<GetRequest*>(const_cast<int*>(entry->data_addr)) = args;
 
 
@@ -252,10 +252,6 @@ int QueuePairV2::send() {
   // request.hdr.fn_id = 0;
   request.hdr.argl = data_size;
 
-  request.hdr.remote_qp_num = 0; // TODO: query this from framework
-  request.hdr.p_key = 0;
-  request.hdr.q_key = 0;
-
   request.hdr.ctl.req_type = rpc_request;
   request.hdr.ctl.valid = 1;
 
@@ -291,10 +287,6 @@ int QueuePairV2::send() {
 
   tx_ptr_casted->hdr.fn_id = 0;
   tx_ptr_casted->hdr.argl = data_size;
-
-  tx_ptr_casted->hdr.remote_qp_num = 0; // TODO: query this from framework
-  tx_ptr_casted->hdr.p_key = 0;
-  tx_ptr_casted->hdr.q_key = 0;
 
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;

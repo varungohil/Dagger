@@ -66,6 +66,7 @@ module udp_ip
 
     // Types
     typedef logic[255:0] TxData_;
+    typedef enum logic { SEND, RECEIVE, ACK } OpCode;
 
     localparam BROADCAST_PHY_ADDR = 48'hFFFFFFFFFFFF;
 
@@ -104,13 +105,14 @@ module udp_ip
         logic        ack_req;
         logic [6:0]  reserved_6;
         logic [23:0] psn;
+        logic [31:0] queue_key;
 
         // they had a fr and br fields as part of reserved_8
         //   -> those seem to be part of congestion control
         // slightly different names for reserved_8, reserved_6
         // reversed dest_qp and psn 
 
-    } IBHdr;    // 12B
+    } IBHdr;    // 16B
 
     typedef struct packed {
         logic [7:0] b0;
@@ -207,23 +209,21 @@ module udp_ip
         tx_ip_hdr.dest_ip = tx_fifo_pop_data.addr_tpl.dest_ip;
     end
 
-    typedef enum logic { SEND, RECEIVE, ACK } OpCode;
-    OpCode curr_op_code = SEND;
-
     IBHdr tx_ib_hdr;
     // All fields set to zero right now 
     always_comb begin
-        tx_ib_hdr.op_code = curr_op_code;
+        tx_ib_hdr.op_code = SEND;
         tx_ib_hdr.solicited_event = 1'b1;
         tx_ib_hdr.mig_req = 0;
         tx_ib_hdr.pad_count = 2'b0;
         tx_ib_hdr.t_ver = 4'b0;
         tx_ib_hdr.partition_key = tx_fifo_pop_data.p_key;
         tx_ib_hdr.reserved_8 = 8'b0;
-        tx_ib_hdr.dest_qp = tx_fifo_pop_data.remote_qp_num;
+        tx_ib_hdr.dest_qp = {8'b0, tx_fifo_pop_data.remote_qp_num}; 
         tx_ib_hdr.ack_req = 1'b0;
         tx_ib_hdr.reserved_6 = 7'b0;
         tx_ib_hdr.psn = 24'b0;
+        tx_ib_hdr.queue_key = tx_fifo_pop_data.q_key;
     end
 
     // Compute checksum combinationally
@@ -313,8 +313,8 @@ module udp_ip
 
             TxHeaderData: begin
                 if (tx_ready_in) begin
-                    if (bytes_to_send > 16'd10) begin // changed to 10
-                        bytes_to_send_next = bytes_to_send - 16'd10; // changed to 10
+                    if (bytes_to_send > 16'd6) begin // changed to 6
+                        bytes_to_send_next = bytes_to_send - 16'd6; // changed to 6
                         tx_state_next = TxData;
                     end else
                         tx_state_next = TxIdle;
@@ -344,11 +344,11 @@ module udp_ip
                 if (tx_state == TxHeader)
                     payload_sr <= tx_fifo_pop_data.payload;
                 else if (tx_state == TxHeaderData)
-                    payload_sr <= payload_sr >> 80; // changed from 176 to match below
+                    payload_sr <= payload_sr >> 48; // changed from 176 to match below
                 else if (tx_state == TxData) begin
                     payload_sr <= payload_sr >> 256;
                     // TODO: if longer data should be sent, load a new value
-                    //       to payload_sr here (only sends 42B total right now)
+                    //       to payload_sr here (only sends 38B total right now)
                 end
             end
         end
@@ -389,17 +389,17 @@ module udp_ip
             tx_data[239:176] = tx_udp_hdr;
 
             // IB header
-            //   - 12B
-            //   - 22B - 12B = 10B left = 80b
-            tx_data[175:80] = tx_ib_hdr;
+            //   - 16B
+            //   - 22B - 16B = 6B left = 48b
+            tx_data[175:48] = tx_ib_hdr;
 
             // Payload (begin)
             //   - 64B
-            //   - send first 10B of payload
-            tx_data[80:0] = payload_sr[80:0];
+            //   - send first 6B of payload
+            tx_data[47:0] = payload_sr[47:0];
 
             // TX DT/EoP
-            if (bytes_to_send <= 16'd10) // changed to 10
+            if (bytes_to_send <= 16'd6) // changed to 6
                 tx_eop = 1'b1;
             else
                 tx_dt = 1'b1;
@@ -407,9 +407,9 @@ module udp_ip
         end else if (tx_state == TxData) begin
             // Payload (cont.)
             //   - total size 64B
-            //   - 64B - 10B = 54B left to send
+            //   - 64B - 6B = 58B left to send
             //   - send next 32B here
-            //   - remaining 22B not sent (if needbe, implement)
+            //   - remaining 26B not sent (if needbe, implement) (**data can only be 38B now**)
             tx_data = payload_sr[255:0];
 
             // TX DT/EoP and tx_byte_remain
@@ -473,6 +473,7 @@ module udp_ip
     EthernetHdr rx_eth_hdr;
     IPHdr rx_ip_hdr;
     UDPHdr rx_udp_hdr;
+    IBHdr rx_ib_hdr;
     NetworkPayload rx_payload;
     logic rx_valid;
     logic [15:0] bytes_recv, bytes_recv_next;
@@ -598,7 +599,8 @@ module udp_ip
                 if (rx_state == RxHeaderData) begin
                     rx_ip_hdr[159:144]  <= rx_data_in[255:240];
                     rx_udp_hdr          <= rx_data_in[239:176];
-                    rx_payload[175:0]   <= rx_data_in[175:0];
+                    rx_ib_hdr           <= rx_data_in[175:80];
+                    rx_payload[79:0]    <= rx_data_in[79:0];
 
                     udp_ip_hdr_valid <= 1'b1;
                 end
@@ -698,11 +700,14 @@ module udp_ip
        network_rx_out_fifo.addr_tpl.dest_port = rx_udp_hdr.dest_port;
        network_rx_out_fifo.payload = rx_payload;
        network_rx_out_fifo.valid = rx_valid;
+       network_rx_out_fifo.remote_qp_num = rx_ib_hdr.dest_qp;
+       network_rx_out_fifo.p_key = rx_ib_hdr.partition_key;
+       network_rx_out_fifo.q_key = 32'b0; // TODO: figure out what to do with queue key
     end
 
     logic rx_fifo_ovf;
     async_fifo_channel #(
-            .DATA_WIDTH($bits(NetworkAddressTuple) + $bits(NetworkPayload)),
+            .DATA_WIDTH($bits(NetworkAddressTuple) + $bits(NetworkPayload) + 8'b01000000), // this is adding 64 bits for remote_qp_num, etc.
             .LOG_DEPTH(LRX_FIFO_DEPTH),
             .CLOCK_ARE_SYNCHRONIZED("FALSE"),
             .DELAY_PIPE(4)
@@ -711,13 +716,13 @@ module udp_ip
             .clk_1(rx_clk_in),
 
             .push_en(network_rx_out_fifo.valid),
-            .push_data({network_rx_out_fifo.addr_tpl, network_rx_out_fifo.payload}),
+            .push_data({network_rx_out_fifo.addr_tpl, network_rx_out_fifo.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
 
             .clk_2(clk),
             .pop_enable(1'b1),
 
             .pop_valid(network_rx_out.valid),
-            .pop_data({network_rx_out.addr_tpl, network_rx_out.payload}),
+            .pop_data({network_rx_out.addr_tpl, network_rx_out.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
             .pop_dw(),
             .pop_empty(),
 
