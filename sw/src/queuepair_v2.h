@@ -24,7 +24,8 @@
 namespace dagger {
 
 struct QueueElem {
-  volatile char* data_addr; //Do we need volatile here?
+  volatile int* data_addr; //Do we need volatile here?
+  uint32_t data_size;
 };
 
 class QueuePairV2 {
@@ -52,10 +53,12 @@ class QueuePairV2 {
   int recv();
   int stop_recv();
 
-  void add_send_queue_entry(volatile char* data_addr);
-  void add_recv_queue_entry(volatile char* data_addr);
+  void add_send_queue_entry(volatile int* data_addr, uint32_t data_size);
+  void add_recv_queue_entry(volatile int* data_addr, uint32_t data_size);
 
   // void append_elem(std::queue<QueueElem> q);
+
+  bool is_data_available()
 
   uint16_t get_qp_num();
 
@@ -68,6 +71,7 @@ class QueuePairV2 {
   uint16_t remote_qp_num_;
   uint16_t p_key_;
   uint32_t q_key_;
+  std::atomic<bool> data_available_ = 0; 
 
   std::queue<QueueElem> recv_q;
   std::queue<QueueElem> send_q;
@@ -92,7 +96,7 @@ class QueuePairV2 {
   std::thread thread_;
   std::atomic<bool> stop_signal_;
 
-  void operator()(const RpcPckt* rpc_in, TxQueue& tx_queue) const {
+  void operator(const RpcPckt* rpc_in, TxQueue& tx_queue) const {
     // uint8_t ret_buff[cfg::sys::cl_size_bytes];
 
     // Check the fn_id is within the scope
@@ -106,15 +110,15 @@ class QueuePairV2 {
     // read first received packet
     QueueElem entry = recv_q.front();
     recv_q.pop();
-    *(reinterpret_cast<GetRequest*>(const_cast<char*>(entry.data_addr))) = rpc_in->argv;
+    *(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
 
 
 
     // // set store addr based on request argv
-    // r_elem.data_addr = (char*)rpc_in->argv;
+    // r_elem.data_addr = (int*)rpc_in->argv;
 
     //     uint8_t change_bit;
-    //     volatile char* tx_ptr = tx_queue.get_write_ptr(change_bit);
+    //     volatile int* tx_ptr = tx_queue.get_write_ptr(change_bit);
 
     //     // Send data
     // #ifdef NIC_CCIP_POLLING
