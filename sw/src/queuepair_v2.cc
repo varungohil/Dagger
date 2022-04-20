@@ -10,6 +10,7 @@
 #include <thread>
 #include <utility>
 #include <vector>
+#include <string>
 
 #include "config.h"
 #include "logger.h"
@@ -86,6 +87,13 @@ int QueuePairV2::start_listening() {
   return 0;
 }
 
+bool is_data_available() {
+  if(data_available_){
+    return 1;
+  }
+  return 0;
+}
+
 void QueuePairV2::stop_listening() {
   stop_signal_ = 1;
   thread_.join();
@@ -127,6 +135,7 @@ void QueuePairV2::_PullListen() {
       //_mm256_store_si256(reinterpret_cast<__m256i*>(&req_pckt_1[i] + 32),
       //                   *(reinterpret_cast<__m256i*>(req_pckt + 32)));
     }
+    data_available_ = 1;
     if (stop_signal_) continue;
 
     for (int i = 0; i < batch_size; ++i) {
@@ -146,8 +155,10 @@ void QueuePairV2::_PullListen() {
       //    }
       //    std::cout << "\n **************** " << std::endl;
 
-      operator()(req_pckt_1 + i, tx_queue_);
+      operator(req_pckt_1 + i, tx_queue_);
+      //
     }
+    data_available_ = 0;
   }
 
   // FRPC_INFO("Thread %d is stopped\n", thread_id_);
@@ -155,21 +166,23 @@ void QueuePairV2::_PullListen() {
 
 // push data_addr onto queue q
 // void QueuePairV2::append_elem(std::queue<QueueElem> q,
-//                               volatile char* data_addr) {
+//                               volatile int* data_addr) {
 //   QueueElem next_req;
 //   next_req.data_addr = data_addr;
 //   q.push(next_req);
 // }
 
-void QueuePairV2::add_send_queue_entry(volatile char* data_addr) {
+void QueuePairV2::add_send_queue_entry(volatile int* data_addr, size_t data_size) {
   QueueElem new_entry;
   new_entry.data_addr = data_addr;
+  new_entry.data_size = data_size;
   send_q.push(new_entry);
 }
 
-void QueuePairV2::add_recv_queue_entry(volatile char* data_addr) {
+void QueuePairV2::add_recv_queue_entry(volatile int* data_addr, size_t data_size) {
   QueueElem new_entry;
   new_entry.data_addr = data_addr;
+  new_entry.data_size = data_size;
   recv_q.push(new_entry);
 }
 
@@ -198,8 +211,9 @@ int QueuePairV2::send() {
 
   QueueElem entry = send_q.front();
   send_q.pop();
-  GetRequest args = *(reinterpret_cast<GetRequest*>(const_cast<char*>(entry.data_addr)));
-  // reinterpret_cast<GetRequest*>(const_cast<char*>(entry->data_addr)) = args;
+  string args = *(const_cast<int*>(entry.data_addr));
+  size_t data_size = entry.data_size;
+  // reinterpret_cast<GetRequest*>(const_cast<int*>(entry->data_addr)) = args;
 
 
   // // call operator to do fulfill send 
@@ -216,12 +230,12 @@ int QueuePairV2::send() {
   tx_ptr_casted->hdr.frame_id = 0;
 
   tx_ptr_casted->hdr.fn_id = 0;
-  tx_ptr_casted->hdr.argl = sizeof(GetRequest);
+  tx_ptr_casted->hdr.argl = data_size;
 
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;
 
-  *reinterpret_cast<GetRequest*>(const_cast<uint8_t*>(tx_ptr_casted->argv)) =
+  *reinterpret_cast<int*>((tx_ptr_casted->argv)) =
       args;
 
   // Set valid
@@ -235,8 +249,8 @@ int QueuePairV2::send() {
   request.hdr.n_of_frames = 1;
   request.hdr.frame_id = 0;
 
-  request.hdr.fn_id = 0;
-  request.hdr.argl = sizeof(GetRequest);
+  // request.hdr.fn_id = 0;
+  request.hdr.argl = data_size;
 
   request.hdr.ctl.req_type = rpc_request;
   request.hdr.ctl.valid = 1;
@@ -244,7 +258,7 @@ int QueuePairV2::send() {
   _mm_mfence();
 
   memcpy(request.argv, reinterpret_cast<const void*>(&args),
-         sizeof(GetRequest));
+         data_size);
 
 // MMIO only supports AVX writes
 #  ifdef PLATFORM_PAC_A10
@@ -272,12 +286,12 @@ int QueuePairV2::send() {
   tx_ptr_casted->hdr.frame_id = 0;
 
   tx_ptr_casted->hdr.fn_id = 0;
-  tx_ptr_casted->hdr.argl = sizeof(GetRequest);
+  tx_ptr_casted->hdr.argl = data_size;
 
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;
 
-  *reinterpret_cast<GetRequest*>(const_cast<uint8_t*>(tx_ptr_casted->argv)) =
+  *reinterpret_cast<int*>(tx_ptr_casted->argv)) =
       args;
 
   tx_ptr_casted->hdr.ctl.valid = 1;

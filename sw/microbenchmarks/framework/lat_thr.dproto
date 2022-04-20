@@ -1,0 +1,64 @@
+/* 16 Byte */
+message LoopBackArgs {
+	int64 timestamp;
+	int64 data;
+}
+
+/* 24 Byte */
+message AddArgs {
+	int64 timestamp;
+    int64 a;
+    int64 b;
+}
+
+/* 8 Byte */
+message NumericalResult {
+    int64 ret_val;
+}
+
+/* 40 Byte */
+message SigningArgs {
+	int64 timestamp;
+    int64 hash_lsb;
+    int64 hash_msb;
+    int32 key_0;
+    int32 key_1;
+    int32 key_2;
+    int32 key_3;
+}
+
+/* 8 Byte */
+message Signature {
+    int64 result;
+}
+
+/* 52 Byte */
+message XorArgs {
+	int64 timestamp;
+    int64 a;
+    int64 b;
+    int64 c;
+    int64 d;
+    int64 e;
+    int32 f;
+}
+
+/* 48 Byte */
+message UserName {
+    int64 timestamp;
+    char[20] first_name;
+    char[20] given_name;
+}
+
+message UserData {
+    int64 timestamp;
+    char[40] data;
+}
+
+service MyService {
+	rpc loopback(LoopBackArgs) returns (NumericalResult);
+    rpc add(AddArgs) returns (NumericalResult);
+    rpc sign(SigningArgs) returns (Signature);
+    rpc xor_(XorArgs) returns (NumericalResult);
+    rpc getUserData(UserName) returns (UserData);
+}

@@ -160,27 +160,27 @@ int RDMA::make_qp() {
     qp_pool_.emplace_back(std::unique_ptr<QueuePair>(
         new QueuePair(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
     ++qp_pool_cnt_;
-    return 0;
+    return qp_pool_cnt - 1;
   } else {
     FRPC_ERROR("Max number of queue pairs is reached: %zu\n",
                max_qp_pool_size_);
-    return 1;
+    return -1;
   }
 }
 
-void add_send_queue_entry(uint16_t queue_pair_num, volatile char* data_addr){
+void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
-      qp.add_send_queue_entry(data_addr);
+      qp.add_send_queue_entry(data_addr, data_size);
       return 0;
     }
   }
   return 1; 
 }
-void add_recv_queue_entry(uint16_t queue_pair_num, volatile char* data_addr){
+void add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
-      qp.add_recv_queue_entry(data_addr);
+      qp.add_recv_queue_entry(data_addr, data_size);
       return 0;
     }
   }
@@ -212,6 +212,17 @@ int RDMA::recv(uint16_t queue_pair_num) {
   }
   return 1;  // qp number does not exist
 }
+
+bool RDMA::is_data_avaiable(uint16_t queue_pair_num) {
+  // Pass data to send
+  // Add arguments that take in data
+  for (auto qp : qp_pool_) {
+    if (qp.get_qp_num() == queue_pair_num) {
+      return qp.is_data_avaiable();
+    }
+  }
+}
+
 
 int RDMA::stop_recv(uint16_t queue_pair_num) {
   // Pass data to send
