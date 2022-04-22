@@ -374,10 +374,17 @@ module connection_manager
         end
     end
 
+    logic good; // added
+
     // Delay RPC flow by 1 cycle for look-up
     CManagerRpcIf rpc_in_1d;
     CManagerNetRpcIf rpc_net_in_1d;
     always @(posedge clk) begin
+        if(rpc_net_in.remote_qp_num == c_tbl_rd_data[0].remote_qp_num // added
+            && rpc_net_in.p_key == c_tbl_rd_data[0].p_key
+            && rpc_net_in.q_key == c_tbl_rd_data[0].q_key) good <= 1;
+        else good <= 0; // added
+
         rpc_in_1d <= rpc_in;
         rpc_net_in_1d <= rpc_net_in;
     end
@@ -385,6 +392,7 @@ module connection_manager
     // Commit look-up
     always @(posedge clk) begin
         // RPC data flow
+
         rpc_net_out.rpc_data <= rpc_in_1d.rpc_data;
         rpc_net_out.net_addr.dest_ip <= c_tbl_rd_data[0].dest_ip;
         rpc_net_out.net_addr.dest_port <= c_tbl_rd_data[0].dest_port;
@@ -400,14 +408,14 @@ module connection_manager
         // RPC control flow
         rpc_net_out.valid <= 1'b0;
         if (rpc_in_1d.valid) begin
-            if (c_tbl_rd_data[0].status == cOpen) begin
-                rpc_net_out.valid <= 1'b1;
+            if (c_tbl_rd_data[0].status == cOpen && good) begin // added good
+                rpc_net_out.valid <= 1'b1; // if not valid we toss everything
             end
         end
 
         rpc_out.valid <= 1'b0;
         if (rpc_net_in_1d.valid) begin
-            if (c_tbl_rd_data[1].status == cOpen) begin
+            if (c_tbl_rd_data[1].status == cOpen && good) begin // added good
                 rpc_out.valid <= 1'b1;
             end
         end

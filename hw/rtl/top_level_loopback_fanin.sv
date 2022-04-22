@@ -28,7 +28,7 @@ module top_level_loopback_fanin_module (
     // We need four NICs:
     // * 3 client-side NICs
     // * 1 server-side NIC
-    localparam NUM_SUB_AFUS    = 4;
+    localparam NUM_SUB_AFUS    = 4; // # of nics on one server?
     localparam NUM_PIPE_STAGES = 2; // TODO: figure out what this does
 
 
@@ -118,7 +118,7 @@ module top_level_loopback_fanin_module (
     //     SW MMIO addr is in 64-bit space
     //     SW MMIO addr is 8B aligned (4)
     //     (3, 4) -> SW/HW = 4
-    localparam NIC_1_MMIO_SW_ADDR = 32'h40000; // was 2 before? changed to match top_level.sv from u_services branch
+    localparam NIC_1_MMIO_SW_ADDR = 32'h4000; // was 2 before? changed to match top_level.sv from u_services branch
     localparam NIC_1_MMIO_ADDR_SW_2_HW = NIC_1_MMIO_SW_ADDR/4;
 
     // logic nic_1_reset;
