@@ -241,338 +241,119 @@ module top_level_network_module (
             .rx_ready_out (eth_rx_ready[2])
         );
 
-    t_if_ccip_Rx sRx_nic;
-    assign sRx_nic = pck_afu_RxPort[1];
+    
+    logic [1:0] count;
+    logic [1:0] count_next;
+    logic [2:0] state;
+    logic [2:0] state_next;
 
-    t_ccip_c0_ReqMmioHdr mmio_req_hdr;
-    assign mmio_req_hdr = t_ccip_c0_ReqMmioHdr'(sRx_nic.c0.hdr);
+    localparam S_NIC1 = 2'd0;
+    localparam S_NIC2 = 2'd1;
+    localparam S_NIC3 = 2'd2;
+    localparam S_IDLE = 2'd3;
 
-    // CSR write logic
-    logic is_csr_write;
-    assign is_csr_write = sRx_nic.c0.mmioWrValid;
+    localparam S_COUNT0 = 2'd0;
+    localparam S_COUNT1 = 2'd1;
+    localparam S_COUNT2 = 2'd2;
 
-    logic is_mem_tx_addr_csr_write;
-    assign is_mem_tx_addr_csr_write = is_csr_write &&
-                                      (mmio_req_hdr.address == addrRegMemTxAddr);
+    // ------------------------------
+    // NIC FSM
+    // ------------------------------
 
-    logic is_mem_rx_addr_csr_write;
-    assign is_mem_rx_addr_csr_write = is_csr_write &&
-                                      (mmio_req_hdr.address == addrRegMemRxAddr);
+    // output logic
 
-    logic is_nic_start_csr_write;
-    assign is_nic_start_csr_write = is_csr_write &&
-                                    (mmio_req_hdr.address == addrRegNicStart);
+    always@ (posedge network_clk) begin
 
-    logic is_num_of_flows_csr_write;
-    assign is_num_of_flows_csr_write = is_csr_write &&
-                                       (mmio_req_hdr.address == addrRegNumOfFlows);
+        eth_tx_ready[0] <= 1'b0;
+        eth_tx_ready[1] <= 1'b0;
+        eth_tx_ready[2] <= 1'b0;
 
-    logic is_init_csr_write;
-    assign is_init_csr_write = is_csr_write &&
-                               (mmio_req_hdr.address == addrRegInit);
+        case (state)
+            S_IDLE: begin
+                eth_tx_data_joint <= eth_tx_data[0];
+                eth_tx_valid_joint <= 1'b0;
+                eth_tx_sop_joint <= eth_tx_sop[0];
+                eth_tx_eop_joint <= eth_tx_eop[0];
+                eth_tx_empty_joint <= eth_tx_empty[0];
+                eth_tx_error_joint <= eth_tx_error[0];
 
-    logic is_get_nic_cnt_csr_write;
-    assign is_get_nic_cnt_csr_write = is_csr_write &&
-                                      (mmio_req_hdr.address == addrGetPckCnt);
+                eth_rx_ready_joint <= eth_rx_ready[0];
 
-    logic is_rx_queue_size_csr_write;
-    assign is_rx_queue_size_csr_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrRxQueueSize);
+            end
+            
+            default: begin
 
-    logic is_tx_queue_size_csr_write;
-    assign is_tx_queue_size_csr_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrTxQueueSize);
+                eth_tx_data_joint <= eth_tx_data[state];
+                eth_tx_valid_joint <= eth_tx_valid[state];
+                eth_tx_sop_joint <= eth_tx_sop[state];
+                eth_tx_eop_joint <= eth_tx_eop[state];
+                eth_tx_empty_joint <= eth_tx_empty[state];
+                eth_tx_error_joint <= eth_tx_error[state];
 
-    logic is_tx_batch_size_csr_write;
-    assign is_tx_batch_size_csr_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrTxBatchSize);
+                eth_rx_ready_joint <= eth_rx_ready[state];
 
-    logic is_rx_batch_size_csr_write;
-    assign is_rx_batch_size_csr_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrRxBatchSize);
-
-    logic is_polling_rate_csr_write;
-    assign is_polling_rate_csr_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrPollingRate);
-
-    logic is_conn_setup_frame_write;
-    assign is_conn_setup_frame_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrConnSetup);
-
-    logic is_lb_write;
-    assign is_lb_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrLB);
-
-    logic is_phy_net_addr_write;
-    assign is_phy_net_addr_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrPhyNetAddr);
-
-    logic is_ipv4_net_addr_write;
-    assign is_ipv4_net_addr_write = is_csr_write &&
-                                        (mmio_req_hdr.address == addrIPv4NetAddr);
-
-    logic is_net_drop_cnt_read;
-    assign is_net_drop_cnt_read = is_csr_write &&
-                                        (mmio_req_hdr.address == addrNetDropCntRead);
-
-    always_ff @(posedge ccip_clk) begin
-        // Default values
-        iRegNicInit <= 1'b0;
-        iRegConnSetupFrame_en <= 1'b0;
-        iRegReadNetDropCntValid <= 1'b0;
-
-        if (is_mem_tx_addr_csr_write) begin
-            $display("NIC%d: iRegMemTxAddr configured: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegMemTxAddr <= t_ccip_clAddr'(sRx_nic.c0.data);
-        end
-
-        if (is_mem_rx_addr_csr_write) begin
-            $display("NIC%d: iRegMemRxAddr configured: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegMemRxAddr <= t_ccip_clAddr'(sRx_nic.c0.data);
-        end
-
-        if (is_nic_start_csr_write) begin
-            $display("NIC%d: iRegNicStart configured: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegNicStart <= sRx_nic.c0.data[0];
-        end
-
-        if (is_num_of_flows_csr_write) begin
-            $display("NIC%d: iRegNumOfFlows configured: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegNumOfFlows <= sRx_nic.c0.data[LMAX_NUM_OF_FLOWS-1:0] - 1;
-        end
-
-        if (is_init_csr_write) begin
-            $display("NIC%d: iRegNicInit received", NIC_ID);
-            iRegNicInit <= 1;
-        end
-
-        if (is_get_nic_cnt_csr_write) begin
-            $display("NIC%d: iRegGetPckCnt received: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegGetPckCnt <= sRx_nic.c0.data[7:0];
-        end
-
-        if (is_rx_queue_size_csr_write) begin
-            $display("NIC%d: iRegRxQueueSize received: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegRxQueueSize <= sRx_nic.c0.data[LMAX_RX_QUEUE_SIZE-1:0] - 1;
-        end
-
-        if (is_tx_queue_size_csr_write) begin
-            $display("NIC%d: iRegTxQueueSize received: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegTxQueueSize <= sRx_nic.c0.data[LMAX_TX_QUEUE_SIZE:0];
-        end
-
-        if (is_tx_batch_size_csr_write) begin
-            $display("NIC%d: lRegTxBatchSize received: %08h", NIC_ID, sRx_nic.c0.data);
-            lRegTxBatchSize <= sRx_nic.c0.data[LMAX_CCIP_BATCH-1:0];
-        end
-
-        if (is_rx_batch_size_csr_write) begin
-            $display("NIC%d: iRegRxBatchSize received: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegRxBatchSize <= sRx_nic.c0.data[LMAX_CCIP_DMA_BATCH-1:0];
-        end
-
-        if (is_polling_rate_csr_write) begin
-            $display("NIC%d: iRegPollingRate received: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegPollingRate <= sRx_nic.c0.data[LMAX_POLLING_RATE-1:0];
-        end
-
-        if (is_conn_setup_frame_write) begin
-            $display("NIC%d: iRegConnSetupFrame received: %08h", NIC_ID, sRx_nic.c0.data);
-            iRegConnSetupFrame <= sRx_nic.c0.data[$bits(ConnSetupFrame)-1:0];
-            iRegConnSetupFrame_en <= 1'b1;
-        end
-
-        if (is_lb_write) begin
-            iLB <= sRx_nic.c0.data[$bits(iLB)-1:0];
-        end
-
-        if (is_phy_net_addr_write) begin
-            iRegPhyNetAddr.b0 <= sRx_nic.c0.data[7:0];
-            iRegPhyNetAddr.b1 <= sRx_nic.c0.data[15:8];
-            iRegPhyNetAddr.b2 <= sRx_nic.c0.data[23:16];
-            iRegPhyNetAddr.b3 <= sRx_nic.c0.data[31:24];
-            iRegPhyNetAddr.b4 <= sRx_nic.c0.data[39:32];
-            iRegPhyNetAddr.b5 <= sRx_nic.c0.data[47:40];
-        end
-
-        if (is_ipv4_net_addr_write) begin
-            iRegIpv4NetAddr.b0 <= sRx_nic.c0.data[7:0];
-            iRegIpv4NetAddr.b1 <= sRx_nic.c0.data[15:8];
-            iRegIpv4NetAddr.b2 <= sRx_nic.c0.data[23:16];
-            iRegIpv4NetAddr.b3 <= sRx_nic.c0.data[31:24];
-        end
-
-        if (is_net_drop_cnt_read) begin
-            iRegReadNetDropCnt <= sRx_nic.c0.data[3:0];
-            iRegReadNetDropCntValid <= 1'b1;
-        end
-
-        if (reset) begin
-            iRegNicStart <= 1'b0;
-            iRegNicInit  <= 1'b0;
-            iRegConnSetupFrame_en <= 1'b0;
-            iRegReadNetDropCntValid <= 1'b0;
-        end
+                eth_tx_ready[state] <= 1'b1;
+            end
+        endcase
     end
 
-    // udp wires 
+    // next stage logic
+    always@ (posedge network_clk) begin
+        case (state)
+            S_IDLE: begin 
+                if (count == 0 && eth_tx_valid[0] && eth_tx_ready[0]) next_state = S_NIC1;
+                else if (count == 0 && eth_tx_valid[1] && eth_tx_ready[1]) next_state = S_NIC2;
+                else if (count == 0 && eth_tx_valid[2] && eth_tx_ready[2]) next_state = S_NIC3;
+                else next_state = S_IDLE;
+            end
 
-    PhyAddr host_phy_addr_udp;
-    IPv4 host_ipv4_addr_udp;
-
-    // App interface
-    logic reset_udp;
-    logic clk_udp;
-    NetworkIf network_tx_in_udp;
-    // logic [15:0] network_tx_size_in_udp;
-    NetworkIf network_rx_out_udp;
-
-    // Networking MAC/PHY interface
-    // TX Avalon-ST interface
-    logic tx_clk_in_udp;
-    logic tx_reset_in_udp;
-    logic tx_ready_in_udp;
-    logic [255:0] tx_data_out_udp;
-    logic         tx_valid_out_udp;
-    logic         tx_sop_out_udp;
-    logic         tx_eop_out_udp;
-    logic [4:0]   tx_empty_out_udp;
-    logic         tx_error_out_udp;
-
-    // RX Avalon-ST interface
-    logic rx_clk_in_udp;
-    logic rx_reset_in_udp;
-    logic [255:0]   rx_data_in_udp;
-    logic rx_valid_in_udp;
-    logic rx_sop_in_udp;
-    logic rx_eop_in_udp;
-    logic [4:0]   rx_empty_in_udp;
-    logic [5:0]   rx_error_in_udp;
-    logic         rx_ready_out_udp;
-
-    // Drop counter interfaces
-    logic [3:0]   pckt_drop_cnt_in_udp;
-    logic pckt_drop_cnt_valid_in_udp;
-    logic [63:0] pckt_drop_cnt_out_udp;
-
-    // Error
-    // logic error_udp
-
-
-
-    udp_ip udp_ (
-            .host_phy_addr(host_phy_addr_udp),
-            .host_ipv4_addr(host_ipv4_addr_udp),
-
-            .clk(clk_udp), // should we have one universal clock
-            .reset(reset_udp),
-            .network_tx_in(network_tx_in_udp),
-            .network_tx_size_in(16'd64), // must be size of data payload only 
-                                         // not including addr_tpl or valid
-                                         // or remote_qp_num etc.
-            .network_rx_out(network_rx_out_udp),
-
-            .tx_clk_in (tx_clk_in_udp),
-            .tx_reset_in (tx_reset_in_udp),
-            .tx_ready_in (tx_ready_in_udp),
-            .tx_data_out (tx_data_out_udp),
-            .tx_valid_out (tx_valid_out_udp),
-            .tx_sop_out (tx_sop_out_udp),
-            .tx_eop_out (tx_eop_out_udp),
-            .tx_empty_out (tx_empty_out_udp),
-            .tx_error_out (tx_error_out_udp),
-
-            .rx_clk_in (rx_clk_in_udp),
-            .rx_reset_in (rx_reset_in_udp),
-            .rx_data_in (rx_data_in_udp),
-            .rx_valid_in (rx_valid_in_udp),
-            .rx_sop_in (rx_sop_in_udp),
-            .rx_eop_in (rx_eop_in_udp),
-            .rx_empty_in (rx_empty_in_udp),
-            .rx_error_in (rx_error_in_udp),
-            .rx_ready_out (rx_ready_out_udp),
-
-            .pckt_drop_cnt_in(pckt_drop_cnt_in_udp),
-            .pckt_drop_cnt_valid_in(pckt_drop_cnt_valid_in_udp),
-            .pckt_drop_cnt_out(pckt_drop_cnt_out_udp),
-
-            .error()
-        );
-
-
-    always @(posedge network_clk) begin
-        // network_Rx_line   <= network_Tx_line_1;
-        // network_Rx_line_1 <= network_Tx_line;
-
-        // if (network_rst) begin
-        //     network_Rx_line.valid <= 1'b0;
-        //     network_Rx_line_1.valid <= 1'b0;
-        // end
-
-        eth_rx_valid[0] <= 1'b0;
-        eth_rx_valid[1] <= 1'b0;
-        eth_rx_valid[2] <= 1'b0;
-        eth_rx_valid[3] <= 1'b0;
-
-        if (eth_tx_valid[0] == 1'b1) begin
+            S_NIC1: begin 
+                if ((count == 1 || count == 2) && eth_tx_valid[0] && eth_tx_ready[0]) next_state = S_NIC1;
+                else next_state = S_IDLE;
+            end
             
-        end
-        if (network_Tx_line[1].valid == 1'b1) begin
-            network_Rx_line[network_Tx_line[1].addr_tpl.dest_ip.b0] <= network_Tx_line[1];
-        end
-        if (network_Tx_line[2].valid == 1'b1) begin
-            network_Rx_line[network_Tx_line[2].addr_tpl.dest_ip.b0] <= network_Tx_line[2];
-        end
-        if (network_Tx_line[3].valid == 1'b1) begin
-            network_Rx_line[network_Tx_line[3].addr_tpl.dest_ip.b0] <= network_Tx_line[3];
-        end
+            S_NIC2: begin 
+                if ((count == 1 || count == 2) && eth_tx_valid[1] && eth_tx_ready[1]) next_state = S_NIC2;
+                else next_state = S_IDLE;
+            end
 
-        // LOOK AT THESE
-        host_phy_addr_udp <= iRegPhyNetAddr;
-        host_ipv4_addr_udp <= iRegIpv4NetAddr;
+            S_NIC3: begin 
+                if ((count == 1 || count == 2)  && eth_tx_valid[2] && eth_tx_ready[2]) next_state = S_NIC3;
+                else next_state = S_IDLE;
+            end
 
-        reset_udp <= network_rst; // guessing
-        clk_udp <= clk;
-        
-        network_tx_in_udp
+            default: next_state = S_IDLE;
+        endcase
+    end
 
-        tx_clk_in_udp
+    // ------------------------------
+    // COUNT FSM 
+    // ------------------------------ 
 
-        tx_reset_in_udp <= tx_reset_in[i];
-        tx_ready_in_udp <= tx_ready_in[i];
+    // next stage logic
+    always@ (posedge network_clk) begin
+        case (count)
+            S_COUNT0: begin
+                if ((eth_tx_valid[0] && eth_tx_ready[0]) || (eth_tx_valid[1] && eth_tx_ready[1]) 
+                || (eth_tx_valid[2] && eth_tx_ready[2]))
 
-        rx_clk_in_udp <= rx_clk_in[i];
-        rx_reset_in_udp <= rx_reset_in[i];
-        rx_data_in_udp <= rx_data_in[i];
-        rx_valid_in_udp <= rx_data_in[i];
-        rx_sop_in_udp <= rx_sop_in[i];
-        rx_eop_in_udp <= rx_eop_in[i];
-        rx_empty_in_udp <= rx_empty_in[i];
-        rx_error_in_udp <= rx_error_in[i];
+                count_next = S_COUNT1;
+            end
 
-        pckt_drop_cnt_in_udp
-        pckt_drop_cnt_valid_in_udp
+            S_COUNT1: count_next = S_COUNT2;
+            S_COUNT2: count_next = S_COUNT0;
+            
+            default: count_next = S_COUNT0;
+            
+        endcase
+    end
 
-        // OUTPUTS
-        network_rx_out_udp,
-
-        tx_data_out_udp,
-        tx_valid_out_udp,
-        tx_sop_out_udp,
-        tx_eop_out_udp,
-        tx_empty_out_udp,
-        tx_error_out_udp,
-        
-        rx_ready_out_udp,
-
-        pckt_drop_cnt_out_udp,
-
-        if (network_rst) begin
-            network_Rx_line[0].valid <= 1'b0;
-            network_Rx_line[1].valid <= 1'b0;
-            network_Rx_line[2].valid <= 1'b0;
-            network_Rx_line[3].valid <= 1'b0;
-        end
+    // state transition logic
+    always@(posedge clk) begin
+    if (ccip_mux2pe_reset[1]) 
+        count <= S_COUNT0;
+    else
+        count <= count_next;
     end
 
     // =============================================================
@@ -589,23 +370,23 @@ module top_level_network_module (
 
             .tx_clk_out   (eth_tx_clk),
             .tx_reset_out (eth_tx_reset),
-            .tx_ready_out (eth_tx_ready),
-            .tx_data_in  (eth_tx_data),
-            .tx_valid_in (eth_tx_valid),
-            .tx_sop_in   (eth_tx_sop),
-            .tx_eop_in   (eth_tx_eop),
-            .tx_empty_in (eth_tx_empty),
-            .tx_error_in (eth_tx_error),
+            .tx_ready_out (eth_tx_ready_joint),
+            .tx_data_in  (eth_tx_data_joint),
+            .tx_valid_in (eth_tx_valid_joint),
+            .tx_sop_in   (eth_tx_sop_joint),
+            .tx_eop_in   (eth_tx_eop_joint),
+            .tx_empty_in (eth_tx_empty_joint),
+            .tx_error_in (eth_tx_error_joint),
 
             .rx_clk_out   (eth_rx_clk),
             .rx_reset_out (eth_rx_reset),
-            .rx_data_out  (eth_rx_data),
-            .rx_valid_out (eth_rx_valid),
-            .rx_sop_out   (eth_rx_sop),
-            .rx_eop_out   (eth_rx_eop),
-            .rx_empty_out (eth_rx_empty),
-            .rx_error_out (eth_rx_error),
-            .rx_ready_in (eth_rx_ready),
+            .rx_data_out  (eth_rx_data_joint),
+            .rx_valid_out (eth_rx_valid_joint),
+            .rx_sop_out   (eth_rx_sop_joint),
+            .rx_eop_out   (eth_rx_eop_joint),
+            .rx_empty_out (eth_rx_empty_joint),
+            .rx_error_out (eth_rx_error_joint),
+            .rx_ready_in (eth_rx_ready_joint),
 
             .hssi(hssi)
         );
