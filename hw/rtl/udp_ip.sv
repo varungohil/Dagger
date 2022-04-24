@@ -731,7 +731,7 @@ module udp_ip
     //     );
 
       async_fifo_channel #(
-            .DATA_WIDTH($bits(NetworkIf)) 
+            .DATA_WIDTH($bits(NetworkIf)),
             .LOG_DEPTH(LRX_FIFO_DEPTH),
             .CLOCK_ARE_SYNCHRONIZED("FALSE"),
             .DELAY_PIPE(4)
