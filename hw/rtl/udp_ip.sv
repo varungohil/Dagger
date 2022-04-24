@@ -702,7 +702,7 @@ module udp_ip
        network_rx_out_fifo.valid = rx_valid;
        network_rx_out_fifo.remote_qp_num = rx_ib_hdr.dest_qp;
        network_rx_out_fifo.p_key = rx_ib_hdr.partition_key;
-       network_rx_out_fifo.q_key = 32'b0; // TODO: figure out what to do with queue key
+       network_rx_out_fifo.q_key = rx_ib_hdr.queue_key; // TODO: figure out what to do with queue key
     end
 
     logic rx_fifo_ovf;
