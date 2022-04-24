@@ -65,8 +65,8 @@ module udp_ip
     );
 
     // Types
-    typedef logic[255:0] TxData_;
-    typedef enum logic { SEND, RECEIVE, ACK } OpCode;
+    typedef logic [255:0] TxData_;
+    typedef enum logic [1:0] { SEND, RECEIVE, ACK } OpCode;
 
     localparam BROADCAST_PHY_ADDR = 48'hFFFFFFFFFFFF;
 

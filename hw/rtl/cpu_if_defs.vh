@@ -91,6 +91,7 @@ typedef struct packed {
     logic[4:0] padding;
     ConnSetupCmds cmd;
 	logic[31:0] data;
+    logic[63:0] big_data;
 } ConnSetupFrame;
 
 typedef enum logic[1:0] { cOK,

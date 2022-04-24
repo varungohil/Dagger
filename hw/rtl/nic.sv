@@ -488,7 +488,7 @@ module nic
         .rx_base_addr(iRegMemRxAddr),
         .tx_base_addr(iRegMemTxAddr),
         .l_tx_batch_size(lRegTxBatchSize),
-        .tx_queue_size(iRegTxQueueSize),
+        // .tx_queue_size(iRegTxQueueSize),
         .start(iRegNicStart),
 
         .initialize(iRegNicInit),

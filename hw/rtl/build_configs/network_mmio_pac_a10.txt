@@ -18,7 +18,7 @@ C:${FPGA_BBB_CCI_SRC}/BBB_ccip_mux/hw/sim/mux_simfiles.list
 ../pulse_gen.sv
 ../single_clock_wr_ram.sv
 ../top_level_loopback.sv
-../top_level_network.sv
+../top_level_network_3.sv
 ../ethernet_mac.sv
 ../ccip_async_shim.sv
 ../ccip_afifo_channel.sv
