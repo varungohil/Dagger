@@ -11,7 +11,7 @@
 #include <vector>
 
 #include "nic.h"
-// #include "rpc_server_thread.h"
+#include "rpc_server_thread.h"
 #include "queuepair_v2.h"
 
 namespace dagger {
@@ -22,6 +22,7 @@ namespace dagger {
 class RDMA {
  public:
   RDMA() = default;
+  std::vector<std::unique_ptr<QueuePairV2>> qp_pool_;
 
   /// Create the RPC server object with the given number of threads and based on
   /// the nic with the hardware MMIO address @param base_nic_addr.
@@ -60,7 +61,7 @@ class RDMA {
 
   /// Set the desired load balancing scheme which will be used to distribute
   /// requests across the RpcServerThread's.
-  void set_lb(int lb);
+  // void set_lb(int lb);
 
   int make_qp();
   int send(uint16_t queue_pair_num);
@@ -81,11 +82,11 @@ class RDMA {
   std::unique_ptr<Nic> nic_;
 
   /// Thread pool.
-  std::vector<std::unique_ptr<RpcServerThread>> threads_;
+  // std::vector<std::unique_ptr<RpcServerThread>> threads_;
   size_t thread_cnt_;
 
   /// QueuePair pool.
-  std::vector<std::unique_ptr<QueuePairV2>> qp_pool_;
+  // std::vector<std::unique_ptr<QueuePairV2>> qp_pool_;
   size_t qp_pool_cnt_;
 
   /// Sync.
