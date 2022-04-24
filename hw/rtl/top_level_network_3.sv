@@ -245,7 +245,7 @@ module top_level_network_module_3 (
     logic [1:0] count;
     logic [1:0] count_next;
     logic [2:0] state;
-    logic [2:0] state_next;
+    logic [2:0] next_state;
 
     localparam S_NIC1 = 2'd0;
     localparam S_NIC2 = 2'd1;
@@ -262,7 +262,7 @@ module top_level_network_module_3 (
 
     // output logic
 
-    always@ (posedge network_clk) begin
+    always@ (posedge clk) begin
 
         eth_tx_ready[0] <= 1'b0;
         eth_tx_ready[1] <= 1'b0;
@@ -298,7 +298,7 @@ module top_level_network_module_3 (
     end
 
     // next stage logic
-    always@ (posedge network_clk) begin
+    always@ (posedge clk) begin
         case (state)
             S_IDLE: begin 
                 if (count == 0 && eth_tx_valid[0] && eth_tx_ready[0]) next_state = S_NIC1;
@@ -331,7 +331,7 @@ module top_level_network_module_3 (
     // ------------------------------ 
 
     // next stage logic
-    always@ (posedge network_clk) begin
+    always@ (posedge clk) begin
         case (count)
             S_COUNT0: begin
                 if ((eth_tx_valid[0] && eth_tx_ready[0]) || (eth_tx_valid[1] && eth_tx_ready[1]) 
