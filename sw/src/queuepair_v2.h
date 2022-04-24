@@ -61,133 +61,7 @@ class QueuePairV2 {
   bool is_data_available();
 
   uint16_t get_qp_num();
-
-  void QueuePairV2::operator(const RpcPckt* rpc_in, TxQueue& tx_queue) const {
-    // uint8_t ret_buff[cfg::sys::cl_size_bytes];
-
-    // Check the fn_id is within the scope
-    // if (rpc_in->hdr.fn_id > rpc_fn_ptr_.size() - 1) {
-    //   FRPC_ERROR(
-    //       "Too large RPC function id is received, this call will stop here
-    //       and " "no value will be returned\n");
-    //   return;
-    // }
-
-    // read first received packet
-    QueueElem entry = recv_q.front();
-    recv_q.pop();
-    *(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
-
-
-
-    // // set store addr based on request argv
-    // r_elem.data_addr = (int*)rpc_in->argv;
-
-    //     uint8_t change_bit;
-    //     volatile int* tx_ptr = tx_queue.get_write_ptr(change_bit);
-
-    //     // Send data
-    // #ifdef NIC_CCIP_POLLING
-    //     volatile RpcPckt* tx_ptr_casted =
-    //         reinterpret_cast<volatile RpcPckt*>(tx_ptr);
-
-    //     tx_ptr_casted->hdr.c_id = rpc_in->hdr.c_id;
-    //     tx_ptr_casted->hdr.rpc_id = rpc_in->hdr.rpc_id;
-    //     tx_ptr_casted->hdr.n_of_frames = 1;
-    //     tx_ptr_casted->hdr.frame_id = 0;
-
-    //     tx_ptr_casted->hdr.fn_id = 1;
-    //     tx_ptr_casted->hdr.argl = ret_size;
-
-    //     tx_ptr_casted->hdr.ctl.req_type = rpc_response;
-    //     tx_ptr_casted->hdr.ctl.update_flag = change_bit;
-
-    //     memcpy(const_cast<uint8_t*>(tx_ptr_casted->argv), ret_buff,
-    //     ret_size);
-
-    //     // Set valid
-    //     _mm_mfence();
-    //     tx_ptr_casted->hdr.ctl.valid = 1;
-    // #elif NIC_CCIP_MMIO
-    //     RpcPckt request __attribute__((aligned(64)));
-
-    //     request.hdr.c_id = rpc_in->hdr.c_id;
-    //     request.hdr.rpc_id = rpc_in->hdr.rpc_id;
-    //     request.hdr.n_of_frames = 1;
-    //     request.hdr.frame_id = 0;
-
-    //     request.hdr.fn_id = 1;
-    //     request.hdr.argl = ret_size;
-
-    //     request.hdr.ctl.req_type = rpc_response;
-    //     request.hdr.ctl.valid = 1;
-
-    //     _mm_mfence();
-
-    //     memcpy(request.argv, ret_buff, ret_size);
-
-    // // MMIO only supports AVX writes
-    // #  ifdef PLATFORM_PAC_A10
-    //     // PAC_A10 supports AVX-512 - easy!
-    //     _mm512_store_si512(reinterpret_cast<__m512i*>(tx_ptr),
-    //                        *(reinterpret_cast<__m512i*>(&request)));
-    // #  else
-    //     // BDX only supports AVX-256, so split into two writes
-    //     //  - performance will not be good
-    //     //  - and I'm not even sure, this will ever work (so far, I have not
-    //     seen
-    //     //  any testing issues)
-    //     //  - better to avoid the MMIO interface for BDX
-    //     _mm256_store_si256(reinterpret_cast<__m256i*>(tx_ptr),
-    //                        *(reinterpret_cast<__m256i*>(&request)));
-    //     _mm256_store_si256(reinterpret_cast<__m256i*>(tx_ptr + 32),
-    //                        *(reinterpret_cast<__m256i*>(
-    //                            reinterpret_cast<uint8_t*>(&request) + 32)));
-    // #  endif
-    // #elif NIC_CCIP_DMA
-    //     RpcPckt* tx_ptr_casted = reinterpret_cast<RpcPckt*>(tx_ptr);
-
-    //     tx_ptr_casted->hdr.c_id = rpc_in->hdr.c_id;
-    //     tx_ptr_casted->hdr.rpc_id = rpc_in->hdr.rpc_id;
-    //     tx_ptr_casted->hdr.n_of_frames = 1;
-    //     tx_ptr_casted->hdr.frame_id = 0;
-
-    //     tx_ptr_casted->hdr.fn_id = 1;
-    //     tx_ptr_casted->hdr.argl = ret_size;
-
-    //     tx_ptr_casted->hdr.ctl.req_type = rpc_response;
-    //     tx_ptr_casted->hdr.ctl.update_flag = change_bit;
-
-    //     memcpy(const_cast<uint8_t*>(tx_ptr_casted->argv), ret_buff,
-    //     ret_size);
-
-    //     tx_ptr_casted->hdr.ctl.valid = 1;
-    //     _mm_mfence();
-
-    //     if (batch_counter == cfg::nic::tx_batch_size - 1) {
-    //       nic_->notify_nic_of_new_dma(nic_flow_id_, current_batch_ptr);
-
-    //       current_batch_ptr += cfg::nic::tx_batch_size;
-    //       if (current_batch_ptr ==
-    //           ((1 << cfg::nic::l_tx_queue_size) / cfg::nic::tx_batch_size) *
-    //               cfg::nic::tx_batch_size) {
-    //         current_batch_ptr = 0;
-    //       }
-
-    //       batch_counter = 0;
-    //     } else {
-    //       ++batch_counter;
-    //     }
-    // #else
-    // #  error NIC CCI-P mode is not defined
-    // #endif
-    //   }
-
-    // #ifdef NIC_CCIP_DMA
-    //   uint32_t current_batch_ptr;
-    //   size_t batch_counter;
-    // #endif
-  };
+  void operator(const RpcPckt* rpc_in, TxQueue& tx_queue);
 
  private:
   // Dispatch thread
@@ -198,7 +72,7 @@ class QueuePairV2 {
   uint16_t remote_qp_num_;
   uint16_t p_key_;
   uint32_t q_key_;
-  bool data_available_ = 0; 
+  bool is_data_available_ = 0; 
 
   std::queue<QueueElem> recv_q;
   std::queue<QueueElem> send_q;

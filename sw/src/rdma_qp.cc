@@ -1,4 +1,5 @@
 #include "rdma_qp.h"
+#include "queuepair_v2.h"
 
 #include "logger.h"
 #include "nic_ccip_dma.h"

@@ -189,7 +189,7 @@ class NicCCIP : public Nic {
     uint8_t cmd : 3;
     uint8_t padding : 5;
   };
-  static_assert(sizeof(ConnSetupFrame) == 5);
+  static_assert(sizeof(ConnSetupFrame) == 13);
 
   /// Connection setup status.
   static constexpr uint8_t cOK = 0;

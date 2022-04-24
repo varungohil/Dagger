@@ -52,12 +52,14 @@ static_assert(sizeof(RpcHeader) == rpc_header_size_bytes,
 /// RPC packet that includes the hRPC header and the payload.
 struct __attribute__((__packed__)) RpcPckt {
   RpcHeader hdr;
-  int argv[cfg::sys::cl_size_bytes - rpc_header_size_bytes];
+  // std::string argv[cfg::sys::cl_size_bytes - rpc_header_size_bytes];
+  int argv;
 };
 
 // We only support the MTU of 1 cache line so far.
 // Do application-level reassembling in software for larger RPCs.
-static_assert(sizeof(RpcPckt) == cfg::sys::cl_size_bytes,
+//Varun : Changed ==  to <=
+static_assert(sizeof(RpcPckt) <= cfg::sys::cl_size_bytes,
               "RpcPckt does not fit a cache line");
 
 }  // namespace dagger
