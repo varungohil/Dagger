@@ -139,14 +139,14 @@ int RDMA::check_hw_errors() const { return nic_->check_hw_errors(); }
 //   return 0;
 // }
 
-int RDMA::connect(const IPv4& client_addr, ConnectionId c_id,
-                  ConnectionFlowId c_flow_id) {
-  return nic_->add_connection(c_id, client_addr, c_flow_id);
-}
+// int RDMA::connect(const IPv4& client_addr, ConnectionId c_id,
+//                   ConnectionFlowId c_flow_id) {
+//   return nic_->add_connection(c_id, client_addr, c_flow_id);
+// }
 
-int RDMA::disconnect(ConnectionId c_id) { 
-  return nic_->close_connection(c_id); 
-}
+// int RDMA::disconnect(ConnectionId c_id) { 
+//   return nic_->close_connection(c_id); 
+// }
 
 int RDMA::run_perf_thread(Nic::NicPerfMask perf_mask,
                           void (*callback)(const std::vector<uint64_t>&)) {
@@ -157,10 +157,10 @@ void RDMA::set_lb(int lb) { nic_->set_lb(lb); }
 
 int RDMA::make_qp() {
   if (qp_pool_cnt_ < max_qp_pool_size_) {
-    qp_pool_.emplace_back(std::unique_ptr<QueuePair>(
-        new QueuePair(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
+    qp_pool_.emplace_back(std::unique_ptr<QueuePairV2>(
+        new QueuePairV2(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
     ++qp_pool_cnt_;
-    return qp_pool_cnt - 1;
+    return qp_pool_cnt_ - 1;
   } else {
     FRPC_ERROR("Max number of queue pairs is reached: %zu\n",
                max_qp_pool_size_);
@@ -168,7 +168,7 @@ int RDMA::make_qp() {
   }
 }
 
-void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
+int add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       qp.add_send_queue_entry(data_addr, data_size);
@@ -177,7 +177,7 @@ void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size
   }
   return 1; 
 }
-void add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
+int add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
   for (auto qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       qp.add_recv_queue_entry(data_addr, data_size);

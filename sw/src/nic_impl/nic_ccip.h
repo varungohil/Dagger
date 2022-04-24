@@ -179,10 +179,8 @@ class NicCCIP : public Nic {
   static constexpr uint8_t setUpDestIPv4 = 2;
   static constexpr uint8_t setUpDestPort = 3;
   static constexpr uint8_t setUpClientFlowId = 4;
-  static constexpr uint8_t setUpRemoteQPN = 5;
-  static constexpr uint8_t setUpPKey = 6;
-  static constexpr uint8_t setUpQKey = 7;
-  static constexpr uint8_t setUpEnable = 8;
+  static constexpr uint8_t setUpQPFields = 5;
+  static constexpr uint8_t setUpEnable = 6;
 
   /// Connection setup frame.
   struct __attribute__((__packed__)) ConnSetupFrame {

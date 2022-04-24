@@ -58,7 +58,7 @@ class QueuePairV2 {
 
   // void append_elem(std::queue<QueueElem> q);
 
-  bool is_data_available()
+  bool is_data_available();
 
   uint16_t get_qp_num();
 
@@ -71,7 +71,7 @@ class QueuePairV2 {
   uint16_t remote_qp_num_;
   uint16_t p_key_;
   uint32_t q_key_;
-  std::atomic<bool> data_available_ = 0; 
+  bool data_available_ = 0; 
 
   std::queue<QueueElem> recv_q;
   std::queue<QueueElem> send_q;
