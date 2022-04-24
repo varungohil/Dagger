@@ -84,8 +84,8 @@ void ConnectionManager::dump_open_connections() const {
   std::cout << "*** Open connections ***" << std::endl;
   std::cout << "<connection_id, dest_ip, dest_port, flow_id>" << std::endl;
   for (auto c : open_connections_) {
-    std::cout << c.first << get<0>(c.second).get_addr()
-              << get<0>(c.second).get_port() << get<1>(c.second) << std::endl;
+    std::cout << c.first << std::get<0>(c.second).get_addr()
+              << std::get<0>(c.second).get_port() << std::get<1>(c.second) << std::endl;
   }
 }
 

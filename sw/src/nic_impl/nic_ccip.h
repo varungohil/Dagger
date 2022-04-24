@@ -184,6 +184,7 @@ class NicCCIP : public Nic {
 
   /// Connection setup frame.
   struct __attribute__((__packed__)) ConnSetupFrame {
+    uint64_t big_data;
     uint32_t data;
     uint8_t cmd : 3;
     uint8_t padding : 5;

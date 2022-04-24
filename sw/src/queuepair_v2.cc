@@ -88,7 +88,7 @@ int QueuePairV2::start_listening() {
 }
 
 bool is_data_available() {
-  if(data_available_){
+  if(is_data_available_){
     return 1;
   }
   return 0;
@@ -211,7 +211,8 @@ int QueuePairV2::send() {
 
   QueueElem entry = send_q.front();
   send_q.pop();
-  string args = *(const_cast<int*>(entry.data_addr));
+  // std::string args = *(const_cast<int*>(entry.data_addr));
+  int args = *(const_cast<int*>(entry.data_addr));
   size_t data_size = entry.data_size;
   // reinterpret_cast<GetRequest*>(const_cast<int*>(entry->data_addr)) = args;
 

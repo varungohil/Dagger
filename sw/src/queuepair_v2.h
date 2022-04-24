@@ -62,41 +62,7 @@ class QueuePairV2 {
 
   uint16_t get_qp_num();
 
- private:
-  // Dispatch thread
-  void _PullListen();
-
- private:
-  uint16_t queue_pair_num_;
-  uint16_t remote_qp_num_;
-  uint16_t p_key_;
-  uint32_t q_key_;
-  bool data_available_ = 0; 
-
-  std::queue<QueueElem> recv_q;
-  std::queue<QueueElem> send_q;
-
-  // std::vector<std::unique_ptr<QueueElem>> recv_q;
-  // std::vector<std::unique_ptr<QueueElem>> send_q;
-
-  // Underlying nic.
-  const Nic* nic_;
-  size_t nic_flow_id_;
-
-  // Underlying Tx and RX queues.
-  TxQueue tx_queue_;
-  RxQueue rx_queue_;
-
-  // Underlying completion queue
-  // std::unique_ptr<CompletionQueue> cq_;
-
-  ConnectionId c_id_;
-
-  // Threads and signals.
-  std::thread thread_;
-  std::atomic<bool> stop_signal_;
-
-  void operator(const RpcPckt* rpc_in, TxQueue& tx_queue) const {
+  void QueuePairV2::operator(const RpcPckt* rpc_in, TxQueue& tx_queue) const {
     // uint8_t ret_buff[cfg::sys::cl_size_bytes];
 
     // Check the fn_id is within the scope
@@ -222,6 +188,42 @@ class QueuePairV2 {
     //   size_t batch_counter;
     // #endif
   };
+
+ private:
+  // Dispatch thread
+  void _PullListen();
+
+ private:
+  uint16_t queue_pair_num_;
+  uint16_t remote_qp_num_;
+  uint16_t p_key_;
+  uint32_t q_key_;
+  bool data_available_ = 0; 
+
+  std::queue<QueueElem> recv_q;
+  std::queue<QueueElem> send_q;
+
+  // std::vector<std::unique_ptr<QueueElem>> recv_q;
+  // std::vector<std::unique_ptr<QueueElem>> send_q;
+
+  // Underlying nic.
+  const Nic* nic_;
+  size_t nic_flow_id_;
+
+  // Underlying Tx and RX queues.
+  TxQueue tx_queue_;
+  RxQueue rx_queue_;
+
+  // Underlying completion queue
+  // std::unique_ptr<CompletionQueue> cq_;
+
+  ConnectionId c_id_;
+
+  // Threads and signals.
+  std::thread thread_;
+  std::atomic<bool> stop_signal_;
+
+
 };
 
 }  // namespace dagger

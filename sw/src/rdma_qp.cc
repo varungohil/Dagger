@@ -153,7 +153,7 @@ int RDMA::run_perf_thread(Nic::NicPerfMask perf_mask,
   return nic_->run_perf_thread(perf_mask, callback);
 }
 
-void RDMA::set_lb(int lb) { nic_->set_lb(lb); }
+// void RDMA::set_lb(int lb) { nic_->set_lb(lb); }
 
 int RDMA::make_qp() {
   if (qp_pool_cnt_ < max_qp_pool_size_) {
