@@ -181,7 +181,7 @@ module rpc
 
             .rpc_in('{rpc_data: rpc_in.rpc_data,
                       flow_id: rpc_in.flow_id,
-                      valid: rpc_valid_in,
+                      valid: rpc_valid_in
                       // remote_qp_num: rpc_in.remote_qp_num,
                       // p_key: rpc_in.p_key,
                       // q_key: rpc_in.q_key
