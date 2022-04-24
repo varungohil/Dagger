@@ -706,8 +706,32 @@ module udp_ip
     end
 
     logic rx_fifo_ovf;
-    async_fifo_channel #(
-            .DATA_WIDTH($bits(NetworkAddressTuple) + $bits(NetworkPayload) + 8'b01000000), // this is adding 64 bits for remote_qp_num, etc.
+    // async_fifo_channel #(
+    //         .DATA_WIDTH($bits(NetworkAddressTuple) + $bits(NetworkPayload) + 8'b01000000), // this is adding 64 bits for remote_qp_num, etc.
+    //         .LOG_DEPTH(LRX_FIFO_DEPTH),
+    //         .CLOCK_ARE_SYNCHRONIZED("FALSE"),
+    //         .DELAY_PIPE(4)
+    //     ) rx_fifo (
+    //         .clear(rx_reset_in),
+    //         .clk_1(rx_clk_in),
+
+    //         .push_en(network_rx_out_fifo.valid),
+    //         .push_data({network_rx_out_fifo.addr_tpl, network_rx_out_fifo.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
+
+    //         .clk_2(clk),
+    //         .pop_enable(1'b1),
+
+    //         .pop_valid(network_rx_out.valid),
+    //         .pop_data({network_rx_out.addr_tpl, network_rx_out.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
+    //         .pop_dw(),
+    //         .pop_empty(),
+
+    //         .loss_out(rx_fifo_ovf),
+    //         .error()
+    //     );
+
+      async_fifo_channel #(
+            .DATA_WIDTH($bits(NetworkIf)) 
             .LOG_DEPTH(LRX_FIFO_DEPTH),
             .CLOCK_ARE_SYNCHRONIZED("FALSE"),
             .DELAY_PIPE(4)
@@ -716,13 +740,13 @@ module udp_ip
             .clk_1(rx_clk_in),
 
             .push_en(network_rx_out_fifo.valid),
-            .push_data({network_rx_out_fifo.addr_tpl, network_rx_out_fifo.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
+            .push_data(network_rx_out_fifo),
 
             .clk_2(clk),
             .pop_enable(1'b1),
 
             .pop_valid(network_rx_out.valid),
-            .pop_data({network_rx_out.addr_tpl, network_rx_out.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
+            .pop_data(network_rx_out),
             .pop_dw(),
             .pop_empty(),
 
