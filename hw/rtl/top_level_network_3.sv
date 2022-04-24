@@ -1,6 +1,6 @@
 // Author: Cornell University
 //
-// Module Name :    top_level_network_module
+// Module Name :    top_level_network_module_3
 // Project :        F-NIC
 // Description :    Top-level module for the design
 //                    - using real networking
@@ -13,7 +13,7 @@
 
 //`include "nic_defs.vh"
 
-module top_level_network_module (
+module top_level_network_module_3 (
     // CCI-P Clocks and Resets
     input           logic             pClk,          // 200MHz
     input           logic             pClkDiv2,      // 100MHz
