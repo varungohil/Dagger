@@ -46,7 +46,7 @@ module rpc
     // =============================================================
     ConnectionControlIf c_ctl_if;
     logic conn_setup_parsing_error;
-    logic [7:0] setup_vector;
+    logic [5:0] setup_vector;
 
     // Parse input from ConnSetupFrame to ConnectionControlIf
     integer i;
@@ -55,7 +55,7 @@ module rpc
             conn_setup_parsing_error <= 1'b0;
             c_ctl_if.enable <= 1'b0;
 
-            for(i=0;i<7;i=i+1) begin
+            for(i=0;i<5;i=i+1) begin
                 setup_vector[i] <= 1'b0;
             end
 
@@ -86,22 +86,28 @@ module rpc
 
                     setUpClientFlowId: begin
                         c_ctl_if.client_flow_id <= conn_setup_frame_in.data;
-                        setup_vector[7] <= 1'b1;
+                        setup_vector[4] <= 1'b1;
                     end
 
-                    setUpRemoteQueuePairNumber: begin
-                        c_ctl_if.remote_qp_num <= conn_setup_frame_in.data;
+                    // setUpRemoteQueuePairNumber: begin
+                    //     c_ctl_if.remote_qp_num <= conn_setup_frame_in.data;
+                    //     setup_vector[5] <= 1'b1;
+                    // end
+
+                    // setUpPKey: begin
+                    //     c_ctl_if.p_key <= conn_setup_frame_in.data;
+                    //     setup_vector[6] <= 1'b1;
+                    // end
+
+                    // setUpQKey: begin
+                    //     c_ctl_if.q_key <= conn_setup_frame_in.data;
+                    //     setup_vector[7] <= 1'b1;
+
+                    setUpQPFields: begin // TODO: CHECK NAMES & FIELDS
+                        c_ctl_if.remote_qp_num <= conn_setup_frame_in.data[63:48];
+                        c_ctl_if.p_key <= conn_setup_frame_in.data[47:32];
+                        c_ctl_if.q_key <= conn_setup_frame_in.data[31:0];
                         setup_vector[5] <= 1'b1;
-                    end
-
-                    setUpPKey: begin
-                        c_ctl_if.p_key <= conn_setup_frame_in.data;
-                        setup_vector[6] <= 1'b1;
-                    end
-
-                    setUpQKey: begin
-                        c_ctl_if.q_key <= conn_setup_frame_in.data;
-                        setup_vector[7] <= 1'b1;
                     end
 
                     setUpEnable: begin
@@ -111,9 +117,7 @@ module rpc
                                   setup_vector[2] &&
                                   setup_vector[3] &&
                                   setup_vector[4] &&
-                                  setup_vector[5] &&
-                                  setup_vector[6] && 
-                                  setup_vector[7] )) begin
+                                  setup_vector[5] )) begin
                                 $display("NIC%d::RPC failed to open connection, not all the parameters are set ", NIC_ID);
                                 conn_setup_parsing_error <= 1'b1;
 
@@ -121,7 +125,7 @@ module rpc
                                 $display("NIC%d::RPC setting up connection: <%p>", NIC_ID, c_ctl_if);
                                 c_ctl_if.enable <= 1'b1;
 
-                                for(i=0;i<7;i=i+1) begin
+                                for(i=0;i<5;i=i+1) begin
                                     setup_vector[i] <= 1'b0;
                                 end
                             end
@@ -134,7 +138,7 @@ module rpc
                                 $display("NIC%d::RPC setting up connection: <%p>", NIC_ID, c_ctl_if);
                                 c_ctl_if.enable <= 1'b1;
 
-                                for(i=0;i<7;i=i+1) begin
+                                for(i=0;i<5;i=i+1) begin
                                     setup_vector[i] <= 1'b0;
                                 end
                             end
