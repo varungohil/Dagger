@@ -84,9 +84,7 @@ typedef enum logic[3:0] { setUpConnId,
                           setUpDestIPv4,
                           setUpDestPort,
                           setUpClientFlowId,
-                          setUpRemoteQPN,
-                          setUpRemotePKey,
-                          setUpRemoteQKey,
+                          setUpQPFields,
                           setUpEnable } ConnSetupCmds;
 
 typedef struct packed {
