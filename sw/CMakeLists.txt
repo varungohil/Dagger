@@ -85,6 +85,8 @@ set(SOURCES
     src/nic_impl/nic_ccip_dma.cc
     src/rpc_server_thread.cc
     src/rpc_threaded_server.cc
+    src/queuepair_v2.cc
+    src/rdma_qp.cc
     src/tx_queue.cc
     src/rx_queue.cc
     src/completion_queue.cc
