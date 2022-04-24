@@ -43,7 +43,7 @@ typedef struct packed {
     logic valid;
     logic [15:0] remote_qp_num;
     logic [15:0] p_key;
-    logic [15:0] q_key;
+    logic [31:0] q_key;
 } NetworkIf;
 
 
