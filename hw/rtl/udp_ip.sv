@@ -740,13 +740,13 @@ module udp_ip
             .clk_1(rx_clk_in),
 
             .push_en(network_rx_out_fifo.valid),
-            .push_data(network_rx_out_fifo),
+            .push_data({network_rx_out_fifo.addr_tpl, network_rx_out_fifo.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
 
             .clk_2(clk),
             .pop_enable(1'b1),
 
             .pop_valid(network_rx_out.valid),
-            .pop_data(network_rx_out),
+            .pop_data({network_rx_out.addr_tpl, network_rx_out.payload, network_rx_out_fifo.remote_qp_num, network_rx_out_fifo.p_key, network_rx_out_fifo.q_key}),
             .pop_dw(),
             .pop_empty(),
 
