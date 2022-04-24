@@ -145,10 +145,10 @@ module top_level_network_module_3 (
           ) nic_0 (
             .clk(clk),
             .clk_div_2(clk_div_2),
-            .reset(ccip_mux2pe_reset[1]),
+            .reset(ccip_mux2pe_reset[0]),
 
-            .sRx(pck_afu_RxPort[1]),
-            .sTx(pck_afu_TxPort[1]),
+            .sRx(pck_afu_RxPort[0]),
+            .sTx(pck_afu_TxPort[0]),
 
             .tx_clk_in (eth_tx_clk),
             .tx_reset_in (eth_tx_reset),
@@ -215,10 +215,10 @@ module top_level_network_module_3 (
           ) nic_2 (
             .clk(clk),
             .clk_div_2(clk_div_2),
-            .reset(ccip_mux2pe_reset[1]),
+            .reset(ccip_mux2pe_reset[2]),
 
-            .sRx(pck_afu_RxPort[1]),
-            .sTx(pck_afu_TxPort[1]),
+            .sRx(pck_afu_RxPort[2]),
+            .sTx(pck_afu_TxPort[2]),
 
             .tx_clk_in (eth_tx_clk),
             .tx_reset_in (eth_tx_reset),
