@@ -104,9 +104,9 @@ module rpc
                     //     setup_vector[7] <= 1'b1;
 
                     setUpQPFields: begin // TODO: CHECK NAMES & FIELDS
-                        c_ctl_if.remote_qp_num <= conn_setup_frame_in.data[63:48];
-                        c_ctl_if.p_key <= conn_setup_frame_in.data[47:32];
-                        c_ctl_if.q_key <= conn_setup_frame_in.data[31:0];
+                        c_ctl_if.remote_qp_num <= conn_setup_frame_in.big_data[63:48];
+                        c_ctl_if.p_key <= conn_setup_frame_in.big_data[47:32];
+                        c_ctl_if.q_key <= conn_setup_frame_in.big_data[31:0];
                         setup_vector[5] <= 1'b1;
                     end
 
