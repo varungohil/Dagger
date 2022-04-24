@@ -107,18 +107,7 @@ module ccip_std_afu (
 `ifdef PHY_NETWORK
     $info("Building system with physical networking support");
 
-    // top_level_network_module top_level (
-    //     .pClk(pClkDiv2),
-    //     .pClkDiv2(pClkDiv2),
-    //     .pReset(reset_pass),
-
-    //     .pck_cp2af_sRx(afu_rx),
-    //     .pck_af2cp_sTx(afu_tx),
-
-    //     .hssi(hssi)
-    // );
-
-    top_level_network_module_3 top_level (
+    top_level_network_module top_level (
         .pClk(pClkDiv2),
         .pClkDiv2(pClkDiv2),
         .pReset(reset_pass),
@@ -128,6 +117,17 @@ module ccip_std_afu (
 
         .hssi(hssi)
     );
+
+    // top_level_network_module_3 top_level (
+    //     .pClk(pClkDiv2),
+    //     .pClkDiv2(pClkDiv2),
+    //     .pReset(reset_pass),
+
+    //     .pck_cp2af_sRx(afu_rx),
+    //     .pck_af2cp_sTx(afu_tx),
+
+    //     .hssi(hssi)
+    // );
 `else
     $info("Building system with loopback networking support");
 
