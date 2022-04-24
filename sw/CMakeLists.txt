@@ -151,31 +151,3 @@ if (PLATFORM_ASE)
     target_compile_definitions(dagger_ase PRIVATE -DASE_SIMULATION)
     target_link_libraries(dagger_ase ${ASE_LIBS} ${LIBRARIES} -shared)
 endif()
-
-#
-# Build tests
-#
-if (BUILD_TESTS)
-    add_subdirectory(tests)
-endif()
-
-#
-# Build ASE samples
-#
-if (PLATFORM_ASE)
-    add_subdirectory(ase_samples)
-endif()
-
-#
-# Build microbenchmarks
-#
-if (BUILD_MICROBENCHMARKS)
-    add_subdirectory(microbenchmarks)
-endif()
-
-#
-# Build end-to-end applications
-#
-if (BUILD_APPLICATIONS)
-    add_subdirectory(apps)
-endif()

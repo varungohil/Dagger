@@ -39,16 +39,16 @@ class RDMA {
 
   /// Run a new listening thread with the RPC handler @param rpc_callback and
   /// pin its dispatch thread to the CPU @param pim_cpu.
-  int run_new_listening_thread(const RpcServerCallBack_Base* rpc_callback,
-                               int pin_cpu = -1);
+//   int run_new_listening_thread(const RpcServerCallBack_Base* rpc_callback,
+//                                int pin_cpu = -1);
 
   /// Stop all currently running RPC threads.
-  int stop_all_listening_threads();
+//   int stop_all_listening_threads();
 
   // Connection management API.
-  int connect(const IPv4& client_addr, ConnectionId c_id,
-              ConnectionFlowId c_flow_id);
-  int disconnect(ConnectionId c_id);
+//   int connect(const IPv4& client_addr, ConnectionId c_id,
+//               ConnectionFlowId c_flow_id);
+//   int disconnect(ConnectionId c_id);
 
   /// Run the perf_thread with the corresponsing @param perf_mask as the perf
   /// event filter and the post-processing callback function @param callback.
@@ -66,8 +66,10 @@ class RDMA {
   int send(uint16_t queue_pair_num);
   int recv(uint16_t queue_pair_num);
   int stop_recv(uint16_t queue_pair_num);
-  void add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
-  void add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
+  int add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
+  int add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
+  bool is_data_avaiable(uint16_t queue_pair_num);
+  int connect_qp(uint16_t queue_pair_num, ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key);
 
  private:
   size_t max_num_of_threads_;
