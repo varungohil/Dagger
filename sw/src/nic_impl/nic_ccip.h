@@ -189,7 +189,7 @@ class NicCCIP : public Nic {
     uint8_t cmd : 3;
     uint8_t padding : 5;
   };
-  static_assert(sizeof(ConnSetupFrame) == 13);
+  static_assert(sizeof(ConnSetupFrame) == 13, "ConnSetupFrame");
 
   /// Connection setup status.
   static constexpr uint8_t cOK = 0;
@@ -204,7 +204,7 @@ class NicCCIP : public Nic {
     uint8_t error_status : 2;
     uint8_t padding : 5;
   };
-  static_assert(sizeof(ConnSetupStatus) == 5);
+  static_assert(sizeof(ConnSetupStatus) == 5, "ConnSetupStatus");
 
   enum ConnOpenClose { cClose = 0, cOpen = 1 };
 

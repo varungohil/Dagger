@@ -55,7 +55,7 @@ QueuePairV2::~QueuePairV2() {  }
 // CompletionQueue* QueuePairV2::get_completion_queue() const { return
 // cq_.get(); }
 
-void QueuePairV2::operator(const RpcPckt* rpc_in, TxQueue& tx_queue) const {
+void QueuePairV2::operator_(const RpcPckt* rpc_in, TxQueue& tx_queue) {
   // uint8_t ret_buff[cfg::sys::cl_size_bytes];
 
   // Check the fn_id is within the scope
@@ -214,11 +214,8 @@ int QueuePairV2::start_listening() {
   return 0;
 }
 
-bool is_data_available() {
-  if(is_data_available_){
-    return 
-  }
-  return 0;
+bool QueuePairV2::is_data_available() {
+  return is_data_available_;
 }
 
 void QueuePairV2::stop_listening() {
@@ -282,7 +279,7 @@ void QueuePairV2::_PullListen() {
       //    }
       //    std::cout << "\n **************** " << std::endl;
 
-      operator(req_pckt_1 + i, tx_queue_);
+      operator_(req_pckt_1 + i, tx_queue_);
       //
     }
     is_data_available_ = 0;
@@ -345,7 +342,7 @@ int QueuePairV2::send() {
 
 
   // // call operator to do fulfill send 
-  // operator()(req_pckt, tx_queue_); ?? Raleigh did you add this?
+  // operator_()(req_pckt, tx_queue_); ?? Raleigh did you add this?
 
   // read first entry of send_q
   //  Send data

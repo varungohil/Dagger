@@ -61,7 +61,7 @@ class QueuePairV2 {
   bool is_data_available();
 
   uint16_t get_qp_num();
-  void operator(const RpcPckt* rpc_in, TxQueue& tx_queue);
+  void operator_(const RpcPckt* rpc_in, TxQueue& tx_queue);
 
  private:
   // Dispatch thread
