@@ -4,7 +4,8 @@
  * @author Nikita Lazarev
  */
 #include <unistd.h>
-
+#include <stdint.h>
+#include <inttypes.h>
 #include <algorithm>
 #include <cassert>
 #include <cinttypes>
@@ -21,7 +22,10 @@
 // #include "rpc_client_pool.h"
 #include "rpc_types.h"
 #include "utils.h"
+#include "rdma_qp.h"
 
+
+// typedef unsigned short uint16_t
 /// HW parameters
 #ifdef PLATFORM_PAC_A10
 #  ifdef NIC_PHY_NETWORK
@@ -125,11 +129,15 @@ int main(int argc, char* argv[]) {
   res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
   if (res != 0) return res;
 
+  uint16_t p_key = 0; 
+  uint32_t q_key;
   // Run benchmarking threads.
   std::vector<std::thread> threads;
   for (size_t thread_id = 0; thread_id < num_of_threads; ++thread_id) {
     // Open connection
     dagger::IPv4 server_addr(kServerIP, kPort + thread_id);
+
+    q_key = thread_id;
 
     // Run the benchmarking thread on the client rpc_client.
     int op1 = thread_id;
