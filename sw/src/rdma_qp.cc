@@ -158,7 +158,7 @@ int RDMA::run_perf_thread(Nic::NicPerfMask perf_mask,
 
 int RDMA::make_qp() {
   if (qp_pool_cnt_ < max_qp_pool_size_) {
-    qp_pool_.emplace_back(std::unique_ptr<QueuePairV2>(
+    qp_pool_.emplace_back(std::shared_ptr<QueuePairV2>(
         new QueuePairV2(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
     ++qp_pool_cnt_;
     return qp_pool_cnt_ - 1;

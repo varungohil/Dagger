@@ -22,7 +22,7 @@ namespace dagger {
 class RDMA {
  public:
   RDMA() = default;
-  std::vector<std::unique_ptr<QueuePairV2>> qp_pool_;
+  std::vector<std::shared_ptr<QueuePairV2>> qp_pool_;
 
   /// Create the RPC server object with the given number of threads and based on
   /// the nic with the hardware MMIO address @param base_nic_addr.
