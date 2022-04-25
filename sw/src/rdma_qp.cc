@@ -180,8 +180,8 @@ int RDMA::add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr,
 }
 int RDMA::add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
   for (auto qp : qp_pool_) {
-    if (qp.get_qp_num() == queue_pair_num) {
-      qp.add_recv_queue_entry(data_addr, data_size);
+    if (qp->get_qp_num() == queue_pair_num) {
+      qp->add_recv_queue_entry(data_addr, data_size);
       return 0;
     }
   }
@@ -192,10 +192,10 @@ int RDMA::send(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
   for (auto qp : qp_pool_) {
-    if (qp.get_qp_num() == queue_pair_num) {
+    if (qp->get_qp_num() == queue_pair_num) {
       // perform send op only when send queue is nonempty
-      assert(!qp.send_q.empty());
-      qp.send();
+      assert(!qp->send_q.empty());
+      qp->send();
       return 0;
     }
   }
@@ -206,8 +206,8 @@ int RDMA::recv(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
   for (auto qp : qp_pool_) {
-    if (qp.get_qp_num() == queue_pair_num) {
-      qp.recv();
+    if (qp->get_qp_num() == queue_pair_num) {
+      qp->recv();
       return 0;
     }
   }
@@ -218,8 +218,8 @@ bool RDMA::is_data_avaiable(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
   for (auto qp : qp_pool_) {
-    if (qp.get_qp_num() == queue_pair_num) {
-      return qp.is_data_avaiable();
+    if (qp->get_qp_num() == queue_pair_num) {
+      return qp->is_data_avaiable();
     }
   }
 }
@@ -229,8 +229,8 @@ int RDMA::stop_recv(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
   for (auto qp : qp_pool_) {
-    if (qp.get_qp_num() == queue_pair_num) {
-      qp.stop_recv();
+    if (qp->get_qp_num() == queue_pair_num) {
+      qp->stop_recv();
       return 0;
     }
   }
@@ -248,8 +248,8 @@ int RDMA::stop_recv(uint16_t queue_pair_num) {
 
 int RDMA::connect_qp(uint16_t queue_pair_num, ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) {
   for (auto qp : qp_pool_) {
-    if (qp.get_qp_num() == queue_pair_num) {
-      qp.connect(c_id, server_addr, remote_qp_num, p_key, q_key);
+    if (qp->get_qp_num() == queue_pair_num) {
+      qp->connect(c_id, server_addr, remote_qp_num, p_key, q_key);
       return 0;
     }
   }
