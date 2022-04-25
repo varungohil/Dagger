@@ -170,6 +170,7 @@ int RDMA::make_qp() {
 }
 
 int add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
+  std::cout << qp_pool_[0] << std::endl;
   for (QueuePairV2 qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       qp.add_send_queue_entry(data_addr, data_size);
