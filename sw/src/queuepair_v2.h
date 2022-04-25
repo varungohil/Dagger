@@ -62,6 +62,8 @@ class QueuePairV2 {
 
   uint16_t get_qp_num();
   void operator_(const RpcPckt* rpc_in, TxQueue& tx_queue);
+  std::queue<QueueElem> recv_q;
+  std::queue<QueueElem> send_q;
 
  private:
   // Dispatch thread
@@ -74,8 +76,7 @@ class QueuePairV2 {
   uint32_t q_key_;
   bool is_data_available_ = 0; 
 
-  std::queue<QueueElem> recv_q;
-  std::queue<QueueElem> send_q;
+
 
   // std::vector<std::unique_ptr<QueueElem>> recv_q;
   // std::vector<std::unique_ptr<QueueElem>> send_q;
