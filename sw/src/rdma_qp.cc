@@ -179,7 +179,7 @@ int RDMA::add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr,
   return 1; 
 }
 int RDMA::add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size){
-  for (auto qp : qp_pool_) {
+  for (QueuePairV2 qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       qp.add_recv_queue_entry(data_addr, data_size);
       return 0;
@@ -191,7 +191,7 @@ int RDMA::add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr,
 int RDMA::send(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
-  for (auto qp : qp_pool_) {
+  for (QueuePairV2 qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       // perform send op only when send queue is nonempty
       assert(!qp.send_q.empty());
@@ -205,7 +205,7 @@ int RDMA::send(uint16_t queue_pair_num) {
 int RDMA::recv(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
-  for (auto qp : qp_pool_) {
+  for (QueuePairV2 qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       qp.recv();
       return 0;
@@ -217,7 +217,7 @@ int RDMA::recv(uint16_t queue_pair_num) {
 bool RDMA::is_data_avaiable(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
-  for (auto qp : qp_pool_) {
+  for (QueuePairV2 qp : qp_pool_) {
     if (qp.get_qp_num() == queue_pair_num) {
       return qp.is_data_avaiable();
     }
