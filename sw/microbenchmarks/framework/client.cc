@@ -73,7 +73,7 @@ static double rdtsc_in_ns() {
 }
 
 
-int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int p_key, uint32_t q_key, int thread_id, int op1, int op2,)
+int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int p_key, uint32_t q_key, int thread_id, int op1, int op2)
 {
   int qp_num = rdma->make_qp();
   if ( qp_num != -1) {
@@ -113,12 +113,12 @@ int main(int argc, char* argv[]) {
 
 
   //instantiate the RDMA module
-  int max_qp_pool_size = num_threads;
-  dagger::RDMA rdma(kNicAddress, num_of_threads, max_qp_pool_size)
+  int max_qp_pool_size = num_of_threads;
+  dagger::RDMA rdma(kNicAddress, num_of_threads, max_qp_pool_size);
 
 
   // Initialize the client pool.
-  int res = rdma.init_nic(kFpgaBus);
+  volatile int res = rdma.init_nic(kFpgaBus);
   if (res != 0) return res;
 
   // Start the underlying nic of the pool.
@@ -142,7 +142,7 @@ int main(int argc, char* argv[]) {
     // Run the benchmarking thread on the client rpc_client.
     int op1 = thread_id;
     int op2 = thread_id + 1;
-    std::thread thr = std::thread(&add_num, &rdma, server_addr, remote_queue_pair_num, p_key, q_key, thread_id, op1, op2);
+    std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
     threads.push_back(std::move(thr));
   }
 

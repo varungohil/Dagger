@@ -101,10 +101,10 @@ int main(int argc, char* argv[]) {
 
   //instantiate the RDMA module
   int max_qp_pool_size = num_qps;
-  dagger::RDMA rdma(kNicAddress, num_qps, max_qp_pool_size)
+  dagger::RDMA rdma(kNicAddress, num_qps, max_qp_pool_size);
 
   // Initialize the server.
-  int res = rdma.init_nic(kFpgaBus);
+  volatile int res = rdma.init_nic(kFpgaBus);
   if (res != 0) return res;
 
   // Start the server.
@@ -127,11 +127,13 @@ int main(int argc, char* argv[]) {
   // }
 
   // Run benchmarking threads.
+  uint16_t p_key = 0; 
+  uint32_t q_key;
   std::vector<int> results;
   results.resize(num_qps);
   for (size_t qp_id = 0; qp_id < num_qps; ++qp_id) {
     // Open connection
-    dagger::IPv4 server_addr(kServerIP, kPort + qp_id);
+    dagger::IPv4 server_addr(kClientIP, kPort + qp_id);
     int qp_num = rdma.make_qp();
     if ( qp_num != -1) {
       std::cout << "Failed to make queue pair on thread " << qp_id << std::endl;
@@ -140,6 +142,7 @@ int main(int argc, char* argv[]) {
       std::cout << "Queue  Pair created on thread " << qp_id << std::endl;
     }
 
+    q_key = qp_id;
     if (rdma.connect_qp(qp_num, qp_id, server_addr, qp_num, p_key, q_key) != 0) {
       std::cout << "Failed to open connection on thread "<< qp_id << std::endl;
       exit(1);
@@ -147,8 +150,8 @@ int main(int argc, char* argv[]) {
       std::cout << "Connection is open on thread " << qp_id << std::endl;
     }
 
-    rdma->add_recv_queue_entry(qp_num, &results[qp_id], sizeof(int));
-    rdma->recv(qp_num);
+    rdma.add_recv_queue_entry(qp_num, &results[qp_id], sizeof(int));
+    rdma.recv(qp_num);
   }
 
   bool all_data_available = 0;
@@ -156,7 +159,7 @@ int main(int argc, char* argv[]) {
   while(all_data_available == 0){
     for (size_t qp_id = 0; qp_id < num_qps; ++qp_id)
     {
-      all_data_available = all_data_avaialble && rdma.is_data_available(qp_id);
+      all_data_available = all_data_available && rdma.is_data_available(qp_id);
     }
   } 
   for (size_t qp_id = 0; qp_id < num_qps; ++qp_id)
