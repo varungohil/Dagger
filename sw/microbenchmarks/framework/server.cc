@@ -9,7 +9,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "CLI11.hpp"
+// #include "CLI11.hpp"
 #include "config.h"
 #include "rpc_call.h"
 // #include "rpc_server_callback.h"
@@ -85,17 +85,19 @@ void get_data(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, i
 // <max number of threads, run duration>
 int main(int argc, char* argv[]) {
   // Parse input.
-  CLI::App app{"Benchmark Server"};
+  // CLI::App app{"Benchmark Server"};
 
-  size_t num_qps;
-  app.add_option("-q, --queuepairs", num_qps, "number of queue pairs")
-      ->required();
+  // size_t num_qps;
+  // app.add_option("-q, --queuepairs", num_qps, "number of queue pairs")
+      // ->required();
 
   // int load_balancer;
   // app.add_option("-l, --load-balancer", load_balancer, "load balancer")
   //     ->required();
 
-  CLI11_PARSE(app, argc, argv);
+  // CLI11_PARSE(app, argc, argv);
+
+  size_t num_qps = 3;
 
   //instantiate the RDMA module
   int max_qp_pool_size = num_qps;

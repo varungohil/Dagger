@@ -14,7 +14,7 @@
 #include <thread>
 #include <vector>
 
-#include "CLI11.hpp"
+// #include "CLI11.hpp"
 #include "config.h"
 #include "defs.h"
 // #include "rpc_call.h"
@@ -99,13 +99,13 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
 
 int main(int argc, char* argv[]) {
   // Parse input.
-  CLI::App app{"Benchmark Client"};
+  // CLI::App app{"Benchmark Client"};
 
-  size_t num_of_threads;
-  app.add_option("-t, --threads", num_of_threads, "number of threads")
-      ->required();
+  size_t num_of_threads = 3;
+  // app.add_option("-t, --threads", num_of_threads, "number of threads")
+      // ->required();
 
-  CLI11_PARSE(app, argc, argv);
+  // CLI11_PARSE(app, argc, argv);
 
   // Get time/freq.
   double cycles_in_ns = rdtsc_in_ns();
