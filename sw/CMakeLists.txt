@@ -148,3 +148,7 @@ if (PLATFORM_ASE)
     target_compile_definitions(dagger_ase PRIVATE -DASE_SIMULATION)
     target_link_libraries(dagger_ase ${ASE_LIBS} ${LIBRARIES} -shared)
 endif()
+
+if (BUILD_MICROBENCHMARKS)
+    add_subdirectory(microbenchmarks)
+endif()
