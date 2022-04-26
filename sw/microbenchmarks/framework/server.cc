@@ -10,11 +10,11 @@
 #include <iostream>
 
 // #include "CLI11.hpp"
-#include "config.h"
-#include "rpc_call.h"
+// #include "config.h"
+// #include "rpc_call.h"
 // #include "rpc_server_callback.h"
 // #include "rpc_threaded_server.h"
-#include "rpc_types.h"
+// #include "rpc_types.h"
 #include "rdma_qp.h"
 
 /// HW parameters.

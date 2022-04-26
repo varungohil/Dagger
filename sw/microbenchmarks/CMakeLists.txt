@@ -1,1 +1,1 @@
-add_subdirectory(benchmark_latency_throughput)
+add_subdirectory(framework)
