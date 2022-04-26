@@ -214,7 +214,7 @@ int RDMA::recv(uint16_t queue_pair_num) {
   return 1;  // qp number does not exist
 }
 
-bool RDMA::is_data_avaiable(uint16_t queue_pair_num) {
+bool RDMA::is_data_available(uint16_t queue_pair_num) {
   // Pass data to send
   // Add arguments that take in data
   for (auto qp : qp_pool_) {

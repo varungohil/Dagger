@@ -69,7 +69,7 @@ class RDMA {
   int stop_recv(uint16_t queue_pair_num);
   int add_send_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
   int add_recv_queue_entry(uint16_t queue_pair_num, volatile int* data_addr, size_t data_size);
-  bool is_data_avaiable(uint16_t queue_pair_num);
+  bool is_data_available(uint16_t queue_pair_num);
   int connect_qp(uint16_t queue_pair_num, ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key);
 
  private:
