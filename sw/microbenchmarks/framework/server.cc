@@ -58,28 +58,28 @@ static constexpr uint16_t kPort = 3136;
 // static volatile int keepRunning = 1;
 // void intHandler(int dummy) { keepRunning = 0; }
 
-void get_data(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int p_key, uint32_t q_key, int qp_id, int* res)
-{
-  int qp_num = rdma->make_qp();
-  if ( qp_num != -1) {
-    std::cout << "Failed to make queue pair on thread " << qp_id << std::endl;
-    exit(1);
-  } else {
-    std::cout << "Queue  Pair created on thread " << qp_id << std::endl;
-  }
+// void get_data(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int p_key, uint32_t q_key, int qp_id, volatile int* res)
+// {
+//   int qp_num = rdma->make_qp();
+//   if ( qp_num != -1) {
+//     std::cout << "Failed to make queue pair on thread " << qp_id << std::endl;
+//     exit(1);
+//   } else {
+//     std::cout << "Queue  Pair created on thread " << qp_id << std::endl;
+//   }
 
-  if (rdma->connect_qp(qp_num, qp_id, server_addr, remote_qp_num, p_key, q_key) != 0) {
-    std::cout << "Failed to open connection on thread "<< qp_id << std::endl;
-    exit(1);
-  } else {
-    std::cout << "Connection is open on thread " << qp_id << std::endl;
-  }
+//   if (rdma->connect_qp(qp_num, qp_id, server_addr, remote_qp_num, p_key, q_key) != 0) {
+//     std::cout << "Failed to open connection on thread "<< qp_id << std::endl;
+//     exit(1);
+//   } else {
+//     std::cout << "Connection is open on thread " << qp_id << std::endl;
+//   }
 
-  rdma->add_recv_queue_entry(qp_num, &res, sizeof(res));
-  rdma->recv(qp_num);
+//   rdma->add_recv_queue_entry(qp_num, res, sizeof(res));
+//   rdma->recv(qp_num);
   
-  // rdma->stop_recv(qp_num);
-}
+//   // rdma->stop_recv(qp_num);
+// }
 
 
 // <max number of threads, run duration>
@@ -153,6 +153,7 @@ int main(int argc, char* argv[]) {
     rdma.add_recv_queue_entry(qp_num, &results[qp_id], sizeof(int));
     rdma.recv(qp_num);
   }
+
 
   bool all_data_available = 0;
   
