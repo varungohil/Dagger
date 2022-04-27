@@ -23,6 +23,7 @@
 /// Allocate FPGA on bus_2 for the server when running on PAC_A10 with physical
 /// networking.
 static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_2;
+std::cout << "pac_a10_bus2 - " << kFpgaBus << std::endl;
 
 /// If physical networking, running on different FPGAs, so NIC is placed by
 /// 0x20000 for both client and server.
@@ -42,6 +43,7 @@ static constexpr uint64_t kNicAddress = 0x20000;
 /// Only loopback is possible here, use skylake_fpga_bus_1 for bus and 0x20000
 /// for NIC address.
 static constexpr int kFpgaBus = dagger::cfg::platform::skylake_fpga_bus_1;
+std::cout << "skylake fpga bus 1 - " << kFpgaBus << std::endl;
 static constexpr uint64_t kNicAddress = 0x20000;
 #else
 /// Only loopback is possible here, so -1 for bus and 0x20000 for address.
