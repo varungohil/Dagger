@@ -104,6 +104,7 @@ int main(int argc, char* argv[]) {
   dagger::RDMA rdma(kNicAddress, num_qps, max_qp_pool_size);
 
   // Initialize the server.
+  std::cout << kFpgaBus << std::endl;
   volatile int res = rdma.init_nic(kFpgaBus);
   if (res != 0) return res;
 
