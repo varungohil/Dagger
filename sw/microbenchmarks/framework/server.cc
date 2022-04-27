@@ -51,7 +51,7 @@ static constexpr uint64_t kNicAddress = 0x20000;
 #endif
 
 /// Networking configuration.
-static constexpr char* kClientIP = "192.168.0.1";
+static constexpr char* kClientIP = "10.212.62.192";
 static constexpr uint16_t kPort = 3136;
 
 /// Ctl-C handler.

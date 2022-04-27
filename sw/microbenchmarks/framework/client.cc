@@ -60,7 +60,7 @@ static constexpr uint64_t kNicAddress = 0x00000;
 #endif
 
 /// Networking configuration.
-static constexpr char* kServerIP = "192.168.0.2";
+static constexpr char* kServerIP = "10.212.62.193";
 static constexpr uint16_t kPort = 3136;
 
 
