@@ -3,12 +3,12 @@ project(F-RPC)
 
 # Options
 option(PLATFORM_BDX "Build for BDX platform" OFF)
-option(PLATFORM_SDP "Build for Skylake platform" ON)
-option(PLATFORM_ASE "Build for the ASE simulation environment" ON)
-option(BUILD_WITH_PHY_NETWORK "With physical networking" OFF)
-option(BUILD_TESTS "Build with unit and system tests" ON)
+option(PLATFORM_SDP "Build for Skylake platform" OFF)
+option(PLATFORM_ASE "Build for the ASE simulation environment" OFF)
+option(BUILD_WITH_PHY_NETWORK "With physical networking" ON)
+option(BUILD_TESTS "Build with unit and system tests" OFF)
 option(BUILD_MICROBENCHMARKS "Build microbenchmarks" ON)
-option(BUILD_APPLICATIONS "Build end-to-end applications" ON)
+option(BUILD_APPLICATIONS "Build end-to-end applications" OFF)
 
 set(CMAKE_CXX_COMPILER g++)
 
@@ -31,6 +31,7 @@ add_definitions(-DNIC_CCIP_POLLING)
 #add_definitions(-DNIC_CCIP_MMIO)
 #add_definitions(-DNIC_CCIP_DMA)
 
+add_definitions(-DNIC_PHY_NETWORK)
 # Networking config
 if (BUILD_WITH_PHY_NETWORK)
     message(STATUS "Bulding WITH physical networking enabled" )
@@ -42,16 +43,8 @@ if (BUILD_WITH_PHY_NETWORK)
 endif()
 
 # Platform config
-if (PLATFORM_BDX)
-    message(STATUS "Bulding for BDX platform" )
-    add_definitions(-DPLATFORM_BDX)
-elseif(PLATFORM_SDP)
-    message(STATUS "Bulding for Skylake platform" )
-    add_definitions(-DPLATFORM_SDP)
-else()
-    message(STATUS "Bulding for PAC_A10 platform" )
-    add_definitions(-DPLATFORM_PAC_A10)
-endif()
+message(STATUS "Bulding for PAC_A10 platform" )
+add_definitions(-DPLATFORM_PAC_A10)
 
 set(LIBRARIES ${LIBRARIES} -z noexecstack)
 set(LIBRARIES ${LIBRARIES} -z relro -z now)

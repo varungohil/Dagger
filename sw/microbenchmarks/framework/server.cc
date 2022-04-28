@@ -22,8 +22,8 @@
 #  ifdef NIC_PHY_NETWORK
 /// Allocate FPGA on bus_2 for the server when running on PAC_A10 with physical
 /// networking.
-static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_2;
-std::cout << "pac_a10_bus2 - " << kFpgaBus << std::endl;
+// static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_2;
+// std::cout << "pac_a10_bus2 - " << kFpgaBus << std::endl;
 
 /// If physical networking, running on different FPGAs, so NIC is placed by
 /// 0x20000 for both client and server.
@@ -32,7 +32,7 @@ static constexpr uint64_t kNicAddress = 0x20000;
 #  else
 /// Allocate FPGA on bus_1 for the server when running on PAC_A10 with loopback
 /// networking.
-static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_1;
+// static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_1;
 
 /// If loopback, running on the same FPGA, so NIC is placed by 0x00000 for
 /// client and 0x20000 for server.
@@ -42,16 +42,17 @@ static constexpr uint64_t kNicAddress = 0x20000;
 #elif PLATFORM_SDP
 /// Only loopback is possible here, use skylake_fpga_bus_1 for bus and 0x20000
 /// for NIC address.
-static constexpr int kFpgaBus = dagger::cfg::platform::skylake_fpga_bus_1;
-std::cout << "skylake fpga bus 1 - " << kFpgaBus << std::endl;
+// static constexpr int kFpgaBus = dagger::cfg::platform::skylake_fpga_bus_1;
+// std::cout << "skylake fpga bus 1 - " << kFpgaBus << std::endl;
 static constexpr uint64_t kNicAddress = 0x20000;
 #else
 /// Only loopback is possible here, so -1 for bus and 0x20000 for address.
-static constexpr int kFpgaBus = -1;
+// static constexpr int kFpgaBus = -1;
 static constexpr uint64_t kNicAddress = 0x20000;
 
 #endif
 
+static constexpr int kFpgaBus = 0xaf;
 /// Networking configuration.
 static constexpr char* kClientIP = "10.212.62.192";
 static constexpr uint16_t kPort = 3136;
@@ -115,8 +116,8 @@ int main(int argc, char* argv[]) {
   if (res != 0) return res;
 
   // Enable perf thread on the nic.
-  res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
-  if (res != 0) return res;
+  //res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
+  //if (res != 0) return res;
 
   // // Open connections.
   // for (size_t i = 0; i < num_qps; ++i) {
@@ -138,7 +139,7 @@ int main(int argc, char* argv[]) {
     // Open connection
     dagger::IPv4 server_addr(kClientIP, kPort + qp_id);
     int qp_num = rdma.make_qp();
-    if ( qp_num != -1) {
+    if ( qp_num == -1) {
       std::cout << "Failed to make queue pair on thread " << qp_id << std::endl;
       exit(1);
     } else {
