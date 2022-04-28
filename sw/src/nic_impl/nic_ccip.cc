@@ -371,21 +371,21 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
   // concatenating qp fields
   std::bitset<16> remote_qp_num_bits(remote_qp_num);
   std::bitset<16> p_key_bits(p_key);
-  std::bitset<32> q_key_bits(q_key);
+  // std::bitset<32> q_key_bits(q_key);
 
   std::string rqpnum_str = remote_qp_num_bits.to_string();
   std::string p_key_bits_str = p_key_bits.to_string();
-  std::string q_key_bits_str = q_key_bits.to_string();
+  // std::string q_key_bits_str = q_key_bits.to_string();
   std::string tmp_bits = rqpnum_str.append(p_key_bits_str);
-  std::string tmp2_bits = tmp_bits.append(q_key_bits_str);
+  // std::string tmp2_bits = tmp_bits.append(q_key_bits_str);
 
 
-  std::bitset<64> qp_fields_bits(tmp2_bits);
-  uint64_t qp_fields = qp_fields_bits.to_ullong();
+  std::bitset<32> qp_fields_bits(tmp_bits);
+  uint32_t qp_fields = qp_fields_bits.to_ulong();
   // setUpConnId
   // Ignore GCC warning here since designated initializers
   // will be supported in C++20
-  ConnSetupFrame frame = {.big_data = 0, .data = c_id, .cmd = setUpConnId};
+  ConnSetupFrame frame = {.data = c_id, .cmd = setUpConnId};
   res = fpgaWriteMMIO64(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
                         *reinterpret_cast<uint64_t*>(&frame));
   if (res != FPGA_OK) {
@@ -397,7 +397,7 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
   }
 
   // setUpOpen
-  frame = {.big_data = 0, .data = cOpen, .cmd = setUpOpen};
+  frame = {.data = cOpen, .cmd = setUpOpen};
   res = fpgaWriteMMIO64(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
                         *reinterpret_cast<uint64_t*>(&frame));
   if (res != FPGA_OK) {
@@ -409,7 +409,7 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
   }
 
   // setUpDestIPv4
-  frame = {.big_data = 0, .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
+  frame = { .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
   res = fpgaWriteMMIO64(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
                         *reinterpret_cast<uint64_t*>(&frame));
   if (res != FPGA_OK) {
@@ -421,7 +421,7 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
   }
 
   // setUpDestPort
-  frame = {.big_data = 0, .data = dest_addr.get_port(), .cmd = setUpDestPort};
+  frame = { .data = dest_addr.get_port(), .cmd = setUpDestPort};
   res = fpgaWriteMMIO64(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
                         *reinterpret_cast<uint64_t*>(&frame));
   if (res != FPGA_OK) {
@@ -433,7 +433,7 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
   }
 
   // setUpClientFlowId
-  frame = {.big_data = 0, .data = c_flow_id, .cmd = setUpClientFlowId};
+  frame = { .data = c_flow_id, .cmd = setUpClientFlowId};
   res = fpgaWriteMMIO64(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
                         *reinterpret_cast<uint64_t*>(&frame));
   if (res != FPGA_OK) {
@@ -445,13 +445,25 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
   }
 
   //setUpQPFields
-  frame = {.big_data = 0, .data = 0, .cmd = setUpQPFields};
+  frame = {.data = qp_fields, .cmd = setUpQPFields};
   res = fpgaWriteMMIO64(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
                         *reinterpret_cast<uint64_t*>(&frame));
   if (res != FPGA_OK) {
     FRPC_ERROR(
         "Nic configuration error, failed to register connection, "
         "failed to write setUpQPFields, nic returned: %d\n",
+        res);
+    return 1;
+  }
+
+  // setUpQKey
+  frame = {.data = q_key, .cmd = setUpQKey};
+  res = fpgaWriteMMIO32(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
+                        *reinterpret_cast<uint64_t*>(&frame));
+  if (res != FPGA_OK) {
+    FRPC_ERROR(
+        "Nic configuration error, failed to register connection, "
+        "failed to write setUpQKey, nic returned: %d\n",
         res);
     return 1;
   }
@@ -493,7 +505,7 @@ int NicCCIP::register_connection(ConnectionId c_id, const IPv4& dest_addr,
   // }
 
   // setUpEnable
-  frame = {.big_data = 0, .data = 1, .cmd = setUpEnable};
+  frame = {.data = 1, .cmd = setUpEnable};
   res = fpgaWriteMMIO64(accel_handle_, 0, base_nic_addr_ + iRegConnSetupFrame,
                         *reinterpret_cast<uint64_t*>(&frame));
   if (res != FPGA_OK) {
