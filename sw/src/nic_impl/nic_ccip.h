@@ -56,14 +56,14 @@ class NicCCIP : public Nic {
   static constexpr uint8_t lRegRxBatchSize = 104;     // hw: 26, W
   static constexpr uint8_t iRegPollingRate = 112;     // hw: 28, W
   static constexpr uint8_t iRegConnSetupFrame = 120;  // hw: 30, W
-  static constexpr uint8_t iRegConnStatus = 128;      // hw: 32, R
-  static constexpr uint8_t iRegLb = 136;              // hw: 34, W
-  static constexpr uint8_t iRegPhyNetAddr = 144;      // hw: 36, W
-  static constexpr uint8_t iRegIPv4NetAddr = 152;     // hw: 38, W
-  static constexpr uint8_t iRegNetDropCntRead = 160;  // hw: 40, W
-  static constexpr uint8_t iRegNetDropCnt = 168;      // hw: 42, R
-  static constexpr uint8_t iRegTxQueueSize = 176;     // hw: 44, W
-  static constexpr uint8_t iRegDebug_0 = 184;         // hw: 46, W
+  static constexpr uint8_t iRegConnStatus = 136;      // hw: 34, R
+  static constexpr uint8_t iRegLb = 144;              // hw: 36, W
+  static constexpr uint8_t iRegPhyNetAddr = 152;      // hw: 38, W
+  static constexpr uint8_t iRegIPv4NetAddr = 160;     // hw: 40, W
+  static constexpr uint8_t iRegNetDropCntRead = 168;  // hw: 42, W
+  static constexpr uint8_t iRegNetDropCnt = 176;      // hw: 44, R
+  static constexpr uint8_t iRegTxQueueSize = 184;     // hw: 46, W
+  static constexpr uint8_t iRegDebug_0 = 192;         // hw: 48, W
   static constexpr uint16_t iMMIOSpaceStart = 256;    // hw: 64, -
 
   // Hardware register map constants.
