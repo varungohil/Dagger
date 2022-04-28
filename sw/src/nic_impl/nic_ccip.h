@@ -180,16 +180,16 @@ class NicCCIP : public Nic {
   static constexpr uint8_t setUpDestPort = 3;
   static constexpr uint8_t setUpClientFlowId = 4;
   static constexpr uint8_t setUpQPFields = 5;
-  static constexpr uint8_t setUpEnable = 6;
+    static constexpr uint8_t setUpQKey = 6;
+  static constexpr uint8_t setUpEnable = 7;
 
   /// Connection setup frame.
   struct __attribute__((__packed__)) ConnSetupFrame {
-    uint64_t big_data;
     uint32_t data;
     uint8_t cmd : 3;
     uint8_t padding : 5;
   };
-  static_assert(sizeof(ConnSetupFrame) == 13, "ConnSetupFrame");
+  static_assert(sizeof(ConnSetupFrame) == 5, "ConnSetupFrame");
 
   /// Connection setup status.
   static constexpr uint8_t cOK = 0;
