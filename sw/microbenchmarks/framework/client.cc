@@ -78,7 +78,7 @@ static double rdtsc_in_ns() {
 int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int p_key, uint32_t q_key, int thread_id, int op1, int op2)
 {
   int qp_num = rdma->make_qp();
-  if ( qp_num != -1) {
+  if ( qp_num == -1) {
     std::cout << "Failed to make queue pair on thread " << thread_id << std::endl;
     exit(1);
   } else {
