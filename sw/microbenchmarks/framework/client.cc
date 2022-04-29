@@ -128,8 +128,8 @@ int main(int argc, char* argv[]) {
   if (res != 0) return res;
 
   // Enable perf thread on the nic.
-  res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
-  if (res != 0) return res;
+  // res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
+  // if (res != 0) return res;
 
   uint16_t p_key = 0; 
   uint32_t q_key;
