@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
 
   // CLI11_PARSE(app, argc, argv);
 
-  size_t num_qps = 3;
+  size_t num_qps = 1;
 
   //instantiate the RDMA module
   int max_qp_pool_size = num_qps;

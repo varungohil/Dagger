@@ -193,6 +193,7 @@ int RDMA::send(uint16_t queue_pair_num) {
   // Add arguments that take in data
   for (auto qp : qp_pool_) {
     if (qp->get_qp_num() == queue_pair_num) {
+       std::cout << "In RDMA::send()" << std::endl;
       // perform send op only when send queue is nonempty
       assert(!qp->send_q.empty());
       qp->send();
@@ -249,6 +250,7 @@ int RDMA::stop_recv(uint16_t queue_pair_num) {
 int RDMA::connect_qp(uint16_t queue_pair_num, ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) {
   for (auto qp : qp_pool_) {
     if (qp->get_qp_num() == queue_pair_num) {
+      std::cout << "inside rdma::connect_qp - " << queue_pair_num << std::endl;
       qp->connect(c_id, server_addr, remote_qp_num, p_key, q_key);
       return 0;
     }

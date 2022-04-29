@@ -11,7 +11,7 @@
 #include <utility>
 #include <vector>
 #include <string>
-
+#include <iostream>
 #include "config.h"
 #include "logger.h"
 #include "rpc_header.h"
@@ -319,6 +319,7 @@ void QueuePairV2::add_recv_queue_entry(volatile int* data_addr, size_t data_size
 // data written to hardware tx_buffer not send
 
 int QueuePairV2::send() {
+  std::cout << "In QP::send()" << std::endl;
   // Get current buffer pointer
   uint8_t change_bit;
   volatile char* tx_ptr = tx_queue_.get_write_ptr(change_bit);
@@ -332,14 +333,15 @@ int QueuePairV2::send() {
   // uint32_t rpc_id = client_id_ | static_cast<uint32_t>(rpc_id_cnt_ << 16);
 
   uint32_t rpc_id = 0;
-
+  std::cout << "Reading send queue entry" << std::endl;
   QueueElem entry = send_q.front();
   send_q.pop();
+  std::cout << "read send queue entry" << std::endl;
   // std::string args = *(const_cast<int*>(entry.data_addr));
   int args = *(const_cast<int*>(entry.data_addr));
   size_t data_size = entry.data_size;
   // reinterpret_cast<GetRequest*>(const_cast<int*>(entry->data_addr)) = args;
-
+  std::cout << "read datav at data addr" << std::endl;
 
   // // call operator to do fulfill send 
   // operator_()(req_pckt, tx_queue_); ?? Raleigh did you add this?
@@ -347,8 +349,9 @@ int QueuePairV2::send() {
   // read first entry of send_q
   //  Send data
 #ifdef NIC_CCIP_POLLING
+  std::cout << "In NIC_CCIP_POLLING" << std::endl;
   volatile RpcPckt* tx_ptr_casted = reinterpret_cast<volatile RpcPckt*>(tx_ptr);
-
+  std::cout << "TX_PTR_CASTED" << std::endl;
   tx_ptr_casted->hdr.c_id = c_id_;
   tx_ptr_casted->hdr.rpc_id = rpc_id;
   tx_ptr_casted->hdr.n_of_frames = 1;
@@ -359,12 +362,15 @@ int QueuePairV2::send() {
 
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;
-
-  *reinterpret_cast<volatile int*>((tx_ptr_casted->argv)) =
-      args;
+  std::cout << "Writing to argv" << std::endl;
+  std::cout << args << std::endl;
+  //*reinterpret_cast<volatile int*>((tx_ptr_casted->argv)) = args
+  tx_ptr_casted->argv =  args;
+   std::cout << "Wrote to argv" << std::endl;
 
   // Set valid
   _mm_mfence();
+  std::cout << "Setting valid" << std::endl;
   tx_ptr_casted->hdr.ctl.valid = 1;
 #elif NIC_CCIP_MMIO
   RpcPckt request __attribute__((aligned(64)));

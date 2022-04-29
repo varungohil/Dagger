@@ -62,8 +62,8 @@
 static constexpr int kFpgaBus = 0xaf;
 static constexpr uint64_t kNicAddress = 0x20000;
 /// Networking configuration.
-static constexpr char* kServerIP = "10.212.62.193";
-static constexpr uint16_t kPort = 3136;
+static constexpr char* kServerIP = "10.212.62.192";
+static constexpr uint16_t kPort = 3137;
 
 
 static double rdtsc_in_ns() {
@@ -84,7 +84,7 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
   } else {
     std::cout << "Queue  Pair created on thread " << thread_id << std::endl;
   }
-
+  std::cout << "About to connect_qp" << std::endl;
   if (rdma->connect_qp(qp_num, thread_id, server_addr, remote_qp_num, p_key, q_key) != 0) {
     std::cout << "Failed to open connection on thread "<< thread_id << std::endl;
     exit(1);
@@ -93,9 +93,11 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
   }
 
   int res = op1 + op2;
+  std::cout << "Adding send queue entry" << std::endl;
   rdma->add_send_queue_entry(qp_num, &res, sizeof(res));
+  std::cout << "Sending" << std::endl;
   rdma->send(qp_num);
-
+  std::cout << "Sent! Now returning" << std::endl;
   return res;
 }
 
@@ -103,7 +105,7 @@ int main(int argc, char* argv[]) {
   // Parse input.
   // CLI::App app{"Benchmark Client"};
 
-  size_t num_of_threads = 3;
+  size_t num_of_threads = 1;
   // app.add_option("-t, --threads", num_of_threads, "number of threads")
       // ->required();
 
@@ -136,6 +138,7 @@ int main(int argc, char* argv[]) {
   // Run benchmarking threads.
   std::vector<std::thread> threads;
   for (size_t thread_id = 0; thread_id < num_of_threads; ++thread_id) {
+    std::cout << "Creating thread " << thread_id << std::endl;
     // Open connection
     dagger::IPv4 server_addr(kServerIP, kPort + thread_id);
 
@@ -145,7 +148,9 @@ int main(int argc, char* argv[]) {
     int op1 = thread_id;
     int op2 = thread_id + 1;
     std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
+    std::cout << "Created thread " << thread_id << std::endl;
     threads.push_back(std::move(thr));
+    std::cout << "Pushed thread " << thread_id << std::endl;
   }
 
   // Wait until all the benchmarking threads are completed.
