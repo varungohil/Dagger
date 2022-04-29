@@ -27,38 +27,40 @@
 
 // typedef unsigned short uint16_t
 /// HW parameters
-#ifdef PLATFORM_PAC_A10
-#  ifdef NIC_PHY_NETWORK
-/// Allocate FPGA on bus_1 for the client when running on PAC_A10 with physical
-/// networking.
-static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_1;
+// #ifdef PLATFORM_PAC_A10
+// #  ifdef NIC_PHY_NETWORK
+// /// Allocate FPGA on bus_1 for the client when running on PAC_A10 with physical
+// /// networking.
+// //static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_1;
 
-/// If physical networking, running on different FPGAs, so NIC is placed by
-/// 0x20000 for both client and server.
+// /// If physical networking, running on different FPGAs, so NIC is placed by
+// /// 0x20000 for both client and server.
+// static constexpr uint64_t kNicAddress = 0x20000;
+
+// #  else
+// /// Allocate FPGA on bus_1 for the client when running on PAC_A10 with loopback
+// /// networking.
+// //static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_1;
+
+// /// If loopback, running on the same FPGA, so NIC is placed by 0x00000 for
+// /// client and 0x20000 for server.
+// static constexpr uint64_t kNicAddress = 0x00000;
+
+// #  endif
+// #elif PLATFORM_SDP
+// /// Only loopback is possible here, use skylake_fpga_bus_1 for bus and 0x00000
+// /// for NIC address.
+// //static constexpr int kFpgaBus = dagger::cfg::platform::skylake_fpga_bus_1;
+// static constexpr uint64_t kNicAddress = 0x00000;
+// #else
+// /// Only loopback is possible here, so -1 for bus and 0x00000 for address.
+// static constexpr int kFpgaBus = -1;
+// static constexpr uint64_t kNicAddress = 0x00000;
+
+// #endif
+
+static constexpr int kFpgaBus = 0xaf;
 static constexpr uint64_t kNicAddress = 0x20000;
-
-#  else
-/// Allocate FPGA on bus_1 for the client when running on PAC_A10 with loopback
-/// networking.
-static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_1;
-
-/// If loopback, running on the same FPGA, so NIC is placed by 0x00000 for
-/// client and 0x20000 for server.
-static constexpr uint64_t kNicAddress = 0x00000;
-
-#  endif
-#elif PLATFORM_SDP
-/// Only loopback is possible here, use skylake_fpga_bus_1 for bus and 0x00000
-/// for NIC address.
-static constexpr int kFpgaBus = dagger::cfg::platform::skylake_fpga_bus_1;
-static constexpr uint64_t kNicAddress = 0x00000;
-#else
-/// Only loopback is possible here, so -1 for bus and 0x00000 for address.
-static constexpr int kFpgaBus = -1;
-static constexpr uint64_t kNicAddress = 0x00000;
-
-#endif
-
 /// Networking configuration.
 static constexpr char* kServerIP = "10.212.62.193";
 static constexpr uint16_t kPort = 3136;
