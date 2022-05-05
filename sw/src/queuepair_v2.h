@@ -75,7 +75,7 @@ class QueuePairV2 {
   uint16_t p_key_;
   uint32_t q_key_;
   bool is_data_available_ = 0; 
-
+  uint32_t rpc_id_count_ = 0;
 
 
   // std::vector<std::unique_ptr<QueueElem>> recv_q;

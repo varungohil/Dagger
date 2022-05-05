@@ -7,10 +7,19 @@ if(NOT STUB_CODEGEN_RESULT EQUAL "0")
 endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../src/)
+include_directories(${CMAKE_SOURCE_DIR}/src/utils)
 link_directories(${CMAKE_CURRENT_BINARY_DIR}/..)
 
 # Compile ASE samples
-set(ASE_SAMPLE_SRC joint_ase_process.cc)
-add_executable(dagger_ase_sample ${ASE_SAMPLE_SRC})
-target_compile_definitions(dagger_ase_sample PUBLIC -DASE_SIMULATION)
-target_link_libraries(dagger_ase_sample -pthread -ldagger_ase)
+#set(ASE_SAMPLE_SRC joint_ase_process.cc)
+#add_executable(dagger_ase_sample ${ASE_SAMPLE_SRC})
+#target_compile_definitions(dagger_ase_sample PUBLIC -DASE_SIMULATION)
+#target_link_libraries(dagger_ase_sample -pthread -ldagger_ase)
+
+
+set(ASE_FRAMEWORK_SRC loopback.cc)
+execute_process(COMMAND echo ${ASE_FRAMEWORK_SRC})
+add_executable(dagger_ase_framework ${ASE_FRAMEWORK_SRC})
+target_compile_definitions(dagger_ase_framework PUBLIC -DASE_SIMULATION)
+target_link_libraries(dagger_ase_framework -pthread -ldagger_ase)

@@ -52,10 +52,10 @@ static constexpr uint64_t kNicAddress = 0x20000;
 
 #endif
 
-static constexpr int kFpgaBus = 0xaf;
+static constexpr int kFpgaBus = 0x18;
 /// Networking configuration.
-static constexpr char* kClientIP = "10.212.62.192";
-static constexpr uint16_t kPort = 3136;
+static constexpr char* kClientIP = "10.212.62.193";
+static constexpr uint16_t kPort = 12345;
 
 /// Ctl-C handler.
 // static volatile int keepRunning = 1;
@@ -84,7 +84,8 @@ static constexpr uint16_t kPort = 3136;
 //   // rdma->stop_recv(qp_num);
 // }
 
-
+static volatile int keep_running = 1;
+void initHandler(int dummy) { keep_running = 0;}
 // <max number of threads, run duration>
 int main(int argc, char* argv[]) {
   // Parse input.
@@ -101,7 +102,7 @@ int main(int argc, char* argv[]) {
   // CLI11_PARSE(app, argc, argv);
 
   size_t num_qps = 1;
-
+  
   //instantiate the RDMA module
   int max_qp_pool_size = num_qps;
   dagger::RDMA rdma(kNicAddress, num_qps, max_qp_pool_size);
@@ -130,11 +131,24 @@ int main(int argc, char* argv[]) {
   //   }
   // }
 
+  //int one = 0;
+  //int two = 0;
+  //int three = 0;
+  //int four = 0;
+  //int five = 0;
+  //int six = 0;
+  //int seven = 0;
+  //int eight = 0;
+  //int nine = 0;
+  //int ten = 0;
+ 
   // Run benchmarking threads.
   uint16_t p_key = 0; 
   uint32_t q_key;
+  int op1 = 0;
+  int op2 = 16;
   std::vector<int> results;
-  results.resize(num_qps);
+  results.resize(op2 - op1 + 1);
   for (size_t qp_id = 0; qp_id < num_qps; ++qp_id) {
     // Open connection
     dagger::IPv4 server_addr(kClientIP, kPort + qp_id);
@@ -153,31 +167,108 @@ int main(int argc, char* argv[]) {
     } else {
       std::cout << "Connection is open on thread " << qp_id << std::endl;
     }
-
-    rdma.add_recv_queue_entry(qp_num, &results[qp_id], sizeof(int));
+    //for(int num = 1; num <= 10; num++){
+    //   std::cout << &results[num - 1] << std::endl;
+    //   rdma.add_recv_queue_entry(qp_num, &results[num-1], sizeof(int)); 
+    //}
+    //int op1 = 0;
+    //int op2 = 10;
+    for(int i=0; i < op2 - op1 + 1; i++){
+      rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int) );
+    }
+    //rdma.add_recv_queue_entry(qp_num, &one, sizeof(int));  
+    //rdma.add_recv_queue_entry(qp_num, &two, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &three, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &four, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &five, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &six, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &seven, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &eight, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &nine, sizeof(int)); 
+    //rdma.add_recv_queue_entry(qp_num, &ten, sizeof(int)); 
+    
+    //std::cout << "one addr = " << &one << std::endl; 
+    //std::cout << "two addr = " << &two << std::endl; 
+    //std::cout << "three addr = " << &three << std::endl; 
+    //std::cout << "four addr = " << &four << std::endl; 
+    //std::cout << "five addr = " << &five << std::endl; 
+    //std::cout << "six addr = " << &six << std::endl; 
+    //std::cout << "seven addr = " << &seven << std::endl; 
+    //std::cout << "eight addr = " << &eight << std::endl; 
+    //std::cout << "nine addr = " << &nine << std::endl; 
+    //std::cout << "ten addr = " << &ten << std::endl; 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     rdma.recv(qp_num);
+    //rdma.add_recv_queue_entry(qp_num, &results[qp_id], sizeof(int));
+    //int data_available_count = 0;
+    //while(data_available_count <= 10)
+    //{
+    // if(rdma.is_data_available(qp_num)){
+    //       data_available_count++;
+    // }
+    //}
+    //rdma.recv(qp_num);
   }
 
 
-  bool all_data_available = 0;
+  //bool all_data_available = 0;
   
-  while(all_data_available == 0){
-    for (size_t qp_id = 0; qp_id < num_qps; ++qp_id)
-    {
-      all_data_available = all_data_available && rdma.is_data_available(qp_id);
-    }
+  //while(all_data_available == 0){
+  //  for (size_t qp_id = 0; qp_id < num_qps; ++qp_id)
+  // {
+      //std::cout << "Data avaialable = " << rdma.is_data_available(qp_id) << std::endl;
+  //    all_data_available = all_data_available || rdma.is_data_available(qp_id);
+  //  }
+  //}
+  signal(SIGINT, initHandler);
+
+  while(keep_running){
+    sleep(1);
   } 
   for (size_t qp_id = 0; qp_id < num_qps; ++qp_id)
   {
     rdma.stop_recv(qp_id);
   }
 
+  //std::cout << "One = " << one << std::endl;
+  //std::cout << "Two = " << two << std::endl;
+  //std::cout << "Three = " << three << std::endl;
+  //std::cout << "Four = " << four << std::endl;
+  //std::cout << "Five = " << five << std::endl;
+  //std::cout << "Six = " << six << std::endl;
+  //std::cout << "Seven = " << seven << std::endl;
+  //std::cout << "Eight = " << eight << std::endl;
+  //std::cout << "Nine = " << nine << std::endl;
+  //std::cout << "Ten = " << ten << std::endl;
+
+
+
+
+
+
+
+
 
   int sum = 0;
-  for (size_t idx = 0; idx < num_qps; ++idx) {
+  for (size_t idx = 0; idx < results.size(); ++idx) {
+    std::cout << "results[" << idx << "] = " << results[idx] << std::endl;
     sum = sum + results[idx];
   }
-  std::cout << sum << std::endl;
+ std::cout << "Sum = " << sum << std::endl;
 
 
   // Check for HW errors on the nic.

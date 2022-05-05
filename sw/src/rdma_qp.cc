@@ -69,7 +69,7 @@ int RDMA::init_nic(int bus) {
   // (3) Configure the nic dataplane. Of course, all the clients in this pool
   // share the same configuration.
   PhyAddr cl_phy_addr = {0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0xFF};
-  IPv4 cl_ipv4_addr("192.168.0.2", 0);
+  IPv4 cl_ipv4_addr("10.212.62.191", 12345);
 
   res = nic_->configure_data_plane(rx_tx_anti_aliasing);
   if (res != 0) return res;
@@ -193,7 +193,7 @@ int RDMA::send(uint16_t queue_pair_num) {
   // Add arguments that take in data
   for (auto qp : qp_pool_) {
     if (qp->get_qp_num() == queue_pair_num) {
-       std::cout << "In RDMA::send()" << std::endl;
+       //std::cout << "In RDMA::send()" << std::endl;
       // perform send op only when send queue is nonempty
       assert(!qp->send_q.empty());
       qp->send();

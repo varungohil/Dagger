@@ -8,9 +8,10 @@
 
 #include <stddef.h>
 #include <stdint.h>
-
+#include <iostream> 
 #include <bitset>
 #include <cassert>
+#include <rpc_header.h>
 
 namespace dagger {
 
@@ -44,7 +45,12 @@ class alignas(4096) TxQueue {
     change_bit = change_bit_set_[tx_q_head_];
 
     volatile char* ptr = tx_q_ + tx_q_head_ * bucket_size_;
-
+    if(tx_q_head_ != 0){
+        volatile char* check_ptr = tx_q_ + (tx_q_head_ - 1)*bucket_size_;
+        volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
+        std::cout << "Tx: rpc_id = " << check_pckt->hdr.rpc_id << std::endl;
+        std::cout << "Tx: argv = " << check_pckt->argv << std::endl; 
+    }
     // Incremet head and flip change bit.
     change_bit_set_[tx_q_head_] ^= 1;
     // do {
@@ -53,7 +59,9 @@ class alignas(4096) TxQueue {
       tx_q_head_ = 0;
     }
     //} while (free_bit_[tx_q_head_] != 1);
-
+    std::cout << "head = " << tx_q_head_ << std::endl;
+    std::cout << "change bit = " << (int)(change_bit) << std::endl;
+    std::cout << "ptr = " << ptr << std::endl;
     return ptr;
   }
 

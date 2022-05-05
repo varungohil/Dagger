@@ -5,7 +5,7 @@ project(F-RPC)
 option(PLATFORM_BDX "Build for BDX platform" OFF)
 option(PLATFORM_SDP "Build for Skylake platform" OFF)
 option(PLATFORM_ASE "Build for the ASE simulation environment" OFF)
-option(BUILD_WITH_PHY_NETWORK "With physical networking" ON)
+option(BUILD_WITH_PHY_NETWORK "With physical networking" OFF)
 option(BUILD_TESTS "Build with unit and system tests" OFF)
 option(BUILD_MICROBENCHMARKS "Build microbenchmarks" ON)
 option(BUILD_APPLICATIONS "Build end-to-end applications" OFF)
@@ -31,16 +31,16 @@ add_definitions(-DNIC_CCIP_POLLING)
 #add_definitions(-DNIC_CCIP_MMIO)
 #add_definitions(-DNIC_CCIP_DMA)
 
-add_definitions(-DNIC_PHY_NETWORK)
+#add_definitions(-DNIC_PHY_NETWORK)
 # Networking config
-if (BUILD_WITH_PHY_NETWORK)
-    message(STATUS "Bulding WITH physical networking enabled" )
-    if (PLATFORM_BDX or PLATFORM_SDP)
-        message(FATAL_ERROR "Physical networking can only be enabled on the PAC_A10 platform" )
-    else()
-        add_definitions(-DNIC_PHY_NETWORK)
-    endif()
-endif()
+#if (BUILD_WITH_PHY_NETWORK)
+#    message(STATUS "Bulding WITH physical networking enabled" )
+#    if (PLATFORM_BDX or PLATFORM_SDP)
+#        message(FATAL_ERROR "Physical networking can only be enabled on the PAC_A10 platform" )
+#    else()
+#        add_definitions(-DNIC_PHY_NETWORK)
+#    endif()
+#endif()
 
 # Platform config
 message(STATUS "Bulding for PAC_A10 platform" )
@@ -91,12 +91,16 @@ set(PHY_NET_SRC
 
 # Prepare afu_json_info.h
 if (BUILD_WITH_PHY_NETWORK)
+    message("Took hssi json")
     set(JSON_FILENAME ${CMAKE_SOURCE_DIR}/../hw/rtl/ccip_std_afu_hssi.json)
 else()
+    message("Took sim json")
     set(JSON_FILENAME ${CMAKE_SOURCE_DIR}/../hw/rtl/ccip_std_afu.json)
 endif()
 
 set(JSON_HEADER ${CMAKE_CURRENT_BINARY_DIR}/afu_json_info.h)
+execute_process(COMMAND echo ${JSON_FILENAME})
+execute_process(COMMAND echo ${JSON_HEADER})
 execute_process(COMMAND afu_json_mgr json-info --afu-json=${JSON_FILENAME} --c-hdr=${JSON_HEADER}
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
                 RESULT_VARIABLE JSON_GEN_RESULT)
@@ -136,12 +140,14 @@ target_link_libraries(dagger ${FPGA_LIBS} ${LIBRARIES} -shared)
 # Build ASE Dagger as a shared library
 #
 if (PLATFORM_ASE)
+    message("Inside PLATFORM_ASE")
     add_library(dagger_ase SHARED ${SOURCES})
     add_dependencies(dagger_ase dagger-phy-network)
     target_compile_definitions(dagger_ase PRIVATE -DASE_SIMULATION)
     target_link_libraries(dagger_ase ${ASE_LIBS} ${LIBRARIES} -shared)
 endif()
-
+#add_subdirectory(ase_samples)
 if (BUILD_MICROBENCHMARKS)
+    message("Inside BUILD_MICROBENCHMARKS")
     add_subdirectory(microbenchmarks)
 endif()

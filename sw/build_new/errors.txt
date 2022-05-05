@@ -1,0 +1,62 @@
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: cannot find -ldagger_ase
+collect2: error: ld returned 1 exit status
+make[2]: *** [ase_samples/CMakeFiles/dagger_ase_framework.dir/build.make:89: ase_samples/dagger_ase_framework] Error 1
+make[1]: *** [CMakeFiles/Makefile2:149: ase_samples/CMakeFiles/dagger_ase_framework.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:65:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   65 | static constexpr char* kServerIP = "10.212.62.193";
+      |                                    ^~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: In function ‘int add_num(dagger::RDMA*, dagger::IPv4, int, int, uint32_t, int, int, int)’:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:88:32: warning: conversion to ‘dagger::ConnectionId’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+   88 |   if (rdma->connect_qp(qp_num, thread_id, server_addr, remote_qp_num, p_key, q_key) != 0) {
+      |                                ^~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: In function ‘int main(int, char**)’:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:121:50: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  121 |   dagger::RDMA rdma(kNicAddress, num_of_threads, max_qp_pool_size);
+      |                                                  ^~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:125:50: error: no matching function for call to ‘dagger::RDMA::init_nic(const int&, bool)’
+  125 |   volatile int res = rdma.init_nic(kFpgaBus, true);
+      |                                                  ^
+In file included from /homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:25:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/rdma_qp.h:34:7: note: candidate: ‘int dagger::RDMA::init_nic(int)’
+   34 |   int init_nic(int bus);
+      |       ^~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/rdma_qp.h:34:7: note:   candidate expects 1 argument, 2 provided
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:104:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+  104 | int main(int argc, char* argv[]) {
+      |          ~~~~^~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:104:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
+  104 | int main(int argc, char* argv[]) {
+      |                    ~~~~~~^~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:57:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   57 | static constexpr char* kClientIP = "10.212.62.193";
+      |                                    ^~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc: In function ‘int main(int, char**)’:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:107:43: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  107 |   dagger::RDMA rdma(kNicAddress, num_qps, max_qp_pool_size);
+      |                                           ^~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:111:50: error: no matching function for call to ‘dagger::RDMA::init_nic(const int&, bool)’
+  111 |   volatile int res = rdma.init_nic(kFpgaBus, true);
+      |                                                  ^
+In file included from /homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:18:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/rdma_qp.h:34:7: note: candidate: ‘int dagger::RDMA::init_nic(int)’
+   34 |   int init_nic(int bus);
+      |       ^~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/rdma_qp.h:34:7: note:   candidate expects 1 argument, 2 provided
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:89:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+   89 | int main(int argc, char* argv[]) {
+      |          ~~~~^~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:89:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
+   89 | int main(int argc, char* argv[]) {
+      |                    ~~~~~~^~~~~~
+make[2]: *** [microbenchmarks/framework/CMakeFiles/dagger_benchmark_client.dir/build.make:59: microbenchmarks/framework/CMakeFiles/dagger_benchmark_client.dir/client.cc.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:216: microbenchmarks/framework/CMakeFiles/dagger_benchmark_client.dir/all] Error 2
+make[2]: *** [microbenchmarks/framework/CMakeFiles/dagger_benchmark_server.dir/build.make:59: microbenchmarks/framework/CMakeFiles/dagger_benchmark_server.dir/server.cc.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:251: microbenchmarks/framework/CMakeFiles/dagger_benchmark_server.dir/all] Error 2
+make: *** [Makefile:76: all] Error 2

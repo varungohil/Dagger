@@ -59,11 +59,11 @@
 
 // #endif
 
-static constexpr int kFpgaBus = 0xaf;
-static constexpr uint64_t kNicAddress = 0x20000;
+static constexpr int kFpgaBus = 0x18;
+static constexpr uint64_t kNicAddress = 0x00000;
 /// Networking configuration.
-static constexpr char* kServerIP = "10.212.62.192";
-static constexpr uint16_t kPort = 3137;
+static constexpr char* kServerIP = "10.212.62.193";
+static constexpr uint16_t kPort = 12345;
 
 
 static double rdtsc_in_ns() {
@@ -91,13 +91,56 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
   } else {
     std::cout << "Connection is open on thread " << thread_id << std::endl;
   }
-
+  //int send_data;
+  //int one = 1;
+  //int two = 2;
+  //int three = 3;
+  //int four = 4;
+  //int five = 5;
+  //int six = 6;
+  //int seven = 7;
+  //int eight = 8;
+  //int nine = 9;
+  //int ten = 10; 
+  std::vector<int> send_vec;
+  for(int data = op1; data <= op2; data++){
+    send_vec.push_back(data);
+  } 
+  for(int i = 0; i < send_vec.size(); i++){
+    rdma->add_send_queue_entry(qp_num, &send_vec[i], sizeof(send_vec[i]));
+  }
+ //for(int num = op1; num < op2; num++){
+  //   send_data = num;
+  //   std::cout << "Added sendq entry for " << send_data << std::endl;
+  //   rdma->add_send_queue_entry(qp_num, &send_data, sizeof(send_data));
+  //}
+    
+    // rdma->add_send_queue_entry(qp_num, &one, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &two, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &three, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &four, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &five, sizeof(send_data));
+ 
+    // rdma->add_send_queue_entry(qp_num, &six, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &seven, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &eight, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &nine, sizeof(send_data));
+    // rdma->add_send_queue_entry(qp_num, &ten, sizeof(send_data));
+ 
+  //for(int num = op1; num < op2; num++){
+  //   std::cout << "Sending " << num << std::endl;
+  //   rdma->send(qp_num);
+  //}
+  
+  for(int i = 0; i < send_vec.size(); i++){
+   rdma->send(qp_num);  
+  }
   int res = op1 + op2;
-  std::cout << "Adding send queue entry" << std::endl;
-  rdma->add_send_queue_entry(qp_num, &res, sizeof(res));
-  std::cout << "Sending" << std::endl;
-  rdma->send(qp_num);
-  std::cout << "Sent! Now returning" << std::endl;
+  //std::cout << "Adding send queue entry" << std::endl;
+  //rdma->add_send_queue_entry(qp_num, &res, sizeof(res));
+  //std::cout << "Sending" << std::endl;
+  //rdma->send(qp_num);
+  //std::cout << "Sent! Now returning" << std::endl;
   return res;
 }
 
@@ -130,8 +173,8 @@ int main(int argc, char* argv[]) {
   if (res != 0) return res;
 
   // Enable perf thread on the nic.
-  // res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
-  // if (res != 0) return res;
+  //res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
+  //if (res != 0) return res;
 
   uint16_t p_key = 0; 
   uint32_t q_key;
@@ -144,9 +187,9 @@ int main(int argc, char* argv[]) {
 
     q_key = thread_id;
 
-    // Run the benchmarking thread on the client rpc_client.
-    int op1 = thread_id;
-    int op2 = thread_id + 1;
+    // Run the benchmarking thread on the client rpc_client
+    int op1 = 0;
+    int op2 = 16;
     std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
     std::cout << "Created thread " << thread_id << std::endl;
     threads.push_back(std::move(thr));
@@ -157,7 +200,7 @@ int main(int argc, char* argv[]) {
   for (auto& thr : threads) {
     thr.join();
   }
-
+  sleep(5);
   // Check for HW errors on the nic.
   res = rdma.check_hw_errors();
   if (res != 0)

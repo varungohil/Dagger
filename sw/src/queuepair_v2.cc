@@ -69,8 +69,12 @@ void QueuePairV2::operator_(const RpcPckt* rpc_in, TxQueue& tx_queue) {
   // read first received packet
   QueueElem entry = recv_q.front();
   recv_q.pop();
+  std::cout << "pop : Recv queue len now = " << recv_q.size() << std::endl;
+  //std::cout << "argv = " << rpc_in->argv << std::endl;
+  //std::cout << "rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
+  //std::cout << "addr = " << (int*)(entry.data_addr) << std::endl;
   *(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
-
+  //std::cout << "Value at addr" << (int)(*(entry.data_addr)) << std::endl;
 
 
   // // set store addr based on request argv
@@ -180,7 +184,7 @@ void QueuePairV2::operator_(const RpcPckt* rpc_in, TxQueue& tx_queue) {
   //   uint32_t current_batch_ptr;
   //   size_t batch_counter;
   // #endif
-};
+}
 
 int QueuePairV2::connect(ConnectionId c_id, const IPv4& server_addr, uint16_t remote_qp_num, uint16_t p_key, uint32_t q_key) {
   remote_qp_num_ = remote_qp_num;
@@ -243,11 +247,21 @@ void QueuePairV2::_PullListen() {
       uint32_t rx_rpc_id;
       req_pckt = reinterpret_cast<volatile RpcPckt*>(
           rx_queue_.get_read_ptr(rx_rpc_id));
+      std::cout << "Going Inside spin loop!" << std::endl;
+      std::cout << "Before : Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop Signal = "<< stop_signal_ << "; argv = " << req_pckt->argv << std::endl;
+      //int count = 0;
       while (
           (req_pckt->hdr.ctl.valid == 0 || req_pckt->hdr.rpc_id == rx_rpc_id) &&
           !stop_signal_) {
+      //if(count%100 == 0){
+      //std::cout << "Loop: Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop signal = " << stop_signal_ << std::endl;
+      //std::cout << "valid = " << (int)(req_pckt->hdr.ctl.valid) << " HDR RPCID = " << req_pckt->hdr.rpc_id << " RX RPCID = " << rx_rpc_id << std::endl;
+       //}
+      //count++;
       }
-
+      std::cout << "Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop signal = " << stop_signal_ << "; argv = " << req_pckt->argv <<  std::endl;
+      std::cout << "Got out of spin loop" << std::endl;
+      std::cout << "req_pckt->argv = " << req_pckt->argv << std::endl;
       if (stop_signal_) continue;
 
       rx_queue_.update_rpc_id(req_pckt->hdr.rpc_id);
@@ -280,7 +294,7 @@ void QueuePairV2::_PullListen() {
       //    std::cout << "\n **************** " << std::endl;
 
       operator_(req_pckt_1 + i, tx_queue_);
-      //
+     //
     }
     is_data_available_ = 0;
   }
@@ -308,6 +322,7 @@ void QueuePairV2::add_recv_queue_entry(volatile int* data_addr, size_t data_size
   new_entry.data_addr = data_addr;
   new_entry.data_size = data_size;
   recv_q.push(new_entry);
+  std::cout << "Recv Queue Len = "<< recv_q.size() << std::endl;
 }
 
 // put entry in send queue, put entry in receive queue
@@ -319,7 +334,7 @@ void QueuePairV2::add_recv_queue_entry(volatile int* data_addr, size_t data_size
 // data written to hardware tx_buffer not send
 
 int QueuePairV2::send() {
-  std::cout << "In QP::send()" << std::endl;
+  //std::cout << "In QP::send()" << std::endl;
   // Get current buffer pointer
   uint8_t change_bit;
   volatile char* tx_ptr = tx_queue_.get_write_ptr(change_bit);
@@ -332,16 +347,18 @@ int QueuePairV2::send() {
   // Make RPC id
   // uint32_t rpc_id = client_id_ | static_cast<uint32_t>(rpc_id_cnt_ << 16);
 
-  uint32_t rpc_id = 0;
-  std::cout << "Reading send queue entry" << std::endl;
+  uint32_t rpc_id = rpc_id_count_;
+  rpc_id_count_++;
+  //std::cout << "Reading send queue entry" << std::endl;
   QueueElem entry = send_q.front();
   send_q.pop();
-  std::cout << "read send queue entry" << std::endl;
+  //std::cout << "read send queue entry" << std::endl;
   // std::string args = *(const_cast<int*>(entry.data_addr));
   int args = *(const_cast<int*>(entry.data_addr));
+  std::cout << "Data in sendq entry = " << args << std::endl; 
   size_t data_size = entry.data_size;
   // reinterpret_cast<GetRequest*>(const_cast<int*>(entry->data_addr)) = args;
-  std::cout << "read datav at data addr" << std::endl;
+  //std::cout << "read datav at data addr" << std::endl;
 
   // // call operator to do fulfill send 
   // operator_()(req_pckt, tx_queue_); ?? Raleigh did you add this?
@@ -349,9 +366,9 @@ int QueuePairV2::send() {
   // read first entry of send_q
   //  Send data
 #ifdef NIC_CCIP_POLLING
-  std::cout << "In NIC_CCIP_POLLING" << std::endl;
+  //std::cout << "In NIC_CCIP_POLLING" << std::endl;
   volatile RpcPckt* tx_ptr_casted = reinterpret_cast<volatile RpcPckt*>(tx_ptr);
-  std::cout << "TX_PTR_CASTED" << std::endl;
+  //std::cout << "TX_PTR_CASTED" << std::endl;
   tx_ptr_casted->hdr.c_id = c_id_;
   tx_ptr_casted->hdr.rpc_id = rpc_id;
   tx_ptr_casted->hdr.n_of_frames = 1;
@@ -363,14 +380,16 @@ int QueuePairV2::send() {
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;
   std::cout << "Writing to argv" << std::endl;
-  std::cout << args << std::endl;
+  std::cout << "Args = " << args << std::endl;
   //*reinterpret_cast<volatile int*>((tx_ptr_casted->argv)) = args
   tx_ptr_casted->argv =  args;
-   std::cout << "Wrote to argv" << std::endl;
+  std::cout << "argv = " << tx_ptr_casted->argv << std::endl;
+  std::cout << "RPC_ID = " << tx_ptr_casted->hdr.rpc_id << std::endl;
+   //std::cout << "Wrote to argv" << std::endl;
 
   // Set valid
   _mm_mfence();
-  std::cout << "Setting valid" << std::endl;
+  //std::cout << "Setting valid" << std::endl;
   tx_ptr_casted->hdr.ctl.valid = 1;
 #elif NIC_CCIP_MMIO
   RpcPckt request __attribute__((aligned(64)));

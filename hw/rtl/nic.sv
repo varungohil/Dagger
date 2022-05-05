@@ -79,8 +79,8 @@ module nic
     // General local config
     // =============================================================
     // log number of max queue sizes
-    localparam LMAX_RX_QUEUE_SIZE = 3;   // 2**3=8
-    localparam LMAX_TX_QUEUE_SIZE = 8;   // 2**8=256
+    localparam LMAX_RX_QUEUE_SIZE = 9;   // 2**3=8
+    localparam LMAX_TX_QUEUE_SIZE = 9;   // 2**8=256
     // CCI-P VCs
     localparam CCIP_FORWARD_VC       = eVC_VH0; // PCIe
     localparam CCIP_FORWARD_RD_TYPE  = eREQ_RDLINE_I;

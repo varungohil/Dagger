@@ -8,7 +8,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
-
+#include <iostream>
 #include <bitset>
 #include <cassert>
 
@@ -54,10 +54,16 @@ class alignas(4096) RxQueue {
     assert(rx_q_ != nullptr);
 
     rpc_id_set_[rx_q_tail_] = rpc_id;
+    std::cout << "rpc_id_set_[rx_q_tail_] = " << (int)(rpc_id_set_[rx_q_tail_]) << std::endl;
     ++rx_q_tail_;
+    std::cout << "recvq rpc_id = " << rpc_id << std::endl;
+    for(int i =0; i < 8; i++ ){
+        std::cout << "rpc_id_set_[" << i << "] = " << (int)(rpc_id_set_[i]) << std::endl;
+    }
     if (rx_q_tail_ == depth_) {
       rx_q_tail_ = 0;
     }
+    std::cout << "Tail = " << rx_q_tail_ << std::endl;
   }
 
  private:

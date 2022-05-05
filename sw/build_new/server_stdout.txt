@@ -1,0 +1,525 @@
+175
+27:501651 INFOR: Connected to NIC on the bus af
+27:501709 INFOR: Allocating memory with standard pages
+27:501742 INFOR: Shared nic buffer of size 1024B is allocated by address 0xab965000; buffer's nic-viewed physical address is 0xffd1d000
+27:501749 INFOR: Nic dataplane is configured
+27:501772 INFOR: HSSI is reset
+27:501785 INFOR: HSSI loopback is disabled
+27:501959 INFOR: Physical network is initialized
+29:505119 INFOR: Nic is initialized
+30:507732 INFOR: NIC is started
+30:507760 INFOR: Running perf thread on the nic
+Queue  Pair created on thread 0
+inside rdma::connect_qp - 0
+30:507970 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+30:508070 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+30:513856 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+30:524236 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+30:524263 INFOR: Debug port #0, value=0
+31:510299 INFOR: Connection id=0 is registered
+Connection is open on thread 0
+32:524551 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+32:524670 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+32:530074 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+32:539709 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+32:539721 INFOR: Debug port #0, value=0
+34:544025 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+34:544050 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+34:549436 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+34:559074 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+34:559088 INFOR: Debug port #0, value=0
+36:560985 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+36:561037 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+36:566437 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+36:576072 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+36:576084 INFOR: Debug port #0, value=0
+38:578119 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+38:578175 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+38:583579 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+38:593214 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+38:593226 INFOR: Debug port #0, value=0
+40:598302 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+40:598355 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+40:603735 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+40:613382 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+40:613395 INFOR: Debug port #0, value=0
+42:613615 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+42:613653 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+42:619036 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+42:628677 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+42:628690 INFOR: Debug port #0, value=0
+44:628897 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+44:628943 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+44:634424 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+44:644061 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+44:644078 INFOR: Debug port #0, value=0
+46:646206 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+46:646242 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+46:651648 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+46:661293 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+46:661306 INFOR: Debug port #0, value=0
+48:661444 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+48:661505 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+48:666897 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+48:676532 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+48:676544 INFOR: Debug port #0, value=0
+50:677249 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+50:677331 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+50:682721 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+50:692359 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+50:692372 INFOR: Debug port #0, value=0
+52:697431 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+52:697482 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+52:702866 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+52:712507 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+52:712520 INFOR: Debug port #0, value=0
+54:713568 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+54:713624 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+54:719025 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+54:728669 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+54:728682 INFOR: Debug port #0, value=0
+56:730452 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+56:730508 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+56:735894 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+56:745535 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+56:745548 INFOR: Debug port #0, value=0
+58:747914 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+58:747966 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+58:753371 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+58:763010 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+58:763023 INFOR: Debug port #0, value=0
+60:763416 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+60:763445 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+60:768828 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+60:778468 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+60:778481 INFOR: Debug port #0, value=0
+62:780783 INFOR: Nic #20000 returned performance counter(outgoing RPS) = 0
+62:780838 INFOR:  Nic hw status dump >> 
+  nic_id= 0
+  ready= 1
+  running= 1
+  error= 0
+  err_rpcRxFifoOvf= 0
+  err_rpcTxFifoOvf= 0
+  err_ccip= 0
+  err_rpc= 0
+
+62:786224 INFOR: Nic RPC counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+
+62:795864 INFOR: Nic network counters dump >> 
+  counter[0] = 0
+  counter[1] = 0
+  counter[2] = 0
+  counter[3] = 0
+  counter[4] = 0
+  counter[5] = 0
+  counter[6] = 0
+  counter[7] = 0
+  counter[8] = 281479254966016
+
+62:795877 INFOR: Debug port #0, value=0
