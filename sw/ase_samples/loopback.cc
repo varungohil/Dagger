@@ -38,7 +38,7 @@ static int run_client();
 
 int main() {
 #ifdef NIC_PHY_NETWORK
-  std::cout << "The ASE samle can only be run in the loopback mode"
+  std::cout << "The ASE sample can only be run in the loopback mode"
             << std::endl;
   return 1;
 #endif
@@ -82,9 +82,12 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
 
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
+    int op1 = 0;
+    int op2 = 16;
+    int size = op2 - op1 + 1;
     std::vector<int> results;
-    results.resize(kServerQPs);
-    for(int i = 0; i < kServerQPs; i++){
+    results.resize(size);
+    for(int i = 0; i < size; i++){
         results[i] = 0;
     }
 
@@ -105,9 +108,14 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
         } else {
         std::cout << "Connection is open on thread " << i << std::endl;
         }
-
-        rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int));
+        for(int i = op1; i <= op2; i++){
+           rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int));
+        }
+        sleep(1);
+        //rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int));
         rdma.recv(qp_num);
+        std::cout << "Ready to receive ... " << std::endl;
+
     }
 
     init_pr.set_value(true);
@@ -147,7 +155,7 @@ static int run_client() {
 
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
-
+    vector<uint32_t> send_data;
     std::vector<std::thread> threads;
     for (size_t qp_id = 0; qp_id < kClientQPs; ++qp_id) {
         std::cout << "Creating thread " << qp_id << std::endl;
@@ -167,12 +175,22 @@ static int run_client() {
         } else {
             std::cout << "Connection is open on thread " << qp_id << std::endl;
         }
-        int op1 = qp_id;
-        int op2 = qp_id + 1;
-        int res = op1 + op2;
-        rdma_client.add_send_queue_entry(qp_num, &res, sizeof(res));
-        rdma_client.send(qp_num);
+        int op1 = 0;
+        int op2 = 16;
+        for(int i = op1; i <= op2; i++){
+            send_data.pushback(i);
+            rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
+        }
+        sleep(1);
+        std::cout << "Sending ..."<< std::endl;
+        for(int i = op1; i <= op2; i++){
+            rdma_client.send(qp_num);
+        }
+        //int res = op1 + op2;
+        //rdma_client.add_send_queue_entry(qp_num, &res, sizeof(res));
+        //rdma_client.send(qp_num);
     }
+    sleep(2);
     res = rdma_client.stop_nic();
     if (res != 0) return res;
     sleep(10);
