@@ -31,7 +31,7 @@ class RDMA {
   ~RDMA();
 
   /// A wrapper on top of the nic's init/start/stop API.
-  int init_nic(int bus);
+  int init_nic(int bus, bool is_master);
   int start_nic();
   int stop_nic();
 
