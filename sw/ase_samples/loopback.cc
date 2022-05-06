@@ -155,7 +155,7 @@ static int run_client() {
 
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
-    vector<uint32_t> send_data;
+    std::vector<uint32_t> send_data;
     std::vector<std::thread> threads;
     for (size_t qp_id = 0; qp_id < kClientQPs; ++qp_id) {
         std::cout << "Creating thread " << qp_id << std::endl;
