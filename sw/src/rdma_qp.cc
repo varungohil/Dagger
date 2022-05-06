@@ -36,7 +36,7 @@ RDMA::~RDMA() {
 
 /// This function initializes the backend's nic depending on the exact type of
 /// the nic. The function performs four actions to initialize the nic.
-int RDMA::init_nic(int bus) {
+int RDMA::init_nic(int bus, bool is_master) {
   // (1) Create nic.
   // In contrast to rpc_client_pool, the server's nic is always the master
   // (even in the ASE mode).
@@ -44,19 +44,19 @@ int RDMA::init_nic(int bus) {
 #  pragma message "compiling Nic to run in polling mode"
   // Simple case so far: number of NIC flows = max_num_of_threads_.
   nic_ = std::unique_ptr<Nic>(
-      new NicPollingCCIP(base_nic_addr_, max_num_of_threads_, true));
+      new NicPollingCCIP(base_nic_addr_, max_num_of_threads_, is_master));
 #elif NIC_CCIP_MMIO
 // MMIO intefrace only works either with write-combine buffering or AVX
 // intrinsics.
 #  pragma message "compiling Nic to run in MMIO mode"
   // Simple case so far: number of NIC flows = max_num_of_threads_.
   nic_ = std::unique_ptr<Nic>(
-      new NicMmioCCIP(base_nic_addr_, max_num_of_threads_, true));
+      new NicMmioCCIP(base_nic_addr_, max_num_of_threads_, is_master));
 #elif NIC_CCIP_DMA
 #  pragma message "compiling Nic to run in DMA mode"
   // Simple case so far: number of NIC flows = max_num_of_threads_.
   nic_ = std::unique_ptr<Nic>(
-      new NicDmaCCIP(base_nic_addr_, max_num_of_threads_, true));
+      new NicDmaCCIP(base_nic_addr_, max_num_of_threads_, is_master));
 #else
 #  error Nic CCI-P mode is not specified
 #endif
