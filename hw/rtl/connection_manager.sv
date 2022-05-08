@@ -354,12 +354,14 @@ module connection_manager
     always_comb begin
         // Defaults
         for (i1=0;i1<2;i1=i1+1) begin
+            $display("default rpc path")
             c_tbl_rd_addr[i] = {($bits(c_tbl_rd_addr[i])){1'b0}};
         end
 
         // For RPC flows from CPU, look-up from c_tbl
         // For when this node is SENDING a packet (we think)
         if (rpc_in.valid) begin
+            $display("rpc_in is valid: we think node is sending a packet.")
             if (rpc_in.rpc_data.hdr.connection_id < 2**LCACHE_SIZE) begin
                 c_tbl_rd_addr[0] = rpc_in.rpc_data.hdr.connection_id;
             end
@@ -368,6 +370,7 @@ module connection_manager
         // For RPC flows from network, look-up from c_tbl_r1
         // For when this node is RECEIVING a packet (we think)
         if (rpc_net_in.valid) begin
+            $display("rpc_net_in is valid: we think node is receiving a packet.")
             if (rpc_net_in.rpc_data.hdr.connection_id < 2**LCACHE_SIZE) begin
                 c_tbl_rd_addr[1] = rpc_net_in.rpc_data.hdr.connection_id;
             end
