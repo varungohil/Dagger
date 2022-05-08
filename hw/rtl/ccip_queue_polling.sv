@@ -356,7 +356,12 @@ module ccip_queue_polling
             .debug_out(debug_out)
         );
 
-
+    always@(*) begin
+        if (rpc_in_valid) begin
+            $display("RPC IN argv: %p", rpc_in.rpc_data);
+        end
+    end
+    
     // Status
     assign initialized = d_bit_tb_initialized & ccip_transmitter_initialized;
     assign error = ccip_transmitter_error;
