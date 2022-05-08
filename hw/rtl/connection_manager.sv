@@ -354,14 +354,14 @@ module connection_manager
     always_comb begin
         // Defaults
         for (i1=0;i1<2;i1=i1+1) begin
-            $display("default rpc path")
+            $display("default rpc path");
             c_tbl_rd_addr[i] = {($bits(c_tbl_rd_addr[i])){1'b0}};
         end
 
         // For RPC flows from CPU, look-up from c_tbl
         // For when this node is SENDING a packet (we think)
         if (rpc_in.valid) begin
-            $display("rpc_in is valid: we think node is sending a packet.")
+            $display("rpc_in is valid: we think node is sending a packet.");
             if (rpc_in.rpc_data.hdr.connection_id < 2**LCACHE_SIZE) begin
                 c_tbl_rd_addr[0] = rpc_in.rpc_data.hdr.connection_id;
             end
@@ -370,7 +370,7 @@ module connection_manager
         // For RPC flows from network, look-up from c_tbl_r1
         // For when this node is RECEIVING a packet (we think)
         if (rpc_net_in.valid) begin
-            $display("rpc_net_in is valid: we think node is receiving a packet.")
+            $display("rpc_net_in is valid: we think node is receiving a packet.");
             if (rpc_net_in.rpc_data.hdr.connection_id < 2**LCACHE_SIZE) begin
                 c_tbl_rd_addr[1] = rpc_net_in.rpc_data.hdr.connection_id;
             end
@@ -386,7 +386,11 @@ module connection_manager
         if(rpc_net_in.remote_qp_num == c_tbl_rd_data[0].remote_qp_num // added
             && rpc_net_in.p_key == c_tbl_rd_data[0].p_key
             && rpc_net_in.q_key == c_tbl_rd_data[0].q_key) good <= 1;
-        else good <= 0; // added
+            $display("qp num, pkey, qkey match for packet");
+        else begin 
+            $display("either qp num, pkey, qkey do NOT MATCH for packet"); 
+            good <= 0; // added
+        end
 
         rpc_in_1d <= rpc_in;
         rpc_net_in_1d <= rpc_net_in;
@@ -412,6 +416,7 @@ module connection_manager
         rpc_net_out.valid <= 1'b0;
         if (rpc_in_1d.valid) begin
             if (c_tbl_rd_data[0].status == cOpen && good) begin // added good
+                $display("rpc data is valid, setting rpc_net_out.valid");
                 rpc_net_out.valid <= 1'b1; // if not valid we toss everything
             end
         end
@@ -419,12 +424,14 @@ module connection_manager
         rpc_out.valid <= 1'b0;
         if (rpc_net_in_1d.valid) begin
             if (c_tbl_rd_data[1].status == cOpen && good) begin // added good
+                $display("rpc data is valid, setting rpc_out.valid");
                 rpc_out.valid <= 1'b1;
             end
         end
 
         // Reset
         if (reset) begin
+            $display("just reset");
             rpc_net_out.valid <= 1'b0;
             rpc_out.valid <= 1'b0;
         end
