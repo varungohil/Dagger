@@ -18,8 +18,8 @@
 #include "rdma_qp.h"
 
 /// HW parameters.
-#ifdef PLATFORM_PAC_A10
-#  ifdef NIC_PHY_NETWORK
+//#ifdef PLATFORM_PAC_A10
+//#  ifdef NIC_PHY_NETWORK
 /// Allocate FPGA on bus_2 for the server when running on PAC_A10 with physical
 /// networking.
 // static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_2;
@@ -27,34 +27,35 @@
 
 /// If physical networking, running on different FPGAs, so NIC is placed by
 /// 0x20000 for both client and server.
-static constexpr uint64_t kNicAddress = 0x20000;
+//static constexpr uint64_t kNicAddress = 0x20000;
 
-#  else
+//#  else
 /// Allocate FPGA on bus_1 for the server when running on PAC_A10 with loopback
 /// networking.
 // static constexpr int kFpgaBus = dagger::cfg::platform::pac_a10_fpga_bus_1;
 
 /// If loopback, running on the same FPGA, so NIC is placed by 0x00000 for
 /// client and 0x20000 for server.
-static constexpr uint64_t kNicAddress = 0x20000;
+//static constexpr uint64_t kNicAddress = 0x20000;
 
-#  endif
-#elif PLATFORM_SDP
+//#  endif
+//#elif PLATFORM_SDP
 /// Only loopback is possible here, use skylake_fpga_bus_1 for bus and 0x20000
 /// for NIC address.
 // static constexpr int kFpgaBus = dagger::cfg::platform::skylake_fpga_bus_1;
 // std::cout << "skylake fpga bus 1 - " << kFpgaBus << std::endl;
-static constexpr uint64_t kNicAddress = 0x20000;
-#else
+//static constexpr uint64_t kNicAddress = 0x20000;
+//#else
 /// Only loopback is possible here, so -1 for bus and 0x20000 for address.
 // static constexpr int kFpgaBus = -1;
-static constexpr uint64_t kNicAddress = 0x20000;
+//static constexpr uint64_t kNicAddress = 0x20000;
 
-#endif
+//#endif
 
-static constexpr int kFpgaBus = 0xaf;
+static constexpr int kFpgaBus = -1;
+static constexpr int kNicAddress = 0x20000;
 /// Networking configuration.
-static constexpr char* kClientIP = "10.212.62.191";
+static constexpr char* kClientIP = "10.212.65.1";
 static constexpr uint16_t kPort = 12345;
 
 /// Ctl-C handler.
@@ -109,7 +110,7 @@ int main(int argc, char* argv[]) {
 
   // Initialize the server.
   std::cout << kFpgaBus << std::endl;
-  volatile int res = rdma.init_nic(kFpgaBus);
+  volatile int res = rdma.init_nic(kFpgaBus, true);
   if (res != 0) return res;
 
   // Start the server.
@@ -146,7 +147,7 @@ int main(int argc, char* argv[]) {
   uint16_t p_key = 0; 
   uint32_t q_key;
   int op1 = 0;
-  int op2 = 32;
+  int op2 = 16;
   std::vector<int> results;
   results.resize(op2 - op1 + 1);
   for (size_t qp_id = 0; qp_id < num_qps; ++qp_id) {
@@ -254,14 +255,6 @@ int main(int argc, char* argv[]) {
   //std::cout << "Eight = " << eight << std::endl;
   //std::cout << "Nine = " << nine << std::endl;
   //std::cout << "Ten = " << ten << std::endl;
-
-
-
-
-
-
-
-
 
   int sum = 0;
   for (size_t idx = 0; idx < results.size(); ++idx) {

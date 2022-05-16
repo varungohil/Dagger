@@ -52,8 +52,8 @@ static_assert(sizeof(RpcHeader) == rpc_header_size_bytes,
 /// RPC packet that includes the hRPC header and the payload.
 struct __attribute__((__packed__)) RpcPckt {
   RpcHeader hdr;
-  // std::string argv[cfg::sys::cl_size_bytes - rpc_header_size_bytes];
-  int argv;
+  uint8_t argv[cfg::sys::cl_size_bytes - rpc_header_size_bytes];
+  //int argv;
 };
 
 // We only support the MTU of 1 cache line so far.

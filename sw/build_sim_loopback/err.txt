@@ -1,0 +1,1094 @@
+cc1: warning: command line option ‘-std=c++11’ is valid for C++/ObjC++ but not for C
+cc1: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiOpen’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:95:16: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+   95 |  for (i = 0; i < h->csr_cnt; i++)
+      |                ^
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiCtrlLoopback’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:200:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  200 |  uint32_t channel_num, bool loopback_en)
+      |  ~~~~~~~~~^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetLoopbackStatus’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:220:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  220 |  uint32_t channel_num, bool *loopback_en)
+      |  ~~~~~~~~~^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetFreqLockStatus’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:243:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  243 |  uint32_t channel_num, bool *freq_locked)
+      |  ~~~~~~~~~^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetWordLockStatus’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:265:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  265 |  uint32_t channel_num, bool *word_locked)
+      |  ~~~~~~~~~^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiPrintChannelStats’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:381:16: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  381 |  for (i = 0; i < count; i++) {
+      |                ^
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:368:33: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  368 |  hssi_csr_type_t type, uint32_t channel_num)
+      |                        ~~~~~~~~~^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiClearChannelStats’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:392:33: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  392 |  hssi_csr_type_t type, uint32_t channel_num)
+      |                        ~~~~~~~~~^~~~~~~~~~~
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=noexecstack ignored
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=relro ignored
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=now ignored
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
+cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
+cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘virtual int dagger::NicCCIP::initialize_nic(const dagger::PhyAddr&, const dagger::IPv4&)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:127:64: warning: left shift count >= width of type [-Wshift-count-overflow]
+  127 |                             host_phy.b2 << 24 | host_phy.b1 << 32 |
+      |                                                                ^~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:128:44: warning: left shift count >= width of type [-Wshift-count-overflow]
+  128 |                             host_phy.b0 << 40);
+      |                                            ^~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:127:67: warning: conversion to ‘uint64_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  126 |                         host_phy.b5 | host_phy.b4 << 8 | host_phy.b3 << 16 |
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  127 |                             host_phy.b2 << 24 | host_phy.b1 << 32 |
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+  128 |                             host_phy.b0 << 40);
+      |                             ~~~~~~~~~~~~~~~~~                      
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::register_connection(dagger::ConnectionId, const dagger::IPv4&, dagger::ConnectionFlowId, uint16_t, uint16_t, uint32_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:388:27: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  388 |   ConnSetupFrame frame = {.data = c_id, .cmd = setUpConnId};
+      |                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:388:41: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  388 |   ConnSetupFrame frame = {.data = c_id, .cmd = setUpConnId};
+      |                                         ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:388:59: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  388 |   ConnSetupFrame frame = {.data = c_id, .cmd = setUpConnId};
+      |                                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:390:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  390 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:400:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  400 |   frame = {.data = cOpen, .cmd = setUpOpen};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:400:27: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  400 |   frame = {.data = cOpen, .cmd = setUpOpen};
+      |                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:400:43: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  400 |   frame = {.data = cOpen, .cmd = setUpOpen};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:402:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  402 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:412:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  412 |   frame = { .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:412:43: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  412 |   frame = { .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:412:63: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  412 |   frame = { .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
+      |                                                               ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:414:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  414 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:424:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  424 |   frame = { .data = dest_addr.get_port(), .cmd = setUpDestPort};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:424:43: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  424 |   frame = { .data = dest_addr.get_port(), .cmd = setUpDestPort};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:424:63: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  424 |   frame = { .data = dest_addr.get_port(), .cmd = setUpDestPort};
+      |                                                               ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:426:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  426 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:436:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  436 |   frame = { .data = c_flow_id, .cmd = setUpClientFlowId};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:436:32: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  436 |   frame = { .data = c_flow_id, .cmd = setUpClientFlowId};
+      |                                ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:436:56: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  436 |   frame = { .data = c_flow_id, .cmd = setUpClientFlowId};
+      |                                                        ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:438:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  438 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:448:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  448 |   frame = {.data = qp_fields, .cmd = setUpQPFields};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:448:31: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  448 |   frame = {.data = qp_fields, .cmd = setUpQPFields};
+      |                               ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:448:51: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  448 |   frame = {.data = qp_fields, .cmd = setUpQPFields};
+      |                                                   ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:450:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  450 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:460:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  460 |   frame = {.data = q_key, .cmd = setUpQKey};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:460:27: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  460 |   frame = {.data = q_key, .cmd = setUpQKey};
+      |                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:460:43: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  460 |   frame = {.data = q_key, .cmd = setUpQKey};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:462:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  462 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:508:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  508 |   frame = {.data = 1, .cmd = setUpEnable};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:508:23: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  508 |   frame = {.data = 1, .cmd = setUpEnable};
+      |                       ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:508:41: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  508 |   frame = {.data = 1, .cmd = setUpEnable};
+      |                                         ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:510:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  510 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::remove_connection(dagger::ConnectionId) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:577:28: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  577 |   ConnSetupFrame frame = { .data = c_id, .cmd = setUpConnId};
+      |                            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:577:42: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  577 |   ConnSetupFrame frame = { .data = c_id, .cmd = setUpConnId};
+      |                                          ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:577:60: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  577 |   ConnSetupFrame frame = { .data = c_id, .cmd = setUpConnId};
+      |                                                            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:579:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  579 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:589:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  589 |   frame = { .data = cClose, .cmd = setUpOpen};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:589:29: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  589 |   frame = { .data = cClose, .cmd = setUpOpen};
+      |                             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:589:45: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  589 |   frame = { .data = cClose, .cmd = setUpOpen};
+      |                                             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:591:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  591 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:601:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  601 |   frame = { .data = 1, .cmd = setUpEnable};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:601:24: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  601 |   frame = { .data = 1, .cmd = setUpEnable};
+      |                        ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:601:42: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  601 |   frame = { .data = 1, .cmd = setUpEnable};
+      |                                          ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:603:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  603 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘virtual void dagger::NicCCIP::set_lb(int) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:663:30: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  663 |                             *reinterpret_cast<uint64_t*>(&lb));
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::get_nic_hw_status(dagger::NicCCIP::NicHwStatus&) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:685:8: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  685 |       *reinterpret_cast<NicHwStatus*>(reinterpret_cast<char*>(&raw_status));
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:685:8: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘void dagger::NicCCIP::dump_hssi_stat(int)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:713:51: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  713 |     res = fpgaHssiPrintChannelStats(hssi_h_, PHY, channel);
+      |                                                   ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:715:50: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  715 |     res = fpgaHssiPrintChannelStats(hssi_h_, TX, channel);
+      |                                                  ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:717:50: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  717 |     res = fpgaHssiPrintChannelStats(hssi_h_, RX, channel);
+      |                                                  ^~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:10:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘void dagger::NicCCIP::get_perf() const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:13: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  735 |             base_nic_addr_, perf_cnt);
+      |             ~~~~~~~~~~~~~~
+      |             |
+      |             uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:20: note: format string is defined here
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |                   ~^
+      |                    |
+      |                    unsigned int
+      |                   %lx
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:10:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:13: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  735 |             base_nic_addr_, perf_cnt);
+      |                             ~~~~~~~~
+      |                             |
+      |                             uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:68: note: format string is defined here
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |                                                                   ~^
+      |                                                                    |
+      |                                                                    int
+      |                                                                   %ld
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:10:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘void dagger::NicCCIP::get_debug_ports() const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:842:13: warning: format ‘%llx’ expects argument of type ‘long long unsigned int’, but argument 3 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+  842 |   FRPC_INFO("Debug port #0, value=%llx\n", debug_port_0);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~
+      |                                            |
+      |                                            uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:842:38: note: format string is defined here
+  842 |   FRPC_INFO("Debug port #0, value=%llx\n", debug_port_0);
+      |                                   ~~~^
+      |                                      |
+      |                                      long long unsigned int
+      |                                   %lx
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘size_t dagger::NicCCIP::get_page_size() const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:873:23: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  873 |     return getpagesize();
+      |            ~~~~~~~~~~~^~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘volatile void* dagger::NicCCIP::alloc_buffer(fpga_handle, ssize_t, uint64_t*, uint64_t*, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:902:42: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  902 |   size_t mem_size = round_up_to_pagesize(size);
+      |                                          ^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:947:7: warning: conversion to ‘long unsigned int’ from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  947 |   if (size + aa_offset_bytes > mem_size) {
+      |       ^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::initialize_phy_network(int)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:1044:39: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+ 1044 |   res = fpgaHssiCtrlLoopback(hssi_h_, channel, false);
+      |                                       ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:1053:48: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+ 1053 |   res = fpgaHssiClearChannelStats(hssi_h_, TX, channel);
+      |                                                ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:1055:48: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+ 1055 |   res = fpgaHssiClearChannelStats(hssi_h_, RX, channel);
+      |                                                ^~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:1:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h: In member function ‘virtual int dagger::NicPollingCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                                  ~~~~~~~^~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc: In member function ‘virtual int dagger::NicPollingCCIP::configure_data_plane(size_t)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:65:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
+   65 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
+      |                                                       ^~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |       ~~~~~~~~~~~~~~~
+      |       |
+      |       size_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:35: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                  ~^
+      |                                   |
+      |                                   unsigned int
+      |                                  %lu
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        volatile void*
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:65: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                                                ~^
+      |                                                                 |
+      |                                                                 unsigned int
+      |                                                                %p
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                                                                 ~~~~~~~
+      |                                                                 |
+      |                                                                 uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:73:51: note: format string is defined here
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |                                                  ~^
+      |                                                   |
+      |                                                   unsigned int
+      |                                                  %lx
+In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
+                 from /homes/varungohil/Dagger/sw/src/rdma_qp.h:14,
+                 from /homes/varungohil/Dagger/sw/ase_samples/loopback.cc:25:
+/homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
+/homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
+   50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
+      |                           ^~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘virtual int dagger::NicCCIP::initialize_nic(const dagger::PhyAddr&, const dagger::IPv4&)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:127:64: warning: left shift count >= width of type [-Wshift-count-overflow]
+  127 |                             host_phy.b2 << 24 | host_phy.b1 << 32 |
+      |                                                                ^~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:128:44: warning: left shift count >= width of type [-Wshift-count-overflow]
+  128 |                             host_phy.b0 << 40);
+      |                                            ^~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:127:67: warning: conversion to ‘uint64_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  126 |                         host_phy.b5 | host_phy.b4 << 8 | host_phy.b3 << 16 |
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  127 |                             host_phy.b2 << 24 | host_phy.b1 << 32 |
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+  128 |                             host_phy.b0 << 40);
+      |                             ~~~~~~~~~~~~~~~~~                      
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::register_connection(dagger::ConnectionId, const dagger::IPv4&, dagger::ConnectionFlowId, uint16_t, uint16_t, uint32_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:388:27: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  388 |   ConnSetupFrame frame = {.data = c_id, .cmd = setUpConnId};
+      |                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:388:41: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  388 |   ConnSetupFrame frame = {.data = c_id, .cmd = setUpConnId};
+      |                                         ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:388:59: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  388 |   ConnSetupFrame frame = {.data = c_id, .cmd = setUpConnId};
+      |                                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:390:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  390 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:400:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  400 |   frame = {.data = cOpen, .cmd = setUpOpen};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:400:27: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  400 |   frame = {.data = cOpen, .cmd = setUpOpen};
+      |                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:400:43: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  400 |   frame = {.data = cOpen, .cmd = setUpOpen};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:402:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  402 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:412:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  412 |   frame = { .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:412:43: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  412 |   frame = { .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:412:63: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  412 |   frame = { .data = dest_addr.get_addr(), .cmd = setUpDestIPv4};
+      |                                                               ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:414:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  414 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:424:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  424 |   frame = { .data = dest_addr.get_port(), .cmd = setUpDestPort};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:424:43: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  424 |   frame = { .data = dest_addr.get_port(), .cmd = setUpDestPort};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:424:63: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  424 |   frame = { .data = dest_addr.get_port(), .cmd = setUpDestPort};
+      |                                                               ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:426:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  426 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:436:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  436 |   frame = { .data = c_flow_id, .cmd = setUpClientFlowId};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:436:32: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  436 |   frame = { .data = c_flow_id, .cmd = setUpClientFlowId};
+      |                                ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:436:56: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  436 |   frame = { .data = c_flow_id, .cmd = setUpClientFlowId};
+      |                                                        ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:438:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  438 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:448:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  448 |   frame = {.data = qp_fields, .cmd = setUpQPFields};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:448:31: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  448 |   frame = {.data = qp_fields, .cmd = setUpQPFields};
+      |                               ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:448:51: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  448 |   frame = {.data = qp_fields, .cmd = setUpQPFields};
+      |                                                   ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:450:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  450 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:460:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  460 |   frame = {.data = q_key, .cmd = setUpQKey};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:460:27: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  460 |   frame = {.data = q_key, .cmd = setUpQKey};
+      |                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:460:43: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  460 |   frame = {.data = q_key, .cmd = setUpQKey};
+      |                                           ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:462:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  462 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:508:12: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  508 |   frame = {.data = 1, .cmd = setUpEnable};
+      |            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:508:23: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  508 |   frame = {.data = 1, .cmd = setUpEnable};
+      |                       ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:508:41: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  508 |   frame = {.data = 1, .cmd = setUpEnable};
+      |                                         ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:510:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  510 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:1:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h: In member function ‘virtual int dagger::NicPollingCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                                  ~~~~~~~^~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::remove_connection(dagger::ConnectionId) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:577:28: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  577 |   ConnSetupFrame frame = { .data = c_id, .cmd = setUpConnId};
+      |                            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:577:42: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  577 |   ConnSetupFrame frame = { .data = c_id, .cmd = setUpConnId};
+      |                                          ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:577:60: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  577 |   ConnSetupFrame frame = { .data = c_id, .cmd = setUpConnId};
+      |                                                            ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:579:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  579 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:589:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  589 |   frame = { .data = cClose, .cmd = setUpOpen};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:589:29: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  589 |   frame = { .data = cClose, .cmd = setUpOpen};
+      |                             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:589:45: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  589 |   frame = { .data = cClose, .cmd = setUpOpen};
+      |                                             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:591:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  591 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:601:13: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  601 |   frame = { .data = 1, .cmd = setUpEnable};
+      |             ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:601:24: warning: C++ designated initializers only available with ‘-std=c++2a’ or ‘-std=gnu++2a’ [-Wpedantic]
+  601 |   frame = { .data = 1, .cmd = setUpEnable};
+      |                        ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:601:42: warning: missing initializer for member ‘dagger::NicCCIP::ConnSetupFrame::padding’ [-Wmissing-field-initializers]
+  601 |   frame = { .data = 1, .cmd = setUpEnable};
+      |                                          ^
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:603:26: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  603 |                         *reinterpret_cast<uint64_t*>(&frame));
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘virtual void dagger::NicCCIP::set_lb(int) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:663:30: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  663 |                             *reinterpret_cast<uint64_t*>(&lb));
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::get_nic_hw_status(dagger::NicCCIP::NicHwStatus&) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:685:8: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  685 |       *reinterpret_cast<NicHwStatus*>(reinterpret_cast<char*>(&raw_status));
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:685:8: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc: In member function ‘virtual int dagger::NicPollingCCIP::configure_data_plane(size_t)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:65:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
+   65 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
+      |                                                       ^~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |       ~~~~~~~~~~~~~~~
+      |       |
+      |       size_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:35: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                  ~^
+      |                                   |
+      |                                   unsigned int
+      |                                  %lu
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        volatile void*
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:65: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                                                ~^
+      |                                                                 |
+      |                                                                 unsigned int
+      |                                                                %p
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                                                                 ~~~~~~~
+      |                                                                 |
+      |                                                                 uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.cc:73:51: note: format string is defined here
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |                                                  ~^
+      |                                                   |
+      |                                                   unsigned int
+      |                                                  %lx
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘void dagger::NicCCIP::dump_hssi_stat(int)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:713:51: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  713 |     res = fpgaHssiPrintChannelStats(hssi_h_, PHY, channel);
+      |                                                   ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:715:50: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  715 |     res = fpgaHssiPrintChannelStats(hssi_h_, TX, channel);
+      |                                                  ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:717:50: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  717 |     res = fpgaHssiPrintChannelStats(hssi_h_, RX, channel);
+      |                                                  ^~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:10:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘void dagger::NicCCIP::get_perf() const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:13: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  735 |             base_nic_addr_, perf_cnt);
+      |             ~~~~~~~~~~~~~~
+      |             |
+      |             uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:20: note: format string is defined here
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |                   ~^
+      |                    |
+      |                    unsigned int
+      |                   %lx
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:10:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:13: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  735 |             base_nic_addr_, perf_cnt);
+      |                             ~~~~~~~~
+      |                             |
+      |                             uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:734:68: note: format string is defined here
+  734 |   FRPC_INFO("Nic #%x returned performance counter(outgoing RPS) = %d\n",
+      |                                                                   ~^
+      |                                                                    |
+      |                                                                    int
+      |                                                                   %ld
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc: At global scope:
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:32:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   32 | static constexpr char* kClientIP = "10.212.65.1";
+      |                                    ^~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:33:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   33 | static constexpr char* kServerIP = "10.212.65.1";
+      |                                    ^~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:10:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘void dagger::NicCCIP::get_debug_ports() const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:842:13: warning: format ‘%llx’ expects argument of type ‘long long unsigned int’, but argument 3 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+  842 |   FRPC_INFO("Debug port #0, value=%llx\n", debug_port_0);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~
+      |                                            |
+      |                                            uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:842:38: note: format string is defined here
+  842 |   FRPC_INFO("Debug port #0, value=%llx\n", debug_port_0);
+      |                                   ~~~^
+      |                                      |
+      |                                      long long unsigned int
+      |                                   %lx
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘size_t dagger::NicCCIP::get_page_size() const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:873:23: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  873 |     return getpagesize();
+      |            ~~~~~~~~~~~^~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘volatile void* dagger::NicCCIP::alloc_buffer(fpga_handle, ssize_t, uint64_t*, uint64_t*, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:902:42: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  902 |   size_t mem_size = round_up_to_pagesize(size);
+      |                                          ^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:947:7: warning: conversion to ‘long unsigned int’ from ‘ssize_t’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+  947 |   if (size + aa_offset_bytes > mem_size) {
+      |       ^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc: In member function ‘int dagger::NicCCIP::initialize_phy_network(int)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:1044:39: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+ 1044 |   res = fpgaHssiCtrlLoopback(hssi_h_, channel, false);
+      |                                       ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:1053:48: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+ 1053 |   res = fpgaHssiClearChannelStats(hssi_h_, TX, channel);
+      |                                                ^~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip.cc:1055:48: warning: conversion to ‘uint32_t’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+ 1055 |   res = fpgaHssiClearChannelStats(hssi_h_, RX, channel);
+      |                                                ^~~~~~~
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc: In function ‘int run_server(std::promise<bool>&, std::future<bool>&)’:
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:74:54: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+   74 |     dagger::RDMA rdma(kServerNicAddress, kServerQPs, max_qp_pool_size);
+      |                                                      ^~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:89:20: warning: conversion to ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+   89 |     results.resize(size);
+      |                    ^~~~
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:91:17: warning: conversion to ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+   91 |         results[i] = -1;
+      |                 ^
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:112:55: warning: conversion to ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  112 |            rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int));
+      |                                                       ^
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:131:30: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+  131 |     for (size_t idx = 0; idx < size; ++idx) {
+      |                          ~~~~^~~~~~
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc: In function ‘int run_client()’:
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:151:61: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  151 |     dagger::RDMA rdma_client(kClientNicAddress, kClientQPs, max_qp_pool_size);
+      |                                                             ^~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/ase_samples/loopback.cc:185:65: warning: conversion to ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  185 |             rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
+      |                                                                 ^
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:1:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h: In member function ‘virtual int dagger::NicMmioCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                                  ~~~~~~~^~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc: In member function ‘virtual int dagger::NicMmioCCIP::configure_data_plane(size_t)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:54:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
+   54 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
+      |                                                       ^~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   63 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |       ~~~~~~~~~~~~~~~
+      |       |
+      |       size_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:35: note: format string is defined here
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                  ~^
+      |                                   |
+      |                                   unsigned int
+      |                                  %lu
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   63 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        volatile void*
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:65: note: format string is defined here
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                                                ~^
+      |                                                                 |
+      |                                                                 unsigned int
+      |                                                                %p
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   63 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                                                                 ~~~~~~~
+      |                                                                 |
+      |                                                                 uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:62:51: note: format string is defined here
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |                                                  ~^
+      |                                                   |
+      |                                                   unsigned int
+      |                                                  %lx
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc: In member function ‘virtual int dagger::NicDmaCCIP::configure_data_plane(size_t)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:65:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
+   65 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
+      |                                                       ^~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |       ~~~~~~~~~~~~~~~
+      |       |
+      |       size_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:35: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                  ~^
+      |                                   |
+      |                                   unsigned int
+      |                                  %lu
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        volatile void*
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:65: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                                                ~^
+      |                                                                 |
+      |                                                                 unsigned int
+      |                                                                %p
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                                                                 ~~~~~~~
+      |                                                                 |
+      |                                                                 uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:73:51: note: format string is defined here
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |                                                  ~^
+      |                                                   |
+      |                                                   unsigned int
+      |                                                  %lx
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc: In member function ‘virtual int dagger::NicDmaCCIP::configure_data_plane(size_t)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:65:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
+   65 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
+      |                                                       ^~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |       ~~~~~~~~~~~~~~~
+      |       |
+      |       size_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:35: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                  ~^
+      |                                   |
+      |                                   unsigned int
+      |                                  %lu
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        volatile void*
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:65: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                                                ~^
+      |                                                                 |
+      |                                                                 unsigned int
+      |                                                                %p
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                                                                 ~~~~~~~
+      |                                                                 |
+      |                                                                 uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:73:51: note: format string is defined here
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |                                                  ~^
+      |                                                   |
+      |                                                   unsigned int
+      |                                                  %lx
+In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
+                 from /homes/varungohil/Dagger/sw/src/rdma_qp.h:14,
+                 from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:1:
+/homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
+/homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
+   50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
+      |                           ^~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
+                 from /homes/varungohil/Dagger/sw/src/rdma_qp.h:14,
+                 from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:1:
+/homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
+/homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
+   50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
+      |                           ^~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:6:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h: In member function ‘virtual int dagger::NicMmioCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                                  ~~~~~~~^~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:6:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h: In member function ‘virtual int dagger::NicMmioCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                                  ~~~~~~~^~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h: In member function ‘virtual int dagger::NicPollingCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                                  ~~~~~~~^~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h: In member function ‘virtual int dagger::NicPollingCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_polling.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const final {
+      |                                                  ~~~~~~~^~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:1:
+/homes/varungohil/Dagger/sw/src/rdma_qp.h: In constructor ‘dagger::RDMA::RDMA(uint64_t, size_t, size_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.h:90:10: warning: ‘dagger::RDMA::qp_pool_cnt_’ will be initialized after [-Wreorder]
+   90 |   size_t qp_pool_cnt_;
+      |          ^~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.h:78:12: warning:   ‘uint64_t dagger::RDMA::base_nic_addr_’ [-Wreorder]
+   78 |   uint64_t base_nic_addr_;
+      |            ^~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:1:
+/homes/varungohil/Dagger/sw/src/rdma_qp.h: In constructor ‘dagger::RDMA::RDMA(uint64_t, size_t, size_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.h:90:10: warning: ‘dagger::RDMA::qp_pool_cnt_’ will be initialized after [-Wreorder]
+   90 |   size_t qp_pool_cnt_;
+      |          ^~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.h:78:12: warning:   ‘uint64_t dagger::RDMA::base_nic_addr_’ [-Wreorder]
+   78 |   uint64_t base_nic_addr_;
+      |            ^~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:16:1: warning:   when initialized here [-Wreorder]
+   16 | RDMA::RDMA(uint64_t base_nic_addr, size_t max_num_of_threads,
+      | ^~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:16:1: warning:   when initialized here [-Wreorder]
+   16 | RDMA::RDMA(uint64_t base_nic_addr, size_t max_num_of_threads,
+      | ^~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::init_nic(int, bool)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:45:19: note: #pragma message: compiling Nic to run in polling mode
+   45 | #  pragma message "compiling Nic to run in polling mode"
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::init_nic(int, bool)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:45:19: note: #pragma message: compiling Nic to run in polling mode
+   45 | #  pragma message "compiling Nic to run in polling mode"
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::make_qp()’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: warning: ‘new’ of type ‘dagger::QueuePairV2’ with extended alignment 4096 [-Waligned-new=]
+  163 |         new QueuePairV2(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
+      |                                                               ^
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: note: uses ‘void* operator new(std::size_t)’, which does not have an alignment parameter
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: note: use ‘-faligned-new’ to enable C++17 over-aligned new support
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::make_qp()’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: warning: ‘new’ of type ‘dagger::QueuePairV2’ with extended alignment 4096 [-Waligned-new=]
+  163 |         new QueuePairV2(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
+      |                                                               ^
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: note: uses ‘void* operator new(std::size_t)’, which does not have an alignment parameter
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: note: use ‘-faligned-new’ to enable C++17 over-aligned new support
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:1:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h: In member function ‘virtual int dagger::NicMmioCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                     ~~~~~~~^~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:57: warning: unused parameter ‘bucket’ [-Wunused-parameter]
+   37 |   virtual int notify_nic_of_new_dma(size_t flow, size_t bucket) const {
+      |                                                  ~~~~~~~^~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc: In member function ‘virtual int dagger::NicMmioCCIP::configure_data_plane(size_t)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:54:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
+   54 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
+      |                                                       ^~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   63 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |       ~~~~~~~~~~~~~~~
+      |       |
+      |       size_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:35: note: format string is defined here
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                  ~^
+      |                                   |
+      |                                   unsigned int
+      |                                  %lu
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   63 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        volatile void*
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:65: note: format string is defined here
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                                                ~^
+      |                                                                 |
+      |                                                                 unsigned int
+      |                                                                %p
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:7:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:61:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+   61 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   63 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                                                                 ~~~~~~~
+      |                                                                 |
+      |                                                                 uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:62:51: note: format string is defined here
+   62 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |                                                  ~^
+      |                                                   |
+      |                                                   unsigned int
+      |                                                  %lx
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘bool dagger::RDMA::is_data_available(uint16_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:227:1: warning: control reaches end of non-void function [-Wreturn-type]
+  227 | }
+      | ^
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::connect_qp(uint16_t, dagger::ConnectionId, const dagger::IPv4&, uint16_t, uint16_t, uint32_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:259:1: warning: control reaches end of non-void function [-Wreturn-type]
+  259 | }
+      | ^
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘bool dagger::RDMA::is_data_available(uint16_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:227:1: warning: control reaches end of non-void function [-Wreturn-type]
+  227 | }
+      | ^
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::connect_qp(uint16_t, dagger::ConnectionId, const dagger::IPv4&, uint16_t, uint16_t, uint32_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:259:1: warning: control reaches end of non-void function [-Wreturn-type]
+  259 | }
+      | ^
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=noexecstack ignored
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=relro ignored
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=now ignored
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=noexecstack ignored
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=relro ignored
+/opt/rh/devtoolset-9/root/usr/libexec/gcc/x86_64-redhat-linux/9/ld: warning: -z --library=now ignored

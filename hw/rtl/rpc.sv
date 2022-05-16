@@ -262,6 +262,7 @@ module rpc
             //
             // **********************************
             ct_net_in.rpc_data <= network_rx_in.payload[$bits(RpcPckt)-1:0];
+            $display("NIC%d:: RPC Data = %d", NIC_ID, ct_net_in.rpc_data.argv);
 
             ct_net_in.remote_qp_num <= network_rx_in.remote_qp_num;
             ct_net_in.p_key <= network_rx_in.p_key;

@@ -20,6 +20,20 @@ link_directories(${CMAKE_CURRENT_BINARY_DIR}/..)
 
 set(ASE_FRAMEWORK_SRC loopback.cc)
 execute_process(COMMAND echo ${ASE_FRAMEWORK_SRC})
-add_executable(dagger_ase_framework ${ASE_FRAMEWORK_SRC})
-target_compile_definitions(dagger_ase_framework PUBLIC -DASE_SIMULATION)
-target_link_libraries(dagger_ase_framework -pthread -ldagger_ase)
+add_executable(dagger_ase_loopback ${ASE_FRAMEWORK_SRC})
+target_compile_definitions(dagger_ase_loopback PUBLIC -DASE_SIMULATION)
+target_link_libraries(dagger_ase_loopback -pthread -ldagger_ase)
+
+
+set(ASE_FRAMEWORK_SRC server.cc)
+execute_process(COMMAND echo ${ASE_FRAMEWORK_SRC})
+add_executable(dagger_ase_server ${ASE_FRAMEWORK_SRC})
+target_compile_definitions(dagger_ase_server PUBLIC -DASE_SIMULATION)
+target_link_libraries(dagger_ase_server -pthread -ldagger_ase)
+
+
+set(ASE_FRAMEWORK_SRC client.cc)
+execute_process(COMMAND echo ${ASE_FRAMEWORK_SRC})
+add_executable(dagger_ase_client ${ASE_FRAMEWORK_SRC})
+target_compile_definitions(dagger_ase_client PUBLIC -DASE_SIMULATION)
+target_link_libraries(dagger_ase_client -pthread -ldagger_ase)

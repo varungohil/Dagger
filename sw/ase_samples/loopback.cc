@@ -29,9 +29,9 @@ static constexpr size_t kServerQPs = 1;
 static constexpr size_t kRpcDelay =
     500000;  // Adjust this value based on your simulation speed.
 static constexpr size_t kClientPostSleepTime = 10;
-static constexpr char* kClientIP = "192.168.0.1";
-static constexpr char* kServerIP = "192.168.0.2";
-static constexpr uint16_t kPort = 3136;
+static constexpr char* kClientIP = "10.212.65.1";
+static constexpr char* kServerIP = "10.212.65.1";
+static constexpr uint16_t kPort = 12345;
 
 static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft);
 static int run_client();
@@ -83,12 +83,12 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
     int op1 = 0;
-    int op2 = 16;
+    int op2 = 0;
     int size = op2 - op1 + 1;
     std::vector<int> results;
     results.resize(size);
     for(int i = 0; i < size; i++){
-        results[i] = 0;
+        results[i] = -1;
     }
 
     for (size_t i = 0; i < kServerQPs; ++i) {
@@ -120,18 +120,21 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
 
     init_pr.set_value(true);
     cmpl_ft.wait();
+   
+    //for (size_t qp_id = 0; qp_id < kServerQPs; ++qp_id)
+    //{
+    //    rdma.stop_recv(qp_id);
+    //}
 
-    for (size_t qp_id = 0; qp_id < kServerQPs; ++qp_id)
-    {
-        rdma.stop_recv(qp_id);
-    }
-
-
+    while(1){
     int sum = 0;
-    for (size_t idx = 0; idx < kServerQPs; ++idx) {
+    for (size_t idx = 0; idx < size; ++idx) {
+        std::cout << "results[" << idx << "] = " << results[idx] << std::endl;
         sum = sum + results[idx];
     }
     std::cout << "Sum : " << sum << std::endl;
+
+    }
 
     res = rdma.stop_nic();
     if (res != 0) return res;
@@ -155,7 +158,9 @@ static int run_client() {
 
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
-    vector<uint32_t> send_data;
+    int op1 = 0;
+    int op2 = 0;
+    std::vector<int> send_data;
     std::vector<std::thread> threads;
     for (size_t qp_id = 0; qp_id < kClientQPs; ++qp_id) {
         std::cout << "Creating thread " << qp_id << std::endl;
@@ -175,10 +180,8 @@ static int run_client() {
         } else {
             std::cout << "Connection is open on thread " << qp_id << std::endl;
         }
-        int op1 = 0;
-        int op2 = 16;
         for(int i = op1; i <= op2; i++){
-            send_data.pushback(i);
+            send_data.push_back(123);
             rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
         }
         sleep(1);

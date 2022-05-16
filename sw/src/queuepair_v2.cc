@@ -69,12 +69,13 @@ void QueuePairV2::operator_(const RpcPckt* rpc_in, TxQueue& tx_queue) {
   // read first received packet
   QueueElem entry = recv_q.front();
   recv_q.pop();
-  std::cout << "pop : Recv queue len now = " << recv_q.size() << std::endl;
-  //std::cout << "argv = " << rpc_in->argv << std::endl;
-  //std::cout << "rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
-  //std::cout << "addr = " << (int*)(entry.data_addr) << std::endl;
-  *(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
-  //std::cout << "Value at addr" << (int)(*(entry.data_addr)) << std::endl;
+  std::cout << "Receive:: pop : Recv queue len now = " << recv_q.size() << std::endl;
+  std::cout << "Receive:: rpc_in->argv = " << rpc_in->argv << std::endl;
+  std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
+  std::cout << "Receive:: entry.data_addr = " << (int*)(entry.data_addr) << std::endl;
+  *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>(rpc_in->argv)));
+  //*(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
+  std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
 
 
   // // set store addr based on request argv
@@ -247,8 +248,8 @@ void QueuePairV2::_PullListen() {
       uint32_t rx_rpc_id;
       req_pckt = reinterpret_cast<volatile RpcPckt*>(
           rx_queue_.get_read_ptr(rx_rpc_id));
-      std::cout << "Going Inside spin loop!" << std::endl;
-      std::cout << "Before : Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop Signal = "<< stop_signal_ << "; argv = " << req_pckt->argv << std::endl;
+      std::cout << "Receive:: Going Inside spin loop!" << std::endl;
+      std::cout << "Recieve:: Before : Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop Signal = "<< stop_signal_ << "; argv = " << req_pckt->argv << std::endl;
       //int count = 0;
       while (
           (req_pckt->hdr.ctl.valid == 0 || req_pckt->hdr.rpc_id == rx_rpc_id) &&
@@ -259,15 +260,22 @@ void QueuePairV2::_PullListen() {
        //}
       //count++;
       }
-      std::cout << "Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop signal = " << stop_signal_ << "; argv = " << req_pckt->argv <<  std::endl;
-      std::cout << "Got out of spin loop" << std::endl;
-      std::cout << "req_pckt->argv = " << req_pckt->argv << std::endl;
+      std::cout << "Receive:: Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop signal = " << stop_signal_ << "; argv = " << req_pckt->argv <<  std::endl;
+      std::cout << "Receive:: Got out of spin loop" << std::endl;
+      //std::cout << "Receive:: req_pckt->argv = " << req_pckt->argv << std::endl;
       if (stop_signal_) continue;
 
       rx_queue_.update_rpc_id(req_pckt->hdr.rpc_id);
 
       req_pckt_1[i] = *const_cast<RpcPckt*>(req_pckt);
-
+      //if(req_pckt->hdr.rpc_id == 0){
+      // *reinterpret_cast<int*>(const_cast<uint8_t*>(req_pckt->argv)) = 19;
+      // }
+      // std::cout << "req_pckt : ";
+      // for(int j = 0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; ++j){
+      //     std::cout << (int)(req_pckt->argv[j]) << " ";
+      // }
+      // std::cout << "\n";
       //_mm256_store_si256(&req_pckt_1[i],
       //*(reinterpret_cast<__m256i*>(req_pckt)));
       //_mm256_store_si256(reinterpret_cast<__m256i*>(&req_pckt_1[i] + 32),
@@ -277,22 +285,24 @@ void QueuePairV2::_PullListen() {
     if (stop_signal_) continue;
 
     for (int i = 0; i < batch_size; ++i) {
-      //    std::cout << "DEBUG: recv packet: ********* "
-      //        << "\n hdr.ctl.req_type: " << (int)((req_pckt_1 +
-      //        i)->hdr.ctl.req_type)
-      //        << "\n hdr.ctl.valid: " << (int)((req_pckt_1 +
-      //        i)->hdr.ctl.valid)
-      //        << "\n hdr.argl: " << (int)((req_pckt_1 + i)->hdr.argl)
-      //        << "\n hdr.c_id: " << (int)((req_pckt_1 + i)->hdr.c_id)
-      //        << "\n hdr.rpc_id: " << (int)((req_pckt_1 + i)->hdr.rpc_id)
-      //        << "\n hdr.fn_id: " << (int)((req_pckt_1 + i)->hdr.fn_id)
-      //        << "\n argv: ";
-      //    for (int j=0; j<cfg::sys::cl_size_bytes - rpc_header_size_bytes;
-      //    ++j) {
-      //        std::cout << (int)(((req_pckt_1 + i)->argv)[j]) << " ";
-      //    }
-      //    std::cout << "\n **************** " << std::endl;
-
+          std::cout << "DEBUG: recv packet: ********* "
+              << "\n hdr.ctl.req_type: " << (int)((req_pckt_1 +
+              i)->hdr.ctl.req_type)
+              << "\n hdr.ctl.valid: " << (int)((req_pckt_1 +
+              i)->hdr.ctl.valid)
+              << "\n hdr.argl: " << (int)((req_pckt_1 + i)->hdr.argl)
+              << "\n hdr.c_id: " << (int)((req_pckt_1 + i)->hdr.c_id)
+              << "\n hdr.rpc_id: " << (int)((req_pckt_1 + i)->hdr.rpc_id)
+              << "\n hdr.fn_id: " << (int)((req_pckt_1 + i)->hdr.fn_id) 
+             // << "\n argv: " << (req_pckt_1 + i)->argv 
+              //<< std::endl;
+              << "\n argv: ";
+          for (int j=0; j<cfg::sys::cl_size_bytes - rpc_header_size_bytes;
+          ++j) {
+              std::cout << (int)((req_pckt_1 + i)->argv)[j] << " ";
+          }
+          std::cout << "\n **************** " << std::endl;
+      //sleep(1);
       operator_(req_pckt_1 + i, tx_queue_);
      //
     }
@@ -322,7 +332,7 @@ void QueuePairV2::add_recv_queue_entry(volatile int* data_addr, size_t data_size
   new_entry.data_addr = data_addr;
   new_entry.data_size = data_size;
   recv_q.push(new_entry);
-  std::cout << "Recv Queue Len = "<< recv_q.size() << std::endl;
+  std::cout << "Receive:: Recv Queue Len = "<< recv_q.size() << std::endl;
 }
 
 // put entry in send queue, put entry in receive queue
@@ -355,7 +365,7 @@ int QueuePairV2::send() {
   //std::cout << "read send queue entry" << std::endl;
   // std::string args = *(const_cast<int*>(entry.data_addr));
   int args = *(const_cast<int*>(entry.data_addr));
-  std::cout << "Data in sendq entry = " << args << std::endl; 
+  //std::cout << "Send:: Data in sendq entry = " << args << std::endl; 
   size_t data_size = entry.data_size;
   // reinterpret_cast<GetRequest*>(const_cast<int*>(entry->data_addr)) = args;
   //std::cout << "read datav at data addr" << std::endl;
@@ -374,18 +384,26 @@ int QueuePairV2::send() {
   tx_ptr_casted->hdr.n_of_frames = 1;
   tx_ptr_casted->hdr.frame_id = 0;
 
-  tx_ptr_casted->hdr.fn_id = 0;
+  tx_ptr_casted->hdr.fn_id = rpc_id;
   tx_ptr_casted->hdr.argl = data_size;
 
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;
-  std::cout << "Writing to argv" << std::endl;
-  std::cout << "Args = " << args << std::endl;
-  //*reinterpret_cast<volatile int*>((tx_ptr_casted->argv)) = args
-  tx_ptr_casted->argv =  args;
-  std::cout << "argv = " << tx_ptr_casted->argv << std::endl;
-  std::cout << "RPC_ID = " << tx_ptr_casted->hdr.rpc_id << std::endl;
-   //std::cout << "Wrote to argv" << std::endl;
+  //std::cout << "Writing to argv" << std::endl;
+  std::cout << "Send:: Args = " << args << std::endl;
+  for(int j=0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; j=j+4){
+     *reinterpret_cast<volatile int*>(const_cast<uint8_t*>(tx_ptr_casted->argv + j)) = args;
+  }
+  //*reinterpret_cast<volatile int*>(const_cast<uint8_t*>(tx_ptr_casted->argv)) = args;
+  //tx_ptr_casted->argv = argv;
+  //tx_ptr_casted->argv =  args;
+  std::cout << "Send::argv = " << (int)(*tx_ptr_casted->argv) << std::endl;
+  for(int j=0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; ++j){
+      std::cout << (int)(tx_ptr_casted->argv[j]) << " ";
+  }
+  std::cout << "\n";
+  std::cout << "Send::RPC_ID = " << tx_ptr_casted->hdr.rpc_id << std::endl;
+  //std::cout << "Wrote to argv" << std::endl;
 
   // Set valid
   _mm_mfence();

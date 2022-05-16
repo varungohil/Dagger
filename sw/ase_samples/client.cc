@@ -59,10 +59,10 @@
 
 // #endif
 
-int kFpgaBus = 0xaf;
+int kFpgaBus = -1;
 static constexpr uint64_t kNicAddress = 0x00000;
 /// Networking configuration.
-static constexpr char* kServerIP = "10.212.62.191";
+static constexpr char* kServerIP = "10.212.61.5";
 static constexpr uint16_t kPort = 12345;
 
 
@@ -104,7 +104,7 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
   //int ten = 10; 
   std::vector<int> send_vec;
   for(int data = op1; data <= op2; data++){
-    send_vec.push_back(data);
+    send_vec.push_back(data+ 120);
   } 
   for(int i = 0; i < send_vec.size(); i++){
     rdma->add_send_queue_entry(qp_num, &send_vec[i], sizeof(send_vec[i]));
@@ -137,7 +137,6 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
    //{
    //  sleep(5);
    //}
-   //sleep(1);
    rdma->send(qp_num);  
   }
   int res = op1 + op2;
@@ -170,7 +169,7 @@ int main(int argc, char* argv[]) {
 
 
   // Initialize the client pool.
-  volatile int res = rdma.init_nic(kFpgaBus);
+  volatile int res = rdma.init_nic(kFpgaBus, false);
   if (res != 0) return res;
 
   // Start the underlying nic of the pool.
@@ -194,7 +193,7 @@ int main(int argc, char* argv[]) {
 
     // Run the benchmarking thread on the client rpc_client
     int op1 = 0;
-    int op2 = 32;
+    int op2 = 16;
     std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
     std::cout << "Created thread " << thread_id << std::endl;
     threads.push_back(std::move(thr));
