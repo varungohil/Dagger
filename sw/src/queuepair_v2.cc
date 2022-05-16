@@ -303,7 +303,16 @@ void QueuePairV2::_PullListen() {
           }
           std::cout << "\n **************** " << std::endl;
       //sleep(1);
-      operator_(req_pckt_1 + i, tx_queue_);
+      QueueElem entry = recv_q.front();
+      recv_q.pop();
+      std::cout << "Receive:: pop : Recv queue len now = " << recv_q.size() << std::endl;
+      std::cout << "Receive:: rpc_in->argv = " << (int)(rpc_in->argv) << std::endl;
+      std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
+      std::cout << "Receive:: entry.data_addr = " << (int*)(entry.data_addr) << std::endl;
+      *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>(rpc_in->argv)));
+      //*(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
+      std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
+      // operator_(req_pckt_1 + i, tx_queue_);
      //
     }
     is_data_available_ = 0;
