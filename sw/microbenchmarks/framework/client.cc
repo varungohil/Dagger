@@ -195,7 +195,7 @@ int main(int argc, char* argv[]) {
 
     // Run the benchmarking thread on the client rpc_client
     int op1 = 0;
-    int op2 = 100;
+    int op2 = 20;
     std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
     std::cout << "Created thread " << thread_id << std::endl;
     threads.push_back(std::move(thr));

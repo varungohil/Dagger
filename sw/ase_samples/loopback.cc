@@ -29,8 +29,8 @@ static constexpr size_t kServerQPs = 1;
 static constexpr size_t kRpcDelay =
     500000;  // Adjust this value based on your simulation speed.
 static constexpr size_t kClientPostSleepTime = 10;
-static constexpr char* kClientIP = "10.212.65.1";
-static constexpr char* kServerIP = "10.212.65.1";
+static constexpr char* kClientIP = "10.212.61.20";
+static constexpr char* kServerIP = "10.212.61.20";
 static constexpr uint16_t kPort = 12345;
 
 static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft);
@@ -83,7 +83,7 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
     int op1 = 0;
-    int op2 = 0;
+    int op2 = 20;
     int size = op2 - op1 + 1;
     std::vector<int> results;
     results.resize(size);
@@ -161,7 +161,7 @@ static int run_client() {
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
     int op1 = 0;
-    int op2 = 0;
+    int op2 = 20;
     std::vector<int> send_data;
     std::vector<std::thread> threads;
     for (size_t qp_id = 0; qp_id < kClientQPs; ++qp_id) {
@@ -183,13 +183,14 @@ static int run_client() {
             std::cout << "Connection is open on thread " << qp_id << std::endl;
         }
         for(int i = op1; i <= op2; i++){
-            send_data.push_back(123);
+            send_data.push_back(i);
             rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
         }
         sleep(1);
         std::cout << "Sending ..."<< std::endl;
         for(int i = op1; i <= op2; i++){
             rdma_client.send(qp_num);
+            sleep(1);
         }
         //int res = op1 + op2;
         //rdma_client.add_send_queue_entry(qp_num, &res, sizeof(res));

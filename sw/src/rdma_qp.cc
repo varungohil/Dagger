@@ -36,8 +36,8 @@ RDMA::~RDMA() {
 
 /// This function initializes the backend's nic depending on the exact type of
 /// the nic. The function performs four actions to initialize the nic.
-int RDMA::init_nic(int bus) {
-  bool is_master = true;
+int RDMA::init_nic(int bus, bool is_master) {
+  //bool is_master = true;
   // (1) Create nic.
   // In contrast to rpc_client_pool, the server's nic is always the master
   // (even in the ASE mode).
@@ -70,7 +70,7 @@ int RDMA::init_nic(int bus) {
   // (3) Configure the nic dataplane. Of course, all the clients in this pool
   // share the same configuration.
   PhyAddr cl_phy_addr = {0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0xFF};
-  IPv4 cl_ipv4_addr("10.212.61.5", 12345);
+  IPv4 cl_ipv4_addr("10.212.61.20", 12345);
 
   res = nic_->configure_data_plane(rx_tx_anti_aliasing);
   if (res != 0) return res;

@@ -254,7 +254,7 @@ void QueuePairV2::_PullListen() {
       req_pckt = reinterpret_cast<volatile RpcPckt*>(
           rx_queue_.get_read_ptr(rx_rpc_id));
       std::cout << "Receive:: Going Inside spin loop!" << std::endl;
-      std::cout << "Recieve:: Before : Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop Signal = "<< stop_signal_ << "; argv = " << req_pckt->argv << std::endl;
+      std::cout << "Recieve:: Before : Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop Signal = "<< stop_signal_ << "; argv = " << (int)(req_pckt->argv[0]) << std::endl;
       //int count = 0;
       while (
           (req_pckt->hdr.ctl.valid == 0 || req_pckt->hdr.rpc_id == rx_rpc_id) &&
@@ -265,7 +265,7 @@ void QueuePairV2::_PullListen() {
        //}
       //count++;
       }
-      std::cout << "Receive:: Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop signal = " << stop_signal_ << "; argv = " << req_pckt->argv <<  std::endl;
+      std::cout << "Receive:: Valid = " << (int)(req_pckt->hdr.ctl.valid) << "; ReqHdr RPC ID = " << req_pckt->hdr.rpc_id << "; RxRPC ID = " << rx_rpc_id << "; Stop signal = " << stop_signal_ << "; argv = " << (int)(req_pckt->argv[0]) <<  std::endl;
       std::cout << "Receive:: Got out of spin loop" << std::endl;
       //std::cout << "Receive:: req_pckt->argv = " << req_pckt->argv << std::endl;
       if (stop_signal_) continue;
