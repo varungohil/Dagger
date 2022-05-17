@@ -23,6 +23,10 @@
 
 namespace dagger {
 
+struct QueueElem {
+  volatile int* data_addr; //Do we need volatile here?
+  size_t data_size;
+};
 
 /// The base class for the RDMA server callback (RPC handler).
 class RdmaServerCallBack {
@@ -42,11 +46,6 @@ class RdmaServerCallBack {
       //*(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
       // std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
   }
-};
-
-struct QueueElem {
-  volatile int* data_addr; //Do we need volatile here?
-  size_t data_size;
 };
 
 class QueuePairV2 {
@@ -120,7 +119,7 @@ class QueuePairV2 {
   std::atomic<bool> stop_signal_;
 
   //RDMA server callback object
-  const RdmaServerCallBack_Base* server_callback_;
+  const RdmaServerCallBack* server_callback_;
 
 
 };
