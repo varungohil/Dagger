@@ -201,6 +201,7 @@ int QueuePairV2::disconnect(ConnectionId c_id) {
 int QueuePairV2::start_listening() {
   stop_signal_ = 0;
   thread_ = std::thread(&QueuePairV2::_PullListen, this);
+  //thread_2 = std::thread(&QueuePairV2::_PullListen, this);
 
   // Pin thread to a certain CPU core
   // if (pin_cpu != -1) {
@@ -305,13 +306,13 @@ void QueuePairV2::_PullListen() {
       //sleep(1);
       QueueElem entry = recv_q.front();
       recv_q.pop();
-      std::cout << "Receive:: pop : Recv queue len now = " << recv_q.size() << std::endl;
-      std::cout << "Receive:: rpc_in->argv = " << (int)(rpc_in->argv) << std::endl;
-      std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
-      std::cout << "Receive:: entry.data_addr = " << (int*)(entry.data_addr) << std::endl;
-      *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>(rpc_in->argv)));
+      //std::cout << "Receive:: pop : Recv queue len now = " << recv_q.size() << std::endl;
+      //std::cout << "Receive:: rpc_in->argv = " << (int)(rpc_in->argv) << std::endl;
+      //std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
+      //std::cout << "Receive:: entry.data_addr = " << (int*)(entry.data_addr) << std::endl;
+      *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>((req_pckt_1 + i)->argv)));
       //*(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
-      std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
+      //std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
       // operator_(req_pckt_1 + i, tx_queue_);
      //
     }

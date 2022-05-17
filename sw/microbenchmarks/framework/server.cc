@@ -146,7 +146,7 @@ int main(int argc, char* argv[]) {
   uint16_t p_key = 0; 
   uint32_t q_key;
   int op1 = 0;
-  int op2 = 32;
+  int op2 = 100;
   std::vector<int> results;
   results.resize(op2 - op1 + 1);
   for (size_t qp_id = 0; qp_id < num_qps; ++qp_id) {

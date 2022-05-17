@@ -120,13 +120,15 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
 
     init_pr.set_value(true);
     cmpl_ft.wait();
-   
-    //for (size_t qp_id = 0; qp_id < kServerQPs; ++qp_id)
-    //{
-    //    rdma.stop_recv(qp_id);
-    //}
+    
 
-    while(1){
+    for(int i = 0; i < 1000000; i++){}
+    for (size_t qp_id = 0; qp_id < kServerQPs; ++qp_id)
+    {
+        rdma.stop_recv(qp_id);
+    }
+
+    //while(1){
     int sum = 0;
     for (size_t idx = 0; idx < size; ++idx) {
         std::cout << "results[" << idx << "] = " << results[idx] << std::endl;
@@ -134,7 +136,7 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
     }
     std::cout << "Sum : " << sum << std::endl;
 
-    }
+    //}
 
     res = rdma.stop_nic();
     if (res != 0) return res;

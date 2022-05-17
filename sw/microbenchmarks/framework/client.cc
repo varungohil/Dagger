@@ -137,7 +137,8 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
    //{
    //  sleep(5);
    //}
-   //sleep(1);
+   //usleep(150);
+   sleep(1);
    rdma->send(qp_num);  
   }
   int res = op1 + op2;
@@ -194,7 +195,7 @@ int main(int argc, char* argv[]) {
 
     // Run the benchmarking thread on the client rpc_client
     int op1 = 0;
-    int op2 = 32;
+    int op2 = 100;
     std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
     std::cout << "Created thread " << thread_id << std::endl;
     threads.push_back(std::move(thr));
