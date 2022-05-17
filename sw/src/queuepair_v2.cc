@@ -38,6 +38,7 @@ QueuePairV2::QueuePairV2(const Nic* nic, size_t nic_flow_id,
                       nic_->get_mtu_size_bytes(), cfg::nic::l_rx_queue_size);
   rx_queue_.init();
 
+  server_callback_ = std::unique_ptr<dagger::RdmaServerCallBack>(new dagger::RdmaServerCallBack());
   // cq_ = std::unique_ptr<CompletionQueue>(
   //     new CompletionQueue(nic_flow_id,
   //     nic_->get_rx_flow_buffer(nic_flow_id_),
@@ -304,13 +305,14 @@ void QueuePairV2::_PullListen() {
           }
           std::cout << "\n **************** " << std::endl;
       //sleep(1);
-      QueueElem entry = recv_q.front();
-      recv_q.pop();
+      // QueueElem entry = recv_q.front();
+      // recv_q.pop();
       //std::cout << "Receive:: pop : Recv queue len now = " << recv_q.size() << std::endl;
       //std::cout << "Receive:: rpc_in->argv = " << (int)(rpc_in->argv) << std::endl;
       //std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
       //std::cout << "Receive:: entry.data_addr = " << (int*)(entry.data_addr) << std::endl;
-      *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>((req_pckt_1 + i)->argv)));
+      server_callback_->operator()(req_pckt_1 + i, entry);
+      // *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>((req_pckt_1 + i)->argv)));
       //*(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
       //std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
       // operator_(req_pckt_1 + i, tx_queue_);

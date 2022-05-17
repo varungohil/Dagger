@@ -23,6 +23,27 @@
 
 namespace dagger {
 
+
+/// The base class for the RDMA server callback (RPC handler).
+class RdmaServerCallBack {
+ public:
+  RdmaServerCallBack() {}
+  virtual ~RdmaServerCallBack() {}
+
+  /// The entrypoint to the server RPC handler.
+  virtual void operator()(const RpcPckt* rpc_in, const QueueElem entry) const final {
+      // QueueElem entry = recv_q.front();
+      // recv_q.pop();
+      // std::cout << "Receive:: pop : Recv queue len now = " << recv_q.size() << std::endl;
+      // std::cout << "Receive:: rpc_in->argv = " << rpc_in->argv << std::endl;
+      // std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
+      // std::cout << "Receive:: entry.data_addr = " << (int*)(entry.data_addr) << std::endl;
+      *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>(rpc_in->argv)));
+      //*(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
+      // std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
+  }
+};
+
 struct QueueElem {
   volatile int* data_addr; //Do we need volatile here?
   size_t data_size;
@@ -97,6 +118,9 @@ class QueuePairV2 {
   // Threads and signals.
   std::thread thread_;
   std::atomic<bool> stop_signal_;
+
+  //RDMA server callback object
+  const RdmaServerCallBack_Base* server_callback_;
 
 
 };
