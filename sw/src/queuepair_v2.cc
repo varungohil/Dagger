@@ -305,8 +305,8 @@ void QueuePairV2::_PullListen() {
           }
           std::cout << "\n **************** " << std::endl;
       //sleep(1);
-      // QueueElem entry = recv_q.front();
-      // recv_q.pop();
+      QueueElem entry = recv_q.front();
+      recv_q.pop();
       //std::cout << "Receive:: pop : Recv queue len now = " << recv_q.size() << std::endl;
       //std::cout << "Receive:: rpc_in->argv = " << (int)(rpc_in->argv) << std::endl;
       //std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
