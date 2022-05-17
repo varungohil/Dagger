@@ -38,8 +38,9 @@ QueuePairV2::QueuePairV2(const Nic* nic, size_t nic_flow_id,
                       nic_->get_mtu_size_bytes(), cfg::nic::l_rx_queue_size);
   rx_queue_.init();
 
-  dagger::RdmaServerCallBack server_callback = new dagger::RdmaServerCallBack();
-  server_callback_ = &server_callback;
+  // dagger::RdmaServerCallBack server_callback = new dagger::RdmaServerCallBack();
+  // server_callback_ = &server_callback;
+  server_callback_ = new dagger::RdmaServerCallBack();
   // server_callback_ = std::unique_ptr<dagger::RdmaServerCallBack>(new dagger::RdmaServerCallBack());
   // cq_ = std::unique_ptr<CompletionQueue>(
   //     new CompletionQueue(nic_flow_id,
