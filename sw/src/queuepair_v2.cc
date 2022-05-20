@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <immintrin.h>
 #include <unistd.h>
-
+#include <chrono>
 #include <atomic>
 #include <memory>
 #include <mutex>
@@ -315,6 +315,9 @@ void QueuePairV2::_PullListen() {
       //std::cout << "Receive:: rpc_in->hdr.rpc_id = " << rpc_in->hdr.rpc_id << std::endl;
       //std::cout << "Receive:: entry.data_addr = " << (int*)(entry.data_addr) << std::endl;
       server_callback_->operator()(req_pckt_1 + i, entry);
+      auto tp = std::chrono::high_resolution_clock::now();
+      auto nanos = std::chrono::duration_cast<std::chrono::nanoseconds>(tp.time_since_epoch()).count();
+      std::cout << "Received at " << nanos << std::endl;
       // *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>((req_pckt_1 + i)->argv)));
       //*(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
       //std::cout << "Receive:: Value at addr" << (int)(*(entry.data_addr)) << std::endl;
@@ -406,10 +409,10 @@ int QueuePairV2::send() {
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;
   //std::cout << "Writing to argv" << std::endl;
   std::cout << "Send:: Args = " << args << std::endl;
-  for(int j=0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; j=j+4){
-     *reinterpret_cast<volatile int*>(const_cast<uint8_t*>(tx_ptr_casted->argv + j)) = args;
-  }
-  //*reinterpret_cast<volatile int*>(const_cast<uint8_t*>(tx_ptr_casted->argv)) = args;
+  //for(int j=0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; j=j+4){
+  //   *reinterpret_cast<volatile int*>(const_cast<uint8_t*>(tx_ptr_casted->argv + j)) = args;
+  //}
+  *reinterpret_cast<volatile int*>(const_cast<uint8_t*>(tx_ptr_casted->argv)) = args;
   //tx_ptr_casted->argv = argv;
   //tx_ptr_casted->argv =  args;
   std::cout << "Send::argv = " << (int)(*tx_ptr_casted->argv) << std::endl;

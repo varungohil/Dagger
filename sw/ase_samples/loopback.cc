@@ -29,8 +29,8 @@ static constexpr size_t kServerQPs = 1;
 static constexpr size_t kRpcDelay =
     500000;  // Adjust this value based on your simulation speed.
 static constexpr size_t kClientPostSleepTime = 10;
-static constexpr char* kClientIP = "10.212.61.20";
-static constexpr char* kServerIP = "10.212.61.20";
+static constexpr char* kClientIP = "10.212.61.5";
+static constexpr char* kServerIP = "10.212.61.5";
 static constexpr uint16_t kPort = 12345;
 
 static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft);
@@ -74,7 +74,7 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
     dagger::RDMA rdma(kServerNicAddress, kServerQPs, max_qp_pool_size);
     
 
-    int res = rdma.init_nic(-1, true);
+    int res = rdma.init_nic(-1);
     if (res != 0) return res;
 
     res = rdma.start_nic();
@@ -152,7 +152,7 @@ static int run_client() {
     int max_qp_pool_size = 10;
     dagger::RDMA rdma_client(kClientNicAddress, kClientQPs, max_qp_pool_size);
 
-    int res = rdma_client.init_nic(-1, false);
+    int res = rdma_client.init_nic_slave(-1);
     if (res != 0) return res;
 
     res = rdma_client.start_nic();
@@ -163,6 +163,7 @@ static int run_client() {
     int op1 = 0;
     int op2 = 20;
     std::vector<int> send_data;
+    send_data.resize(op2-op1+1);
     std::vector<std::thread> threads;
     for (size_t qp_id = 0; qp_id < kClientQPs; ++qp_id) {
         std::cout << "Creating thread " << qp_id << std::endl;
@@ -183,7 +184,11 @@ static int run_client() {
             std::cout << "Connection is open on thread " << qp_id << std::endl;
         }
         for(int i = op1; i <= op2; i++){
-            send_data.push_back(i);
+            send_data[i] = i+10;
+            //rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
+        }
+        
+        for(int i = 0; i < send_data.size(); i++){
             rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
         }
         sleep(1);

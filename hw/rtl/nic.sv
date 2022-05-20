@@ -774,6 +774,11 @@ module nic
         );
 
 
+    always @(posedge network_clk) begin
+	if(from_rpc_valid) begin
+		$display("NIC%d: RPC receievd by nic = %p", NIC_ID, from_rpc);
+        end
+    end
     // =============================================================
     // Networking layer
     // =============================================================

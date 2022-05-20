@@ -1,0 +1,818 @@
+Start time: 16:16:27 on May 17,2022
+vlog -nologo "+librescan" -work work "+define+QUESTA" -dpiheader work/dpiheader.h "+incdir++work" -sv -timescale 1ps/1ps -l vlog.log "+define+FPGA_PLATFORM_DISCRETE" -F /homes/varungohil/Dagger/hw/b/rtl/includes.txt -F /homes/varungohil/Dagger/hw/b/vlog_files.list -l vlog-afu.log 
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_mux.sv(72): (vlog-13314) Defaulting port 'up_RxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_mux.sv(79): (vlog-13314) Defaulting port 'afu_TxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_mux_sv_unit
+-- Importing package ccip_if_pkg
+-- Compiling module ccip_mux
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_mux.sv(72): (vlog-13314) Defaulting port 'up_RxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_mux.sv(79): (vlog-13314) Defaulting port 'afu_TxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module fair_arbiter
+-- Compiling module fair_arbiter_4way
+-- Compiling module fair_arbiter_w_mask
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_front_end.sv(57): (vlog-13314) Defaulting port 'up_RxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_front_end.sv(65): (vlog-13314) Defaulting port 'afu_TxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_front_end_sv_unit
+-- Compiling module ccip_front_end
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_front_end.sv(57): (vlog-13314) Defaulting port 'up_RxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_front_end.sv(65): (vlog-13314) Defaulting port 'afu_TxPort' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_intf_regs.sv(42): (vlog-13314) Defaulting port 'pck_up_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_intf_regs.sv(49): (vlog-13314) Defaulting port 'pck_dn_sTx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_intf_regs_sv_unit
+-- Compiling module ccip_intf_regs
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_intf_regs.sv(42): (vlog-13314) Defaulting port 'pck_up_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /export/fpga/bbb/src/intel-fpga-bbb-20220217/BBB_ccip_mux/hw/rtl/ccip_intf_regs.sv(49): (vlog-13314) Defaulting port 'pck_dn_sTx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module sync_C1Tx_fifo
+-- Compiling module gram_sdp
+-- Compiling module a10_ram_sdp_wysiwyg
+-- Compiling module async_fifo_channel
+-- Compiling module nic_counters
+-- Compiling module pulse_gen
+-- Compiling module single_clock_wr_ram
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(14)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(23)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module nic_counters
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(19)
+** at /homes/varungohil/Dagger/hw/rtl/nic_counters.sv(7): (vlog-2275) Existing module 'nic_counters' at line 7 will be overwritten.
+-- Compiling module pulse_gen
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(20)
+** at /homes/varungohil/Dagger/hw/rtl/pulse_gen.sv(9): (vlog-2275) Existing module 'pulse_gen' at line 9 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(22)
+** at /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(10): (vlog-2275) Existing module 'single_clock_wr_ram' at line 10 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(23): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package top_level_loopback_sv_unit
+-- Compiling module ccip_mmio
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(210): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module async_fifo_channel
+-- Compiling module request_queue
+-- Compiling module ccip_transmitter
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_queue_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_dma
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(298): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module nic_counters
+-- Compiling module pulse_gen
+-- Compiling module connection_manager
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+-- Compiling module nic
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module top_level_loopback_module
+** Warning: /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(23): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(14)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_mmio
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(23): (vlog-2275) Existing module 'ccip_mmio' at line 23 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(12): (vlog-2275) Existing module 'ccip_polling' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(23)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_queue_polling
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(26): (vlog-2275) Existing module 'ccip_queue_polling' at line 26 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_dma
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(17): (vlog-2275) Existing module 'ccip_dma' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module nic_counters
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(19)
+** at /homes/varungohil/Dagger/hw/rtl/nic_counters.sv(7): (vlog-2275) Existing module 'nic_counters' at line 7 will be overwritten.
+-- Compiling module pulse_gen
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(20)
+** at /homes/varungohil/Dagger/hw/rtl/pulse_gen.sv(9): (vlog-2275) Existing module 'pulse_gen' at line 9 will be overwritten.
+-- Compiling module connection_manager
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(12): (vlog-2275) Existing module 'connection_manager' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(12): (vlog-2275) Existing module 'rpc' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(22)
+** at /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(10): (vlog-2275) Existing module 'single_clock_wr_ram' at line 10 will be overwritten.
+-- Compiling module nic
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(24): (vlog-2275) Existing module 'nic' at line 24 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(23): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package top_level_network_sv_unit
+-- Compiling module ccip_mmio
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(210): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module async_fifo_channel
+-- Compiling module request_queue
+-- Compiling module ccip_transmitter
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_queue_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_dma
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(298): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module nic_counters
+-- Compiling module pulse_gen
+-- Compiling module connection_manager
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+-- Compiling module nic
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module top_level_network_module
+** Warning: /homes/varungohil/Dagger/hw/rtl/top_level_network.sv(23): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ethernet_mac.sv(26): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ethernet_mac_sv_unit
+-- Compiling module ethernet_mac
+** Warning: /homes/varungohil/Dagger/hw/rtl/ethernet_mac.sv(26): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(60): (vlog-13314) Defaulting port 'bb_rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(66): (vlog-13314) Defaulting port 'afu_tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_async_shim_sv_unit
+-- Compiling module ccip_async_shim
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(60): (vlog-13314) Defaulting port 'bb_rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(66): (vlog-13314) Defaulting port 'afu_tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_afifo_channel
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(46): (vlog-13314) Defaulting port 'c0Tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(47): (vlog-13314) Defaulting port 'c0Rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(97): (vlog-13314) Defaulting port 'c1Tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(98): (vlog-13314) Defaulting port 'c1Rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_async_activity_cnt_sv_unit
+-- Compiling module ccip_async_c0_active_cnt
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(46): (vlog-13314) Defaulting port 'c0Tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(47): (vlog-13314) Defaulting port 'c0Rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_async_c1_active_cnt
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(97): (vlog-13314) Defaulting port 'c1Tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_activity_cnt.sv(98): (vlog-13314) Defaulting port 'c1Rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_async_shim
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(41)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(43): (vlog-2275) Existing module 'ccip_async_shim' at line 43 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(41)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(60): (vlog-13314) Defaulting port 'bb_rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(41)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(66): (vlog-13314) Defaulting port 'afu_tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(14)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_mmio
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(23): (vlog-2275) Existing module 'ccip_mmio' at line 23 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(12): (vlog-2275) Existing module 'ccip_polling' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(23)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_queue_polling
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(26): (vlog-2275) Existing module 'ccip_queue_polling' at line 26 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_dma
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(17): (vlog-2275) Existing module 'ccip_dma' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module nic_counters
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(19)
+** at /homes/varungohil/Dagger/hw/rtl/nic_counters.sv(7): (vlog-2275) Existing module 'nic_counters' at line 7 will be overwritten.
+-- Compiling module pulse_gen
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(20)
+** at /homes/varungohil/Dagger/hw/rtl/pulse_gen.sv(9): (vlog-2275) Existing module 'pulse_gen' at line 9 will be overwritten.
+-- Compiling module connection_manager
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(12): (vlog-2275) Existing module 'connection_manager' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(12): (vlog-2275) Existing module 'rpc' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(22)
+** at /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(10): (vlog-2275) Existing module 'single_clock_wr_ram' at line 10 will be overwritten.
+-- Compiling module nic
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(24): (vlog-2275) Existing module 'nic' at line 24 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module top_level_loopback_module
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(16): (vlog-2275) Existing module 'top_level_loopback_module' at line 16 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(46)
+** at /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(23): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(63): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_std_afu_sv_unit
+-- Compiling module ccip_async_shim
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(60): (vlog-13314) Defaulting port 'bb_rx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_async_shim.sv(66): (vlog-13314) Defaulting port 'afu_tx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_mmio
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(210): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module async_fifo_channel
+-- Compiling module request_queue
+-- Compiling module ccip_transmitter
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_queue_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_dma
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(298): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module nic_counters
+-- Compiling module pulse_gen
+-- Compiling module connection_manager
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+-- Compiling module nic
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module top_level_loopback_module
+** Warning: /homes/varungohil/Dagger/hw/rtl/top_level_loopback.sv(23): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_std_afu
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv(63): (vlog-13314) Defaulting port 'pck_cp2af_sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_mmio
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(23): (vlog-2275) Existing module 'ccip_mmio' at line 23 will be overwritten.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_mmio_sv_unit
+-- Compiling module async_fifo_channel
+-- Compiling module request_queue
+-- Compiling module ccip_transmitter
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_mmio
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(12): (vlog-2275) Existing module 'ccip_polling' at line 12 will be overwritten.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package ccip_polling_sv_unit
+-- Compiling module ccip_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(210): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module connection_manager
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(12): (vlog-2275) Existing module 'connection_manager' at line 12 will be overwritten.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package connection_manager_sv_unit
+-- Compiling module connection_manager
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(14)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_mmio
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(23): (vlog-2275) Existing module 'ccip_mmio' at line 23 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(12): (vlog-2275) Existing module 'ccip_polling' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(16)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(23)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module async_fifo_channel
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(12)
+** at /homes/varungohil/Dagger/hw/rtl/async_fifo_channel.sv(8): (vlog-2275) Existing module 'async_fifo_channel' at line 8 will be overwritten.
+-- Compiling module request_queue
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(15)
+** at /homes/varungohil/Dagger/hw/rtl/request_queue.sv(10): (vlog-2275) Existing module 'request_queue' at line 10 will be overwritten.
+-- Compiling module ccip_transmitter
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(17): (vlog-2275) Existing module 'ccip_transmitter' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(24)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_queue_polling
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(26): (vlog-2275) Existing module 'ccip_queue_polling' at line 26 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(17)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_dma
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(17): (vlog-2275) Existing module 'ccip_dma' at line 17 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(18)
+** at /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module nic_counters
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(19)
+** at /homes/varungohil/Dagger/hw/rtl/nic_counters.sv(7): (vlog-2275) Existing module 'nic_counters' at line 7 will be overwritten.
+-- Compiling module pulse_gen
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(20)
+** at /homes/varungohil/Dagger/hw/rtl/pulse_gen.sv(9): (vlog-2275) Existing module 'pulse_gen' at line 9 will be overwritten.
+-- Compiling module connection_manager
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(12): (vlog-2275) Existing module 'connection_manager' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(12): (vlog-2275) Existing module 'rpc' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(21)
+** at /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/nic.sv(22)
+** at /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(10): (vlog-2275) Existing module 'single_clock_wr_ram' at line 10 will be overwritten.
+-- Compiling module nic
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(24): (vlog-2275) Existing module 'nic' at line 24 will be overwritten.
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package nic_sv_unit
+-- Compiling module ccip_mmio
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(53): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_mmio.sv(64): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(48): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(58): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_polling.sv(210): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module async_fifo_channel
+-- Compiling module request_queue
+-- Compiling module ccip_transmitter
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv(50): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_queue_polling
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(65): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module ccip_dma
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(49): (vlog-13314) Defaulting port 'sRx_c0' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(59): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/ccip_dma.sv(298): (vlog-2697) MSB 515 of part-select into 'data' is out of bounds.
+-- Compiling module nic_counters
+-- Compiling module pulse_gen
+-- Compiling module connection_manager
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module single_clock_wr_ram
+-- Compiling module nic
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(42): (vlog-13314) Defaulting port 'sRx' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/nic.sv(72): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module connection_manager
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(12): (vlog-2275) Existing module 'connection_manager' at line 12 will be overwritten.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: ** while parsing file included at /homes/varungohil/Dagger/hw/rtl/rpc.sv(10)
+** at /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(12): (vlog-2275) Existing module 'rpc' at line 12 will be overwritten.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package rpc_sv_unit
+-- Compiling module connection_manager
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(25): (vlog-13314) Defaulting port 'c_ctl_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(30): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/connection_manager.sv(33): (vlog-13314) Defaulting port 'rpc_net_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling module rpc
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(24): (vlog-13314) Defaulting port 'conn_setup_frame_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(29): (vlog-13314) Defaulting port 'rpc_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/rpc.sv(36): (vlog-13314) Defaulting port 'network_rx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/udp_ip.sv(25): (vlog-13314) Defaulting port 'host_phy_addr' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/udp_ip.sv(26): (vlog-13314) Defaulting port 'host_ipv4_addr' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/udp_ip.sv(31): (vlog-13314) Defaulting port 'network_tx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+-- Compiling package udp_ip_sv_unit
+-- Compiling module udp_ip
+** Warning: /homes/varungohil/Dagger/hw/rtl/udp_ip.sv(25): (vlog-13314) Defaulting port 'host_phy_addr' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/udp_ip.sv(26): (vlog-13314) Defaulting port 'host_ipv4_addr' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+** Warning: /homes/varungohil/Dagger/hw/rtl/udp_ip.sv(31): (vlog-13314) Defaulting port 'network_tx_in' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+
+Top level modules:
+	ccip_mmio
+	ccip_polling
+	ccip_dma
+	top_level_network_module
+	ccip_std_afu
+	udp_ip
+** Warning: (vlog-7035) Skip generating the empty DPI header 'work/dpiheader.h'.
+End time: 16:16:28 on May 17,2022, Elapsed time: 0:00:01
+Errors: 0, Warnings: 295

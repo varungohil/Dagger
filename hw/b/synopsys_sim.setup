@@ -1,0 +1,4 @@
+WORK > DEFAULT
+DEFAULT : ./work
+OTHERS = ./work/synopsys_sim_quartus_verilog.setup
+OTHERS = ./work/synopsys_sim_quartus_vhdl.setup

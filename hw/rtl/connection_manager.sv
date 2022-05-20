@@ -1,5 +1,6 @@
 // Author: Cornell University
 //
+//
 // Module Name :    connection_manager
 // Project :        F-NIC
 // Description :    implements a connection manager
@@ -369,6 +370,7 @@ module connection_manager
         // For when this node is RECEIVING a packet (we think)
         if (rpc_net_in.valid) begin
             if (rpc_net_in.rpc_data.hdr.connection_id < 2**LCACHE_SIZE) begin
+                $display("NIC%D::RPC_NET_IN = %p", NIC_ID, rpc_net_in);
                 c_tbl_rd_addr[1] = rpc_net_in.rpc_data.hdr.connection_id;
             end
         end
@@ -380,10 +382,14 @@ module connection_manager
     CManagerRpcIf rpc_in_1d;
     CManagerNetRpcIf rpc_net_in_1d;
     always @(posedge clk) begin
-        if(rpc_net_in.remote_qp_num == c_tbl_rd_data[0].remote_qp_num // added
-            && rpc_net_in.p_key == c_tbl_rd_data[0].p_key
-            && rpc_net_in.q_key == c_tbl_rd_data[0].q_key) good <= 1;
-        else good <= 0; // added
+        //$display("NIC%d::RPC_NET_IN = %p", NIC_ID, rpc_net_in);
+        //if(rpc_net_in.remote_qp_num == c_tbl_rd_data[0].remote_qp_num // added
+        //    && rpc_net_in.p_key == c_tbl_rd_data[0].p_key
+        //    && rpc_net_in.q_key == c_tbl_rd_data[0].q_key) begin 
+                  good <= 1;
+	//$display("NIC%d : Good = %d", NIC_ID, good);
+        //$display("NIC%d::RPC_NET_IN = %p", NIC_ID, rpc_net_in);
+        //end else good <= 0; // added
 
         rpc_in_1d <= rpc_in;
         rpc_net_in_1d <= rpc_net_in;
@@ -416,6 +422,7 @@ module connection_manager
         rpc_out.valid <= 1'b0;
         if (rpc_net_in_1d.valid) begin
             if (c_tbl_rd_data[1].status == cOpen && good) begin // added good
+		$display("NIC%d : valid = %d", NIC_ID, rpc_out);
                 rpc_out.valid <= 1'b1;
             end
         end
@@ -424,6 +431,16 @@ module connection_manager
         if (reset) begin
             rpc_net_out.valid <= 1'b0;
             rpc_out.valid <= 1'b0;
+        end
+    end
+
+
+    always_comb begin
+        if (rpc_net_in_1d.valid) begin     
+            $display("NIC%d : Status = %d, cOpen = %d, Good = %d", NIC_ID, c_tbl_rd_data[1].status, cOpen, good);
+            if (c_tbl_rd_data[1].status == cOpen && good) begin // added good
+		$display("NIC%d : second valid = %p", NIC_ID, rpc_out);
+            end
         end
     end
 

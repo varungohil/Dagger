@@ -1,0 +1,16 @@
+MQ	/homes/varungohil/Dagger/hw/b/work/app2sim_alloc_ping_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/app2sim_mmioreq_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/app2sim_umsg_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/sim2app_alloc_pong_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/sim2app_mmiorsp_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/app2sim_portctrl_req_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/app2sim_dealloc_ping_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/sim2app_dealloc_pong_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/sim2app_portctrl_rsp_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/sim2app_intr_request_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/sim2app_membus_rd_req_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/app2sim_membus_rd_rsp_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/sim2app_membus_wr_req_smq
+MQ	/homes/varungohil/Dagger/hw/b/work/app2sim_membus_wr_rsp_smq
+SHM	/mmio.2942974362703600
+SHM	/umas.2942974362703600

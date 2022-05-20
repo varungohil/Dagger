@@ -13,7 +13,7 @@
 #include <iostream>
 #include <thread>
 #include <vector>
-
+#include <chrono>
 #include "CLI11.hpp"
 #include "config.h"
 #include "defs.h"
@@ -59,10 +59,10 @@
 
 // #endif
 
-int kFpgaBus = 0xaf;
+int kFpgaBus = 0x18;
 static constexpr uint64_t kNicAddress = 0x00000;
 /// Networking configuration.
-static constexpr char* kServerIP = "10.212.62.191";
+static constexpr char* kServerIP = "10.212.62.192";
 static constexpr uint16_t kPort = 12345;
 
 
@@ -131,7 +131,7 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
   //   std::cout << "Sending " << num << std::endl;
   //   rdma->send(qp_num);
   //}
-  
+  sleep(30);  
   for(int i = 0; i < send_vec.size(); i++){
    //if(i == 16)
    //{
@@ -139,6 +139,9 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
    //}
    //usleep(150);
    sleep(1);
+   auto tp = std::chrono::high_resolution_clock::now();
+   auto nanos = std::chrono::duration_cast<std::chrono::nanoseconds>(tp.time_since_epoch()).count();
+   std::cout << "Sent at " << nanos << std::endl;
    rdma->send(qp_num);  
   }
   int res = op1 + op2;

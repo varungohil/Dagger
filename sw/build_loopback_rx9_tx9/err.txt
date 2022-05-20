@@ -12,19 +12,39 @@ cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
 cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
 cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
 cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiOpen’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:95:16: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+   95 |  for (i = 0; i < h->csr_cnt; i++)
+      |                ^
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_common.c: In function ‘byte_reverse’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiCtrlLoopback’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:200:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  200 |  uint32_t channel_num, bool loopback_en)
+      |  ~~~~~~~~~^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetLoopbackStatus’:
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:220:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  220 |  uint32_t channel_num, bool *loopback_en)
+      |  ~~~~~~~~~^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetFreqLockStatus’:
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_common.c:43:16: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
    43 |  for (i = 0; i < sizeof(fpga_guid)/2; i++) {
       |                ^
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:243:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  243 |  uint32_t channel_num, bool *freq_locked)
+      |  ~~~~~~~~~^~~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_common.c:44:29: warning: conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
    44 |   t = guid[sizeof(fpga_guid)-i-1];
       |                             ^
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_common.c:44:7: warning: conversion to ‘char’ from ‘uint8_t’ {aka ‘unsigned char’} may change the sign of the result [-Wsign-conversion]
    44 |   t = guid[sizeof(fpga_guid)-i-1];
       |       ^~~~
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetWordLockStatus’:
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_common.c:45:25: warning: conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
    45 |   guid[sizeof(fpga_guid)-i-1] = guid[i];
       |                         ^
+/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:265:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
+  265 |  uint32_t channel_num, bool *word_locked)
+      |  ~~~~~~~~~^~~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_common.c:46:13: warning: conversion to ‘uint8_t’ {aka ‘unsigned char’} from ‘char’ may change the sign of the result [-Wsign-conversion]
    46 |   guid[i] = t;
       |             ^
@@ -36,26 +56,6 @@ cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_common.c:102:16: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
   102 |  for (i = 0; i < hssi->csr_cnt; i++) {
       |                ^
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiOpen’:
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:95:16: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
-   95 |  for (i = 0; i < h->csr_cnt; i++)
-      |                ^
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiCtrlLoopback’:
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:200:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
-  200 |  uint32_t channel_num, bool loopback_en)
-      |  ~~~~~~~~~^~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetLoopbackStatus’:
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:220:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
-  220 |  uint32_t channel_num, bool *loopback_en)
-      |  ~~~~~~~~~^~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetFreqLockStatus’:
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:243:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
-  243 |  uint32_t channel_num, bool *freq_locked)
-      |  ~~~~~~~~~^~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiGetWordLockStatus’:
-/homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:265:11: warning: unused parameter ‘channel_num’ [-Wunused-parameter]
-  265 |  uint32_t channel_num, bool *word_locked)
-      |  ~~~~~~~~~^~~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c: In function ‘fpgaHssiPrintChannelStats’:
 /homes/varungohil/Dagger/sw/src/network_ctl/fpga_hssi_e40.c:381:16: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
   381 |  for (i = 0; i < count; i++) {
@@ -100,6 +100,11 @@ cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
 cc1plus: warning: ‘-Wabi’ won’t warn about anything [-Wabi]
 cc1plus: note: ‘-Wabi’ warns about differences from the most up-to-date ABI, which is also used by default
 cc1plus: note: use e.g. ‘-Wabi=11’ to warn about changes from GCC 7
+In file included from /homes/varungohil/Dagger/sw/src/tx_queue.cc:1:
+/homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
+/homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
+   50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
+      |                           ^~~~~~~~~~
 In file included from /homes/varungohil/Dagger/sw/src/rx_queue.cc:1:
 /homes/varungohil/Dagger/sw/src/rx_queue.h: In constructor ‘dagger::RxQueue::RxQueue(volatile char*, size_t, size_t)’:
 /homes/varungohil/Dagger/sw/src/rx_queue.h:81:13: warning: ‘dagger::RxQueue::rpc_id_set_’ will be initialized after [-Wreorder]
@@ -121,11 +126,6 @@ In file included from /homes/varungohil/Dagger/sw/src/rx_queue.cc:1:
 /homes/varungohil/Dagger/sw/src/rx_queue.cc:40:22: warning: unsigned conversion from ‘int’ to ‘uint32_t’ {aka ‘unsigned int’} changes value from ‘-1’ to ‘4294967295’ [-Wsign-conversion]
    40 |     rpc_id_set_[i] = -1;
       |                      ^~
-In file included from /homes/varungohil/Dagger/sw/src/tx_queue.cc:1:
-/homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
-/homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
-   50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
-      |                           ^~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/tx_queue.cc: In constructor ‘dagger::TxQueue::TxQueue(volatile char*, size_t, size_t)’:
 /homes/varungohil/Dagger/sw/src/tx_queue.cc:30:14: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
    30 |   depth_ = 1 << l_depth_;
@@ -470,67 +470,6 @@ In file included from /homes/varungohil/Dagger/sw/src/completion_queue.cc:4:
       |                                                       |
       |                                                       int
       |                                                      %ld
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc: In member function ‘virtual int dagger::NicDmaCCIP::configure_data_plane(size_t)’:
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:65:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
-   65 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
-      |                                                       ^~~~~~~~~~~~~~~
-In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
-   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   73 |       "buffer's nic-viewed physical address is 0x%x\n",
-      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
-      |       ~~~~~~~~~~~~~~~
-      |       |
-      |       size_t {aka long unsigned int}
-/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
-   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
-      |                                    ^~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:35: note: format string is defined here
-   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
-      |                                  ~^
-      |                                   |
-      |                                   unsigned int
-      |                                  %lu
-In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
-   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   73 |       "buffer's nic-viewed physical address is 0x%x\n",
-      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                        |
-      |                        volatile void*
-/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
-   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
-      |                                    ^~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:65: note: format string is defined here
-   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
-      |                                                                ~^
-      |                                                                 |
-      |                                                                 unsigned int
-      |                                                                %p
-In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
-   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   73 |       "buffer's nic-viewed physical address is 0x%x\n",
-      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
-      |                                                                 ~~~~~~~
-      |                                                                 |
-      |                                                                 uint64_t {aka long unsigned int}
-/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
-   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
-      |                                    ^~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:73:51: note: format string is defined here
-   73 |       "buffer's nic-viewed physical address is 0x%x\n",
-      |                                                  ~^
-      |                                                   |
-      |                                                   unsigned int
-      |                                                  %lx
 In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:1:
 /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h: In member function ‘virtual int dagger::NicMmioCCIP::notify_nic_of_new_dma(size_t, size_t) const’:
 /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.h:37:44: warning: unused parameter ‘flow’ [-Wunused-parameter]
@@ -600,15 +539,70 @@ In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_mmio.cc:
       |                                                   |
       |                                                   unsigned int
       |                                                  %lx
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc: In member function ‘virtual int dagger::NicDmaCCIP::configure_data_plane(size_t)’:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:65:55: warning: conversion to ‘ssize_t’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result [-Wsign-conversion]
+   65 |   buf_ = (volatile char *)alloc_buffer(accel_handle_, buff_size_bytes, &wsid_,
+      |                                                       ^~~~~~~~~~~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |       ~~~~~~~~~~~~~~~
+      |       |
+      |       size_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:35: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                  ~^
+      |                                   |
+      |                                   unsigned int
+      |                                  %lu
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 4 has type ‘volatile void*’ [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                        |
+      |                        volatile void*
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:65: note: format string is defined here
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |                                                                ~^
+      |                                                                 |
+      |                                                                 unsigned int
+      |                                                                %p
+In file included from /homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:9:
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:72:7: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 5 has type ‘uint64_t’ {aka ‘long unsigned int’} [-Wformat=]
+   72 |       "Shared nic buffer of size %uB is allocated by address 0x%x; "
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   74 |       buff_size_bytes, reinterpret_cast<volatile void *>(buf_), buf_pa_);
+      |                                                                 ~~~~~~~
+      |                                                                 |
+      |                                                                 uint64_t {aka long unsigned int}
+/homes/varungohil/Dagger/sw/src/utils/logger.h:62:36: note: in definition of macro ‘FRPC_INFO’
+   62 |   fprintf(FRPC_LOG_DEFAULT_STREAM, __VA_ARGS__);                   \
+      |                                    ^~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/nic_impl/nic_ccip_dma.cc:73:51: note: format string is defined here
+   73 |       "buffer's nic-viewed physical address is 0x%x\n",
+      |                                                  ~^
+      |                                                   |
+      |                                                   unsigned int
+      |                                                  %lx
 In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
                  from /homes/varungohil/Dagger/sw/src/rdma_qp.h:14,
                  from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:1:
-/homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
-/homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
-   50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
-      |                           ^~~~~~~~~~
-In file included from /homes/varungohil/Dagger/sw/src/queuepair_v2.h:22,
-                 from /homes/varungohil/Dagger/sw/src/queuepair_v2.cc:1:
 /homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
 /homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
    50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
@@ -631,11 +625,11 @@ In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:7:
       |                                                  ~~~~~~~^~~~~~
 In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:1:
 /homes/varungohil/Dagger/sw/src/rdma_qp.h: In constructor ‘dagger::RDMA::RDMA(uint64_t, size_t, size_t)’:
-/homes/varungohil/Dagger/sw/src/rdma_qp.h:90:10: warning: ‘dagger::RDMA::qp_pool_cnt_’ will be initialized after [-Wreorder]
-   90 |   size_t qp_pool_cnt_;
+/homes/varungohil/Dagger/sw/src/rdma_qp.h:92:10: warning: ‘dagger::RDMA::qp_pool_cnt_’ will be initialized after [-Wreorder]
+   92 |   size_t qp_pool_cnt_;
       |          ^~~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/rdma_qp.h:78:12: warning:   ‘uint64_t dagger::RDMA::base_nic_addr_’ [-Wreorder]
-   78 |   uint64_t base_nic_addr_;
+/homes/varungohil/Dagger/sw/src/rdma_qp.h:80:12: warning:   ‘uint64_t dagger::RDMA::base_nic_addr_’ [-Wreorder]
+   80 |   uint64_t base_nic_addr_;
       |            ^~~~~~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/rdma_qp.cc:16:1: warning:   when initialized here [-Wreorder]
    16 | RDMA::RDMA(uint64_t base_nic_addr, size_t max_num_of_threads,
@@ -644,27 +638,30 @@ In file included from /homes/varungohil/Dagger/sw/src/rdma_qp.cc:1:
 /homes/varungohil/Dagger/sw/src/rdma_qp.cc:45:19: note: #pragma message: compiling Nic to run in polling mode
    45 | #  pragma message "compiling Nic to run in polling mode"
       |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::init_nic_slave(int)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:93:19: note: #pragma message: compiling Nic to run in polling mode
+   93 | #  pragma message "compiling Nic to run in polling mode"
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::make_qp()’:
-/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: warning: ‘new’ of type ‘dagger::QueuePairV2’ with extended alignment 4096 [-Waligned-new=]
-  163 |         new QueuePairV2(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:212:63: warning: ‘new’ of type ‘dagger::QueuePairV2’ with extended alignment 4096 [-Waligned-new=]
+  212 |         new QueuePairV2(nic_.get(), qp_pool_cnt_, qp_pool_cnt_)));
       |                                                               ^
-/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: note: uses ‘void* operator new(std::size_t)’, which does not have an alignment parameter
-/homes/varungohil/Dagger/sw/src/rdma_qp.cc:163:63: note: use ‘-faligned-new’ to enable C++17 over-aligned new support
-/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘bool dagger::RDMA::is_data_available(uint16_t)’:
-/homes/varungohil/Dagger/sw/src/rdma_qp.cc:227:1: warning: control reaches end of non-void function [-Wreturn-type]
-  227 | }
-      | ^
-/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::connect_qp(uint16_t, dagger::ConnectionId, const dagger::IPv4&, uint16_t, uint16_t, uint32_t)’:
-/homes/varungohil/Dagger/sw/src/rdma_qp.cc:259:1: warning: control reaches end of non-void function [-Wreturn-type]
-  259 | }
-      | ^
-In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
-                 from /homes/varungohil/Dagger/sw/microbenchmarks/framework/rdma_qp.h:14,
-                 from /homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:25:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:212:63: note: uses ‘void* operator new(std::size_t)’, which does not have an alignment parameter
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:212:63: note: use ‘-faligned-new’ to enable C++17 over-aligned new support
+In file included from /homes/varungohil/Dagger/sw/src/queuepair_v2.h:22,
+                 from /homes/varungohil/Dagger/sw/src/queuepair_v2.cc:1:
 /homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
 /homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
    50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
       |                           ^~~~~~~~~~
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘bool dagger::RDMA::is_data_available(uint16_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:276:1: warning: control reaches end of non-void function [-Wreturn-type]
+  276 | }
+      | ^
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc: In member function ‘int dagger::RDMA::connect_qp(uint16_t, dagger::ConnectionId, const dagger::IPv4&, uint16_t, uint16_t, uint32_t)’:
+/homes/varungohil/Dagger/sw/src/rdma_qp.cc:308:1: warning: control reaches end of non-void function [-Wreturn-type]
+  308 | }
+      | ^
 In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
                  from /homes/varungohil/Dagger/sw/microbenchmarks/framework/rdma_qp.h:14,
                  from /homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:18:
@@ -672,14 +669,6 @@ In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
 /homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
    50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
       |                           ^~~~~~~~~~
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: At global scope:
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:65:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
-   65 | static constexpr char* kServerIP = "10.212.62.191";
-      |                                    ^~~~~~~~~~~~~~~
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: In function ‘int add_num(dagger::RDMA*, dagger::IPv4, int, int, uint32_t, int, int, int)’:
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:88:32: warning: conversion to ‘dagger::ConnectionId’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
-   88 |   if (rdma->connect_qp(qp_num, thread_id, server_addr, remote_qp_num, p_key, q_key) != 0) {
-      |                                ^~~~~~~~~
 /homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc: At global scope:
 /homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:57:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
    57 | static constexpr char* kClientIP = "10.212.62.191";
@@ -692,25 +681,13 @@ In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
 /homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:108:43: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
   108 |   dagger::RDMA rdma(kNicAddress, num_qps, max_qp_pool_size);
       |                                           ^~~~~~~~~~~~~~~~
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:109:20: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
-  109 |   for(int i = 0; i < send_vec.size(); i++){
-      |                  ~~^~~~~~~~~~~~~~~~~
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:110:50: warning: conversion to ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
-  110 |     rdma->add_send_queue_entry(qp_num, &send_vec[i], sizeof(send_vec[i]));
-      |                                                  ^
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:135:20: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
-  135 |   for(int i = 0; i < send_vec.size(); i++){
-      |                  ~~^~~~~~~~~~~~~~~~~
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: In function ‘int main(int, char**)’:
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:170:50: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
-  170 |   dagger::RDMA rdma(kNicAddress, num_of_threads, max_qp_pool_size);
-      |                                                  ^~~~~~~~~~~~~~~~
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:153:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
-  153 | int main(int argc, char* argv[]) {
-      |          ~~~~^~~~
-/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:153:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
-  153 | int main(int argc, char* argv[]) {
-      |                    ~~~~~~^~~~~~
+In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
+                 from /homes/varungohil/Dagger/sw/microbenchmarks/framework/rdma_qp.h:14,
+                 from /homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:25:
+/homes/varungohil/Dagger/sw/src/tx_queue.h: In member function ‘volatile char* dagger::TxQueue::get_write_ptr(uint8_t&)’:
+/homes/varungohil/Dagger/sw/src/tx_queue.h:50:27: warning: unused variable ‘check_pckt’ [-Wunused-variable]
+   50 |         volatile RpcPckt* check_pckt = reinterpret_cast<volatile RpcPckt*>(check_ptr);
+      |                           ^~~~~~~~~~
 /homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:151:28: warning: conversion to ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
   151 |   results.resize(op2 - op1 + 1);
       |                  ~~~~~~~~~~^~~
@@ -722,6 +699,33 @@ In file included from /homes/varungohil/Dagger/sw/src/rpc_server_thread.h:19,
       |          ~~~~^~~~
 /homes/varungohil/Dagger/sw/microbenchmarks/framework/server.cc:90:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
    90 | int main(int argc, char* argv[]) {
+      |                    ~~~~~~^~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: At global scope:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:65:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   65 | static constexpr char* kServerIP = "10.212.62.191";
+      |                                    ^~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: In function ‘int add_num(dagger::RDMA*, dagger::IPv4, int, int, uint32_t, int, int, int)’:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:88:32: warning: conversion to ‘dagger::ConnectionId’ {aka ‘unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+   88 |   if (rdma->connect_qp(qp_num, thread_id, server_addr, remote_qp_num, p_key, q_key) != 0) {
+      |                                ^~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:109:20: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  109 |   for(int i = 0; i < send_vec.size(); i++){
+      |                  ~~^~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:110:50: warning: conversion to ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  110 |     rdma->add_send_queue_entry(qp_num, &send_vec[i], sizeof(send_vec[i]));
+      |                                                  ^
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:135:20: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<int>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  135 |   for(int i = 0; i < send_vec.size(); i++){
+      |                  ~~^~~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc: In function ‘int main(int, char**)’:
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:173:50: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+  173 |   dagger::RDMA rdma(kNicAddress, num_of_threads, max_qp_pool_size);
+      |                                                  ^~~~~~~~~~~~~~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:156:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+  156 | int main(int argc, char* argv[]) {
+      |          ~~~~^~~~
+/homes/varungohil/Dagger/sw/microbenchmarks/framework/client.cc:156:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
+  156 | int main(int argc, char* argv[]) {
       |                    ~~~~~~^~~~~~
 In file included from /homes/varungohil/Dagger/sw/src/queuepair_v2.cc:1:
 /homes/varungohil/Dagger/sw/src/queuepair_v2.h: In constructor ‘dagger::QueuePairV2::QueuePairV2(const dagger::Nic*, size_t, uint16_t)’:
@@ -749,11 +753,8 @@ In file included from /homes/varungohil/Dagger/sw/src/queuepair_v2.cc:1:
   305 |           for (int j=0; j<cfg::sys::cl_size_bytes - rpc_header_size_bytes;
       |                         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/queuepair_v2.cc: In member function ‘int dagger::QueuePairV2::send()’:
-/homes/varungohil/Dagger/sw/src/queuepair_v2.cc:409:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
-  409 |   for(int j=0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; j=j+4){
-      |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/homes/varungohil/Dagger/sw/src/queuepair_v2.cc:416:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
-  416 |   for(int j=0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; ++j){
+/homes/varungohil/Dagger/sw/src/queuepair_v2.cc:419:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
+  419 |   for(int j=0; j < cfg::sys::cl_size_bytes - rpc_header_size_bytes; ++j){
       |                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /homes/varungohil/Dagger/sw/src/queuepair_v2.cc: In member function ‘void dagger::QueuePairV2::_PullListen()’:
 /homes/varungohil/Dagger/sw/src/queuepair_v2.cc:300:18: warning: ‘req_pckt_1.dagger::RpcPckt::hdr.dagger::RpcHeader::c_id’ may be used uninitialized in this function [-Wmaybe-uninitialized]

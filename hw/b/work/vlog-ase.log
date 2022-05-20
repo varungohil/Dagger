@@ -1,0 +1,9 @@
+Start time: 16:28:56 on May 17,2022
+vlog -nologo "+librescan" -work work "+define+QUESTA" -dpiheader work/dpiheader.h "+incdir++work" -sv -timescale 1ps/1ps -l vlog.log "+define+FPGA_PLATFORM_DISCRETE" /export/fpga/tools/quartus_pro/17.1.1/quartus/../ip/altera/sopc_builder_ip/verification/altera_avalon_mm_slave_bfm/altera_avalon_mm_slave_bfm.sv -l vlog-ase.log 
+-- Compiling module altera_avalon_mm_slave_bfm
+
+Top level modules:
+	altera_avalon_mm_slave_bfm
+** Warning: (vlog-7035) Skip generating the empty DPI header 'work/dpiheader.h'.
+End time: 16:28:56 on May 17,2022, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1

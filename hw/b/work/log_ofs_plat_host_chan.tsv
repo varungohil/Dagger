@@ -1,0 +1,50 @@
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            34657500	MMIORdReq	000	          8 bytes	0002
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            34832500	MMIORdRsp	000	b3c151a1b62ed6c2
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            34857500	MMIORdReq	001	          8 bytes	0004
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35032500	MMIORdRsp	001	26b40788034b4389
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35057500	MMIORdReq	002	          8 bytes	8012
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35232500	MMIORdRsp	002	0000000000000003
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35285000	MMIOWrReq	003	          8 bytes	8000	0x0000000159064500
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35335000	MMIOWrReq	004	          8 bytes	8002	0x0000000159064508
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35385000	MMIOWrReq	005	          8 bytes	8006	0x0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35435000	MMIOWrReq	006	          8 bytes	8016	0x0000000000000008
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35485000	MMIOWrReq	007	          8 bytes	802e	0x0000000000000008
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35535000	MMIOWrReq	008	          8 bytes	801c	0x000000000000001e
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35585000	MMIOWrReq	009	          8 bytes	8018	0x0000000000000000
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35635000	MMIORdReq	00a	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35812500	MMIORdRsp	00a	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            35837500	MMIORdReq	00b	          8 bytes	8012
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            36012500	MMIORdRsp	00b	0000000000000003
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            36037500	MMIOWrReq	00c	          8 bytes	8026	0x000000003c4d5eff
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            36087500	MMIOWrReq	00d	          8 bytes	8028	0x000000000ad43d0a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            36137500	MMIOWrReq	00e	          8 bytes	8008	0x0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            36187500	MMIORdReq	00f	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            36362500	MMIORdRsp	00f	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            38177500	MMIORdReq	010	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            38352500	MMIORdRsp	010	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            40075000	MMIORdReq	011	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            40252500	MMIORdRsp	011	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            41947500	MMIORdReq	012	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            42122500	MMIORdRsp	012	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            43857500	MMIORdReq	013	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            44032500	MMIORdRsp	013	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            45755000	MMIORdReq	014	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            45932500	MMIORdRsp	014	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            47435000	MMIORdReq	015	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            47612500	MMIORdRsp	015	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            49332500	MMIORdReq	016	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            49507500	MMIORdRsp	016	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            51202500	MMIORdReq	017	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            51377500	MMIORdRsp	017	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            52972500	MMIORdReq	018	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            53147500	MMIORdRsp	018	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            54727500	MMIORdReq	019	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            54902500	MMIORdRsp	019	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            56695000	MMIORdReq	01a	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            56872500	MMIORdRsp	01a	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            58640000	MMIORdReq	01b	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            58817500	MMIORdRsp	01b	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            60597500	MMIORdReq	01c	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            60772500	MMIORdRsp	01c	0000000000000001
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            62550000	MMIORdReq	01d	          8 bytes	800a
+ase_top.ase_top_plat.plat_ifc.host_chan.ports[0].logger_proc:	            62727500	MMIORdRsp	01d	0000000000000001

@@ -1,4 +1,4 @@
-+define+SYS_CLOCK_200
++define+SYS_CLOCK_400
 +define+PLATFORM_PAC_A10
 +define+CCIP_QUEUE_POLLING
 

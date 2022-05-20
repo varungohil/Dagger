@@ -1,0 +1,322 @@
+# vsim -c -l run.log -dpioutoftheblue 1 -sv_lib ase_libs -do "/homes/varungohil/Dagger/hw/b/vsim_run.tcl" -sv_seed 1234 -error 3839 -voptargs="+acc" "+CONFIG=/homes/varungohil/Dagger/hw/b/ase.cfg" "+SCRIPT=/homes/varungohil/Dagger/hw/b/ase_regress.sh" -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L twentynm_ver -L twentynm_hssi_ver -L twentynm_hip_ver ase_top 
+# Start time: 16:28:57 on May 17,2022
+# Loading /tmp/varungohil@iam-ssh1_dpi_73509/linux_x86_64_gcc-7.4.0/export_tramp.so
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Intel FPGA Edition-64
+# //  Version 2021.3 linux_x86_64 Jul 13 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.ccip_if_pkg(fast)
+# Loading work.ase_pkg(fast)
+# Loading work.ase_top_sv_unit(fast)
+# Loading work.ase_top(fast)
+# Loading work.ofs_plat_local_mem_avalon_mem_pkg(fast)
+# Loading work.local_mem_cfg_pkg(fast)
+# Loading work.ase_top_ofs_plat_sv_unit(fast)
+# Loading work.ase_top_ofs_plat(fast)
+# Loading work.ofs_plat_if_sv_unit(fast)
+# Loading work.ofs_plat_if(fast__1)
+# Loading work.ofs_plat_log_pkg(fast)
+# Loading work.ofs_plat_host_chan_fiu_if_sv_unit(fast)
+# Loading work.ofs_plat_host_chan_fiu_if(fast__1)
+# Loading work.ofs_plat_local_mem_fiu_if_sv_unit(fast)
+# Loading work.ofs_plat_local_mem_fiu_if(fast__1)
+# Loading work.ofs_plat_hssi_fiu_if_sv_unit(fast)
+# Loading work.ofs_plat_hssi_fiu_if(fast__1)
+# Loading work.ofs_plat_std_clocks_sv_unit(fast)
+# Loading work.ofs_plat_std_clocks_gen_resets_from_active_high(fast)
+# Loading work.ofs_plat_std_clocks_gen_resets(fast)
+# Loading work.ofs_plat_prim_clock_crossing_reset(fast)
+# Loading work.ofs_plat_prim_clock_crossing_reg(fast)
+# Loading work.ofs_plat_prim_clock_crossing_reset(fast__1)
+# Loading work.ofs_plat_prim_clock_crossing_reg(fast__1)
+# Loading work.ase_emul_host_chan_native_ccip_sv_unit(fast)
+# Loading work.ase_emul_host_chan_native_ccip(fast)
+# Loading work.ofs_plat_host_ccip_if_sv_unit(fast)
+# Loading work.ofs_plat_host_ccip_if(fast__2)
+# Loading work.ccip_emulator_sv_unit(fast)
+# Loading work.ccip_emulator(fast)
+# Loading work.ase_svfifo(fast)
+# Loading work.ase_svfifo(fast__1)
+# Loading work.outoforder_wrf_channel_sv_unit(fast)
+# Loading work.outoforder_wrf_channel(fast)
+# Loading work.outoforder_wrf_channel(fast__1)
+# Loading work.ase_svfifo(fast__2)
+# Loading work.ase_svfifo(fast__3)
+# Loading work.ccip_cfg_pkg(fast)
+# Loading work.ccip_checker_sv_unit(fast)
+# Loading work.ccip_checker(fast)
+# Loading work.ccip_logger_sv_unit(fast)
+# Loading work.ccip_logger(fast)
+# Loading work.ofs_plat_ccip_if_funcs_pkg(fast)
+# Loading work.ofs_plat_shim_ccip_mux_sv_unit(fast)
+# Loading work.ofs_plat_shim_ccip_mux(fast)
+# Loading work.ofs_plat_shim_ccip_reg_sv_unit(fast)
+# Loading work.ofs_plat_shim_ccip_reg(fast)
+# Loading work.ase_sim_local_mem_ofs_avmm_sv_unit(fast)
+# Loading work.ase_sim_local_mem_ofs_avmm(fast)
+# Loading work.emif_ddr4_v_unit(fast)
+# Loading work.emif_ddr4(fast)
+# Loading work.altera_avalon_mm_slave_bfm(fast)
+# Loading work.ofs_plat_avalon_mem_if_map_bursts_sv_unit(fast)
+# Loading work.ofs_plat_avalon_mem_if_map_bursts(fast)
+# Loading work.ofs_plat_avalon_mem_if_connect_sv_unit(fast)
+# Loading work.ofs_plat_avalon_mem_if_connect(fast)
+# Loading work.ase_sim_local_mem_avmm_bridge(fast)
+# Loading work.platform_shim_ccip_std_afu_sv_unit(fast)
+# Loading work.platform_shim_ccip_std_afu(fast)
+# Loading work.platform_shim_ccip_std_afu_hssi(fast)
+# Loading work.ofs_plat_host_ccip_if(fast__4)
+# Loading work.ofs_plat_host_chan_as_ccip_sv_unit(fast)
+# Loading work.ofs_plat_host_chan_as_ccip(fast)
+# Loading work.ofs_plat_host_ccip_if(fast__5)
+# Loading work.ofs_plat_ccip_if_connect_sv_unit(fast)
+# Loading work.ofs_plat_ccip_if_connect(fast)
+# Loading work.ofs_plat_ccip_if_connect(fast__1)
+# Loading work.ofs_plat_shim_ccip_reg(fast__1)
+# Loading work.ofs_plat_prim_clock_crossing_reg(fast__2)
+# Loading work.ofs_plat_if_tie_off_unused(fast)
+# Loading work.ofs_plat_local_mem_fiu_if_tie_off_sv_unit(fast)
+# Loading work.ofs_plat_local_mem_fiu_if_tie_off(fast)
+# Loading work.ccip_std_afu_sv_unit(fast)
+# Loading work.ccip_std_afu(fast)
+# Loading work.ccip_async_shim(fast)
+# Loading work.ccip_afifo_channel(fast)
+# Loading altera_mf_ver.dcfifo(fast)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast)
+# Loading altera_mf_ver.dcfifo_async(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast__1)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__1)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__2)
+# Loading altera_mf_ver.dcfifo_fefifo(fast)
+# Loading altera_mf_ver.dcfifo_fefifo(fast__1)
+# Loading altera_mf_ver.dcfifo_low_latency(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast__2)
+# Loading altera_mf_ver.ALTERA_MF_HINT_EVALUATION(fast)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__3)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__4)
+# Loading work.ccip_async_activity_cnt_sv_unit(fast)
+# Loading work.ccip_async_c0_active_cnt(fast)
+# Loading work.ccip_afifo_channel(fast__1)
+# Loading altera_mf_ver.dcfifo(fast__1)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__1)
+# Loading altera_mf_ver.dcfifo_async(fast__1)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__1)
+# Loading work.ccip_async_c1_active_cnt(fast)
+# Loading work.ccip_afifo_channel(fast__2)
+# Loading altera_mf_ver.dcfifo(fast__2)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__2)
+# Loading altera_mf_ver.dcfifo_async(fast__2)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__2)
+# Loading work.ccip_afifo_channel(fast__3)
+# Loading altera_mf_ver.dcfifo(fast__3)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__3)
+# Loading altera_mf_ver.dcfifo_async(fast__3)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__5)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__6)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__7)
+# Loading altera_mf_ver.dcfifo_fefifo(fast__2)
+# Loading altera_mf_ver.dcfifo_fefifo(fast__3)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__3)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__8)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__9)
+# Loading work.ccip_afifo_channel(fast__4)
+# Loading altera_mf_ver.dcfifo(fast__4)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__4)
+# Loading altera_mf_ver.dcfifo_async(fast__4)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__4)
+# Loading work.top_level_loopback_module(fast)
+# Loading work.ccip_mux_sv_unit(fast)
+# Loading work.ccip_mux(fast)
+# Loading work.ccip_front_end_sv_unit(fast)
+# Loading work.ccip_front_end(fast)
+# Loading work.sync_C1Tx_fifo(fast)
+# Loading work.gram_sdp(fast)
+# Loading work.a10_ram_sdp_wysiwyg(fast)
+# Loading altera_lnsim_ver.altera_syncram(fast)
+# Loading altera_lnsim_ver.ALTERA_LNSIM_MEMORY_INITIALIZATION(fast)
+# Loading work.sync_C1Tx_fifo(fast__1)
+# Loading work.gram_sdp(fast__1)
+# Loading work.a10_ram_sdp_wysiwyg(fast__1)
+# Loading altera_lnsim_ver.altera_syncram(fast__1)
+# Loading altera_mf_ver.scfifo(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast__3)
+# Loading work.ccip_intf_regs_sv_unit(fast)
+# Loading work.ccip_intf_regs(fast)
+# Loading work.fair_arbiter(fast)
+# Loading work.fair_arbiter_4way(fast)
+# Loading work.nic_sv_unit(fast)
+# Loading work.nic(fast)
+# Loading work.ccip_queue_polling(fast)
+# Loading work.single_clock_wr_ram(fast)
+# Loading work.ccip_transmitter(fast)
+# Loading work.request_queue(fast)
+# Loading work.single_clock_wr_ram(fast__1)
+# Loading work.async_fifo_channel(fast)
+# Loading altera_mf_ver.dcfifo(fast__5)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__5)
+# Loading altera_mf_ver.dcfifo_sync(fast)
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES(fast__4)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__5)
+# Loading work.async_fifo_channel(fast__1)
+# Loading altera_mf_ver.dcfifo(fast__6)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__6)
+# Loading altera_mf_ver.dcfifo_sync(fast__1)
+# Loading altera_mf_ver.dcfifo_dffpipe(fast__10)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__6)
+# Loading work.single_clock_wr_ram(fast__2)
+# Loading work.async_fifo_channel(fast__2)
+# Loading altera_mf_ver.dcfifo(fast__7)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__7)
+# Loading altera_mf_ver.dcfifo_sync(fast__2)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__7)
+# Loading work.async_fifo_channel(fast__3)
+# Loading altera_mf_ver.dcfifo(fast__8)
+# Loading altera_mf_ver.dcfifo_mixed_widths(fast__8)
+# Loading altera_mf_ver.dcfifo_sync(fast__3)
+# Loading altera_mf_ver.dcfifo_low_latency(fast__8)
+# Loading work.pulse_gen(fast)
+# Loading work.rpc_sv_unit(fast)
+# Loading work.rpc(fast)
+# Loading work.connection_manager(fast)
+# Loading work.single_clock_wr_ram(fast__3)
+# Loading work.single_clock_wr_ram(fast__4)
+# Loading work.nic_counters(fast)
+# Loading work.nic(fast__1)
+# Loading work.ccip_queue_polling(fast__1)
+# Loading work.ccip_transmitter(fast__1)
+# Loading work.rpc(fast__1)
+# Loading work.connection_manager(fast__1)
+# Loading work.ofs_plat_host_ccip_if(fast__1)
+# Loading work.ofs_plat_avalon_mem_if_sv_unit(fast)
+# Loading work.ofs_plat_avalon_mem_if(fast__1)
+# Loading work.pr_hssi_if(fast__1)
+# Loading work.ofs_plat_avalon_mem_if(fast__2)
+# Loading work.ofs_plat_host_ccip_if(fast__3)
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$value$plusargs'.
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/ccip/ccip_emulator File: /homes/varungohil/Dagger/hw/b/rtl/ccip_emulator.sv Line: 480
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$value$plusargs'.
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/ccip/ccip_emulator File: /homes/varungohil/Dagger/hw/b/rtl/ccip_emulator.sv Line: 481
+# ** Warning: (vsim-3015) [PCDPC] - Port size (516) does not match connection size (512) for port 'rpc_in'. The port definition is at: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77).
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/platform_shim_ccip_std_afu/shim/ccip_std_afu/top_level/nic_0/ccip_queue_poll File: /homes/varungohil/Dagger/hw/rtl/nic.sv Line: 622
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (14) for port 'write_address'. The port definition is at: /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(18).
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/platform_shim_ccip_std_afu/shim/ccip_std_afu/top_level/nic_0/ccip_queue_poll/ccip_tx/tx_queue_address_tb File: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv Line: 217
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (14) for port 'read_address'. The port definition is at: /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(18).
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/platform_shim_ccip_std_afu/shim/ccip_std_afu/top_level/nic_0/ccip_queue_poll/ccip_tx/tx_queue_address_tb File: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv Line: 217
+# ** Warning: (vsim-3015) [PCDPC] - Port size (516) does not match connection size (512) for port 'rpc_in'. The port definition is at: /homes/varungohil/Dagger/hw/rtl/ccip_queue_polling.sv(77).
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/platform_shim_ccip_std_afu/shim/ccip_std_afu/top_level/nic_1/ccip_queue_poll File: /homes/varungohil/Dagger/hw/rtl/nic.sv Line: 622
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (14) for port 'write_address'. The port definition is at: /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(18).
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/platform_shim_ccip_std_afu/shim/ccip_std_afu/top_level/nic_1/ccip_queue_poll/ccip_tx/tx_queue_address_tb File: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv Line: 217
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (14) for port 'read_address'. The port definition is at: /homes/varungohil/Dagger/hw/rtl/single_clock_wr_ram.sv(18).
+#    Time: 0 ps  Iteration: 0  Instance: /ase_top/ase_top_plat/platform_shim_ccip_std_afu/shim/ccip_std_afu/top_level/nic_1/ccip_queue_poll/ccip_tx/tx_queue_address_tb File: /homes/varungohil/Dagger/hw/rtl/ccip_transmitter.sv Line: 217
+# ** Info: Building system with medium frequencies
+#    Time: 0 ps  Scope: ase_top.ase_top_plat.platform_shim_ccip_std_afu.shim.ccip_std_afu File: /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv Line: 86
+# ** Info: Building system with loopback networking support
+#    Time: 0 ps  Scope: ase_top.ase_top_plat.platform_shim_ccip_std_afu.shim.ccip_std_afu File: /homes/varungohil/Dagger/hw/rtl/ccip_std_afu.sv Line: 132
+# ** Info: Building CCI-P polling-based nic with queues
+#    Time: 0 ps  Scope: ase_top.ase_top_plat.platform_shim_ccip_std_afu.shim.ccip_std_afu.top_level.nic_0 File: /homes/varungohil/Dagger/hw/rtl/nic.sv Line: 613
+# ** Info: Building CCI-P polling-based nic with queues
+#    Time: 0 ps  Scope: ase_top.ase_top_plat.platform_shim_ccip_std_afu.shim.ccip_std_afu.top_level.nic_1 File: /homes/varungohil/Dagger/hw/rtl/nic.sv Line: 613
+# Compiling /tmp/varungohil@iam-ssh1_dpi_73509/linux_x86_64_gcc-7.4.0/exportwrapper.c
+# Loading /tmp/varungohil@iam-ssh1_dpi_73509/linux_x86_64_gcc-7.4.0/vsim_auto_compile.so
+# Loading ./ase_libs.so
+# do /homes/varungohil/Dagger/hw/b/vsim_run.tcl
+#   [SIM]  Simulator started...
+# [0;33m  [SIM]  +CONFIG /homes/varungohil/Dagger/hw/b/ase.cfg file found !
+# [0m[0;33m  [SIM]  +SCRIPT /homes/varungohil/Dagger/hw/b/ase_regress.sh file found !
+# [0m[0;33m  [SIM]  PID of simulator is 73509
+# [0m[0;33m  [SIM]  Reading /homes/varungohil/Dagger/hw/b/ase.cfg configuration file 
+# [0m[0;33m  [SIM]  ASE was started in Mode 3 (Server-Client with Sw SIMKILL (long runs)
+# [0m[0;33m  [SIM]  ASE Mode: Server-Client mode with SW SIMKILL (long runs)
+# [0m[0;33m  [SIM]  Inactivity kill-switch     ... DISABLED 
+# [0m[0;33m  [SIM]  Reuse simulation seed      ... ENABLED 
+# [0m[0;33m  [SIM]  ASE Seed                   ... 1234 
+# [0m[0;33m  [SIM]  ASE Transaction view       ... DISABLED
+# [0m[0;33m  [SIM]  User Clock Frequency       ... 312.500000 MHz, T_uclk = 3200 ps 
+# [0m[0;33m  [SIM]  Amount of physical memory  ... 128 GB
+# [0m[0;33m  [SIM]  Current Directory located at =>
+# [0m[0;33m  [SIM]  /homes/varungohil/Dagger/hw/b/work
+# [0m[0;33m  [SIM]  Creating Messaging IPCs...
+# [0m[0;33m  [SIM]  Information about allocated buffers => workspace_info.log 
+# [0m  [SIM]  ASE running with seed =>        1234
+#   [SIM]  Sending initial reset...
+#   [SIM]  Transaction Logger started
+# ase_top.ase_top_plat.platform_shim_ccip_std_afu.shim.tie_off.tie_local_mem[0].m: Tied off plat_ifc.local_mem.banks[0]
+# ase_top.ase_top_plat.platform_shim_ccip_std_afu.shim.tie_off.tie_local_mem[1].m: Tied off plat_ifc.local_mem.banks[1]
+#   [SIM]  Protocol Checker initialized
+# [0;33m  [SIM]  ASE lock file .ase_ready.pid written in work directory
+# [0m[32;1m  [SIM]  ** ATTENTION : BEFORE running the software application **
+# [0m[32;1m  [SIM]  Set env(ASE_WORKDIR) in terminal where application will run (copy-and-paste) =>
+# [0m[32;1m  [SIM]  $SHELL   | Run:
+# [0m[32;1m  [SIM]  ---------+---------------------------------------------------
+# [0m[32;1m  [SIM]  bash/zsh | export ASE_WORKDIR=/homes/varungohil/Dagger/hw/b/work
+# [0m[32;1m  [SIM]  tcsh/csh | setenv ASE_WORKDIR /homes/varungohil/Dagger/hw/b/work
+# [0m[32;1m  [SIM]  For any other $SHELL, consult your Linux administrator
+# [0m[32;1m  [SIM]  
+# [0m[32;1m  [SIM]  Ready for simulation...
+# [0m[32;1m  [SIM]  Press CTRL-C to close simulator...
+# [0m[32;1m  [SIM]  Session requested by PID = 73697
+# [0m[0;33m  [SIM]  Session ID => 2942974362703600
+# [0m[0;33m  [SIM]  Event socket server started
+# [0m[0;33m  [SIM]  SIM-C : Creating Socket Server@/tmp/ase_event_server_2942974362703600...
+# [0m[0;33m  [SIM]  SIM-C : Started listening on server /tmp/ase_event_server_2942974362703600
+# [0m[0;33m  [SIM]  0	ADDED   	/mmio.2942974362703600
+# [0m[0;33m  [SIM]  1	ADDED   	/umas.2942974362703600
+# [0mNIC  1: iRegMemTxAddr configured: 159064500
+# NIC  1: iRegMemRxAddr configured: 159064508
+# NIC  1: iRegNumOfFlows configured: 00000001
+# NIC  1: iRegRxQueueSize received: 00000008
+# NIC  1: iRegTxQueueSize received: 00000008
+# NIC  1: iRegPollingRate received: 0000001e
+# NIC  1: lRegTxBatchSize received: 00000000
+# NIC  1: iRegNicInit received
+# [0;33m  [SIM]  Request to deallocate "/umas.2942974362703600" ...
+# [0m[0;33m  [SIM]  1	REMOVED 	/umas.2942974362703600
+# [0m[0;33m  [SIM]  Request to deallocate "/mmio.2942974362703600" ...
+# [0m[0;33m  [SIM]  0	REMOVED 	/mmio.2942974362703600
+# [0m[0;33m  [SIM]  SIM-C : Exiting event socket server@/tmp/ase_event_server_2942974362703600...
+# [0m[32;1m  [SIM]  ASE recognized a SW simkill (see ase.cfg)... Simulator will EXIT
+# [0m[0;33m  [SIM]  Closing message queue and unlinking...
+# [0m[0;33m  [SIM]  Session code file removed
+# [0m[0;33m  [SIM]  Removing message queues and buffer handles ... 
+# [0m[0;33m  [SIM]  Cleaning session files...
+# [0m[32;1m  [SIM]  Simulation generated log files
+# [0m[32;1m  [SIM]          Transactions file       | $ASE_WORKDIR/ccip_transactions.tsv
+# [0m[32;1m  [SIM]          Workspaces info         | $ASE_WORKDIR/workspace_info.log
+# [0m[32;1m  [SIM]  
+# [0m[32;1m  [SIM]  Tests run     => 1
+# [0m[32;1m  [SIM]  
+# [0m[0;33m  [SIM]  Sending kill command...
+# [0m  [SIM]  Simulation kill command received...
+# [0;33m
+#   Transaction count 	|       VA      VL0      VH0      VH1 |    MCL-1    MCL-2    MCL-4
+#   ========================================================================================
+#   MMIOWrReq          10 | 
+#   MMIORdReq          20 | 
+#   MMIORdRsp          20 | 
+#   IntrReq             0 | 
+#   IntrResp            0 | 
+#   RdReq               0 |        0        0        0        0 |        0        0        0
+#   RdResp              0 |        0        0        0        0 | 
+#   WrReq               0 |        0        0        0        0 |        0        0        0
+#   WrResp              0 |        0        0        0        0 |        0        0        0
+#   WrFence             0 |        0        0        0        0 | 
+#   WrFenRsp            0 |        0        0        0        0 | 
+# [0m
+# ** Note: $finish    : /homes/varungohil/Dagger/hw/b/rtl/ccip_emulator.sv(2676)
+#    Time: 65775 ns  Iteration: 3  Instance: /ase_top/ase_top_plat/ccip/ccip_emulator
+# End time: 16:29:42 on May 17,2022, Elapsed time: 0:00:45
+# Errors: 0, Warnings: 8

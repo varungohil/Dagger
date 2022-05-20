@@ -17,7 +17,7 @@ namespace dagger {
 
 // Timeout values.
 #define NIC_INIT_DELAY_S 1
-#define NIC_INIT_TIMEOUT 15  // in # of iteration of NIC_INIT_DELAY_S
+#define NIC_INIT_TIMEOUT 30  // in # of iteration of NIC_INIT_DELAY_S
 #define NIC_PERF_DELAY_S 2
 
 NicCCIP::NicCCIP(uint64_t base_nic_addr, size_t num_of_flows,

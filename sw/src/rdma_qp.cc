@@ -36,8 +36,56 @@ RDMA::~RDMA() {
 
 /// This function initializes the backend's nic depending on the exact type of
 /// the nic. The function performs four actions to initialize the nic.
-int RDMA::init_nic(int bus, bool is_master) {
-  //bool is_master = true;
+int RDMA::init_nic(int bus) {
+  bool is_master = true;
+  // (1) Create nic.
+  // In contrast to rpc_client_pool, the server's nic is always the master
+  // (even in the ASE mode).
+#ifdef NIC_CCIP_POLLING
+#  pragma message "compiling Nic to run in polling mode"
+  // Simple case so far: number of NIC flows = max_num_of_threads_.
+  nic_ = std::unique_ptr<Nic>(
+      new NicPollingCCIP(base_nic_addr_, max_num_of_threads_, is_master));
+#elif NIC_CCIP_MMIO
+// MMIO intefrace only works either with write-combine buffering or AVX
+// intrinsics.
+#  pragma message "compiling Nic to run in MMIO mode"
+  // Simple case so far: number of NIC flows = max_num_of_threads_.
+  nic_ = std::unique_ptr<Nic>(
+      new NicMmioCCIP(base_nic_addr_, max_num_of_threads_, is_master));
+#elif NIC_CCIP_DMA
+#  pragma message "compiling Nic to run in DMA mode"
+  // Simple case so far: number of NIC flows = max_num_of_threads_.
+  nic_ = std::unique_ptr<Nic>(
+      new NicDmaCCIP(base_nic_addr_, max_num_of_threads_, is_master));
+#else
+#  error Nic CCI-P mode is not specified
+#endif
+
+  // (2) Connect to nic.
+  int res = nic_->connect_to_nic(bus);
+  if (res != 0) return res;
+  FRPC_INFO("Connected to NIC on the bus %x\n", bus);
+
+  // (3) Configure the nic dataplane. Of course, all the clients in this pool
+  // share the same configuration.
+  PhyAddr cl_phy_addr = {0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0xFF};
+  IPv4 cl_ipv4_addr("10.212.62.192", 12345);
+
+  res = nic_->configure_data_plane(rx_tx_anti_aliasing);
+  if (res != 0) return res;
+
+  // (4) Run hardware initialization.
+  res = nic_->initialize_nic(cl_phy_addr, cl_ipv4_addr);
+  if (res != 0) return res;
+
+  return 0;
+}
+
+
+
+int RDMA::init_nic_slave(int bus) {
+  bool is_master = false;
   // (1) Create nic.
   // In contrast to rpc_client_pool, the server's nic is always the master
   // (even in the ASE mode).
@@ -81,6 +129,7 @@ int RDMA::init_nic(int bus, bool is_master) {
 
   return 0;
 }
+
 
 int RDMA::start_nic() {
   int res = nic_->start();

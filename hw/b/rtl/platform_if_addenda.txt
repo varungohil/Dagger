@@ -1,0 +1,9 @@
+//
+// This file has been generated automatically by afu_platform_config.
+// Do not edit it by hand.
+//
+// Platform: a10_gx_pac_hssi
+// AFU top-level interface: ccip_std_afu
+//
+
+-F /export/fpga/release/a10_gx_pac_ias_1_1_pv/hw/lib/build/platform/ofs_plat_if/sim/platform_if_addenda.txt

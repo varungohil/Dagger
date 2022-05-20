@@ -262,7 +262,7 @@ module rpc
             //
             // **********************************
             ct_net_in.rpc_data <= network_rx_in.payload[$bits(RpcPckt)-1:0];
-            $display("NIC%d:: RPC Data = %d", NIC_ID, ct_net_in.rpc_data.argv);
+            //$display("NIC%d:: RPC Packet = %p", NIC_ID, ct_net_in.rpc_data);
 
             ct_net_in.remote_qp_num <= network_rx_in.remote_qp_num;
             ct_net_in.p_key <= network_rx_in.p_key;
@@ -277,6 +277,7 @@ module rpc
     end
 
 
+    //$display("NIC%d:: RPC Packet = %p", NIC_ID, ct_net_in.rpc_data);
     assign error = conn_setup_parsing_error |
                    ct_error;
 
