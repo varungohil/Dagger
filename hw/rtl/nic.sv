@@ -151,21 +151,21 @@ module nic
     localparam t_ccip_mmioAddr addrConnSetup
                         = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 30);
     localparam t_ccip_mmioAddr addrConnStatus
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 34);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 32);
     localparam t_ccip_mmioAddr addrLB
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 36);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 34);
     localparam t_ccip_mmioAddr addrPhyNetAddr
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 38);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 36);
     localparam t_ccip_mmioAddr addrIPv4NetAddr
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 40);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 38);
     localparam t_ccip_mmioAddr addrNetDropCntRead
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 42);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 40);
     localparam t_ccip_mmioAddr addrNetDropCnt
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 44);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 42);
     localparam t_ccip_mmioAddr addrTxQueueSize
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 46);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 44);
     localparam t_ccip_mmioAddr addrRegDebug_1
-                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 48);
+                        = t_ccip_mmioAddr'(SRF_BASE_MMIO_ADDRESS + 46);
 
     // Registers
     t_ccip_clAddr                  iRegMemTxAddr;

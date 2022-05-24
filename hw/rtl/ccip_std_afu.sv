@@ -98,7 +98,7 @@ module ccip_std_afu (
         .bb_rx(pck_cp2af_sRx),
 
         .afu_softreset(reset_pass),
-        .afu_clk(pClkDiv2),
+        .afu_clk(pClkDiv4),
         .afu_tx(afu_tx),
         .afu_rx(afu_rx)
     );
@@ -108,8 +108,8 @@ module ccip_std_afu (
     $info("Building system with physical networking support");
 
     top_level_network_module top_level (
-        .pClk(pClkDiv2),
-        .pClkDiv2(pClkDiv2),
+        .pClk(pClkDiv4),
+        .pClkDiv2(pClkDiv4),
         .pReset(reset_pass),
 
         .pck_cp2af_sRx(afu_rx),
@@ -132,8 +132,8 @@ module ccip_std_afu (
     $info("Building system with loopback networking support");
 
     top_level_loopback_module top_level (
-        .pClk(pClkDiv2),
-        .pClkDiv2(pClkDiv2),
+        .pClk(pClkDiv4),
+        .pClkDiv2(pClkDiv4),
         .pReset(reset_pass),
 
         .pck_cp2af_sRx(afu_rx),

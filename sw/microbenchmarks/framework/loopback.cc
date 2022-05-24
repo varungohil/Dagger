@@ -1,5 +1,6 @@
-nclude <assert.h>
 
+
+#include <assert.h>
 #include <future>
 #include <unistd.h>
 #include <stdint.h>
@@ -11,8 +12,9 @@ nclude <assert.h>
 #include <iostream>
 #include <thread>
 #include <vector>
-
-#include "CLI11.hpp"
+#include <csignal>
+#include <unordered_set>
+//#include "CLI11.hpp"
 #include "config.h"
 #include "defs.h"
 #include "rpc_call.h"
@@ -27,16 +29,16 @@ static constexpr size_t kServerQPs = 1;
 static constexpr size_t kRpcDelay =
     500000;  // Adjust this value based on your simulation speed.
 static constexpr size_t kClientPostSleepTime = 10;
-static constexpr char* kClientIP = "192.168.0.1";
-static constexpr char* kServerIP = "192.168.0.2";
-static constexpr uint16_t kPort = 3136;
+static constexpr char* kClientIP = "10.212.61.5";
+static constexpr char* kServerIP = "10.212.61.5";
+static constexpr uint16_t kPort = 12345;
 
 static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft);
 static int run_client();
 
 int main() {
 #ifdef NIC_PHY_NETWORK
-  std::cout << "The ASE samle can only be run in the loopback mode"
+  std::cout << "The ASE sample can only be run in the loopback mode"
             << std::endl;
   return 1;
 #endif
@@ -66,13 +68,14 @@ int main() {
 }
 
 static constexpr size_t kServerNicAddress = 0x20000;
+static constexpr int kFpgaBus = 0xaf;
 
 static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
     int max_qp_pool_size = 10;
     dagger::RDMA rdma(kServerNicAddress, kServerQPs, max_qp_pool_size);
     
 
-    int res = rdma.init_nic(-1, true);
+    int res = rdma.init_nic(kFpgaBus);
     if (res != 0) return res;
 
     res = rdma.start_nic();
@@ -80,10 +83,13 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
 
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
+    int op1 = 0;
+    int op2 = 20;
+    int size = op2 - op1 + 1;
     std::vector<int> results;
-    results.resize(kServerQPs);
-    for(int i = 0; i < kServerQPs; i++){
-        results[i] = 0;
+    results.resize(size);
+    for(int i = 0; i < size; i++){
+        results[i] = -1;
     }
 
     for (size_t i = 0; i < kServerQPs; ++i) {
@@ -103,32 +109,35 @@ static int run_server(std::promise<bool>& init_pr, std::future<bool>& cmpl_ft) {
         } else {
         std::cout << "Connection is open on thread " << i << std::endl;
         }
-
-        if (rdma.connect_qp(client_addr, i, i) != 0) {
-        std::cout << "Failed to open connection on server" << std::endl;
-        exit(1);
-        } else {
-        std::cout << "Connection #" << i << " is open on server" << std::endl;
+        for(int i = op1; i <= op2; i++){
+           rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int));
         }
-
-        rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int));
+        sleep(1);
+        //rdma.add_recv_queue_entry(qp_num, &results[i], sizeof(int));
         rdma.recv(qp_num);
+        std::cout << "Ready to receive ... " << std::endl;
+
     }
 
     init_pr.set_value(true);
-    cmpl_ft.wait()
+    cmpl_ft.wait();
+    
 
+    for(int i = 0; i < 1000000; i++){}
     for (size_t qp_id = 0; qp_id < kServerQPs; ++qp_id)
     {
         rdma.stop_recv(qp_id);
     }
 
-
+    //while(1){
     int sum = 0;
-    for (size_t idx = 0; idx < num_qps; ++idx) {
+    for (size_t idx = 0; idx < size; ++idx) {
+        std::cout << "results[" << idx << "] = " << results[idx] << std::endl;
         sum = sum + results[idx];
     }
     std::cout << "Sum : " << sum << std::endl;
+
+    //}
 
     res = rdma.stop_nic();
     if (res != 0) return res;
@@ -144,7 +153,7 @@ static int run_client() {
     int max_qp_pool_size = 10;
     dagger::RDMA rdma_client(kClientNicAddress, kClientQPs, max_qp_pool_size);
 
-    int res = rdma_client.init_nic(-1, false);
+    int res = rdma_client.init_nic(kFpgaBus);
     if (res != 0) return res;
 
     res = rdma_client.start_nic();
@@ -152,7 +161,10 @@ static int run_client() {
 
     uint16_t p_key = 0; 
     uint32_t q_key = 0;
-
+    int op1 = 0;
+    int op2 = 20;
+    std::vector<int> send_data;
+    send_data.resize(op2-op1+1);
     std::vector<std::thread> threads;
     for (size_t qp_id = 0; qp_id < kClientQPs; ++qp_id) {
         std::cout << "Creating thread " << qp_id << std::endl;
@@ -167,18 +179,31 @@ static int run_client() {
         }
 
         if (rdma_client.connect_qp(qp_num, qp_id, server_addr, qp_id, p_key, q_key) != 0) {
-            std::cout << "Failed to open connection on thread "<< thread_id << std::endl;
+            std::cout << "Failed to open connection on thread "<< qp_id << std::endl;
             exit(1);
         } else {
-            std::cout << "Connection is open on thread " << thread_id << std::endl;
+            std::cout << "Connection is open on thread " << qp_id << std::endl;
         }
-        int op1 = qp_id;
-        int op2 = qp_id + 1;
-        int res = op1 + op2;
-        rdma_client.add_send_queue_entry(qp_num, &res, sizeof(res));
-        rdma_client.send(qp_num);
+        for(int i = op1; i <= op2; i++){
+            send_data[i] = i+10;
+            //rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
+        }
+        
+        for(int i = 0; i < send_data.size(); i++){
+            rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
+        }
+        sleep(1);
+        std::cout << "Sending ..."<< std::endl;
+        for(int i = op1; i <= op2; i++){
+            rdma_client.send(qp_num);
+            sleep(1);
+        }
+        //int res = op1 + op2;
+        //rdma_client.add_send_queue_entry(qp_num, &res, sizeof(res));
+        //rdma_client.send(qp_num);
     }
-    res = rdma.stop_nic();
+    sleep(2);
+    res = rdma_client.stop_nic();
     if (res != 0) return res;
     sleep(10);
 

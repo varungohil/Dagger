@@ -11,6 +11,7 @@
 #include <iostream>
 #include <bitset>
 #include <cassert>
+#include "rpc_header.h"
 
 namespace dagger {
 
@@ -41,7 +42,15 @@ class alignas(4096) RxQueue {
       __attribute__((always_inline)) {
     assert(rpc_id_set_ != nullptr);
     assert(rx_q_ != nullptr);
-
+   
+    if(rx_q_tail_ == 0){
+        last_tail_ = depth_ - 1;
+    } else {
+        last_tail_ = rx_q_tail_ - 1;
+    }
+    volatile char* last_ptr = rx_q_ + last_tail_ * bucket_size_;
+    volatile RpcPckt* last_pckt = reinterpret_cast<volatile RpcPckt*>(last_ptr); 
+    std::cout << "Last packet = " << (int)(last_pckt->argv)[0] << ", Tail = " << rx_q_tail_ << ", Last tail = " << last_tail_ << std::endl;
     volatile char* ptr = rx_q_ + rx_q_tail_ * bucket_size_;
     rpc_id = rpc_id_set_[rx_q_tail_];
     return ptr;
@@ -79,6 +88,9 @@ class alignas(4096) RxQueue {
   volatile char* rx_q_;
   size_t rx_q_tail_;
   uint32_t* rpc_id_set_;
+  
+  //debugging
+  size_t last_tail_;
 };
 
 }  // namespace dagger

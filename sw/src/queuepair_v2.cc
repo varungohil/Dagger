@@ -11,6 +11,7 @@
 #include <utility>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <iostream>
 #include "config.h"
 #include "logger.h"
@@ -443,14 +444,14 @@ int QueuePairV2::send() {
 
   _mm_mfence();
 
-  memcpy(request.argv, reinterpret_cast<const void*>(&args),
+  std::memcpy(request.argv, reinterpret_cast<const void*>(&args),
          data_size);
 
 // MMIO only supports AVX writes
 #  ifdef PLATFORM_PAC_A10
-  // PAC_A10 supports AVX-512 - easy!
-  _mm512_store_si512(reinterpret_cast<__m512i*>(tx_ptr),
-                     *(reinterpret_cast<__m512i*>(&request)));
+  // PAC_A10 supports AVX-512 - easy! 
+  _mm512_store_si512(reinterpret_cast<__m512i*>(const_cast<char*>(tx_ptr)),
+                   *(reinterpret_cast<__m512i*>(&request)));
 #  else
   // BDX only supports AVX-256, so split into two writes
   //  - performance will not be good
@@ -463,6 +464,10 @@ int QueuePairV2::send() {
       reinterpret_cast<__m256i*>(tx_ptr + 32),
       *(reinterpret_cast<__m256i*>(reinterpret_cast<uint8_t*>(&request) + 32)));
 #  endif
+  std::cout << "Send:: Args = " << args << std::endl;
+  std::cout << "Send:: request argv = " << (int)(request.argv[0]) << std::endl;
+  std::cout << "Send:: RPC_ID = " << request.hdr.rpc_id << std::endl;
+
 #elif NIC_CCIP_DMA
   RpcPckt* tx_ptr_casted = reinterpret_cast<RpcPckt*>(tx_ptr);
 
@@ -477,7 +482,7 @@ int QueuePairV2::send() {
   tx_ptr_casted->hdr.ctl.req_type = rpc_request;
   tx_ptr_casted->hdr.ctl.update_flag = change_bit;
 
-  *reinterpret_cast<volatile int*>(tx_ptr_casted->argv)) =
+  *reinterpret_cast<volatile int*>(tx_ptr_casted->argv) =
       args;
 
   tx_ptr_casted->hdr.ctl.valid = 1;

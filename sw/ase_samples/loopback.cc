@@ -184,7 +184,7 @@ static int run_client() {
             std::cout << "Connection is open on thread " << qp_id << std::endl;
         }
         for(int i = op1; i <= op2; i++){
-            send_data[i] = i+10;
+            send_data[i] = i;
             //rdma_client.add_send_queue_entry(qp_num, &send_data[i], sizeof(int));
         }
         

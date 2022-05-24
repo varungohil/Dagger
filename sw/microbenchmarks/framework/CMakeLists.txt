@@ -4,7 +4,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/../../src/)
 include_directories(${CMAKE_SOURCE_DIR}/src/utils)
 
 # Build benchmark client
-set(BENCH_CLIENT_SRC client.cc)
+set(BENCH_CLIENT_SRC simple_client.cc)
 add_executable(dagger_benchmark_client ${BENCH_CLIENT_SRC})
 target_compile_definitions(dagger_benchmark_client PRIVATE PROFILE_LATENCY=1)
 #target_compile_definitions(dagger_benchmark_client PRIVATE VERBOSE_RPCS=1)
@@ -17,3 +17,9 @@ target_compile_definitions(dagger_benchmark_server PRIVATE PROFILE_LATENCY=1)
 #target_compile_definitions(dagger_benchmark_server PRIVATE VERBOSE_RPCS=1)
 target_link_libraries(dagger_benchmark_server -pthread -ldagger)
 
+
+# Build benchmark loopback
+#set(BENCH_LOOPBACK_SRC loopback.cc)
+#add_executable(dagger_benchmark_loopback ${BENCH_LOOPBACK_SRC})
+#target_compile_definitions(dagger_benchmark_loopback PRIVATE PROFILE_LATENCY=1)
+#target_link_libraries(dagger_benchmark_loopback -pthread -ldagger)

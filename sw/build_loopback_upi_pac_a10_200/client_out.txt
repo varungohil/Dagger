@@ -1,0 +1,121 @@
+Cycles in ns: 2.49637
+57:943891 INFOR: Connected to NIC on the bus af
+57:943992 INFOR: Allocating memory with standard pages
+57:944050 INFOR: Shared nic buffer of size 1024B is allocated by address 0x74029000; buffer's nic-viewed physical address is 0xffff8000
+57:944063 INFOR: Nic dataplane is configured
+59:948121 INFOR: Nic is initialized
+60:950689 INFOR: NIC is started
+Queue  Pair created
+About to connect_qp
+inside rdma::connect_qp - 0
+61:953374 INFOR: Connection id=0 is registered
+Connection is open
+Sent at 1653339962954976571
+Send:: Args = 0
+Send::argv = 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 0
+Sent at 1653339963955209198
+Send:: Args = 1
+Send::argv = 1
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 1
+Sent at 1653339964957801671
+Send:: Args = 2
+Send::argv = 2
+2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 2
+Sent at 1653339965960385724
+Send:: Args = 3
+Send::argv = 3
+3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 3
+Sent at 1653339966961126855
+Send:: Args = 4
+Send::argv = 4
+4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 4
+Sent at 1653339967963726192
+Send:: Args = 5
+Send::argv = 5
+5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 5
+Sent at 1653339968966306673
+Send:: Args = 6
+Send::argv = 6
+6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 6
+Sent at 1653339969968889656
+Send:: Args = 7
+Send::argv = 7
+7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 7
+Sent at 1653339970969649290
+Send:: Args = 8
+Send::argv = 8
+8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 8
+Sent at 1653339971972233011
+Send:: Args = 9
+Send::argv = 9
+9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 9
+Sent at 1653339972974815951
+Send:: Args = 10
+Send::argv = 10
+10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 10
+Sent at 1653339973977412518
+Send:: Args = 11
+Send::argv = 11
+11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 11
+Sent at 1653339974978190254
+Send:: Args = 12
+Send::argv = 12
+12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 12
+Sent at 1653339975980770627
+Send:: Args = 13
+Send::argv = 13
+13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 13
+Sent at 1653339976983353682
+Send:: Args = 14
+Send::argv = 14
+14 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 14
+Sent at 1653339977985937760
+Send:: Args = 15
+Send::argv = 15
+15 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 15
+Sent at 1653339978986739134
+Send:: Args = 16
+Send::argv = 16
+16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 16
+Sent at 1653339979989321636
+Send:: Args = 17
+Send::argv = 17
+17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 17
+Sent at 1653339980991903316
+Send:: Args = 18
+Send::argv = 18
+18 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 18
+Sent at 1653339981994487945
+Send:: Args = 19
+Send::argv = 19
+19 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 19
+Sent at 1653339982995317550
+Send:: Args = 20
+Send::argv = 20
+20 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Send::RPC_ID = 20
+No HW errors found
+88:996025 INFOR: Server NIC is stopped
+88:996084 INFOR: Nic buffers are released
+88:996336 INFOR: Nic is disconnected

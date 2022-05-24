@@ -52,7 +52,7 @@ static constexpr uint64_t kNicAddress = 0x20000;
 
 #endif
 
-static constexpr int kFpgaBus = 0x18;
+static constexpr int kFpgaBus = 0xaf;
 /// Networking configuration.
 static constexpr char* kClientIP = "10.212.62.192";
 static constexpr uint16_t kPort = 12345;
@@ -146,7 +146,7 @@ int main(int argc, char* argv[]) {
   uint16_t p_key = 0; 
   uint32_t q_key;
   int op1 = 0;
-  int op2 = 20;
+  int op2 = 1968;
   std::vector<int> results;
   results.resize(op2 - op1 + 1);
   for (size_t qp_id = 0; qp_id < num_qps; ++qp_id) {

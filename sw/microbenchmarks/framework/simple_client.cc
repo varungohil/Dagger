@@ -62,7 +62,7 @@
 int kFpgaBus = 0xaf;
 static constexpr uint64_t kNicAddress = 0x00000;
 /// Networking configuration.
-static constexpr char* kServerIP = "10.212.62.192";
+static constexpr char* kServerIP = "10.212.62.191";
 static constexpr uint16_t kPort = 12345;
 
 
@@ -133,11 +133,6 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
   //}
   sleep(30);  
   for(int i = 0; i < send_vec.size(); i++){
-   //if(i == 16)
-   //{
-   //  sleep(5);
-   //}
-   //usleep(150);
    sleep(1);
    auto tp = std::chrono::high_resolution_clock::now();
    auto nanos = std::chrono::duration_cast<std::chrono::nanoseconds>(tp.time_since_epoch()).count();
@@ -186,30 +181,60 @@ int main(int argc, char* argv[]) {
   //if (res != 0) return res;
 
   uint16_t p_key = 0; 
-  uint32_t q_key;
+  uint32_t q_key = 0;
   // Run benchmarking threads.
-  std::vector<std::thread> threads;
-  for (size_t thread_id = 0; thread_id < num_of_threads; ++thread_id) {
-    std::cout << "Creating thread " << thread_id << std::endl;
+  //std::vector<std::thread> threads;
+  //for (size_t thread_id = 0; thread_id < num_of_threads; ++thread_id) {
+    //std::cout << "Creating thread " << thread_id << std::endl;
     // Open connection
-    dagger::IPv4 server_addr(kServerIP, kPort + thread_id);
+  dagger::IPv4 server_addr(kServerIP, kPort);
 
-    q_key = thread_id;
+   // q_key = thread_id;
 
     // Run the benchmarking thread on the client rpc_client
-    int op1 = 0;
-    int op2 = 1968;
-    std::cout << op2 < std::endl;
-    std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
-    std::cout << "Created thread " << thread_id << std::endl;
-    threads.push_back(std::move(thr));
-    std::cout << "Pushed thread " << thread_id << std::endl;
+  int op1 = 0;
+  int op2 = 20;
+  int remote_qp_num = 0;
+  int qp_num = rdma.make_qp();
+  if ( qp_num == -1) {
+    std::cout << "Failed to make queue pair "  << std::endl;
+    exit(1);
+  } else {
+    std::cout << "Queue  Pair created" << std::endl;
+  }
+  std::cout << "About to connect_qp" << std::endl;
+  if (rdma.connect_qp(qp_num, 0, server_addr, remote_qp_num, p_key, q_key) != 0) {
+    std::cout << "Failed to open connection" << std::endl;
+    exit(1);
+  } else {
+    std::cout << "Connection is open" << std::endl;
   }
 
-  // Wait until all the benchmarking threads are completed.
-  for (auto& thr : threads) {
-    thr.join();
+  std::vector<int> send_vec;
+  for(int data = op1; data <= op2; data++){
+    send_vec.push_back(data);
+  } 
+  for(int i = 0; i < send_vec.size(); i++){
+    rdma.add_send_queue_entry(qp_num, &send_vec[i], sizeof(send_vec[i]));
   }
+
+  for(int i = 0; i < send_vec.size(); i++){
+   sleep(1);
+   auto tp = std::chrono::high_resolution_clock::now();
+   auto nanos = std::chrono::duration_cast<std::chrono::nanoseconds>(tp.time_since_epoch()).count();
+   std::cout << "Sent at " << nanos << std::endl;
+   rdma.send(qp_num);  
+  }
+    //std::thread thr = std::thread(&add_num, &rdma, server_addr, thread_id, p_key, q_key, thread_id, op1, op2);
+    //std::cout << "Created thread " << thread_id << std::endl;
+    //threads.push_back(std::move(thr));
+    //std::cout << "Pushed thread " << thread_id << std::endl;
+  // }
+
+  // Wait until all the benchmarking threads are completed.
+  //for (auto& thr : threads) {
+  //  thr.join();
+  //}
   sleep(5);
   // Check for HW errors on the nic.
   res = rdma.check_hw_errors();
