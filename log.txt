@@ -1,0 +1,1238 @@
+commit b063e19a3a89a944caefb2bcbcb89b3bfaad466e
+Author: Varun Chandrashekhar Gohil <varungohil@iam-ssh1.research.intel-research.net>
+Date:   Fri Apr 29 06:57:17 2022 -0700
+
+    Resolved seg fault in client
+
+commit 94b87523f56d3b7c9a6aa3c5e56c0b2adb6ce775
+Merge: 9093588 6365759
+Author: Varun Chandrashekhar Gohil <varungohil@vsl113.research.intel-research.net>
+Date:   Thu Apr 28 17:17:25 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    Removed perf_thread
+    flease enter a commit message to explain why this merge is necessary,
+
+commit 636575905e36ee337bbef28600f2ca333c3751a1
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Apr 28 20:15:50 2022 -0400
+
+    Removed perf thread
+
+commit 909358814b7644e1acf584cc3b2858251e6576f7
+Merge: 60d33ce 1f0dc50
+Author: Varun Chandrashekhar Gohil <varungohil@vsl113.research.intel-research.net>
+Date:   Thu Apr 28 17:11:58 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    orrected condition check for make_qp()
+
+commit 1f0dc50c2ff9345e313ed9b01092dee722481b4e
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Apr 28 20:10:21 2022 -0400
+
+    Corrected cindition check for make_qp
+
+commit 60d33ce07c2b91a692afa16ec25a7e6bf8a285e4
+Merge: b31dccc 90efa9b
+Author: Varun Chandrashekhar Gohil <varungohil@vsl113.research.intel-research.net>
+Date:   Thu Apr 28 17:09:54 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    merging client code
+
+commit 90efa9b0eb7c2c4a970ed2297b18df07d0bb88b9
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Apr 28 20:07:22 2022 -0400
+
+    Hardcoded HW config in client code
+
+commit a0544a82ab4b73306f497f19b548a5f0d416a100
+Author: Raleigh Clemens <rjc422@iam-ssh1.research.intel-research.net>
+Date:   Thu Apr 28 17:07:05 2022 -0700
+
+    added network_upi_pac_a10.txt
+
+commit b31dccc204f00bbfac4e1b2c4a3c94ce21060b75
+Merge: d968691 d1b05d2
+Author: Varun Chandrashekhar Gohil <varungohil@vsl113.research.intel-research.net>
+Date:   Thu Apr 28 16:56:15 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    merging
+
+commit d1b05d2de7c4204dca6e898a62d5ac25db18641a
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Apr 28 19:50:22 2022 -0400
+
+    Removed big data from remove_connection
+
+commit d968691902649ca9de15512bf612e50723044a87
+Merge: 825dbd7 c003d41
+Author: Varun Chandrashekhar Gohil <varungohil@iam-ssh1.research.intel-research.net>
+Date:   Thu Apr 28 15:21:51 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    merging changes for connSetupFrame
+
+commit c003d4178ac9444e907e2ad5a20b5aa3c9fd0a19
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Apr 28 18:16:06 2022 -0400
+
+    Modified hardware to read q_key individually
+
+commit 89ef5e2fb26aa373d2ca48c457bf13d552e7df73
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Apr 28 18:00:27 2022 -0400
+
+    Changed software to send q_key individually
+
+commit 825dbd7dc0ad75504362b324556cecf901dfa840
+Merge: 34ad0a1 0d387c4
+Author: Varun Chandrashekhar Gohil <varungohil@iam-ssh1.research.intel-research.net>
+Date:   Thu Apr 28 10:45:37 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    modified hw register map
+
+commit 0d387c4349e4a97d4b029e3b15cd6ba9a521e763
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Apr 28 13:43:46 2022 -0400
+
+    Modified HW register map
+
+commit 34ad0a1a69584d023db93965ea2c11a695394f33
+Merge: 644ea0c c2d1f32
+Author: Varun Chandrashekhar Gohil <varungohil@iam-ssh1.research.intel-research.net>
+Date:   Wed Apr 27 19:03:35 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    One more merge
+
+commit c2d1f32c8bc812d0a72138b39d4b747f319914ef
+Author: Raleigh Clemens <rjc422@iam-ssh1.research.intel-research.net>
+Date:   Wed Apr 27 18:06:48 2022 -0700
+
+    no more seg faults :)
+
+commit 644ea0c03f779a493efc0375ce1f3832002b32a7
+Merge: 376e97b df9ebf5
+Author: Varun Chandrashekhar Gohil <varungohil@vsl114.research.intel-research.net>
+Date:   Wed Apr 27 13:57:24 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+
+commit df9ebf54b367d817fd17a27075b9e8db8962630a
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Wed Apr 27 16:55:18 2022 -0400
+
+    More printf debugging
+
+commit 376e97bdf42c2886259bbf6684c96aae52f23369
+Merge: d1d8572 36a55a2
+Author: Varun Chandrashekhar Gohil <varungohil@vsl114.research.intel-research.net>
+Date:   Wed Apr 27 13:50:44 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+
+commit 36a55a206afb628429afb0195855a1c8c0f1aef4
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Wed Apr 27 16:49:02 2022 -0400
+
+    Added print stmt for kFpgaBus
+
+commit d1d85726c4d049b8c579257fbd8f6396d25cf5d7
+Merge: 420902c fe55903
+Author: Varun Chandrashekhar Gohil <varungohil@vsl114.research.intel-research.net>
+Date:   Wed Apr 27 13:41:55 2022 -0700
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+
+commit fe55903fa0892b9c72466ece2bf304dda85fe4a7
+Author: Courtney Golden <ckg35@vsl113.research.intel-research.net>
+Date:   Wed Apr 27 13:41:43 2022 -0700
+
+    Added IP addresses
+
+commit 54fec4094eb11016013755e13300b2701960e36f
+Author: Courtney Golden <ckg35@vsl113.research.intel-research.net>
+Date:   Wed Apr 27 13:36:35 2022 -0700
+
+    Fixed includes
+
+commit 420902c73fe056eee778af0b3876c65cc8243642
+Author: Varun Chandrashekhar Gohil <varungohil@vsl114.research.intel-research.net>
+Date:   Wed Apr 27 13:31:43 2022 -0700
+
+    uncommented include files in framework
+
+commit aa78946ea15469708e7e0b49007f7772c5d8a2b0
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 26 18:52:43 2022 -0400
+
+    Again correcting spelling
+
+commit 70e2240b0a2759fdce4065ab57473fa2a00ad183
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 26 18:50:29 2022 -0400
+
+    Corrected spelling of available
+
+commit 8fe349ff8c312d6da7265c5a30f68cb87ff0e81a
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 26 18:46:10 2022 -0400
+
+    Commented get_data in server
+
+commit 56f7aae3df1031a5c7c39d978feb1d14079a35b6
+Merge: af2e0d1 e336061
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 26 18:40:58 2022 -0400
+
+    Merging with Cmake changes
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+
+commit e3360610d700d9badd62d702894bd47e154df6f8
+Author: Courtney Golden <ckg35@vsl113.research.intel-research.net>
+Date:   Tue Apr 26 15:41:56 2022 -0700
+
+    Cmake changes
+
+commit af2e0d1c2ad4c3c97958f30497a2a89289524d49
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 26 18:40:56 2022 -0400
+
+    Bug fixes in framework
+
+commit a62fcf8e2873fb446de945a70987bdcb872a5c73
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 26 18:07:04 2022 -0400
+
+    Removed CLI11 from framework
+
+commit e64744f130fe5a820f49868c601cd75c667c7811
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 16:22:19 2022 -0400
+
+    Added code for p-key and q-key vals
+
+commit 5d103114af4ad9304711df2dc8e12b8f30b089ea
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:53:51 2022 -0400
+
+    Corrected spelling errs and made sen_q and recv_q public
+
+commit 2b84f922516e1c272e11514fb18c6b18f2a6b027
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:49:32 2022 -0400
+
+    Using shared_ptr instead of unique_ptr for qp
+
+commit b10d6f0e66ff4ead79b9e7b1e965b0fc551e7e0e
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:44:11 2022 -0400
+
+    Changed . to ->
+
+commit fab496cac2f804f0d1107b482687a0bf9b97a4e4
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:42:48 2022 -0400
+
+    Changed qp_pool itration type to auto and using -> now bcoz using ptrs again
+
+commit ac863e89d95fc94d4ec954ba43216b75c55311b5
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:40:03 2022 -0400
+
+    Trying stuff out
+
+commit 7f53afa1e9f923117cb28a1de5c6ebeb64c39065
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:38:48 2022 -0400
+
+    Removed uniqueptr from emplace_back
+
+commit 38e904b3c2805f7e33769e8e2ff13aa392478d37
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:37:06 2022 -0400
+
+    Removed uniqueptr from qp_pool_
+
+commit c73ee3bb84851a2310f06aadf8c0392d29c0f9d6
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:35:10 2022 -0400
+
+    Addeded Queuepairv2 type to qp_pool_ for loop
+
+commit 2da02150c56a61169f31d777f113dc61c74567fb
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:33:09 2022 -0400
+
+    Added RDMA namespace to functions with qp_pool_
+
+commit 8b5ea236c598494eebcf45db7a6e2d306969ca5d
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:30:55 2022 -0400
+
+    Added print line to check qp_pool_
+
+commit e6a10e45e627a6122fe93d15b8c86395b8ebf55c
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:29:33 2022 -0400
+
+    Minor bug fixes
+
+commit b0289a970efab7c7ecd7852616b2c328fc2ae0c4
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 25 15:23:02 2022 -0400
+
+    Minor bug fixes
+
+commit c120d40bfc1669fea6404c09d5a6bdfba0d27829
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 17:22:12 2022 -0400
+
+    Assigning fields individually udp_ip rx_fifo
+
+commit f57fe07d591d116a6bf21401fda7c7b01bccdb5b
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 17:13:02 2022 -0400
+
+    fixed queue_key field in rx fifo
+
+commit 6bdaadb6a34deefd837a1040176c807d88f09328
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Sun Apr 24 17:12:06 2022 -0400
+
+    Moreminor bug fixes in sw
+
+commit 9b5f0f064af9ef90f62bb53b0176de32edde80d5
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 17:04:01 2022 -0400
+
+    Syntax error in udp_ip.sv
+
+commit 9618e39d567d435df2e89af56c080aab9d51a531
+Merge: 908af7c 80f48ab
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 16:45:13 2022 -0400
+
+    Merge branch 'master' of github.com:varungohil/Dagger
+
+commit 908af7c768994d56d9f2269a5629cc36074c6a4a
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 16:45:03 2022 -0400
+
+    Trying changing rx buffer
+
+commit 80f48aba9d148ede342315cf009b635e9bc62a4a
+Merge: 49c442f 140b5fb
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Sun Apr 24 16:43:41 2022 -0400
+
+    Merging hw commits
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+
+commit 49c442f495c9daf03082c3c54e20586a3bfc741a
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Sun Apr 24 16:43:29 2022 -0400
+
+    More minor sw bug fixes
+
+commit 140b5fb682a52712bfbf5fd3b7c1d4b42681b9bd
+Merge: feb1a6c e74d0da
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 16:33:27 2022 -0400
+
+    Merge branch 'master' of github.com:varungohil/Dagger
+
+commit feb1a6c9d1bb835c457380b103765fe8b41f0e08
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 16:33:15 2022 -0400
+
+    Fixed bit width in nic_defs.vh
+
+commit e74d0da5cd572add9ca80b08829f154a18b3b483
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Sun Apr 24 16:18:51 2022 -0400
+
+    Minor bug fixes
+
+commit fd50bbb69058c218c050a0e448c59a3014f27493
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 15:41:13 2022 -0400
+
+    Bug fixes and changed back to 1:1
+
+commit 03b043092a632315c3a000e09c4b0c89a8b98b1d
+Merge: aa0a5a1 67a25d7
+Author: rjclemens <71605742+rjclemens@users.noreply.github.com>
+Date:   Sun Apr 24 15:37:08 2022 -0400
+
+    Merge pull request #2 from varungohil/3_1_network
+    
+    3-1 bug fixes
+
+commit 67a25d7714d0fbac41b8e0f016b6e14674b4ea34
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 15:19:40 2022 -0400
+
+    changed nic/eth ports
+
+commit e1dd3de9b4fbfe493480881d498e81074b8f9573
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 15:12:23 2022 -0400
+
+    changed pck afu indexes
+
+commit 3be5e64fc3a2baef984d81a12ca0604ad4c0d74a
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 15:02:26 2022 -0400
+
+    added big_data on ConnSetUpFrame
+
+commit aa0a5a112a875be6f8324221cdcca988bb862c59
+Merge: 26acb54 b120e20
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 14:50:45 2022 -0400
+
+    Merge branch 'master' of github.com:varungohil/Dagger
+
+commit 26acb5421a9794d51ea9509b90f1d2c3bedff46a
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 24 14:50:11 2022 -0400
+
+    Added build_config for upi network
+
+commit 7e71aba097cbcd6d1fa498afdfa568d91f69dae0
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 14:48:27 2022 -0400
+
+    removed tx_queue_size for mmio
+
+commit 73b48096e5ddb7c833e4c786e7442d352f8b802f
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 14:34:10 2022 -0400
+
+    updated build configs
+
+commit 67f4c6a5cace53a0624aced62e5f35597e8e08bd
+Merge: 45c03da b120e20
+Author: rjclemens <71605742+rjclemens@users.noreply.github.com>
+Date:   Sun Apr 24 14:16:31 2022 -0400
+
+    Merge pull request #1 from varungohil/master
+    
+    bug fixes
+
+commit 45c03da29214bfe71e6503f87f80c051e191bcaf
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 14:10:03 2022 -0400
+
+    bug fixes & updated build config
+
+commit b120e202261902de692b1a61a742fa68a30fc7d2
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 14:01:35 2022 -0400
+
+    debug network3
+
+commit 078bcddda8085f6740c2b4e514cb68ee095c7d70
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 13:55:18 2022 -0400
+
+    fixed rpc.sv-184
+
+commit 7d629a185ba872be94373b186b998ecd67d0ea27
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 13:40:24 2022 -0400
+
+    changed 3-1 build configurations
+
+commit d19ce318fe4206c14a8f615f0350ed96161315c9
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 13:39:18 2022 -0400
+
+    edited build configs for 1-1
+
+commit 2d8c99634bee4acdaf0e537d31d442142fe060d3
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 13:38:24 2022 -0400
+
+    edited build configs
+
+commit 57d26376e7cff34d60189849ec818cdd3ffb410a
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Sun Apr 24 13:31:23 2022 -0400
+
+    Changed CMake to include rdma_qp and queuepair_v2 files
+
+commit 9d3079ef6f6baf0b781e3420f9d5186e81b9ff3d
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Sun Apr 24 13:27:04 2022 -0400
+
+    Concatenated qp fields in sw
+
+commit 5bba2b7d33db63b200b297cf5e71305153459237
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 13:18:45 2022 -0400
+
+    revised cpu_if_defs
+
+commit 4915ab8f119ec39509f9d12dcde68bef09c6beb5
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Sun Apr 24 13:10:35 2022 -0400
+
+    hw concatenation complete
+
+commit 37501113b08bae0212ccf3d9f34e399571c3efbc
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Fri Apr 22 17:38:26 2022 -0400
+
+    hardware concatenated, sw needs revision
+
+commit d3862e8d9c0f8a9b6fe87b8fbcb0e2d614d4a132
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Fri Apr 22 17:18:31 2022 -0400
+
+    lots of hard work.
+
+commit 4593aaefded0e408b1e46ee565d33025dfe43fb6
+Author: rjc422 <rjc422@cornell.edu>
+Date:   Thu Apr 21 22:19:38 2022 -0400
+
+    working on top level network 3-fanin
+
+commit 45e236fddf4d4ca4a2612ddb2c5620c44f6ee394
+Merge: e2d2c49 c6043ed
+Author: cg592 <ckg35@cornell.edu>
+Date:   Wed Apr 20 09:19:36 2022 -0400
+
+    Merge branch 'master' of github.com:varungohil/Dagger
+
+commit e2d2c49d7d7da17632fa7063460766f867f93825
+Author: cg592 <ckg35@cornell.edu>
+Date:   Wed Apr 20 09:19:17 2022 -0400
+
+    Created top_level_loopback_fanin.sv
+
+commit c6043edf1eaffadcae3cce354e95f32154e7b9e6
+Merge: 94c7a84 eb6eab1
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 18 16:38:28 2022 -0400
+
+    Changed datasize to size_t type
+
+commit 94c7a84f25d0fa99e834199992d5c706c0434f41
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 18 16:34:12 2022 -0400
+
+    Modified data_addr to int* and added is_data_available API
+
+commit 30fd7b8c8fd7fb0f42b1cd14cae1cec6668cc9dd
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Mon Apr 18 16:33:44 2022 -0400
+
+    Added framework code
+
+commit eb6eab142d9bf69c211a56d05e26774fd4d55ab4
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 17 14:00:39 2022 -0400
+
+    Added q_key to IB header
+
+commit 4610738e75fa1447e283286b725d143b07225056
+Author: cg592 <ckg35@cornell.edu>
+Date:   Wed Apr 13 08:44:35 2022 -0400
+
+    Added fields to connection manager; removed from RPC header
+
+commit 119f60dc042173a9918841a688fab74c39ead4c8
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 10 18:35:40 2022 -0400
+
+    Added framework.py
+
+commit ae8710a1dd5995bf660b9d5d524c02bfcc2db6a1
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 10 18:30:32 2022 -0400
+
+    Add fields to RPC header, now consistent with hw
+
+commit 832c093d86e7d33c61c96893afb4a053ca757dc4
+Author: cg592 <ckg35@cornell.edu>
+Date:   Sun Apr 10 17:59:22 2022 -0400
+
+    Support for extra fields in packet header
+
+commit e73800fcf2c1a768976693667bcdc21dd0d7398b
+Merge: b30f963 361919f
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Wed Apr 6 12:08:23 2022 -0400
+
+    Merge branch 'master' of https://github.com/varungohil/Dagger
+    Merging hw changes
+
+commit b30f9637eb96e0a1c997efb809434d77bc585cdc
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Wed Apr 6 12:07:50 2022 -0400
+
+    Modified defitions of open_connection() methods
+
+commit 361919f66f04a9e1d62528087c3bbd8f0384bf31
+Author: Courtney Kathleen Golden <ckg35@ath-7.ece.cornell.edu>
+Date:   Tue Apr 5 17:15:13 2022 -0400
+
+    Added IB Transport Header
+
+commit 35450819112ac7da934d76c16fa8904db6511879
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 5 16:32:33 2022 -0400
+
+    Modified recv() and send() paths
+
+commit 223d1405d82d85caad5e100dcb92152215400720
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 5 15:00:04 2022 -0400
+
+    Modified regsiter_connection and cpu-nic interface
+
+commit 97f5c68cea58764c7411b9011efdbf9ea4c37226
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Apr 5 14:53:08 2022 -0400
+
+    Modified add_connection APIs to take in more args
+
+commit 9c94779df464437b461d66c269854c5bba3bc8bd
+Author: rjclemens <rjclemens518@gmail.com>
+Date:   Tue Apr 5 00:12:32 2022 -0500
+
+    changed to queue implementation w append; not sure how to deal with operator()...
+
+commit 97e9fddfb80b07faa18b974354d5e1366e6e32c1
+Author: rjclemens <rjclemens518@gmail.com>
+Date:   Thu Mar 31 18:28:10 2022 -0400
+
+    implemented operator() & rdma send/recv, working on qp send/recv
+
+commit f7158153eee06ec9a14a1040eba92429eb9a9cb8
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Thu Mar 31 13:49:07 2022 -0400
+
+    Add files via upload
+
+commit 09bd6095ee37fa6aa6e5f477377e283f9189c978
+Author: Varun Gohil <vg296@cornell.edu>
+Date:   Tue Mar 29 08:31:33 2022 -0400
+
+    Uploaded base files for rdma
+
+commit fa133d60db5748e905cef57dbeb59b4693fb37e0
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 28 18:35:08 2021 -0400
+
+    clang-format for tests
+
+commit dffc7153fbf94990615a7e8e8689cc6d475bba6a
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 28 15:29:50 2021 -0700
+
+    README for tests
+
+commit 433597a4f3d82558e0865b0b6587e0377daeb259
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 28 15:26:53 2021 -0700
+
+    Fixin testing infrastructure
+      - fixing tests
+      - added README.md
+
+commit e1132aa7350a52b100042ccea47b5e40eb9e35e3
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 28 12:25:16 2021 -0400
+
+    slides updated
+
+commit 56c3c30a3c1418cf42a0f70793c0f0f1969c97bc
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 14 16:40:32 2021 -0700
+
+    minor fixes after clang-format
+
+commit 403fd50d9deb835d66d3e5f4fc1e040e1116c699
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 14 19:27:15 2021 -0400
+
+    refactor with clang-format
+
+commit 08d4138225a9c7c051bc830a9f6dbba66d96edfa
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 14 15:57:27 2021 -0700
+
+    fixing a minor issue
+
+commit 1ae6049a77df8ad9a357233172d2ab257c2b7b72
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 14 15:55:45 2021 -0700
+
+    adding a debug register
+
+commit 82e7d683a8cccb68c88cfc9cd4205cc60ebbddd2
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 14 15:55:05 2021 -0700
+
+    fixing performance bug with huge pages
+
+commit 9796dbf376b0f3da87c3816f2988dbf4622bfe23
+Merge: 2314cf6 813d30d
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Oct 13 11:35:42 2021 -0700
+
+    Merge branch 'master' of https://github.com/barabanshek/Dagger
+
+commit 2314cf63a8569494627b70c9fc362755662913b6
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Oct 13 11:35:24 2021 -0700
+
+    minor modification in ASE testing and benchmarking
+
+commit 813d30dc4f958a1204528889476ea330f7a60992
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Oct 13 13:21:13 2021 -0400
+
+    more refactoring of the microbenchmark
+
+commit 70442763373690eaa2bf53ea7f91d6f2bd4c10e8
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Oct 13 12:59:31 2021 -0400
+
+    refactoring in the microbenchmark
+
+commit b681846e177694f2a10d6617ff4bd6967f8a14ba
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Oct 12 16:33:22 2021 -0700
+
+    added Skylake support in HW
+
+commit 61e0435d769f492c63c87bb774b6ed429c98126a
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Oct 12 16:25:45 2021 -0700
+
+    some minor README change
+
+commit aa0b0f0f89624b25a0ff69d89cc873f66d77c049
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Oct 12 16:15:00 2021 -0700
+
+    Skylake platform support is added in SW
+
+commit 2bdcb5429170511236bbb55b84b78aa40cee424c
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Oct 12 14:12:18 2021 -0700
+
+    apply more aggressive volatile rules
+
+commit dd98875bbe870a20da602bef8644df66a6fa1502
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Oct 11 17:48:51 2021 -0700
+
+    some minor changes in namespaces
+
+commit 0f2fc4f6228c49336942b46deda3c6efe5922c6e
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Oct 11 17:45:37 2021 -0700
+
+    some namespace changes
+
+commit df213608e8e5b35439f2e3f14190d77f2e0c4aab
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Oct 11 19:58:24 2021 -0400
+
+    Refactoring:
+      - clang-format applied
+      - added more comments
+
+commit d912623af3460d39a424882c971c31ffb5f71093
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Oct 11 15:57:36 2021 -0400
+
+    READMI changed
+
+commit 62606a90143830fdef0aaf02ecc4b5908e4589fd
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Oct 11 15:37:33 2021 -0400
+
+    updating README
+
+commit 317d1924decb5b42c7fd6c4eb5040235e7684241
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Oct 11 15:30:22 2021 -0400
+
+    license added
+
+commit 971f3b5f00d30da245e6c1c3067b496661eae507
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sun Oct 10 16:21:08 2021 -0400
+
+    some files added
+
+commit 18ae971792c54b0d87ae6583f8daac7667e39d8d
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sun Oct 10 16:10:21 2021 -0400
+
+    Repo restructure
+
+commit b0f1b88a9efd0b775775544ffe4316c3d6dd03dd
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Oct 9 13:55:25 2021 -0700
+
+    minor changes in README
+
+commit 3a8c9bff778d4dbe18089288793af5850cb5e686
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 7 14:37:22 2021 -0700
+
+    extended README.md
+
+commit 4b4af109703a044c63f1c6f3f79ac4665148c582
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 7 14:16:44 2021 -0700
+
+    extended README.md
+
+commit ee5a929d41c5bded66c3d0ef451849c78f8e626c
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 7 14:07:20 2021 -0700
+
+    extended README.md
+
+commit b105e746cdcce11c22dc3d9b4c752aca0ff37ec7
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Oct 7 10:01:34 2021 -0700
+
+    added README.md
+
+commit eacc3214497f6873df3248a1ea047f021ad74f60
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Sep 23 15:48:52 2021 -0700
+
+    Dagger RPC: minor memory management fixes
+
+commit 9f76b040ec9689e87821afb3ad9283145c1077c3
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Sep 23 13:34:23 2021 -0700
+
+    Dagger RPC: make shared buffer based on hugepages
+
+commit 47c994e4562bf5fbbced380f0d645282a3172e6d
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Sep 22 17:26:44 2021 -0700
+
+    Dagger RPC: volatile added to RX queue pointers
+
+commit 1632a1ab3fd80a7f22bf36006ff351971718bed6
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Sep 16 17:59:15 2021 -0700
+
+    Dagger RPC: added correctness checker in the ase app
+
+commit 701def8a6fcf832afc8c389b965225e1d618e8d1
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Sep 16 16:57:55 2021 -0700
+
+    Dagger RPC: fixing another bug
+
+commit 375d9f14427b5567563246ed329b05fab0b6b63a
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Sep 15 16:54:54 2021 -0700
+
+    Dagger RPC:
+      - added support of arbitrary tx queue sizes
+      - max single core throughput is boosted to 17.5 Mrps
+      - no latency trade-off
+    
+    Known issues: multithreading fails with high QPS
+
+commit f993a643975308d826f0374e62d172f3f8adebe6
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Sep 13 16:07:02 2021 -0700
+
+    Dagger RPC: minor changes
+
+commit 2cca59bdffe60948abacedba451683bb61bad5ae
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Sep 13 15:25:12 2021 -0400
+
+    added network ctl files
+
+commit 61870601518d2df03a63e5fa9abe50baa6e88533
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sun May 23 11:20:41 2021 -0400
+
+    Dagger RPC:
+      - clock definition moved to build_config files
+      - cmd line option parsing is added to kvs
+
+commit caa38ca49a261108057eeee0b66e39b74d561366
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu May 13 19:54:53 2021 -0400
+
+    Dagger RPC:
+      - minor changes to fix upi-based interface
+
+commit 128260bf4345b3eb781302a7f8e7619145ea3390
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon May 10 00:18:34 2021 -0400
+
+    Dagger RPC:
+      - UDP/IP now support any packet size:wq
+
+commit b7fd1b2d8bbc2ec4041e3217d3c9fad66f2f633d
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Fri May 7 13:20:11 2021 -0400
+
+    Dagger RPC:
+      - minor builing issues fixed
+
+commit 230cc44affe440c6bf5cb51c137dc82333c06866
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu May 6 21:47:48 2021 -0400
+
+    Dagger RPC:
+      - annoying bug in the reset logic for HSSI is fixed:wq
+
+commit 80115cc3f78116cf3b8957fe8405a5f47e9bcdbc
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed May 5 21:18:13 2021 -0400
+
+    Dagger RPC:
+      - MAC/PHY networking control is added
+
+commit 87e9f1433a5ab49b00f6b1aaedb61e32de8eca8f
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue May 4 20:52:44 2021 -0400
+
+    Dagger RPC:
+      - better organization of build configs
+      - AVX-512 support for MMIO on PAC_A10
+
+commit a50c74d3a287a5f058004408f562938cf8406ff1
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Apr 27 20:56:19 2021 -0400
+
+    Dagger RPC: making things stable
+      - tests now support multi-platform
+      - tests now cover physical networking
+      - BUG: tests fail sometimes when running over physical networking
+
+commit 6a7d4336b11ab78acaca5bf42514140bc44bb5d3
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Apr 27 17:25:23 2021 -0400
+
+    Dagger RPC: making things stable
+      - better tracking of different versions of HW and platforms
+      - ase_sample is stable
+      - microbenchmarking is stable
+
+commit 788af4141124fdd6d8c66752e25635eb300f6bd8
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Apr 17 13:34:59 2021 -0400
+
+    Dagger RPC:
+      - many changes in SW, just merged everything as a single commit:
+      - cmd line arg parser
+      - configurable LB
+      - configurable networking parameters
+      - networking statistics
+      - minor refactoring
+    
+    Note: not stable, some tests might fail
+
+commit 9dfd54ac3d1a302b7d8059d89801b5179c02c35d
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Fri Apr 16 21:51:32 2021 -0400
+
+    Dagger RPC:
+      - configurable host IP/MAC address for networking
+      - packet verification
+      - packet drop statistics
+
+commit 3ca01689703c5e7957c5aaf779f9bb4a6d790b60
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Apr 15 00:40:37 2021 -0400
+
+    Dagger RPC:
+      - a little of refactoring
+
+commit 550cfaf71a043087b15e400dc1e30eceff59065f
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Apr 15 00:35:42 2021 -0400
+
+    Dagger RPC:
+      - physical networking is integrated
+
+commit 8c02fd1a2252da96d42a3b50c52c0a06e9831b90
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Apr 15 00:19:35 2021 -0400
+
+    Dagger RPC:
+      - Intel OPAE physical networking infrastructure added
+
+commit 80451326e86fbf7aca3c6d8c685f1dac089e48b6
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Mar 18 13:27:50 2021 -0400
+
+    Dagger RPC:
+      - support of the LB selection from SW
+
+commit fb0f85a56f016376896dadbf803103903da9978c
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Fri Jan 15 08:14:41 2021 -0500
+
+    Dagger RPC:
+      - tuned some HW parameters for better perfromance and area
+
+commit cf08f7ad191eca8caaf68f4fd7760a2a0e3bcf89
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Fri Jan 15 08:13:01 2021 -0500
+
+    Dagger RPC:
+      - kvs benchmark added
+      - added custom callbacks for processing NIC statistics
+      - minor changes in kvs systems
+
+commit cf9dd42bc041d9ee8529ebdfa608eb25615f042a
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Dec 31 08:15:27 2020 -0500
+
+    Dagger RPC:
+      - MICA kvs integrated with Dagger RPC
+      - better organization of the KVS benchmarks
+
+commit a5fb8e55f716a771b52e6bb09bf3345d9c70adeb
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Dec 31 08:12:28 2020 -0500
+
+    Dagger RPC:
+      - MICA kvs added
+      - source: https://github.com/efficient/mica
+
+commit cde14c773786c6629f4bc72075ceab50c0c07a65
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Dec 28 09:26:33 2020 -0500
+
+    Dagger RPC:
+      - make RPC API more generic
+      - support of array types
+      - support of strings
+
+commit e9a607da65adc5b56ef3a2a0016593bcb1c03171
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sun Dec 27 09:38:32 2020 -0500
+
+    Dagger RPC:
+      - added support of the new API for memcached
+
+commit 8436a4203b3319160135be61c9d0af49e82b17d0
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Dec 26 09:40:13 2020 -0500
+
+    Dagger RPC:
+      - fixed cycle alignment in ccip_transmitter
+
+commit dc5bdb5c650a81c5b7eb8e06ab13b18cf99c95a9
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Dec 23 05:23:40 2020 -0500
+
+    Dagger RPC:
+      - multi-threaded tests added
+
+commit 76086b4d186e7d4fade2e7f37a0842b68013f317
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Fri Dec 18 16:49:04 2020 -0500
+
+    Dagger RPC:
+      - added support of arbitrary return values
+      - added more tests
+
+commit 9bea8620c06a05bd7ea9df2ff1e3ce09b6ada5f0
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Dec 16 13:00:01 2020 -0500
+
+    Dagger RPC:
+      - more tests added
+
+commit 48e869697a0c075702426c7d645c312897dd246b
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Dec 10 17:19:54 2020 -0500
+
+    Dagger RPC:
+      - connection table is tested on FPGA
+
+commit 789e45b91093172ed878c0ad0679833a8d62bf31
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Dec 9 14:57:16 2020 -0500
+
+    Dagger RPC:
+      - connection table integrated
+      - not tested on FPGA yet
+      - tested in ASE, bugs found:
+        -- with multiple threads, only B=4 works correctly,
+           others drop requests; reason: cycle miss-alignment
+           in ccip_transmitter
+
+commit 4e7f62dae83cae5be2801ba29c25aea48ba5ade1
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sun Nov 29 16:57:01 2020 -0500
+
+    Dagger RPC:
+      - connection table added
+      - not integrated yet
+      - not tested on FPGA yet
+      - tested in ASE, all tests passed
+
+commit a33e8f97f8606a7ffafb35c05e190f5904a1ff87
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Nov 18 16:47:04 2020 -0500
+
+    Dagger RPC:
+      - make thr_lat test better:
+        * more functions of different size
+        * better way to measure latency
+
+commit 0caf16fded8607907ed2a9814b887b4aed73ea6c
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Wed Nov 18 13:12:23 2020 -0500
+
+    Dagger RPC:
+      - re-write thr_lat test using the codegenerator
+
+commit bb6b81a8ccea397786e009d1572895e8f815d4f1
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sun Nov 15 12:43:48 2020 -0500
+
+    Dagger RPC:
+      - integrate the codegenerator with the rest of the system
+
+commit 2d3af6ac66d5c1d76dd9249edfde7409aef84aaf
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Nov 2 16:27:50 2020 -0500
+
+    Dagger RPC:
+      - IDL and codegeneratr added
+
+commit 62012b9937702c43434abcc72f4a0d69c458e355
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Oct 20 08:05:22 2020 -0400
+
+    Dagger RPC:
+      - added CCI-P cross-clock shim
+      - the interface frequency is reduced down to 200MHz
+
+commit d33e9c06e8b0db9607132e5f84ed02023a0a6cfc
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Oct 17 07:25:09 2020 -0400
+
+    Dagger RPC:
+      - improved timings by removing redundant reset logic
+
+commit 58af7b713ccc4ecda736588da7dc658dfc6f21c9
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Oct 13 17:42:10 2020 -0400
+
+    Dagger RPC:
+      - removed an unnecessary file
+
+commit ceb8a60a27afcafdd039a339236df72dd15f0798
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Oct 13 17:32:13 2020 -0400
+
+    Dagger RPC:
+      - making RPC calls generic
+
+commit 522e0650adc1371a1ca969477bc0116d674dd043
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Mon Oct 12 06:20:32 2020 -0400
+
+    Dagger RPC:
+      - added soft reconfigurability of the polling rate
+
+commit cc83ea6c462fca0a0ba5df4ec7991e8364fc2799
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Aug 20 22:43:55 2020 -0400
+
+    Dagger RPC:
+      - support GET for memcached
+      - improved memcached benchmark
+
+commit c604a5db3d3f1ba1e0568412be445167b90be212
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sun Aug 16 22:25:16 2020 -0400
+
+    Dagger RPC:
+      - implementation of load balancing
+      - implementation of flow scheduling
+
+commit e0bb1b4772a203f4336225aa926a17e1ef6db259
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Aug 8 14:57:10 2020 -0400
+
+    Dagger: integrate with memcached
+      - Dagger-based memcached client
+
+commit 8a1ed72b418f477966ff64f6ce2bd6e07c456c16
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Aug 8 14:55:23 2020 -0400
+
+    Dagger: integrate with memcached
+      - change of the memcached source to run Dagger as transport
+      - implement SET operation
+
+commit 898a716936840e923b65008fc3719d020d27ae37
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Aug 8 14:54:01 2020 -0400
+
+    Dagger: compile Dagger as a shared library
+
+commit 03e5977bf7636242c4b4e508387e52192ead5fb9
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Fri Aug 7 22:01:53 2020 -0400
+
+    Dagger: memcached added
+
+commit 0bd0df2be08b9d9827b6d857b26a5881d9976268
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Thu Aug 6 10:13:23 2020 -0400
+
+    Dagger RPC: faster queue access
+
+commit edc81b1cc9da044484d57a212c0c280bf6e056a8
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Tue Aug 4 14:15:54 2020 -0400
+
+    Dagger RPC:
+      - MMIO mode added
+      - doorbell mode added
+      - doorbell batching mode added
+    
+    Bugs:
+      - do NOT use pointers to networking buffers, it hurts throughput a lot
+
+commit 8506ac62f11452399a0ffcf72736d6bc57cc5991
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Jul 11 16:07:19 2020 -0400
+
+    CMakeList.txt added
+
+commit bc3b467ae7eeaad72ae93c1e9455f3df9d9c5633
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Jul 11 16:03:41 2020 -0400
+
+    Dagger RPC:
+      - latency profiler added
+
+commit 6652ade6afccb2015aa798774d2ca164ae764dd0
+Author: Nikita Lazarev <nikita.u.lazarev@gmail.com>
+Date:   Sat Jul 11 13:54:24 2020 -0400
+
+    clean-up the repo

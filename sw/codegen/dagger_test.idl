@@ -1,0 +1,13 @@
+message GetRequest {
+    int32 timestamp;
+    char[320000] key;
+}
+
+message GetResponse {
+    int32 timestamp;
+    char[320000] value;
+}
+
+service KeyValueStore {
+    rpc get(GetRequest) returns (GetResponse);
+}
