@@ -52,9 +52,9 @@ static constexpr uint64_t kNicAddress = 0x20000;
 
 #endif
 
-static constexpr int kFpgaBus = 0x18;
+static constexpr int kFpgaBus = 0xaf;
 /// Networking configuration.
-static constexpr char* kClientIP = "10.212.62.192";
+static constexpr char* kClientIP = "10.212.62.191";
 static constexpr uint16_t kPort = 12345;
 
 /// Ctl-C handler.
@@ -117,8 +117,8 @@ int main(int argc, char* argv[]) {
   if (res != 0) return res;
 
   // Enable perf thread on the nic.
-  //res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
-  //if (res != 0) return res;
+  res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
+  if (res != 0) return res;
 
   // // Open connections.
   // for (size_t i = 0; i < num_qps; ++i) {

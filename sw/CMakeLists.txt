@@ -3,12 +3,12 @@ project(F-RPC)
 
 # Options
 option(PLATFORM_BDX "Build for BDX platform" OFF)
-option(PLATFORM_SDP "Build for Skylake platform" ON)
-option(PLATFORM_ASE "Build for the ASE simulation environment" ON)
+option(PLATFORM_SDP "Build for Skylake platform" OFF)
+option(PLATFORM_ASE "Build for the ASE simulation environment" OFF)
 option(BUILD_WITH_PHY_NETWORK "With physical networking" OFF)
-option(BUILD_TESTS "Build with unit and system tests" ON)
+option(BUILD_TESTS "Build with unit and system tests" OFF)
 option(BUILD_MICROBENCHMARKS "Build microbenchmarks" ON)
-option(BUILD_APPLICATIONS "Build end-to-end applications" ON)
+option(BUILD_APPLICATIONS "Build end-to-end applications" OFF)
 
 set(CMAKE_CXX_COMPILER g++)
 
@@ -83,12 +83,11 @@ set(SOURCES
     src/nic_impl/nic_ccip_polling.cc
     src/nic_impl/nic_ccip_mmio.cc
     src/nic_impl/nic_ccip_dma.cc
-    src/rpc_server_thread.cc
-    src/rpc_threaded_server.cc
+    src/queuepair_v2.cc
+    src/rdma_qp.cc
     src/tx_queue.cc
     src/rx_queue.cc
     src/completion_queue.cc
-    src/rpc_client_nonblocking_base.cc
     src/connection_manager.cc
     )
 

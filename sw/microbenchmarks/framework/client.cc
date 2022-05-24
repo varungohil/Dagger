@@ -59,10 +59,10 @@
 
 // #endif
 
-int kFpgaBus = 0x18;
+int kFpgaBus = 0xaf;
 static constexpr uint64_t kNicAddress = 0x00000;
 /// Networking configuration.
-static constexpr char* kServerIP = "10.212.62.192";
+static constexpr char* kServerIP = "10.212.62.191";
 static constexpr uint16_t kPort = 12345;
 
 
@@ -131,7 +131,7 @@ int add_num(dagger::RDMA* rdma, dagger::IPv4 server_addr, int remote_qp_num, int
   //   std::cout << "Sending " << num << std::endl;
   //   rdma->send(qp_num);
   //}
-  sleep(30);  
+  sleep(5);  
   for(int i = 0; i < send_vec.size(); i++){
    //if(i == 16)
    //{
@@ -182,8 +182,8 @@ int main(int argc, char* argv[]) {
   if (res != 0) return res;
 
   // Enable perf thread on the nic.
-  //res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
-  //if (res != 0) return res;
+  res = rdma.run_perf_thread({true, true, true, true, true}, nullptr);
+  if (res != 0) return res;
 
   uint16_t p_key = 0; 
   uint32_t q_key;

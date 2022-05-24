@@ -69,7 +69,7 @@ void QueuePairV2::operator_(const RpcPckt* rpc_in, TxQueue& tx_queue) {
   // read first received packet
   QueueElem entry = recv_q.front();
   recv_q.pop();
-  *(const_cast<int*>(entry.data_addr)) = rpc_in->argv;
+  *(const_cast<int*>(entry.data_addr)) = *(reinterpret_cast<int*>(const_cast<uint8_t*>(rpc_in->argv)));
 
 
 
@@ -365,7 +365,7 @@ int QueuePairV2::send() {
   std::cout << "Writing to argv" << std::endl;
   std::cout << args << std::endl;
   //*reinterpret_cast<volatile int*>((tx_ptr_casted->argv)) = args
-  tx_ptr_casted->argv =  args;
+  *reinterpret_cast<volatile int*>(const_cast<uint8_t*>(tx_ptr_casted->argv)) =  args;
   //  std::cout << "Wrote to argv" << std::endl;
 
   // Set valid
